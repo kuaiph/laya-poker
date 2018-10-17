@@ -20,7 +20,24 @@ class LayaApp {
     }
     // 加载资源
     beginLoad() {
+        // 加载图集
         Laya.loader.load("res/atlas/ui.atlas", Laya.Handler.create(this, this.onLoaded), null, Laya.Loader.ATLAS)
+        // 长连接服务器
+        LayaApp.socket = new Laya.Socket()
+        LayaApp.socket.endian = Laya.Byte.LITTLE_ENDIAN//采用小端
+        LayaApp.socket.connectByUrl('ws://localhost:5000/socket/poker')
+        LayaApp.socket.on(Laya.Event.OPEN, this, (e) => {
+            console.log('连接建立')
+        })
+        LayaApp.socket.on(Laya.Event.MESSAGE, this, (msg) => {
+            console.log(`数据接收 ${msg}`)
+        })
+        LayaApp.socket.on(Laya.Event.CLOSE, this, (e) => {
+            console.log('连接关闭')
+        })
+        LayaApp.socket.on(Laya.Event.ERROR, this, (e) => {
+            console.error('连接出错')
+        })
         // 播放背景音乐
         // Laya.SoundManager.playMusic("res/sounds/bgm.mp3", 0, null)
     }
