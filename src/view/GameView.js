@@ -39,7 +39,7 @@ class GameView extends ui.GameUI {
     }
     // 游戏启动
     gameStart() {
-        // 每人发两张牌        
+        // 每人发两张牌
         Laya.timer.loop(300, this, this.onSendPoker)  // 每300毫循环一次
         LayaApp.socket.send(JSON.stringify({ method: 'SEND_CARD', count: 18 }))
         // Laya.timer.frameLoop(10, this, this.onLoop) // 每10帧循环一次
