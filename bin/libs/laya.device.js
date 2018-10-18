@@ -873,9 +873,10 @@ var Video=(function(_super){
 var HtmlVideo=(function(_super){
 	function HtmlVideo(){
 		this.video=null;
+		this._source=null;
 		HtmlVideo.__super.call(this);
-		this._w=1;
-		this._h=1;
+		this._width=1;
+		this._height=1;
 		this.createDomElement();
 	}
 
@@ -914,6 +915,10 @@ var HtmlVideo=(function(_super){
 		return this.video;
 	}
 
+	__proto._getSource=function(){
+		return this._source;
+	}
+
 	HtmlVideo.create=function(){
 		return new HtmlVideo();
 	}
@@ -936,18 +941,16 @@ var WebGLVideo=(function(_super){
 			return;
 		this.gl=WebGL.mainContext;
 		this._source=this.gl.createTexture();
-		this.preTarget=WebGLContext.curBindTexTarget;
-		this.preTexture=WebGLContext.curBindTexValue;
 		WebGLContext.bindTexture(this.gl,/*laya.webgl.WebGLContext.TEXTURE_2D*/0x0DE1,this._source);
 		this.gl.texParameteri(/*laya.webgl.WebGLContext.TEXTURE_2D*/0x0DE1,/*laya.webgl.WebGLContext.TEXTURE_WRAP_S*/0x2802,/*laya.webgl.WebGLContext.CLAMP_TO_EDGE*/0x812F);
 		this.gl.texParameteri(/*laya.webgl.WebGLContext.TEXTURE_2D*/0x0DE1,/*laya.webgl.WebGLContext.TEXTURE_WRAP_T*/0x2803,/*laya.webgl.WebGLContext.CLAMP_TO_EDGE*/0x812F);
 		this.gl.texParameteri(/*laya.webgl.WebGLContext.TEXTURE_2D*/0x0DE1,/*laya.webgl.WebGLContext.TEXTURE_MAG_FILTER*/0x2800,/*laya.webgl.WebGLContext.LINEAR*/0x2601);
 		this.gl.texParameteri(/*laya.webgl.WebGLContext.TEXTURE_2D*/0x0DE1,/*laya.webgl.WebGLContext.TEXTURE_MIN_FILTER*/0x2801,/*laya.webgl.WebGLContext.LINEAR*/0x2601);
-		(this.preTarget && this.preTexture)&& (WebGLContext.bindTexture(this.gl,this.preTarget,this.preTexture));
 	}
 
 	__class(WebGLVideo,'laya.device.media.WebGLVideo',_super);
 	var __proto=WebGLVideo.prototype;
+	//(preTarget && preTexture)&& (WebGLContext.bindTexture(gl,preTarget,preTexture));
 	__proto.updateTexture=function(){
 		if(Browser.onIPhone)
 			return;
@@ -961,14 +964,3 @@ var WebGLVideo=(function(_super){
 
 	Laya.__init([Media]);
 })(window,document,Laya);
-
-if (typeof define === 'function' && define.amd){
-	define('laya.core', ['require', "exports"], function(require, exports) {
-        'use strict';
-        Object.defineProperty(exports, '__esModule', { value: true });
-        for (var i in Laya) {
-			var o = Laya[i];
-            o && o.__isclass && (exports[i] = o);
-        }
-    });
-}

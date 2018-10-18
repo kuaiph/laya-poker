@@ -1,7 +1,7 @@
 /**
  * 扑克类
  */
-class Poker {
+export default class Poker {
     constructor(inparam) {
         this.pokerImg = inparam.pokerImg
         this.seatImg = inparam.seatImg

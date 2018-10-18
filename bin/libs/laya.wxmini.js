@@ -1,5 +1,6 @@
 
-(function(window,document,Laya){
+window=window||global;if(!window.layalib){window.layalib=function(f,i){(window._layalibs || (window._layalibs=[])).push({f:f,i:i});}}
+window.layalib(function(window,document,Laya){
 	var __un=Laya.un,__uns=Laya.uns,__static=Laya.static,__class=Laya.class,__getset=Laya.getset,__newvec=Laya.__newvec;
 
 	var Browser=laya.utils.Browser,Event=laya.events.Event,EventDispatcher=laya.events.EventDispatcher;
@@ -14,6 +15,10 @@ var MiniAdpter=(function(){
 		return JSON.parse(data);
 	}
 
+	MiniAdpter.enable=function(){
+		MiniAdpter.init();
+	}
+
 	MiniAdpter.init=function(isPosMsg,isSon){
 		(isPosMsg===void 0)&& (isPosMsg=false);
 		(isSon===void 0)&& (isSon=false);
@@ -24,10 +29,6 @@ var MiniAdpter=(function(){
 		MiniAdpter.isZiYu=isSon;
 		MiniAdpter.isPosMsgYu=isPosMsg;
 		MiniAdpter.EnvConfig={};
-		try{
-			/*__JS__ */laya.webgl.resource.WebGLCanvas.premulAlpha=true;
-			}catch(e){
-		}
 		if(!MiniAdpter.isZiYu){
 			MiniFileMgr.setNativeFileDir("/layaairGame");
 			MiniFileMgr.existDir(MiniFileMgr.fileNativeDir,Handler.create(MiniAdpter,MiniAdpter.onMkdirCallBack));
@@ -49,7 +50,7 @@ var MiniAdpter=(function(){
 		MiniAdpter.window.document.body.appendChild=function (){
 		};
 		MiniAdpter.EnvConfig.pixelRatioInt=0;
-		RunDriver.getPixelRatio=MiniAdpter.pixelRatio;
+		Browser["_pixelRatio"]=MiniAdpter.pixelRatio();
 		MiniAdpter._preCreateElement=Browser.createElement;
 		Browser["createElement"]=MiniAdpter.createElement;
 		RunDriver.createShaderCondition=MiniAdpter.createShaderCondition;
@@ -58,48 +59,41 @@ var MiniAdpter=(function(){
 		MiniAdpter.EnvConfig.load=Loader.prototype.load;
 		Loader.prototype.load=MiniLoader.prototype.load;
 		Loader.prototype._loadImage=MiniImage.prototype._loadImage;
-		LocalStorage._baseClass=MiniLocalStorage;
 		MiniLocalStorage.__init__();
-		MiniAdpter.onReciveData();
+		LocalStorage._baseClass=MiniLocalStorage;
+		MiniAdpter.window.wx.onMessage(MiniAdpter._onMessage);
 	}
 
-	MiniAdpter.onReciveData=function(){
-		if(laya.wx.mini.MiniAdpter.isZiYu){
-			/*__JS__ */wx.onMessage(function(message){
-				if(message['isLoad']=="opendatacontext"){
-					if(message.url){
-						MiniFileMgr.ziyuFileData[message.url]=message.atlasdata;
-						MiniFileMgr.ziyuFileTextureData[message.imgReadyUrl]=message.imgNativeUrl;
-					}
-					}else if(message['isLoad']=="openJsondatacontext"){
-					if(message.url){
-						MiniFileMgr.ziyuFileData[message.url]=message.atlasdata;
-					}
-				}
-			});
+	MiniAdpter._onMessage=function(data){
+		if (data.type==="changeMatrix"){
+			Laya.stage.transform.identity();
+			Laya.stage._width=data.w;
+			Laya.stage._height=data.h;
+			Laya.stage._canvasTransform=new Matrix(data.a,data.b,data.c,data.d,data.tx,data.ty);
 		}
-	}
-
-	MiniAdpter.measureText=function(str){
-		var tempObj=MiniAdpter._measureText(str);
-		if(!tempObj){
-			tempObj={width:16};
-			console.warn("-------微信获取文字宽度失败----等待修复---------");
+		if(data['isLoad']=="opendatacontext"){
+			if(data.url){
+				MiniFileMgr.ziyuFileData[data.url]=data.atlasdata;
+				MiniFileMgr.ziyuFileTextureData[data.imgReadyUrl]=data.imgNativeUrl;
+			}
+			}else if(data['isLoad']=="openJsondatacontext"){
+			if(data.url){
+				MiniFileMgr.ziyuFileData[data.url]=data.atlasdata;
+			}
+			}else if(data['isLoad']=="openJsondatacontextPic"){
+			MiniFileMgr.ziyuFileTextureData[data.imgReadyUrl]=data.imgNativeUrl;
 		}
-		return tempObj;
 	}
 
 	MiniAdpter.getUrlEncode=function(url,type){
-		if(url.indexOf(".fnt")!=-1)
-			return "utf8";
-		else if(type=="arraybuffer")
-		return "";
-		return "ascii";
+		if(type=="arraybuffer")
+			return "";
+		return "utf8";
 	}
 
 	MiniAdpter.downLoadFile=function(fileUrl,fileType,callBack,encoding){
 		(fileType===void 0)&& (fileType="");
-		(encoding===void 0)&& (encoding="ascii");
+		(encoding===void 0)&& (encoding="utf8");
 		var fileObj=MiniFileMgr.getFileInfo(fileUrl);
 		if(!fileObj)
 			MiniFileMgr.downLoadFile(fileUrl,fileType,callBack,encoding);
@@ -213,26 +207,61 @@ var MiniAdpter=(function(){
 
 	MiniAdpter.sendAtlasToOpenDataContext=function(url){
 		if(!laya.wx.mini.MiniAdpter.isZiYu){
-			var atlasJson=Loader.getRes(url);
+			var atlasJson=Loader.getRes(URL.formatURL(url));
 			if(atlasJson){
-				var postData={"frames":atlasJson.frames,"meta":atlasJson.meta};
-				var textureUrl;
-				if(url.indexOf(".atlas")){
-					textureUrl=url.replace(".atlas",".png");
-					}else{
-					textureUrl=url.replace(".json",".png");
-				};
-				var fileObj=MiniFileMgr.getFileInfo(textureUrl);
-				var fileMd5Name=fileObj.md5;
-				var fileNativeUrl=MiniFileMgr.getFileNativePath(fileMd5Name);
-				if(fileNativeUrl){
-					/*__JS__ */wx.postMessage({url:url,atlasdata:postData,imgNativeUrl:fileNativeUrl,imgReadyUrl:textureUrl,isLoad:"opendatacontext"});
-					}else{
-					throw "获取图集的磁盘url路径不存在！";
+				var textureArr=(atlasJson.meta.image).split(",");
+				if (atlasJson.meta && atlasJson.meta.image){
+					var toloadPics=atlasJson.meta.image.split(",");
+					var split=url.indexOf("/")>=0 ? "/" :"\\";
+					var idx=url.lastIndexOf(split);
+					var folderPath=idx >=0 ? url.substr(0,idx+1):"";
+					for (var i=0,len=toloadPics.length;i < len;i++){
+						toloadPics[i]=folderPath+toloadPics[i];
+					}
+					}else {
+					toloadPics=[url.replace(".json",".png")];
+				}
+				for(i=0;i<toloadPics.length;i++){
+					var tempAtlasPngUrl=toloadPics[i];
+					MiniAdpter.postInfoToContext(url,tempAtlasPngUrl,atlasJson);
 				}
 				}else{
 				throw "传递的url没有获取到对应的图集数据信息，请确保图集已经过！";
 			}
+		}
+	}
+
+	MiniAdpter.postInfoToContext=function(url,atlaspngUrl,atlasJson){
+		var postData={"frames":atlasJson.frames,"meta":atlasJson.meta};
+		var textureUrl=atlaspngUrl;
+		var fileObj=MiniFileMgr.getFileInfo(URL.formatURL(atlaspngUrl));
+		if(fileObj){
+			var fileMd5Name=fileObj.md5;
+			var fileNativeUrl=MiniFileMgr.getFileNativePath(fileMd5Name);
+			}else{
+			fileNativeUrl=textureUrl;
+		}
+		if(fileNativeUrl){
+			/*__JS__ */wx.postMessage({url:url,atlasdata:postData,imgNativeUrl:fileNativeUrl,imgReadyUrl:textureUrl,isLoad:"opendatacontext"});
+			}else{
+			throw "获取图集的磁盘url路径不存在！";
+		}
+	}
+
+	MiniAdpter.sendSinglePicToOpenDataContext=function(url){
+		var tempTextureUrl=URL.formatURL(url);
+		var fileObj=MiniFileMgr.getFileInfo(tempTextureUrl);
+		if(fileObj){
+			var fileMd5Name=fileObj.md5;
+			var fileNativeUrl=MiniFileMgr.getFileNativePath(fileMd5Name);
+			url=tempTextureUrl;
+			}else{
+			fileNativeUrl=url;
+		}
+		if(fileNativeUrl){
+			/*__JS__ */wx.postMessage({url:url,imgNativeUrl:fileNativeUrl,imgReadyUrl:url,isLoad:"openJsondatacontextPic"});
+			}else{
+			throw "获取图集的磁盘url路径不存在！";
 		}
 	}
 
@@ -256,8 +285,10 @@ var MiniAdpter=(function(){
 	MiniAdpter.isPosMsgYu=false;
 	MiniAdpter.autoCacheFile=true;
 	MiniAdpter.minClearSize=(5 *1024 *1024);
+	MiniAdpter.subNativeFiles=null;
+	MiniAdpter.subNativeheads=[];
+	MiniAdpter.subMaps=[];
 	MiniAdpter.AutoCacheDownFile=false;
-	MiniAdpter._measureText=null;
 	MiniAdpter.parseXMLFromString=function(value){
 		var rst;
 		var Parser;
@@ -312,6 +343,7 @@ var MiniFileMgr=(function(){
 			}else{
 			fileUrl=filePath;
 		}
+		fileUrl=URL.getAdptedFilePath(fileUrl);
 		MiniFileMgr.fs.readFile({filePath:fileUrl,encoding:encoding,success:function (data){
 				callBack !=null && callBack.runWith([0,data]);
 				},fail:function (data){
@@ -332,7 +364,11 @@ var MiniFileMgr=(function(){
 				if (data.statusCode===200)
 					MiniFileMgr.readFile(data.tempFilePath,encoding,callBack,readyUrl,isSaveFile,fileType,isAutoClear);
 				else
-				callBack !=null && callBack.runWith([1,data]);
+				if(data.statusCode===403){
+					callBack !=null && callBack.runWith([0,fileUrl]);
+					}else{
+					callBack !=null && callBack.runWith([1,data]);
+				}
 				},fail:function (data){
 				callBack !=null && callBack.runWith([1,data]);
 		}});
@@ -347,6 +383,7 @@ var MiniFileMgr=(function(){
 		(isSaveFile===void 0)&& (isSaveFile=false);
 		(fileType===void 0)&& (fileType="");
 		(isAutoClear===void 0)&& (isAutoClear=true);
+		filePath=URL.getAdptedFilePath(filePath);
 		MiniFileMgr.fs.readFile({filePath:filePath,encoding:encoding,success:function (data){
 				if (filePath.indexOf("http://")!=-1 || filePath.indexOf("https://")!=-1){
 					if(MiniAdpter.autoCacheFile || isSaveFile){
@@ -371,6 +408,8 @@ var MiniFileMgr=(function(){
 						MiniFileMgr.copyFile(data.tempFilePath,readyUrl,callBack,"",isAutoClear);
 					else
 					callBack !=null && callBack.runWith([0,data.tempFilePath]);
+					}else{
+					callBack !=null && callBack.runWith([1,data]);
 				}
 				},fail:function (data){
 				callBack !=null && callBack.runWith([1,data]);
@@ -448,7 +487,7 @@ var MiniFileMgr=(function(){
 		for(var key in MiniFileMgr.filesListObj){
 			tempFileListArr.push(MiniFileMgr.filesListObj[key]);
 		}
-		MiniFileMgr.sortOn(tempFileListArr,"time",16);
+		MiniFileMgr.sortOn(tempFileListArr,"times",16);
 		var clearSize=0;
 		for(var i=1,sz=tempFileListArr.length;i<sz;i++){
 			var fileObj=tempFileListArr[i];
@@ -501,6 +540,10 @@ var MiniFileMgr=(function(){
 			var fileObj=tempFileListArr[i];
 			MiniFileMgr.deleteFile("",fileObj.readyUrl);
 		}
+		if(laya.wx.mini.MiniFileMgr.filesListObj && laya.wx.mini.MiniFileMgr.filesListObj.fileUsedSize){
+			laya.wx.mini.MiniFileMgr.filesListObj.fileUsedSize=0;
+		}
+		laya.wx.mini.MiniFileMgr.writeFilesList("",JSON.stringify({}),false);
 	}
 
 	MiniFileMgr.onSaveFile=function(readyUrl,md5Name,isAdd,encoding,callBack,fileSize){
@@ -610,8 +653,28 @@ var MiniImage=(function(){
 					url=url.split(MiniFileMgr.loadPath)[1];
 					}else{
 					var tempStr=URL.rootPath !="" ? URL.rootPath :URL.basePath;
+					var tempUrl=url;
 					if(tempStr !="")
 						url=url.split(tempStr)[1];
+					if(!url){
+						url=tempUrl;
+					}
+				}
+			}
+			if (MiniAdpter.subNativeFiles && MiniAdpter.subNativeheads.length==0){
+				for (var key in MiniAdpter.subNativeFiles){
+					var tempArr=MiniAdpter.subNativeFiles[key];
+					MiniAdpter.subNativeheads=MiniAdpter.subNativeheads.concat(tempArr);
+					for (var aa=0;aa < tempArr.length;aa++){
+						MiniAdpter.subMaps[tempArr[aa]]=key+"/"+tempArr[aa];
+					}
+				}
+			}
+			if(MiniAdpter.subNativeFiles && url.indexOf("/")!=-1){
+				var curfileHead=url.split("/")[0]+"/";
+				if(curfileHead && MiniAdpter.subNativeheads.indexOf(curfileHead)!=-1){
+					var newfileHead=MiniAdpter.subMaps[curfileHead];
+					url=url.replace(curfileHead,newfileHead);
 				}
 			}
 		}
@@ -667,35 +730,48 @@ var MiniImage=(function(){
 			else
 			fileNativeUrl=sourceUrl;
 		}
-		if (thisLoader.imgCache==null)
-			thisLoader.imgCache={};
+		if (thisLoader._imgCache==null)
+			thisLoader._imgCache={};
 		var image;
 		function clear (){
-			image.onload=null;
-			image.onerror=null;
-			delete thisLoader.imgCache[sourceUrl]
-		};
-		var onload=function (){
-			clear();
-			thisLoader._url=URL.formatURL(thisLoader._url);
-			thisLoader.onLoaded(image);
+			var img=thisLoader._imgCache[fileNativeUrl];
+			if (img){
+				img.onload=null;
+				img.onerror=null;
+				delete thisLoader._imgCache[fileNativeUrl];
+			}
 		};
 		var onerror=function (){
 			clear();
 			thisLoader.event(/*laya.events.Event.ERROR*/"error","Load image failed");
 		}
 		if (thisLoader._type=="nativeimage"){
+			var onload=function (){
+				clear();
+				thisLoader._url=URL.formatURL(thisLoader._url);
+				thisLoader.onLoaded(image);
+			};
 			image=new Browser.window.Image();
 			image.crossOrigin="";
 			image.onload=onload;
 			image.onerror=onerror;
 			image.src=fileNativeUrl;
-			thisLoader.imgCache[sourceUrl]=image;
+			thisLoader._imgCache[fileNativeUrl]=image;
 			}else {
-			new HTMLImage.create(fileNativeUrl,{onload:onload,onerror:onerror,onCreate:function (img){
-					image=img;
-					thisLoader.imgCache[sourceUrl]=img;
-			}});
+			var imageSource=new Browser.window.Image();
+			onload=function (){
+				thisLoader._url=URL.formatURL(thisLoader._url);
+				image=HTMLImage.create(imageSource.width,imageSource.height);
+				image.loadImageSource(imageSource,true);
+				image._setUrl(fileNativeUrl);
+				clear();
+				thisLoader.onLoaded(image);
+			};
+			imageSource.crossOrigin="";
+			imageSource.onload=onload;
+			imageSource.onerror=onerror;
+			imageSource.src=fileNativeUrl;
+			thisLoader._imgCache[fileNativeUrl]=imageSource;
 		}
 	}
 
@@ -740,7 +816,7 @@ var MiniInput=(function(){
 
 	MiniInput._onStageResize=function(){
 		var ts=Laya.stage._canvasTransform.identity();
-		ts.scale((Browser.width / Render.canvas.width / RunDriver.getPixelRatio()),Browser.height / Render.canvas.height / RunDriver.getPixelRatio());
+		ts.scale((Browser.width / Render.canvas.width / Browser.pixelRatio),Browser.height / Render.canvas.height / Browser.pixelRatio);
 	}
 
 	MiniInput.wxinputFocus=function(e){
@@ -883,14 +959,14 @@ var MiniLocation=(function(){
 		curWatchO.success=success;
 		curWatchO.error=error;
 		MiniLocation._watchDic[MiniLocation._curID]=curWatchO;
-		Laya.timer.loop(1000,null,MiniLocation._myLoop);
+		Laya.systemTimer.loop(1000,null,MiniLocation._myLoop);
 		return MiniLocation._curID;
 	}
 
 	MiniLocation.clearWatch=function(id){
 		delete MiniLocation._watchDic[id];
 		if (!MiniLocation._hasWatch()){
-			Laya.timer.clear(null,MiniLocation._myLoop);
+			Laya.systemTimer.clear(null,MiniLocation._myLoop);
 		}
 	}
 
@@ -1031,7 +1107,7 @@ var MiniLoader=(function(_super){
 		thisLoader._url=url;
 		if (url.indexOf("data:image")===0)thisLoader._type=type=/*laya.net.Loader.IMAGE*/"image";
 		else {
-			thisLoader._type=type || (type=thisLoader.getTypeFromUrl(url));
+			thisLoader._type=type || (type=Loader.getTypeFromUrl(url));
 		}
 		thisLoader._cache=cache;
 		thisLoader._data=null;
@@ -1062,19 +1138,34 @@ var MiniLoader=(function(_super){
 			}
 			if (!MiniFileMgr.getFileInfo(url)){
 				if (MiniFileMgr.isLocalNativeFile(url)){
+					if (MiniAdpter.subNativeFiles && MiniAdpter.subNativeheads.length==0){
+						for (var key in MiniAdpter.subNativeFiles){
+							var tempArr=MiniAdpter.subNativeFiles[key];
+							MiniAdpter.subNativeheads=MiniAdpter.subNativeheads.concat(tempArr);
+							for (var aa=0;aa < tempArr.length;aa++){
+								MiniAdpter.subMaps[tempArr[aa]]=key+"/"+tempArr[aa];
+							}
+						}
+					}
+					if(MiniAdpter.subNativeFiles && url.indexOf("/")!=-1){
+						var curfileHead=url.split("/")[0]+"/";
+						if(curfileHead && MiniAdpter.subNativeheads.indexOf(curfileHead)!=-1){
+							var newfileHead=MiniAdpter.subMaps[curfileHead];
+							url=url.replace(curfileHead,newfileHead);
+						}
+					}
 					MiniFileMgr.read(url,encoding,new Handler(MiniLoader,MiniLoader.onReadNativeCallBack,[encoding,url,type,cache,group,ignoreCache,thisLoader]));
 					return;
-				};
-				var tempUrl=url;
+				}
 				url=URL.formatURL(url);
-				if (url.indexOf("http://")!=-1 || url.indexOf("https://")!=-1){
-					MiniAdpter.EnvConfig.load.call(thisLoader,tempUrl,type,cache,group,ignoreCache);
+				if (url.indexOf("http://")!=-1 || url.indexOf("https://")!=-1 && !MiniAdpter.AutoCacheDownFile){
+					MiniAdpter.EnvConfig.load.call(thisLoader,url,type,cache,group,ignoreCache);
 					}else {
 					MiniFileMgr.readFile(url,encoding,new Handler(MiniLoader,MiniLoader.onReadNativeCallBack,[encoding,url,type,cache,group,ignoreCache,thisLoader]),url);
 				}
 				}else {
 				var fileObj=MiniFileMgr.getFileInfo(url);
-				fileObj.encoding=fileObj.encoding==null ? "ascii" :fileObj.encoding;
+				fileObj.encoding=fileObj.encoding==null ? "utf8" :fileObj.encoding;
 				MiniFileMgr.readFile(url,fileObj.encoding,new Handler(MiniLoader,MiniLoader.onReadNativeCallBack,[encoding,url,type,cache,group,ignoreCache,thisLoader]),url);
 			}
 		}
@@ -1086,7 +1177,7 @@ var MiniLoader=(function(_super){
 		(errorCode===void 0)&& (errorCode=0);
 		if (!errorCode){
 			var tempData;
-			if (type==/*laya.net.Loader.JSON*/"json" || type==/*laya.net.Loader.ATLAS*/"atlas"){
+			if (type==/*laya.net.Loader.JSON*/"json" || type==/*laya.net.Loader.ATLAS*/"atlas" || type==/*laya.net.Loader.PREFAB*/"prefab"){
 				tempData=MiniAdpter.getJson(data.data);
 				}else if (type==/*laya.net.Loader.XML*/"xml"){
 				tempData=Utils.parseXMLFromString(data.data);
@@ -1098,7 +1189,6 @@ var MiniLoader=(function(_super){
 			}
 			thisLoader.onLoaded(tempData);
 			}else if (errorCode==1){
-			console.log("-----------本地加载失败，尝试外网加载----");
 			MiniAdpter.EnvConfig.load.call(thisLoader,url,type,cache,group,ignoreCache);
 		}
 	}
@@ -1165,7 +1255,34 @@ var MiniSound=(function(_super){
 			if(!MiniAdpter.autoCacheFile){
 				this.onDownLoadCallBack(url,0);
 				}else{
-				MiniFileMgr.downOtherFiles(url,Handler.create(this,this.onDownLoadCallBack,[url]),url);
+				if (MiniFileMgr.isLocalNativeFile(url)){
+					tempStr=URL.rootPath !="" ? URL.rootPath :URL.basePath;
+					var tempUrl=url;
+					if(tempStr !="")
+						url=url.split(tempStr)[1];
+					if (!url){
+						url=tempUrl;
+					}
+					if (MiniAdpter.subNativeFiles && MiniAdpter.subNativeheads.length==0){
+						for (var key in MiniAdpter.subNativeFiles){
+							var tempArr=MiniAdpter.subNativeFiles[key];
+							MiniAdpter.subNativeheads=MiniAdpter.subNativeheads.concat(tempArr);
+							for (var aa=0;aa < tempArr.length;aa++){
+								MiniAdpter.subMaps[tempArr[aa]]=key+"/"+tempArr[aa];
+							}
+						}
+					}
+					if(MiniAdpter.subNativeFiles && url.indexOf("/")!=-1){
+						var curfileHead=url.split("/")[0]+"/";
+						if(curfileHead && MiniAdpter.subNativeheads.indexOf(curfileHead)!=-1){
+							var newfileHead=MiniAdpter.subMaps[curfileHead];
+							url=url.replace(curfileHead,newfileHead);
+						}
+					}
+					this.onDownLoadCallBack(url,0);
+					}else{
+					MiniFileMgr.downOtherFiles(url,Handler.create(this,this.onDownLoadCallBack,[url]),url);
+				}
 			}
 		}
 	}
@@ -1175,12 +1292,22 @@ var MiniSound=(function(_super){
 		if (!errorCode){
 			var fileNativeUrl;
 			if(MiniAdpter.autoCacheFile){
-				var fileObj=MiniFileMgr.getFileInfo(sourceUrl);
-				if(fileObj && fileObj.md5){
-					var fileMd5Name=fileObj.md5;
-					fileNativeUrl=MiniFileMgr.getFileNativePath(fileMd5Name);
+				if (MiniFileMgr.isLocalNativeFile(sourceUrl)){
+					var tempStr=URL.rootPath !="" ? URL.rootPath :URL.basePath;
+					var tempUrl=sourceUrl;
+					if(tempStr !="" && (sourceUrl.indexOf("http://")!=-1 || sourceUrl.indexOf("https://")!=-1))
+						fileNativeUrl=sourceUrl.split(tempStr)[1];
+					if(!fileNativeUrl){
+						fileNativeUrl=tempUrl;
+					}
 					}else{
-					fileNativeUrl=sourceUrl;
+					var fileObj=MiniFileMgr.getFileInfo(sourceUrl);
+					if(fileObj && fileObj.md5){
+						var fileMd5Name=fileObj.md5;
+						fileNativeUrl=MiniFileMgr.getFileNativePath(fileMd5Name);
+						}else{
+						fileNativeUrl=sourceUrl;
+					}
 				}
 				this._sound=MiniSound._createSound();
 				this._sound.src=this.url=fileNativeUrl;
@@ -1228,7 +1355,7 @@ var MiniSound=(function(_super){
 		(startTime===void 0)&& (startTime=0);
 		(loops===void 0)&& (loops=0);
 		var tSound;
-		if (this.url==SoundManager._tMusic){
+		if (this.url==SoundManager._bgMusic){
 			if (!MiniSound._musicAudio)MiniSound._musicAudio=MiniSound._createSound();
 			tSound=MiniSound._musicAudio;
 			}else {
@@ -1323,7 +1450,7 @@ var MiniSoundChannel=(function(_super){
 	__proto.__onEnd=function(){
 		if (this.loops==1){
 			if (this.completeHandler){
-				Laya.timer.once(10,this,this.__runComplete,[this.completeHandler],false);
+				Laya.systemTimer.once(10,this,this.__runComplete,[this.completeHandler],false);
 				this.completeHandler=null;
 			}
 			this.stop();
@@ -1462,15 +1589,4 @@ var MiniSoundChannel=(function(_super){
 
 
 
-})(window,document,Laya);
-
-if (typeof define === 'function' && define.amd){
-	define('laya.core', ['require', "exports"], function(require, exports) {
-        'use strict';
-        Object.defineProperty(exports, '__esModule', { value: true });
-        for (var i in Laya) {
-			var o = Laya[i];
-            o && o.__isclass && (exports[i] = o);
-        }
-    });
-}
+},1000);

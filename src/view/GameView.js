@@ -1,15 +1,20 @@
+import Poker from '../sprite/Poker'
+
 /**
  * 游戏主界面类
  * 载入扑克桌
  */
-class GameView extends ui.GameUI {
+export default class GameView extends Laya.Scene {
     constructor() {
         super()
+        //设置单例的引用方式，方便其他类引用
+        GameView.instance = this
         this.pokers = []
         this.seats = []
         this.pokerSentIndex = 0
-        this.clipSkin = 'ui/chip_spades.png'
         this.seatCount = 9
+    }
+    onEnable() {
         // 初始化
         this.init()
         // 启动游戏，发牌
@@ -22,15 +27,18 @@ class GameView extends ui.GameUI {
         this.centerY = 0
         // 初始化桌位
         for (let i = 0; i < this.seatCount; i++) {
+            // console.log(this.getChildByName(`seat${i}`))
             this.seats.push(this.getChildByName(`seat${i}`))
         }
         // 初始化牌组
         for (let i = 0; i < this.seatCount * 2; i++) {
+            // console.log(this.getChildByName(`poker${i}`))
             let poker = new Poker({ pokerImg: this.getChildByName(`poker${i}`), seatImg: this.seats[i % this.seatCount] })
             this.pokers.push(poker)
         }
         // 初始化公牌
         for (let i = this.seatCount * 2; i < this.seatCount * 2 + 5; i++) {
+            // console.log(this.getChildByName(`poker${i}`))
             let poker = new Poker({ pokerImg: this.getChildByName(`poker${i}`) })
             this.pokers.push(poker)
         }
@@ -41,7 +49,7 @@ class GameView extends ui.GameUI {
     gameStart() {
         // 每人发两张牌
         Laya.timer.loop(300, this, this.onSendPoker)  // 每300毫循环一次
-        LayaApp.socket.send(JSON.stringify({ method: 'SEND_CARD', count: 18 }))
+        // LayaApp.socket.send(JSON.stringify({ method: 'SEND_CARD', count: 18 }))
         // Laya.timer.frameLoop(10, this, this.onLoop) // 每10帧循环一次
     }
     // 发牌
