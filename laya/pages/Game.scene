@@ -146,7 +146,7 @@
         {
             "x":15,
             "type":"Image",
-            "props":{"y":297,"x":160,"var":"poker0","skin":"ui/poker.png","scaleY":0.5,"scaleX":0.5,"name":"poker0"},
+            "props":{"y":297,"x":160,"skin":"ui/poker.png","scaleY":0.5,"scaleX":0.5,"name":"poker0"},
             "nodeParent":1,
             "label":"poker0",
             "isDirectory":false,
