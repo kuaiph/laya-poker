@@ -22,9 +22,6 @@ export default class GameView extends Laya.Scene {
     }
     // 初始化
     init() {
-        // 居中显示
-        this.centerX = 0
-        this.centerY = 0
         // 初始化桌位
         for (let i = 0; i < this.seatCount; i++) {
             this.seats.push(this.getChildByName(`seat${i}`))
