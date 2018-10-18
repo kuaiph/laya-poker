@@ -27,18 +27,15 @@ export default class GameView extends Laya.Scene {
         this.centerY = 0
         // 初始化桌位
         for (let i = 0; i < this.seatCount; i++) {
-            // console.log(this.getChildByName(`seat${i}`))
             this.seats.push(this.getChildByName(`seat${i}`))
         }
         // 初始化牌组
         for (let i = 0; i < this.seatCount * 2; i++) {
-            // console.log(this.getChildByName(`poker${i}`))
             let poker = new Poker({ pokerImg: this.getChildByName(`poker${i}`), seatImg: this.seats[i % this.seatCount] })
             this.pokers.push(poker)
         }
         // 初始化公牌
         for (let i = this.seatCount * 2; i < this.seatCount * 2 + 5; i++) {
-            // console.log(this.getChildByName(`poker${i}`))
             let poker = new Poker({ pokerImg: this.getChildByName(`poker${i}`) })
             this.pokers.push(poker)
         }
