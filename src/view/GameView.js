@@ -46,16 +46,15 @@ export default class GameView extends Laya.Scene {
     // 游戏启动
     gameStart() {
         // 每人发两张牌
-        Laya.timer.loop(300, this, this.onSendPoker)  // 每300毫循环一次
         WebSocket.send({ method: 'SEND_CARD', count: 18 }).then((data) => {
-            console.log(data)
+            Laya.timer.loop(300, this, this.onSendPoker, [data.pokers])  // 每300毫循环一次
         })
         // Laya.timer.frameLoop(10, this, this.onLoop) // 每10帧循环一次
     }
     // 发牌
-    onSendPoker() {
+    onSendPoker(args) {
         if (this.pokers[this.pokerSentIndex].seatImg.y == 608) {
-            this.pokers[this.pokerSentIndex].pokerImg.skin = 'ui/1C.png'
+            this.pokers[this.pokerSentIndex].pokerImg.skin = `ui/${args[this.pokerSentIndex].card}.png`
         }
         this.pokers[this.pokerSentIndex].send(this.pokerSentIndex)
         this.pokerSentIndex++
