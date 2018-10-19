@@ -1,3 +1,4 @@
+import WebSocket from '../util/WebSocket'
 import Poker from '../sprite/Poker'
 
 /**
@@ -19,6 +20,9 @@ export default class GameView extends Laya.Scene {
         this.init()
         // 启动游戏，发牌
         this.gameStart()
+    }
+    onClosed(){
+        WebSocket.socket.close()
     }
     // 初始化
     init() {
@@ -43,6 +47,7 @@ export default class GameView extends Laya.Scene {
     gameStart() {
         // 每人发两张牌
         Laya.timer.loop(300, this, this.onSendPoker)  // 每300毫循环一次
+        WebSocket.send({ method: 'SEND_CARD', count: 18 })
         // LayaApp.socket.send(JSON.stringify({ method: 'SEND_CARD', count: 18 }))
         // Laya.timer.frameLoop(10, this, this.onLoop) // 每10帧循环一次
     }

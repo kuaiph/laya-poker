@@ -1,4 +1,5 @@
 import GameConfig from './GameConfig'
+import WebSocket from './util/WebSocket'
 
 class Main {
     constructor() {
@@ -22,6 +23,8 @@ class Main {
 
         //激活资源版本控制，version.json由IDE发布功能自动生成，如果没有也不影响后续流程
         Laya.ResourceVersion.enable("version.json", Laya.Handler.create(this, this.onVersionLoaded), Laya.ResourceVersion.FILENAME_VERSION)
+        //加载网络连接
+        new WebSocket().init()
     }
     onVersionLoaded() {
         //激活大小图映射，加载小图的时候，如果发现小图在大图合集里面，则优先加载大图合集，而不是小图
@@ -36,22 +39,6 @@ class Main {
     // beginLoad() {
     //     // 加载图集
     //     Laya.loader.load("res/atlas/ui.atlas", Laya.Handler.create(this, this.onLoaded), null, Laya.Loader.ATLAS)
-    //     // 长连接服务器
-    //     LayaApp.socket = new Laya.Socket()
-    //     LayaApp.socket.endian = Laya.Byte.LITTLE_ENDIAN//采用小端
-    //     LayaApp.socket.connectByUrl('ws://localhost:5000/socket/poker')
-    //     LayaApp.socket.on(Laya.Event.OPEN, this, (e) => {
-    //         console.log('连接建立')
-    //     })
-    //     LayaApp.socket.on(Laya.Event.MESSAGE, this, (msg) => {
-    //         console.log(`数据接收 ${msg}`)
-    //     })
-    //     LayaApp.socket.on(Laya.Event.CLOSE, this, (e) => {
-    //         console.log('连接关闭')
-    //     })
-    //     LayaApp.socket.on(Laya.Event.ERROR, this, (e) => {
-    //         console.error('连接出错')
-    //     })
     //     // 播放背景音乐
     //     // Laya.SoundManager.playMusic("res/sounds/bgm.mp3", 0, null)
     // }
