@@ -21,7 +21,7 @@ export default class GameView extends Laya.Scene {
         // 启动游戏，发牌
         this.gameStart()
     }
-    onClosed(){
+    onClosed() {
         WebSocket.socket.close()
     }
     // 初始化
@@ -47,8 +47,9 @@ export default class GameView extends Laya.Scene {
     gameStart() {
         // 每人发两张牌
         Laya.timer.loop(300, this, this.onSendPoker)  // 每300毫循环一次
-        WebSocket.send({ method: 'SEND_CARD', count: 18 })
-        // LayaApp.socket.send(JSON.stringify({ method: 'SEND_CARD', count: 18 }))
+        WebSocket.send({ method: 'SEND_CARD', count: 18 }).then((data) => {
+            console.log(data)
+        })
         // Laya.timer.frameLoop(10, this, this.onLoop) // 每10帧循环一次
     }
     // 发牌

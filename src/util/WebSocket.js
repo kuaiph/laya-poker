@@ -10,12 +10,8 @@ export default class WebSocket {
     }
     init() {
         WebSocket.socket.connectByUrl('ws://localhost:5000/socket/poker')
-
         WebSocket.socket.on(Laya.Event.OPEN, this, (e) => {
             console.log('连接建立')
-        })
-        WebSocket.socket.on(Laya.Event.MESSAGE, this, (msg) => {
-            console.log(`数据接收 ${msg}`)
         })
         WebSocket.socket.on(Laya.Event.CLOSE, this, (e) => {
             console.log('连接关闭')
@@ -24,9 +20,18 @@ export default class WebSocket {
             console.error('连接出错')
         })
         // 封装发送数据方法
-        WebSocket.send = (data) => {
+        WebSocket.send = (req) => {
             // try {
-            WebSocket.socket.send(JSON.stringify(data))
+            return new Promise((resolve, reject) => {
+                WebSocket.socket.send(JSON.stringify(req))
+                // 返回数据
+                WebSocket.socket.on(Laya.Event.MESSAGE, this, (res) => {
+                    res = JSON.parse(res)
+                    if (req.method == res.method) {
+                        resolve(res)
+                    }
+                })
+            })
             // } catch (error) {
             //     setTimeout(() => {
             //         console.log(`重试发送：${data}`)
