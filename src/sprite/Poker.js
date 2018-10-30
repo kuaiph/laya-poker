@@ -5,6 +5,8 @@ export default class Poker {
     constructor(inparam) {
         this.pokerImg = inparam.pokerImg
         this.seatImg = inparam.seatImg
+        this.dataPoker = inparam.dataPoker
+        this.isMe = false
         // this.reset()
     }
     // 重置
@@ -16,17 +18,19 @@ export default class Poker {
     }
     // 发牌
     send(pokerSentIndex) {
+        this.isMe = this.seatImg.y == 608 ? true : false
         let x = this.seatImg.x
-        let isMe = this.seatImg.y == 608 ? true : false
-        if (isMe) {
+        if (this.isMe) {
             pokerSentIndex == 0 ? x += 50 : x += 100
         }
-        Laya.Tween.to(this.pokerImg, { x, y: this.seatImg.y }, 500, Laya.Ease.strongOut, Laya.Handler.create(this, this.sendComplete, [isMe]))
+        Laya.Tween.to(this.pokerImg, { x, y: this.seatImg.y }, 500, Laya.Ease.strongOut, Laya.Handler.create(this, this.sendComplete))
     }
-    // 发牌完成
-    sendComplete(isMe) {
-        if (!isMe) {
+    // 手牌发牌完成
+    sendComplete() {
+        if (!this.isMe) {
             this.pokerImg.visible = false
+        } else {
+            this.pokerImg.skin = `ui/${this.dataPoker.card}.png`
         }
     }
     // 发公共牌
@@ -53,7 +57,8 @@ export default class Poker {
         }
         Laya.Tween.to(this.pokerImg, { x, y }, 500, Laya.Ease.strongOut, Laya.Handler.create(this, this.sendPublicComplete))
     }
+    // 公牌发牌完成
     sendPublicComplete() {
-
+        this.pokerImg.skin = `ui/${this.dataPoker.card}.png`
     }
 }
