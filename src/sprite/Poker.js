@@ -18,7 +18,7 @@ export default class Poker {
     }
     // 发牌
     send(pokerSentIndex) {
-        this.isMe = this.seatImg.y == 608 ? true : false
+        this.isMe = this.seatImg.name == 'seat0' ? true : false
         let x = this.seatImg.x
         if (this.isMe) {
             pokerSentIndex == 0 ? x += 50 : x += 100
@@ -39,18 +39,18 @@ export default class Poker {
         let y = this.pokerImg.y + 80
         switch (publicIndex) {
             case 0:
-                x -= 120
+                x -= 110
                 break;
             case 1:
-                x -= 60
+                x -= 55
                 break;
             case 2:
                 break;
             case 3:
-                x += 60
+                x += 55
                 break;
             case 4:
-                x += 120
+                x += 110
                 break;
             default:
                 break;

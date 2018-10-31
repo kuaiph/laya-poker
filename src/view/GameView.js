@@ -11,11 +11,12 @@ export default class GameView extends Laya.Scene {
         //设置单例的引用方式，方便其他类引用
         GameView.instance = this
         this.seatCount = 9                          // 座位数量    
-        this.seats = []                             // 座位数组            
+        this.seats = []                             // 座位数组           
         this.pokers = []                            // 扑克牌数组
         this.pokerSentIndex = 0                     // 已发牌索引
         this.pokerHandCount = this.seatCount * 2    // 手牌数量
         this.pokerCount = this.pokerHandCount + 5   // 所有牌数量
+        this.chip2Index = 0                         // 大盲位索引
     }
     onEnable() {
         // 初始化
@@ -75,6 +76,20 @@ export default class GameView extends Laya.Scene {
         if (this.pokerSentIndex >= this.pokerHandCount && this.pokerSentIndex < this.pokerCount) {
             Laya.timer.loop(300, this, this.onShowPublicPoker)
         }
+        if(this.chip2Index >= this.seats.length){
+            this.chip2Index = 0
+        }
+        // 小盲移动到大盲位置
+        this.chip1.x = this.chip2.x
+        this.chip1.y = this.chip2.y
+        this.chipText1.x = this.chipText2.x
+        this.chipText1.y = this.chipText2.y
+        // 大盲顺时针移动
+        this.chip2.x = this.seats[this.chip2Index].x + 10
+        this.chip2.y = this.seats[this.chip2Index].y - 30
+        this.chipText2.x = this.chip2.x - 10
+        this.chipText2.y = this.chip2.y - 15
+        this.chip2Index++
     }
 
     // 展开三张公牌
