@@ -19,7 +19,6 @@ export default class GameView extends Laya.Scene {
         this.chip2Index = 0                         // 大盲位索引
     }
     onEnable() {
-        // 初始化
         this.init()
     }
     onClosed() {
@@ -29,32 +28,18 @@ export default class GameView extends Laya.Scene {
     init() {
         // 初始化座位
         for (let i = 0; i < this.seatCount; i++) {
-            // 此处需要初始化座位头像
-            this.seats.push(this.getChildByName(`seat${i}`))
+            let seat = this.getChildByName(`seat${i}`)
+            let seatData = WebSocket.globalData.seatMap[`seat${i}`]
+            if(seatData){
+                seat.skin = `ui/${seatData.headurl}`
+            }
+            this.seats.push(seat)
         }
         WebSocket.globalData.seats = this.seats
         // 加载鼠标点击事件
         Laya.stage.on(Laya.Event.MOUSE_DOWN, this, this.onMouseDown)
     }
-    // 游戏启动
-    gameStart() {
-        // 每人发两张牌
-        Laya.timer.loop(300, this, this.onSendPoker)  // 每300毫循环一次
-        // Laya.timer.frameLoop(10, this, this.onLoop) // 每10帧循环一次
-    }
-    // 发牌
-    onSendPoker() {
-        this.pokers[this.pokerSentIndex].send(this.pokerSentIndex)
-        this.pokerSentIndex++
-        // 手牌发牌结束
-        if (this.pokerSentIndex == this.pokerHandCount) {
-            // 隐藏剩余牌，为展开公牌做准备
-            // for (let i = this.pokerSentIndex + 1; i <= 22; i++) {
-            //     this.pokers[i].hide()
-            // }
-            Laya.timer.clear(this, this.onSendPoker)
-        }
-    }
+
 
     // 鼠标点击事件
     onMouseDown() {
@@ -74,14 +59,45 @@ export default class GameView extends Laya.Scene {
                     }
                     this.pokers.push(poker)
                 }
-                // 启动游戏
-                this.gameStart()
+                // 发手牌
+                Laya.timer.loop(300, this, this.onSendPoker)  // 每300毫循环一次
+                // Laya.timer.frameLoop(10, this, this.onLoop) // 每10帧循环一次
             })
         }
         // 发放公共牌
         if (this.pokerSentIndex >= this.pokerHandCount && this.pokerSentIndex < this.pokerCount) {
             Laya.timer.loop(300, this, this.onShowPublicPoker)
         }
+        // 大小盲移动
+        this.chipMove()
+    }
+
+    // 发牌
+    onSendPoker() {
+        this.pokers[this.pokerSentIndex].send(this.pokerSentIndex)
+        this.pokerSentIndex++
+        // 手牌发牌结束
+        if (this.pokerSentIndex == this.pokerHandCount) {
+            // 隐藏剩余牌，为展开公牌做准备
+            // for (let i = this.pokerSentIndex + 1; i <= 22; i++) {
+            //     this.pokers[i].hide()
+            // }
+            Laya.timer.clear(this, this.onSendPoker)
+        }
+    }
+
+    // 展开三张公牌
+    onShowPublicPoker() {
+        this.pokers[this.pokerSentIndex].sendPublic(this.pokerSentIndex - this.pokerHandCount)
+        this.pokerSentIndex++
+        // 发牌行为结束
+        if (this.pokerSentIndex >= this.pokerHandCount + 3) {
+            Laya.timer.clear(this, this.onShowPublicPoker)
+        }
+    }
+
+    // 大小盲移动
+    chipMove() {
         if (this.chip2Index >= this.seats.length) {
             this.chip2Index = 0
         }
@@ -96,15 +112,5 @@ export default class GameView extends Laya.Scene {
         this.chipText2.x = this.chip2.x - 10
         this.chipText2.y = this.chip2.y - 15
         this.chip2Index++
-    }
-
-    // 展开三张公牌
-    onShowPublicPoker() {
-        this.pokers[this.pokerSentIndex].sendPublic(this.pokerSentIndex - this.pokerHandCount)
-        this.pokerSentIndex++
-        // 发牌行为结束
-        if (this.pokerSentIndex >= this.pokerHandCount + 3) {
-            Laya.timer.clear(this, this.onShowPublicPoker)
-        }
     }
 }

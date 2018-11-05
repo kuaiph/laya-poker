@@ -44,28 +44,23 @@ export default class WebSocket {
             res = JSON.parse(res)
             switch (res.method) {
                 // case 'JOIN_TABLE':
-                //     if (res.status == 0) {
+                //     if (!res.err) {
                 //         for (let seat of res.seatArr) {
                 //             WebSocket.globalData.seats[seat.seatId].skin = `ui/${seat.headurl}`  // 设置就坐图片
                 //         }
                 //     }
                 //     break;
                 case 'SIT_DOWN':
-                    if (res.status == 0) {
-                        // WebSocket.globalData.seats[this.owner.name.slice(4)].seatStatus = 1      // 设置就坐状态
-                        WebSocket.globalData.seats[res.seatNum].skin = `ui/${res.seat.headurl}`     // 设置就坐图片
-                        if (res.oldSeatId) {
-                            let oldSeatNum = res.oldSeatId.slice(4)
-                            // WebSocket.globalData.seats[oldSeatNum].seatStatus = 0                // 设置初始状态
-                            WebSocket.globalData.seats[oldSeatNum].skin = 'ui/head.png'             // 设置初始图片
-                        }
+                    if (!res.err) {
+                        WebSocket.globalData.seats[res.seatId.slice(4)].skin = `ui/${res.seat.headurl}` // 设置就坐图片
+                        res.oldSeatId ? WebSocket.globalData.seats[res.oldSeatId.slice(4)].skin = 'ui/head.png' : null  // 设置初始图片
                         // 服务器决定是否开始发牌
                         WebSocket.globalData.isBegin = res.isBegin
                     }
                     break;
                 case 'CLOSE':
-                    if (res.status == 0) {
-                        WebSocket.globalData.seats[res.seatNum].skin = `ui/head.png`                // 设置就坐图片   
+                    if (!res.err) {
+                        WebSocket.globalData.seats[res.user.seatId.slice(4)].skin = `ui/head.png`                // 设置就坐图片   
                     }
                     break;
                 default:
