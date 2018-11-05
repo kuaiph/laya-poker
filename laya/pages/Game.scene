@@ -2,11 +2,11 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":98,
+    "selecteID":8,
     "searchKey":"View",
     "props":{"width":370,"sceneColor":"#000000","runtime":"view/GameView.js","height":658},
     "nodeParent":-1,
-    "maxID":100,
+    "maxID":109,
     "label":"View",
     "isOpen":true,
     "isDirectory":true,
@@ -36,12 +36,28 @@
             "props":{"y":304,"x":320,"skin":"ui/head.png","name":"seat7"},
             "nodeParent":1,
             "label":"seat7",
-            "isDirectory":false,
+            "isOpen":null,
+            "isDirectory":true,
             "isAniNode":true,
-            "hasChild":false,
+            "hasChild":true,
             "compId":4,
             "child":[
-                ]
+                {
+                    "type":"Script",
+                    "switchAble":true,
+                    "source":"src/sprite/Seat.js",
+                    "searchKey":"Script,Seat",
+                    "removeAble":true,
+                    "props":{},
+                    "nodeParent":4,
+                    "label":"Seat",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":100,
+                    "child":[
+                        ]
+                }]
         },
         {
             "x":15,
@@ -50,12 +66,28 @@
             "props":{"y":304,"x":0,"skin":"ui/head.png","name":"seat2"},
             "nodeParent":1,
             "label":"seat2",
-            "isDirectory":false,
+            "isOpen":null,
+            "isDirectory":true,
             "isAniNode":true,
-            "hasChild":false,
+            "hasChild":true,
             "compId":5,
             "child":[
-                ]
+                {
+                    "type":"Script",
+                    "switchAble":true,
+                    "source":"src/sprite/Seat.js",
+                    "searchKey":"Script,Seat",
+                    "removeAble":true,
+                    "props":{},
+                    "nodeParent":5,
+                    "label":"Seat",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":106,
+                    "child":[
+                        ]
+                }]
         },
         {
             "x":15,
@@ -64,12 +96,28 @@
             "props":{"y":159,"x":320,"skin":"ui/head.png","name":"seat6"},
             "nodeParent":1,
             "label":"seat6",
-            "isDirectory":false,
+            "isOpen":null,
+            "isDirectory":true,
             "isAniNode":true,
-            "hasChild":false,
+            "hasChild":true,
             "compId":6,
             "child":[
-                ]
+                {
+                    "type":"Script",
+                    "switchAble":true,
+                    "source":"src/sprite/Seat.js",
+                    "searchKey":"Script,Seat",
+                    "removeAble":true,
+                    "props":{},
+                    "nodeParent":6,
+                    "label":"Seat",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":102,
+                    "child":[
+                        ]
+                }]
         },
         {
             "x":15,
@@ -78,12 +126,28 @@
             "props":{"y":159,"x":0,"skin":"ui/head.png","name":"seat3"},
             "nodeParent":1,
             "label":"seat3",
-            "isDirectory":false,
+            "isOpen":null,
+            "isDirectory":true,
             "isAniNode":true,
-            "hasChild":false,
+            "hasChild":true,
             "compId":7,
             "child":[
-                ]
+                {
+                    "type":"Script",
+                    "switchAble":true,
+                    "source":"src/sprite/Seat.js",
+                    "searchKey":"Script,Seat",
+                    "removeAble":true,
+                    "props":{},
+                    "nodeParent":7,
+                    "label":"Seat",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":105,
+                    "child":[
+                        ]
+                }]
         },
         {
             "x":15,
@@ -92,12 +156,28 @@
             "props":{"y":578,"x":120,"skin":"ui/head.png","name":"seat0"},
             "nodeParent":1,
             "label":"seat0",
-            "isDirectory":false,
+            "isOpen":null,
+            "isDirectory":true,
             "isAniNode":true,
-            "hasChild":false,
+            "hasChild":true,
             "compId":8,
             "child":[
-                ]
+                {
+                    "type":"Script",
+                    "switchAble":true,
+                    "source":"src/sprite/Seat.js",
+                    "searchKey":"Script,Seat",
+                    "removeAble":true,
+                    "props":{},
+                    "nodeParent":8,
+                    "label":"Seat",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":108,
+                    "child":[
+                        ]
+                }]
         },
         {
             "x":15,
@@ -106,12 +186,28 @@
             "props":{"y":50,"x":70,"skin":"ui/head.png","name":"seat4"},
             "nodeParent":1,
             "label":"seat4",
-            "isDirectory":false,
+            "isOpen":null,
+            "isDirectory":true,
             "isAniNode":true,
-            "hasChild":false,
+            "hasChild":true,
             "compId":9,
             "child":[
-                ]
+                {
+                    "type":"Script",
+                    "switchAble":true,
+                    "source":"src/sprite/Seat.js",
+                    "searchKey":"Script,Seat",
+                    "removeAble":true,
+                    "props":{},
+                    "nodeParent":9,
+                    "label":"Seat",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":104,
+                    "child":[
+                        ]
+                }]
         },
         {
             "x":15,
@@ -120,12 +216,28 @@
             "props":{"y":50,"x":250,"skin":"ui/head.png","name":"seat5"},
             "nodeParent":1,
             "label":"seat5",
-            "isDirectory":false,
+            "isOpen":null,
+            "isDirectory":true,
             "isAniNode":true,
-            "hasChild":false,
+            "hasChild":true,
             "compId":10,
             "child":[
-                ]
+                {
+                    "type":"Script",
+                    "switchAble":true,
+                    "source":"src/sprite/Seat.js",
+                    "searchKey":"Script,Seat",
+                    "removeAble":true,
+                    "props":{},
+                    "nodeParent":10,
+                    "label":"Seat",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":103,
+                    "child":[
+                        ]
+                }]
         },
         {
             "x":15,
@@ -134,12 +246,28 @@
             "props":{"y":454,"x":0,"skin":"ui/head.png","name":"seat1"},
             "nodeParent":1,
             "label":"seat1",
-            "isDirectory":false,
+            "isOpen":null,
+            "isDirectory":true,
             "isAniNode":true,
-            "hasChild":false,
+            "hasChild":true,
             "compId":11,
             "child":[
-                ]
+                {
+                    "type":"Script",
+                    "switchAble":true,
+                    "source":"src/sprite/Seat.js",
+                    "searchKey":"Script,Seat",
+                    "removeAble":true,
+                    "props":{},
+                    "nodeParent":11,
+                    "label":"Seat",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":107,
+                    "child":[
+                        ]
+                }]
         },
         {
             "x":15,
@@ -148,12 +276,28 @@
             "props":{"y":454,"x":320,"skin":"ui/head.png","name":"seat8"},
             "nodeParent":1,
             "label":"seat8",
-            "isDirectory":false,
+            "isOpen":null,
+            "isDirectory":true,
             "isAniNode":true,
-            "hasChild":false,
+            "hasChild":true,
             "compId":12,
             "child":[
-                ]
+                {
+                    "type":"Script",
+                    "switchAble":true,
+                    "source":"src/sprite/Seat.js",
+                    "searchKey":"Script,Seat",
+                    "removeAble":true,
+                    "props":{},
+                    "nodeParent":12,
+                    "label":"Seat",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":101,
+                    "child":[
+                        ]
+                }]
         },
         {
             "x":15,

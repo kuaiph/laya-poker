@@ -30,6 +30,7 @@ export default class GameView extends Laya.Scene {
         // 初始化桌位
         for (let i = 0; i < this.seatCount; i++) {
             this.seats.push(this.getChildByName(`seat${i}`))
+            
         }
         // 初始化牌组
         WebSocket.send({ method: 'SEND_CARD', count: this.pokerCount }).then((data) => {
