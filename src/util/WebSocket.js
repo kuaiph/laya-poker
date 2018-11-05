@@ -9,7 +9,7 @@ export default class WebSocket {
         WebSocket.socket.endian = Laya.Byte.LITTLE_ENDIAN//采用小端
     }
     init() {
-        WebSocket.socket.connectByUrl('ws://localhost:5000/socket/poker')
+        WebSocket.socket.connectByUrl('ws://localhost:4000/socket/poker')
         WebSocket.socket.on(Laya.Event.OPEN, this, (e) => {
             console.log('连接建立')
         })

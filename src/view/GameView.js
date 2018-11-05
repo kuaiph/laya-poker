@@ -30,25 +30,8 @@ export default class GameView extends Laya.Scene {
         // 初始化桌位
         for (let i = 0; i < this.seatCount; i++) {
             this.seats.push(this.getChildByName(`seat${i}`))
-            
         }
-        // 初始化牌组
-        WebSocket.send({ method: 'SEND_CARD', count: this.pokerCount }).then((data) => {
-            for (let i = 0; i < data.pokers.length; i++) {
-                let poker = {}
-                // 手牌
-                if (i < this.pokerHandCount) {
-                    poker = new Poker({ pokerImg: this.getChildByName(`poker${i}`), seatImg: this.seats[i % this.seatCount], dataPoker: data.pokers[i] })
-                }
-                // 公牌
-                else {
-                    poker = new Poker({ pokerImg: this.getChildByName(`poker${i}`), dataPoker: data.pokers[i] })
-                }
-                this.pokers.push(poker)
-            }
-            // 启动游戏
-            this.gameStart()
-        })
+        WebSocket.globalData.seats = this.seats
         // 加载鼠标点击事件
         Laya.stage.on(Laya.Event.MOUSE_DOWN, this, this.onMouseDown)
     }
@@ -74,10 +57,31 @@ export default class GameView extends Laya.Scene {
 
     // 鼠标点击事件
     onMouseDown() {
+        // 每局游戏新开始，并且就坐人数大于2
+        if (this.pokerSentIndex == 0 && WebSocket.globalData.isSendCard) {
+            // 初始化牌组
+            WebSocket.send({ method: 'SEND_CARD', count: this.pokerCount }).then((data) => {
+                for (let i = 0; i < data.pokers.length; i++) {
+                    let poker = {}
+                    // 手牌
+                    if (i < this.pokerHandCount) {
+                        poker = new Poker({ pokerImg: this.getChildByName(`poker${i}`), seatImg: this.seats[i % this.seatCount], dataPoker: data.pokers[i] })
+                    }
+                    // 公牌
+                    else {
+                        poker = new Poker({ pokerImg: this.getChildByName(`poker${i}`), dataPoker: data.pokers[i] })
+                    }
+                    this.pokers.push(poker)
+                }
+                // 启动游戏
+                this.gameStart()
+            })
+        }
+        // 发放公共牌
         if (this.pokerSentIndex >= this.pokerHandCount && this.pokerSentIndex < this.pokerCount) {
             Laya.timer.loop(300, this, this.onShowPublicPoker)
         }
-        if(this.chip2Index >= this.seats.length){
+        if (this.chip2Index >= this.seats.length) {
             this.chip2Index = 0
         }
         // 小盲移动到大盲位置
