@@ -54,7 +54,18 @@ export default class WebSocket {
                     WebSocket.globalData.isSendCard = data.isSendCard
                 }
             }
-
+            if (data.method == 'JOIN_GAME') {
+                if (data.status == 0) {
+                    for (let seatInfo of data.seatArr) {
+                        WebSocket.globalData.seats[seatInfo.seatId].skin = `ui/${seatInfo.imgUrl}`                               // 设置就坐图片
+                    }
+                }
+            }
+            if (data.method == 'CLOSE') {
+                if (data.status == 0) {
+                    WebSocket.globalData.seats[userToken.seatId].skin = `ui/head.png`                               // 设置就坐图片   
+                }
+            }
         })
     }
 }
