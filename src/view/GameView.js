@@ -27,8 +27,9 @@ export default class GameView extends Laya.Scene {
     }
     // 初始化
     init() {
-        // 初始化桌位
+        // 初始化座位
         for (let i = 0; i < this.seatCount; i++) {
+            // 此处需要初始化座位头像
             this.seats.push(this.getChildByName(`seat${i}`))
         }
         WebSocket.globalData.seats = this.seats
@@ -58,7 +59,7 @@ export default class GameView extends Laya.Scene {
     // 鼠标点击事件
     onMouseDown() {
         // 每局游戏新开始，并且就坐人数大于2
-        if (this.pokerSentIndex == 0 && WebSocket.globalData.isSendCard) {
+        if (this.pokerSentIndex == 0 && WebSocket.globalData.isBegin) {
             // 初始化牌组
             WebSocket.send({ method: 'SEND_CARD', count: this.pokerCount }).then((data) => {
                 for (let i = 0; i < data.pokers.length; i++) {

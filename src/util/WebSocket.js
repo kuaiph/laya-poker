@@ -9,7 +9,8 @@ export default class WebSocket {
         WebSocket.socket.endian = Laya.Byte.LITTLE_ENDIAN//采用小端
     }
     init() {
-        WebSocket.socket.connectByUrl('ws://localhost:4000/socket/poker')
+        // ws://192.168.3.224:4000/socket/poker
+        WebSocket.socket.connectByUrl('ws://localhost:5000/socket/poker')
         WebSocket.socket.on(Laya.Event.OPEN, this, (e) => {
             console.log('连接建立')
         })
@@ -40,31 +41,35 @@ export default class WebSocket {
             // }
         }
         WebSocket.socket.on(Laya.Event.MESSAGE, this, (res) => {
-            let data = JSON.parse(res)
-            if (data.method == 'SEAT_DOWN') {
-                if (data.status == 0) {
-                    // WebSocket.globalData.seats[this.owner.name.slice(4)].seatStatus = 1          // 设置就坐状态
-                    WebSocket.globalData.seats[data.currentNum].skin = `ui/${data.seatInfo.imgUrl}`                               // 设置就坐图片
-                    if (data.seatNum) {
-                        let num = data.seatNum.slice(4)
-                        // WebSocket.globalData.seats[num].seatStatus = 0                           // 设置离开状态
-                        WebSocket.globalData.seats[num].skin = 'ui/head.png'                     // 设置初始图片
+            res = JSON.parse(res)
+            switch (res.method) {
+                // case 'JOIN_TABLE':
+                //     if (res.status == 0) {
+                //         for (let seat of res.seatArr) {
+                //             WebSocket.globalData.seats[seat.seatId].skin = `ui/${seat.headurl}`  // 设置就坐图片
+                //         }
+                //     }
+                //     break;
+                case 'SIT_DOWN':
+                    if (res.status == 0) {
+                        // WebSocket.globalData.seats[this.owner.name.slice(4)].seatStatus = 1      // 设置就坐状态
+                        WebSocket.globalData.seats[res.seatNum].skin = `ui/${res.seat.headurl}`     // 设置就坐图片
+                        if (res.oldSeatId) {
+                            let oldSeatNum = res.oldSeatId.slice(4)
+                            // WebSocket.globalData.seats[oldSeatNum].seatStatus = 0                // 设置初始状态
+                            WebSocket.globalData.seats[oldSeatNum].skin = 'ui/head.png'             // 设置初始图片
+                        }
+                        // 服务器决定是否开始发牌
+                        WebSocket.globalData.isBegin = res.isBegin
                     }
-                    // 服务器决定是否开始发牌
-                    WebSocket.globalData.isSendCard = data.isSendCard
-                }
-            }
-            if (data.method == 'JOIN_GAME') {
-                if (data.status == 0) {
-                    for (let seatInfo of data.seatArr) {
-                        WebSocket.globalData.seats[seatInfo.seatId].skin = `ui/${seatInfo.imgUrl}`                               // 设置就坐图片
+                    break;
+                case 'CLOSE':
+                    if (res.status == 0) {
+                        WebSocket.globalData.seats[res.seatNum].skin = `ui/head.png`                // 设置就坐图片   
                     }
-                }
-            }
-            if (data.method == 'CLOSE') {
-                if (data.status == 0) {
-                    WebSocket.globalData.seats[data.userToken.seatId].skin = `ui/head.png`                               // 设置就坐图片   
-                }
+                    break;
+                default:
+                    break;
             }
         })
     }
