@@ -63,7 +63,7 @@ export default class WebSocket {
             }
             if (data.method == 'CLOSE') {
                 if (data.status == 0) {
-                    WebSocket.globalData.seats[userToken.seatId].skin = `ui/head.png`                               // 设置就坐图片   
+                    WebSocket.globalData.seats[data.userToken.seatId].skin = `ui/head.png`                               // 设置就坐图片   
                 }
             }
         })
