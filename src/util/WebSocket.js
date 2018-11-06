@@ -63,7 +63,7 @@ export default class WebSocket {
                         seatData.pointText.visible = true               // 显示新座位金额
                         Object.assign(seatData, res.seat)
                         // 服务器决定是否开始发牌
-                        WebSocket.globalData.isBegin = res.isBegin
+                        WebSocket.globalData.round.isBegin = res.isBegin
                     }
                     break;
                 case 'CLOSE':

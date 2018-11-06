@@ -25,21 +25,23 @@ export default class GameView extends Laya.Scene {
     }
     // 重置
     reset() {
+        // 所有扑克恢复
         if (this.pokers) {
             for (let poker of this.pokers) {
                 poker.reset()
             }
         }
-        this.pokers = []                            // 扑克牌数组
-        this.pokerSentIndex = 0                     // 已发牌索引
-        this.isSendPublic = false                   // 公牌发放开始
+        this.round = WebSocket.globalData.round             // 当前局状态
+        this.pokers = []                                    // 扑克牌数组
+        this.pokerSentIndex = 0                             // 已发牌索引
+        this.isSendPublic = false                           // 公牌发放开始
         // 遍历所有空座位
         for (let i = 0; i < 9; i++) {
             // 获取界面元素
             const seat = this.getChildByName(`seat${i}`)
             const point = this.getChildByName(`point${i}`)
             // 显示头像
-            const seatData = WebSocket.globalData.round.seatMap[seat.name]
+            const seatData = this.round.seatMap[seat.name]
             seat.skin = `ui/${seatData.headurl}`
             seatData.seatImg = seat
             seatData.pointText = point
@@ -54,14 +56,14 @@ export default class GameView extends Laya.Scene {
             }
         }
         // 大小盲移动
-        this.chipMove(WebSocket.globalData.round.chipSeatIdArr)
+        this.chipMove(this.round.chipSeatIdArr)
     }
     // 鼠标点击事件
     onMouseDown() {
         this.clickCount ? this.clickCount++ : this.clickCount = 1
+        this.clickCount > 6 ? this.clickCount = 0 : null
         // 每局游戏新开始，并且就坐人数大于2
-        if (this.pokerSentIndex == 0 && WebSocket.globalData.isBegin && this.clickCount > 6) {
-            const seatMap = WebSocket.globalData.round.seatMap
+        if (this.pokerSentIndex == 0 && this.round.isBegin && this.clickCount > 5) {
             // 初始化牌组
             WebSocket.send({ method: 'SEND_CARD' }).then((data) => {
                 for (let dataPoker of data.pokers) {
@@ -69,7 +71,7 @@ export default class GameView extends Laya.Scene {
                     const pokerImg = this.getChildByName(dataPoker.pokerId)
                     // 手牌
                     if (dataPoker.seatId) {
-                        const seatImg = seatMap[dataPoker.seatId].seatImg
+                        const seatImg = this.round.seatMap[dataPoker.seatId].seatImg
                         poker = new Poker({ pokerImg, seatImg, dataPoker, isPublic: false })
                     }
                     // 公牌
@@ -126,15 +128,14 @@ export default class GameView extends Laya.Scene {
 
     // 大小盲移动
     chipMove(chipSeatIdArr) {
-        const seatMap = WebSocket.globalData.round.seatMap
         // 大盲顺时针移动
-        this.chip2.x = seatMap[chipSeatIdArr[0]].seatImg.x + 10
-        this.chip2.y = seatMap[chipSeatIdArr[0]].seatImg.y - 30
+        this.chip2.x = this.round.seatMap[chipSeatIdArr[0]].seatImg.x + 10
+        this.chip2.y = this.round.seatMap[chipSeatIdArr[0]].seatImg.y - 30
         this.chipText2.x = this.chip2.x - 10
         this.chipText2.y = this.chip2.y - 15
         // 小盲顺时针移动
-        this.chip1.x = seatMap[chipSeatIdArr[1]].seatImg.x + 10
-        this.chip1.y = seatMap[chipSeatIdArr[1]].seatImg.y - 30
+        this.chip1.x = this.round.seatMap[chipSeatIdArr[1]].seatImg.x + 10
+        this.chip1.y = this.round.seatMap[chipSeatIdArr[1]].seatImg.y - 30
         this.chipText1.x = this.chip1.x - 10
         this.chipText1.y = this.chip1.y - 15
     }
