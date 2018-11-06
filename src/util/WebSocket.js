@@ -52,18 +52,31 @@ export default class WebSocket {
                 //     break;
                 case 'SIT_DOWN':
                     if (!res.err) {
-                        WebSocket.globalData.seats[res.seatId.slice(4)].skin = `ui/${res.seat.headurl}` // 设置就坐图片
-                        res.oldSeatId ? WebSocket.globalData.seats[res.oldSeatId.slice(4)].skin = 'ui/head.png' : null  // 设置初始图片
-                        WebSocket.globalData.points[res.seatId.slice(4)].text = res.seat.point // 设置新金额
-                        WebSocket.globalData.points[res.seatId.slice(4)].visible = true // 显示新的金额
-                        res.oldSeatId ? WebSocket.globalData.points[res.oldSeatId.slice(4)].visible = false : null  // 隐藏老的金额
+                        // 旧座位设置初始图片
+                        let oldSeatData = WebSocket.globalData.round.seatMap[res.oldSeatId]
+                        if (oldSeatData) {
+                            oldSeatData.userId = 0
+                            oldSeatData.point = 0
+                            oldSeatData.headurl = 'head.png'
+                            oldSeatData.seatImg.skin = 'ui/head.png'
+                            oldSeatData.pointText.visible = false           // 隐藏老的金额
+                        }
+                        // 新座位设置就坐图片
+                        let seatData = WebSocket.globalData.round.seatMap[res.seat.seatId]
+                        for (let key in res.seat) {
+                            seatData[key] = res.seat[key]
+                        }
+                        seatData.seatImg.skin = `ui/${res.seat.headurl}`
+                        seatData.pointText.text = res.seat.point         // 设置新座位金额
+                        seatData.pointText.visible = true                // 显示新座位金额
+
                         // 服务器决定是否开始发牌
                         WebSocket.globalData.isBegin = res.isBegin
                     }
                     break;
                 case 'CLOSE':
                     if (!res.err) {
-                        WebSocket.globalData.seats[res.user.seatId.slice(4)].skin = `ui/head.png`                // 设置就坐图片   
+                        WebSocket.globalData.round.seatMap[res.user.seatId].skin = `ui/head.png`                // 设置就坐图片   
                     }
                     break;
                 case 'ROUND_BEGIN':

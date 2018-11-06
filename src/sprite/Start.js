@@ -5,7 +5,7 @@ export default class Start extends Laya.Script {
 
     }
     onClick() {
-        let userId = 123456
+        let userId = 223456
         WebSocket.send({ method: 'JOIN_TABLE', userId }).then((res) => {
             if (!res.err) {
                 WebSocket.globalData = { round: { user: res.user, seatMap: res.seatMap, chipIndex: res.chipIndex } }

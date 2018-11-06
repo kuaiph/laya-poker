@@ -30,37 +30,35 @@ export default class GameView extends Laya.Scene {
                 poker.reset()
             }
         }
-        this.seatCount = 9                          // 座位数量    
+        this.seatCount = 9                          // 座位数量
         this.seats = []                             // 座位数组     
-        this.points = []                            // 座位金额数组      
         this.pokers = []                            // 扑克牌数组
         this.pokerSentIndex = 0                     // 已发牌索引
         this.pokerHandCount = this.seatCount * 2    // 手牌数量
         this.pokerCount = this.pokerHandCount + 5   // 所有牌数量
 
-        for (let i = 0; i < this.seatCount; i++) {
-            // 初始化座位
+        // 遍历所有空座位
+        for (let i = 0; i < 9; i++) {
+            // 获取界面元素
             let seat = this.getChildByName(`seat${i}`)
-            let seatData = WebSocket.globalData.round.seatMap[`seat${i}`]
-            let point = this.getChildByName(`point${i}`)
-            if (seatData) {
-                seat.skin = `ui/${seatData.headurl}`
-                let pointData = seatData.point
-                if (pointData) {
-                    point.text = pointData
-                    point.visible = true
-                }
-            } else {
+            let point = this.getChildByName(`point${i}`)            
+            // 显示头像
+            let seatData = WebSocket.globalData.round.seatMap[seat.name]
+            seat.skin = `ui/${seatData.headurl}`
+            seatData.seatImg = seat
+            seatData.pointText = point
+            // 显示筹码
+            if (seatData.userId != 0) {
+                point.text = seatData.point
+                point.visible = true
+            }
+            else {
                 point.visible = false
             }
             this.seats.push(seat)
-            this.points.push(point)
         }
-
         // 大小盲移动
         this.chipMove(WebSocket.globalData.round.chipIndex)
-        WebSocket.globalData.seats = this.seats
-        WebSocket.globalData.points = this.points
     }
 
     // 鼠标点击事件
@@ -122,15 +120,19 @@ export default class GameView extends Laya.Scene {
     // 大小盲移动
     chipMove(chipIndex) {
         // 大盲顺时针移动
-        this.chip2.x = this.seats[chipIndex].x + 10
-        this.chip2.y = this.seats[chipIndex].y - 30
-        this.chipText2.x = this.chip2.x - 10
-        this.chipText2.y = this.chip2.y - 15
+        if (this.seats[chipIndex]) {
+            this.chip2.x = this.seats[chipIndex].x + 10
+            this.chip2.y = this.seats[chipIndex].y - 30
+            this.chipText2.x = this.chip2.x - 10
+            this.chipText2.y = this.chip2.y - 15
+        }
         // 小盲顺时针移动
         let chipIndex2 = chipIndex - 1 < 0 ? 8 : chipIndex - 1
-        this.chip1.x = this.seats[chipIndex2].x + 10
-        this.chip1.y = this.seats[chipIndex2].y - 30
-        this.chipText1.x = this.chip1.x - 10
-        this.chipText1.y = this.chip1.y - 15
+        if (this.seats[chipIndex2]) {
+            this.chip1.x = this.seats[chipIndex2].x + 10
+            this.chip1.y = this.seats[chipIndex2].y - 30
+            this.chipText1.x = this.chip1.x - 10
+            this.chipText1.y = this.chip1.y - 15
+        }
     }
 }
