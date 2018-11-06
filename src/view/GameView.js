@@ -31,23 +31,36 @@ export default class GameView extends Laya.Scene {
             }
         }
         this.seatCount = 9                          // 座位数量    
-        this.seats = []                             // 座位数组           
+        this.seats = []                             // 座位数组     
+        this.points = []                            // 座位金额数组      
         this.pokers = []                            // 扑克牌数组
         this.pokerSentIndex = 0                     // 已发牌索引
         this.pokerHandCount = this.seatCount * 2    // 手牌数量
         this.pokerCount = this.pokerHandCount + 5   // 所有牌数量
-        // 初始化座位
+
         for (let i = 0; i < this.seatCount; i++) {
+            // 初始化座位
             let seat = this.getChildByName(`seat${i}`)
             let seatData = WebSocket.globalData.round.seatMap[`seat${i}`]
+            let point = this.getChildByName(`point${i}`)
             if (seatData) {
                 seat.skin = `ui/${seatData.headurl}`
+                let pointData = seatData.point
+                if (pointData) {
+                    point.text = pointData
+                    point.visible = true
+                }
+            } else {
+                point.visible = false
             }
             this.seats.push(seat)
+            this.points.push(point)
         }
+
         // 大小盲移动
         this.chipMove(WebSocket.globalData.round.chipIndex)
         WebSocket.globalData.seats = this.seats
+        WebSocket.globalData.points = this.points
     }
 
     // 鼠标点击事件
@@ -76,6 +89,9 @@ export default class GameView extends Laya.Scene {
         // 发放公共牌
         if (this.pokerSentIndex >= this.pokerHandCount && this.pokerSentIndex < this.pokerCount) {
             Laya.timer.loop(300, this, this.onShowPublicPoker)
+        }
+        if (this.pokerSentIndex == 23) {
+            WebSocket.send({ method: 'ROUND_BEGIN' })
         }
     }
 

@@ -54,6 +54,9 @@ export default class WebSocket {
                     if (!res.err) {
                         WebSocket.globalData.seats[res.seatId.slice(4)].skin = `ui/${res.seat.headurl}` // 设置就坐图片
                         res.oldSeatId ? WebSocket.globalData.seats[res.oldSeatId.slice(4)].skin = 'ui/head.png' : null  // 设置初始图片
+                        WebSocket.globalData.points[res.seatId.slice(4)].text = res.seat.point // 设置新金额
+                        WebSocket.globalData.points[res.seatId.slice(4)].visible = true // 显示新的金额
+                        res.oldSeatId ? WebSocket.globalData.points[res.oldSeatId.slice(4)].visible = false : null  // 隐藏老的金额
                         // 服务器决定是否开始发牌
                         WebSocket.globalData.isBegin = res.isBegin
                     }
