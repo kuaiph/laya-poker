@@ -9,14 +9,7 @@ export default class GameView extends Laya.Scene {
     constructor() {
         super()
         //设置单例的引用方式，方便其他类引用
-        GameView.instance = this
-        this.seatCount = 9                          // 座位数量    
-        this.seats = []                             // 座位数组           
-        this.pokers = []                            // 扑克牌数组
-        this.pokerSentIndex = 0                     // 已发牌索引
-        this.pokerHandCount = this.seatCount * 2    // 手牌数量
-        this.pokerCount = this.pokerHandCount + 5   // 所有牌数量
-        this.chip2Index = 0                         // 大盲位索引
+        WebSocket.globalData.gameView = this
     }
     onEnable() {
         this.init()
@@ -26,20 +19,37 @@ export default class GameView extends Laya.Scene {
     }
     // 初始化
     init() {
-        // 初始化座位
-        for (let i = 0; i < this.seatCount; i++) {
-            let seat = this.getChildByName(`seat${i}`)
-            let seatData = WebSocket.globalData.seatMap[`seat${i}`]
-            if(seatData){
-                seat.skin = `ui/${seatData.headurl}`
-            }
-            this.seats.push(seat)
-        }
-        WebSocket.globalData.seats = this.seats
+        this.reset()
         // 加载鼠标点击事件
         Laya.stage.on(Laya.Event.MOUSE_DOWN, this, this.onMouseDown)
     }
 
+    reset() {
+        if (this.pokers) {
+            for (let poker of this.pokers) {
+                poker.reset()
+            }
+        }
+        this.seatCount = 9                          // 座位数量    
+        this.seats = []                             // 座位数组           
+        this.pokers = []                            // 扑克牌数组
+        this.pokerSentIndex = 0                     // 已发牌索引
+        this.pokerHandCount = this.seatCount * 2    // 手牌数量
+        this.pokerCount = this.pokerHandCount + 5   // 所有牌数量
+        this.chip2Index = 0                         // 大盲位索引
+        // 初始化座位
+        for (let i = 0; i < this.seatCount; i++) {
+            let seat = this.getChildByName(`seat${i}`)
+            let seatData = WebSocket.globalData.round.seatMap[`seat${i}`]
+            if (seatData) {
+                seat.skin = `ui/${seatData.headurl}`
+            }
+            this.seats.push(seat)
+        }
+        // 大小盲移动
+        this.chipMove(WebSocket.globalData.round.chipSeatId.slice(4))
+        WebSocket.globalData.seats = this.seats
+    }
 
     // 鼠标点击事件
     onMouseDown() {
@@ -68,8 +78,6 @@ export default class GameView extends Laya.Scene {
         if (this.pokerSentIndex >= this.pokerHandCount && this.pokerSentIndex < this.pokerCount) {
             Laya.timer.loop(300, this, this.onShowPublicPoker)
         }
-        // 大小盲移动
-        this.chipMove()
     }
 
     // 发牌
@@ -97,20 +105,16 @@ export default class GameView extends Laya.Scene {
     }
 
     // 大小盲移动
-    chipMove() {
-        if (this.chip2Index >= this.seats.length) {
-            this.chip2Index = 0
-        }
+    chipMove(chip2Index) {
         // 小盲移动到大盲位置
         this.chip1.x = this.chip2.x
         this.chip1.y = this.chip2.y
         this.chipText1.x = this.chipText2.x
         this.chipText1.y = this.chipText2.y
         // 大盲顺时针移动
-        this.chip2.x = this.seats[this.chip2Index].x + 10
-        this.chip2.y = this.seats[this.chip2Index].y - 30
+        this.chip2.x = this.seats[chip2Index].x + 10
+        this.chip2.y = this.seats[chip2Index].y - 30
         this.chipText2.x = this.chip2.x - 10
         this.chipText2.y = this.chip2.y - 15
-        this.chip2Index++
     }
 }

@@ -63,6 +63,12 @@ export default class WebSocket {
                         WebSocket.globalData.seats[res.user.seatId.slice(4)].skin = `ui/head.png`                // 设置就坐图片   
                     }
                     break;
+                case 'ROUND_BEGIN':
+                    if (!res.err && WebSocket.globalData) {
+                        WebSocket.globalData.round = res.round
+                        WebSocket.globalData.gameView.reset()                    //新一局开始游戏  
+                    }
+                    break;
                 default:
                     break;
             }

@@ -4,7 +4,7 @@ export default class Start extends Laya.Script {
     onEnable() {
     }
     onClick() {
-        WebSocket.send({ method: 'SIT_DOWN', user: WebSocket.globalData.user, seatId: this.owner.name })
+        WebSocket.send({ method: 'SIT_DOWN', user: WebSocket.globalData.round.user, seatId: this.owner.name })
         // .then((data) => {
         //     if (data.status == 0) {
         //         // WebSocket.globalData.seats[this.owner.name.slice(4)].seatStatus = 1          // 设置就坐状态

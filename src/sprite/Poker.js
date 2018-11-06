@@ -11,6 +11,10 @@ export default class Poker {
     }
     // 重置
     reset() {
+        this.pokerImg.x = 160
+        this.pokerImg.y = 297
+        this.pokerImg.skin='ui/poker.png'
+        this.pokerImg.visible = true
     }
     // 隐藏
     hide() {
