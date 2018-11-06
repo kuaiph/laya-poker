@@ -6,6 +6,7 @@ export default class Poker {
         this.pokerImg = inparam.pokerImg
         this.seatImg = inparam.seatImg
         this.dataPoker = inparam.dataPoker
+        this.isPublic = inparam.isPublic        
         this.isMe = false
         // this.reset()
     }

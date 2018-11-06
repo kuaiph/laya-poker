@@ -8,7 +8,7 @@ export default class Start extends Laya.Script {
         let userId = 223456
         WebSocket.send({ method: 'JOIN_TABLE', userId }).then((res) => {
             if (!res.err) {
-                WebSocket.globalData = { round: { user: res.user, seatMap: res.seatMap, chipIndex: res.chipIndex } }
+                WebSocket.globalData = { round: res.round, isBegin: false }
                 Laya.Scene.open('Game.scene')
             }
         })

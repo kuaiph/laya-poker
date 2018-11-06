@@ -30,23 +30,20 @@ export default class GameView extends Laya.Scene {
                 poker.reset()
             }
         }
-        this.seatCount = 9                          // 座位数量
-        this.seats = []                             // 座位数组     
         this.pokers = []                            // 扑克牌数组
         this.pokerSentIndex = 0                     // 已发牌索引
-        this.pokerHandCount = this.seatCount * 2    // 手牌数量
-        this.pokerCount = this.pokerHandCount + 5   // 所有牌数量
-
+        this.isSendPublic = false                   // 公牌发放开始
         // 遍历所有空座位
         for (let i = 0; i < 9; i++) {
             // 获取界面元素
-            let seat = this.getChildByName(`seat${i}`)
-            let point = this.getChildByName(`point${i}`)            
+            const seat = this.getChildByName(`seat${i}`)
+            const point = this.getChildByName(`point${i}`)
             // 显示头像
-            let seatData = WebSocket.globalData.round.seatMap[seat.name]
+            const seatData = WebSocket.globalData.round.seatMap[seat.name]
             seat.skin = `ui/${seatData.headurl}`
             seatData.seatImg = seat
             seatData.pointText = point
+            seatData.sendCount = 0
             // 显示筹码
             if (seatData.userId != 0) {
                 point.text = seatData.point
@@ -55,27 +52,29 @@ export default class GameView extends Laya.Scene {
             else {
                 point.visible = false
             }
-            this.seats.push(seat)
         }
         // 大小盲移动
-        this.chipMove(WebSocket.globalData.round.chipIndex)
+        this.chipMove(WebSocket.globalData.round.chipSeatIdArr)
     }
-
     // 鼠标点击事件
     onMouseDown() {
+        this.clickCount ? this.clickCount++ : this.clickCount = 1
         // 每局游戏新开始，并且就坐人数大于2
-        if (this.pokerSentIndex == 0 && WebSocket.globalData.isBegin) {
+        if (this.pokerSentIndex == 0 && WebSocket.globalData.isBegin && this.clickCount > 6) {
+            const seatMap = WebSocket.globalData.round.seatMap
             // 初始化牌组
-            WebSocket.send({ method: 'SEND_CARD', count: this.pokerCount }).then((data) => {
-                for (let i = 0; i < data.pokers.length; i++) {
+            WebSocket.send({ method: 'SEND_CARD' }).then((data) => {
+                for (let dataPoker of data.pokers) {
                     let poker = {}
+                    const pokerImg = this.getChildByName(dataPoker.pokerId)
                     // 手牌
-                    if (i < this.pokerHandCount) {
-                        poker = new Poker({ pokerImg: this.getChildByName(`poker${i}`), seatImg: this.seats[i % this.seatCount], dataPoker: data.pokers[i] })
+                    if (dataPoker.seatId) {
+                        const seatImg = seatMap[dataPoker.seatId].seatImg
+                        poker = new Poker({ pokerImg, seatImg, dataPoker, isPublic: false })
                     }
                     // 公牌
                     else {
-                        poker = new Poker({ pokerImg: this.getChildByName(`poker${i}`), dataPoker: data.pokers[i] })
+                        poker = new Poker({ pokerImg, dataPoker, isPublic: true })
                     }
                     this.pokers.push(poker)
                 }
@@ -85,54 +84,58 @@ export default class GameView extends Laya.Scene {
             })
         }
         // 发放公共牌
-        if (this.pokerSentIndex >= this.pokerHandCount && this.pokerSentIndex < this.pokerCount) {
+        if (this.isSendPublic) {
             Laya.timer.loop(300, this, this.onShowPublicPoker)
         }
-        if (this.pokerSentIndex == 23) {
+        // 新一局
+        if (this.pokerSentIndex > 0 && this.pokerSentIndex == this.pokers.length) {
             WebSocket.send({ method: 'ROUND_BEGIN' })
         }
     }
 
-    // 发牌
+    // 发手牌
     onSendPoker() {
         this.pokers[this.pokerSentIndex].send(this.pokerSentIndex)
         this.pokerSentIndex++
         // 手牌发牌结束
-        if (this.pokerSentIndex == this.pokerHandCount) {
+        if (this.pokers[this.pokerSentIndex].isPublic) {
             // 隐藏剩余牌，为展开公牌做准备
-            // for (let i = this.pokerSentIndex + 1; i <= 22; i++) {
-            //     this.pokers[i].hide()
-            // }
+            for (let i = this.pokerSentIndex + 5; i < 23; i++) {
+                this.getChildByName(`poker${i}`).visible = false
+            }
+            // 可以开始发公牌
+            this.isSendPublic = true
             Laya.timer.clear(this, this.onSendPoker)
         }
     }
 
     // 展开三张公牌
     onShowPublicPoker() {
-        this.pokers[this.pokerSentIndex].sendPublic(this.pokerSentIndex - this.pokerHandCount)
+        this.isSendPublic = false
+        this.pokers[this.pokerSentIndex].sendPublic(this.pokerSentIndex - (this.pokers.length - 5))
         this.pokerSentIndex++
-        // 发牌行为结束
-        if (this.pokerSentIndex >= this.pokerHandCount + 3) {
+        // 三张公牌结束
+        if (this.pokerSentIndex >= this.pokers.length - 2) {
             Laya.timer.clear(this, this.onShowPublicPoker)
+        }
+        // 全部牌未结束
+        if (this.pokerSentIndex < this.pokers.length) {
+            this.isSendPublic = true
         }
     }
 
     // 大小盲移动
-    chipMove(chipIndex) {
+    chipMove(chipSeatIdArr) {
+        const seatMap = WebSocket.globalData.round.seatMap
         // 大盲顺时针移动
-        if (this.seats[chipIndex]) {
-            this.chip2.x = this.seats[chipIndex].x + 10
-            this.chip2.y = this.seats[chipIndex].y - 30
-            this.chipText2.x = this.chip2.x - 10
-            this.chipText2.y = this.chip2.y - 15
-        }
+        this.chip2.x = seatMap[chipSeatIdArr[0]].seatImg.x + 10
+        this.chip2.y = seatMap[chipSeatIdArr[0]].seatImg.y - 30
+        this.chipText2.x = this.chip2.x - 10
+        this.chipText2.y = this.chip2.y - 15
         // 小盲顺时针移动
-        let chipIndex2 = chipIndex - 1 < 0 ? 8 : chipIndex - 1
-        if (this.seats[chipIndex2]) {
-            this.chip1.x = this.seats[chipIndex2].x + 10
-            this.chip1.y = this.seats[chipIndex2].y - 30
-            this.chipText1.x = this.chip1.x - 10
-            this.chipText1.y = this.chip1.y - 15
-        }
+        this.chip1.x = seatMap[chipSeatIdArr[1]].seatImg.x + 10
+        this.chip1.y = seatMap[chipSeatIdArr[1]].seatImg.y - 30
+        this.chipText1.x = this.chip1.x - 10
+        this.chipText1.y = this.chip1.y - 15
     }
 }

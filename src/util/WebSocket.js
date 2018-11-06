@@ -44,11 +44,6 @@ export default class WebSocket {
             res = JSON.parse(res)
             switch (res.method) {
                 // case 'JOIN_TABLE':
-                //     if (!res.err) {
-                //         for (let seat of res.seatArr) {
-                //             WebSocket.globalData.seats[seat.seatId].skin = `ui/${seat.headurl}`  // 设置就坐图片
-                //         }
-                //     }
                 //     break;
                 case 'SIT_DOWN':
                     if (!res.err) {
@@ -59,30 +54,27 @@ export default class WebSocket {
                             oldSeatData.point = 0
                             oldSeatData.headurl = 'head.png'
                             oldSeatData.seatImg.skin = 'ui/head.png'
-                            oldSeatData.pointText.visible = false           // 隐藏老的金额
+                            oldSeatData.pointText.visible = false       // 隐藏老的金额
                         }
                         // 新座位设置就坐图片
                         let seatData = WebSocket.globalData.round.seatMap[res.seat.seatId]
-                        for (let key in res.seat) {
-                            seatData[key] = res.seat[key]
-                        }
                         seatData.seatImg.skin = `ui/${res.seat.headurl}`
-                        seatData.pointText.text = res.seat.point         // 设置新座位金额
-                        seatData.pointText.visible = true                // 显示新座位金额
-
+                        seatData.pointText.text = res.seat.point        // 设置新座位金额
+                        seatData.pointText.visible = true               // 显示新座位金额
+                        Object.assign(seatData, res.seat)
                         // 服务器决定是否开始发牌
                         WebSocket.globalData.isBegin = res.isBegin
                     }
                     break;
                 case 'CLOSE':
                     if (!res.err) {
-                        WebSocket.globalData.round.seatMap[res.user.seatId].skin = `ui/head.png`                // 设置就坐图片   
+                        WebSocket.globalData.round.seatMap[res.user.seatId].skin = `ui/head.png`
                     }
                     break;
                 case 'ROUND_BEGIN':
                     if (!res.err && WebSocket.globalData) {
                         WebSocket.globalData.round = res.round
-                        WebSocket.globalData.gameView.reset()                    //新一局开始游戏  
+                        WebSocket.globalData.gameView.reset()           //新一局开始游戏  
                     }
                     break;
                 default:
