@@ -31,7 +31,7 @@ export default class GameView extends Laya.Scene {
                 poker.reset()
             }
         }
-        this.user = WebSocket.globalData.round              // 当前玩家
+        this.user = WebSocket.globalData.user               // 当前玩家
         this.round = WebSocket.globalData.round             // 当前局状态
         this.pokers = []                                    // 扑克牌数组
         this.pokerSentIndex = 0                             // 已发牌索引
@@ -92,7 +92,7 @@ export default class GameView extends Laya.Scene {
         }
         // 新一局
         if (this.pokerSentIndex > 0 && this.pokerSentIndex == this.pokers.length) {
-            WebSocket.send({ method: 'ROUND_BEGIN' })
+            WebSocket.send({ method: 'ROUND_BEGIN', user: this.user })
         }
     }
 
@@ -129,15 +129,17 @@ export default class GameView extends Laya.Scene {
 
     // 大小盲移动
     chipMove(chipSeatIdArr) {
-        // 大盲顺时针移动
-        this.chip2.x = this.round.seatMap[chipSeatIdArr[0]].seatImg.x + 10
-        this.chip2.y = this.round.seatMap[chipSeatIdArr[0]].seatImg.y - 30
-        this.chipText2.x = this.chip2.x - 10
-        this.chipText2.y = this.chip2.y - 15
-        // 小盲顺时针移动
-        this.chip1.x = this.round.seatMap[chipSeatIdArr[1]].seatImg.x + 10
-        this.chip1.y = this.round.seatMap[chipSeatIdArr[1]].seatImg.y - 30
-        this.chipText1.x = this.chip1.x - 10
-        this.chipText1.y = this.chip1.y - 15
+        if (chipSeatIdArr) {
+            // 大盲顺时针移动
+            this.chip2.x = this.round.seatMap[chipSeatIdArr[0]].seatImg.x + 10
+            this.chip2.y = this.round.seatMap[chipSeatIdArr[0]].seatImg.y - 30
+            this.chipText2.x = this.chip2.x - 10
+            this.chipText2.y = this.chip2.y - 15
+            // 小盲顺时针移动
+            this.chip1.x = this.round.seatMap[chipSeatIdArr[1]].seatImg.x + 10
+            this.chip1.y = this.round.seatMap[chipSeatIdArr[1]].seatImg.y - 30
+            this.chipText1.x = this.chip1.x - 10
+            this.chipText1.y = this.chip1.y - 15
+        }
     }
 }
