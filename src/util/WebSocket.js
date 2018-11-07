@@ -9,8 +9,8 @@ export default class WebSocket {
         WebSocket.socket.endian = Laya.Byte.LITTLE_ENDIAN//采用小端
     }
     init() {
-        // ws://192.168.3.224:4000/socket/poker
-        WebSocket.socket.connectByUrl('ws://localhost:5000/socket/poker')
+        // ws://192.168.3.224:5000/socket/poker
+        WebSocket.socket.connectByUrl('ws://192.168.1.2:5000/socket/poker')
         WebSocket.socket.on(Laya.Event.OPEN, this, (e) => {
             console.log('连接建立')
         })
@@ -88,7 +88,7 @@ export default class WebSocket {
                     break;
                 case 'CLOSE':
                     if (!res.err) {
-                        round.seatMap[res.user.seatId].skin = `ui/head.png`
+                        // round.seatMap[res.user.seatId].skin = `ui/head.png`
                     }
                     break;
                 default:
