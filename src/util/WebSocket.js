@@ -48,7 +48,7 @@ export default class WebSocket {
                 //     break;
                 case 'ROUND_BEGIN':
                     if (!res.err && WebSocket.globalData) {
-                        round = res.round
+                        WebSocket.globalData.round = res.round
                         WebSocket.globalData.gameView.reset()
                     }
                     break;
