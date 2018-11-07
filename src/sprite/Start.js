@@ -6,9 +6,11 @@ export default class Start extends Laya.Script {
     }
     onClick() {
         let userId = 223456
-        WebSocket.send({ method: 'ROUND_BEGIN', userId }).then((res) => {
+        let point = 200
+        let headurl = 'person.jpg'
+        WebSocket.send({ method: 'ROUND_BEGIN', user: { userId, point, headurl } }).then((res) => {
             if (!res.err) {
-                WebSocket.globalData = { round: res.round, isBegin: false }
+                WebSocket.globalData = { user: res.user, round: res.round }
                 Laya.Scene.open('Game.scene')
             }
         })

@@ -31,6 +31,7 @@ export default class GameView extends Laya.Scene {
                 poker.reset()
             }
         }
+        this.user = WebSocket.globalData.round              // 当前玩家
         this.round = WebSocket.globalData.round             // 当前局状态
         this.pokers = []                                    // 扑克牌数组
         this.pokerSentIndex = 0                             // 已发牌索引
@@ -65,7 +66,7 @@ export default class GameView extends Laya.Scene {
         // 每局游戏新开始，并且就坐人数大于2
         if (this.pokerSentIndex == 0 && this.round.isBegin && this.clickCount > 5) {
             // 初始化牌组
-            WebSocket.send({ method: 'SEND_CARD' }).then((data) => {
+            WebSocket.send({ method: 'SEND_CARD', user: this.user }).then((data) => {
                 for (let dataPoker of data.pokers) {
                     let poker = {}
                     const pokerImg = this.getChildByName(dataPoker.pokerId)

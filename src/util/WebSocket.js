@@ -42,39 +42,53 @@ export default class WebSocket {
         }
         WebSocket.socket.on(Laya.Event.MESSAGE, this, (res) => {
             res = JSON.parse(res)
+            let round = WebSocket.globalData ? WebSocket.globalData.round : false
             switch (res.method) {
                 // case 'JOIN_TABLE':
                 //     break;
                 case 'ROUND_BEGIN':
                     if (!res.err && WebSocket.globalData) {
-                        WebSocket.globalData.round = res.round
-                        WebSocket.globalData.gameView.reset()           //新一局开始游戏  
+                        round = res.round
+                        WebSocket.globalData.gameView.reset()           //新一局开始游戏
                     }
                     break;
                 case 'SIT_DOWN':
                     if (!res.err) {
                         // 旧座位设置初始图片
-                        let oldSeatData = WebSocket.globalData.round.seatMap[res.oldSeatId]
-                        if (oldSeatData) {
-                            oldSeatData.userId = 0
-                            oldSeatData.point = 0
-                            oldSeatData.headurl = 'head.png'
-                            oldSeatData.seatImg.skin = 'ui/head.png'
-                            oldSeatData.pointText.visible = false       // 隐藏老的金额
-                        }
+                        // let oldSeatData = round.seatMap[res.oldSeatId]
+                        // if (oldSeatData) {
+                        //     oldSeatData.userId = 0
+                        //     oldSeatData.point = 0
+                        //     oldSeatData.headurl = 'head.png'
+                        //     oldSeatData.seatImg.skin = 'ui/head.png'
+                        //     oldSeatData.pointText.visible = false
+                        // }
                         // 新座位设置就坐图片
-                        let seatData = WebSocket.globalData.round.seatMap[res.seat.seatId]
-                        seatData.seatImg.skin = `ui/${res.seat.headurl}`
-                        seatData.pointText.text = res.seat.point        // 设置新座位金额
-                        seatData.pointText.visible = true               // 显示新座位金额
-                        Object.assign(seatData, res.seat)
+                        // let seatData = round.seatMap[res.seat.seatId]
+                        // seatData.seatImg.skin = `ui/${res.seat.headurl}`
+                        // seatData.pointText.text = res.seat.point        // 设置新座位金额
+                        // seatData.pointText.visible = true               // 显示新座位金额
+                        // Object.assign(seatData, res.seat)
+
+                        // // 自己的位置，根据顺时针偏移量移动座位显示
+                        // if (seatData.userId == round.user.userId) {
+                        //     for (let key in seatData.displaySeatMap) {
+                        //         round.seatMap[key].seatImg.skin = `ui/${seatData.displaySeatMap[key]}`
+                        //     }
+                        // }
+
+                        for (let key in res.seatMap) {
+                            round.seatMap[key] = Object.assign(round.seatMap[key], res.seatMap[key])
+                            round.seatMap[key].seatImg.skin = `ui/${round.seatMap[key].headurl}`
+                        }
+
                         // 服务器决定是否开始发牌
-                        WebSocket.globalData.round.isBegin = res.isBegin
+                        round.isBegin = res.isBegin
                     }
                     break;
                 case 'CLOSE':
                     if (!res.err) {
-                        WebSocket.globalData.round.seatMap[res.user.seatId].skin = `ui/head.png`
+                        round.seatMap[res.user.seatId].skin = `ui/head.png`
                     }
                     break;
                 default:
