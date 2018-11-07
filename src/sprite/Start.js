@@ -5,7 +5,7 @@ export default class Start extends Laya.Script {
 
     }
     onClick() {
-        let userId = 223456
+        let userId = Math.floor(Math.random() * 1000000)
         let point = 200
         let headurl = 'person.jpg'
         WebSocket.send({ method: 'ROUND_BEGIN', user: { userId, point, headurl } }).then((res) => {
