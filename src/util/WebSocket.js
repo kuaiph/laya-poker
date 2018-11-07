@@ -45,6 +45,12 @@ export default class WebSocket {
             switch (res.method) {
                 // case 'JOIN_TABLE':
                 //     break;
+                case 'ROUND_BEGIN':
+                    if (!res.err && WebSocket.globalData) {
+                        WebSocket.globalData.round = res.round
+                        WebSocket.globalData.gameView.reset()           //新一局开始游戏  
+                    }
+                    break;
                 case 'SIT_DOWN':
                     if (!res.err) {
                         // 旧座位设置初始图片
@@ -69,12 +75,6 @@ export default class WebSocket {
                 case 'CLOSE':
                     if (!res.err) {
                         WebSocket.globalData.round.seatMap[res.user.seatId].skin = `ui/head.png`
-                    }
-                    break;
-                case 'ROUND_BEGIN':
-                    if (!res.err && WebSocket.globalData) {
-                        WebSocket.globalData.round = res.round
-                        WebSocket.globalData.gameView.reset()           //新一局开始游戏  
                     }
                     break;
                 default:
