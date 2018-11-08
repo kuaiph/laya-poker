@@ -1,5 +1,7 @@
 import WebSocket from '../util/WebSocket'
 import Poker from '../sprite/Poker'
+import Seat from '../sprite/Seat'
+import Blind from '../sprite/Blind'
 
 /**
  * 游戏主界面类
@@ -31,37 +33,30 @@ export default class GameView extends Laya.Scene {
                 poker.reset()
             }
         }
-        this.user = WebSocket.globalData.user               // 当前玩家
-        this.round = WebSocket.globalData.round             // 当前局状态
-        this.pokers = []                                    // 扑克牌数组
-        this.pokerSentIndex = 0                             // 已发牌索引
-        this.isSendPublic = false                           // 公牌发放开始
-        const pointVslider = this.getChildByName(`pointVslider`)
+        this.user = WebSocket.globalData.user                   // 当前玩家
+        this.round = WebSocket.globalData.round                 // 当前局状态
+        this.pokers = []                                        // 扑克牌数组
+        this.pokerSentIndex = 0                                 // 已发牌索引
+        this.isSendPublic = false                               // 公牌发放开始
+        const vsliderPoint = this.getChildByName(`pointVslider`)// 点数推杆
         // 遍历所有空座位
         for (let i = 0; i < 9; i++) {
             // 获取界面元素
-            const seat = this.getChildByName(`seat${i}`)
-            const point = this.getChildByName(`point${i}`)
-            const box = this.getChildByName(`box${i}`)            
-            // 显示头像
-            const seatData = this.round.seatMap[seat.name]
-            seat.skin = `ui/${seatData.headurl}`
-            seatData.seatImg = seat
-            seatData.pointText = point
-            seatData.box = box
-            seatData.pointVslider = pointVslider
-            seatData.sendCount = 0
-            // 显示筹码
-            if (seatData.userId != 0) {
-                point.text = seatData.point
-                point.visible = true
-            }
-            else {
-                point.visible = false
-            }
+            const imgSeat = this.getChildByName(`seat${i}`)
+            const textPoint = this.getChildByName(`point${i}`)
+            const box = this.getChildByName(`box${i}`)
+            // 创建座位对象，并更新全局座位图
+            // console.log(Object.assign(this.round.seatMap[imgSeat.name], { imgSeat, textPoint, box, vsliderPoint }))
+            const seat = new Seat(Object.assign(this.round.seatMap[imgSeat.name], { imgSeat, textPoint, box, vsliderPoint }))
+            seat.init()
+            // 全局状态持久化
+            this.round.seatMap[imgSeat.name] = seat
         }
-        // 大小盲移动
-        this.chipMove(this.round.chipSeatIdArr)
+        // 创建盲注，且移动
+        const blind = new Blind({ imgChipBig: this.imgChipBig, imgChipSmall: this.imgChipSmall, textChipBig: this.textChipBig, textChipSmall: this.textChipSmall, chipSeatIdArr: this.round.chipSeatIdArr, seatMap: this.round.seatMap })
+        blind.move()
+        // 全局状态持久化
+        this.round.blind = blind
     }
     // 鼠标点击事件
     onMouseDown() {
@@ -73,15 +68,15 @@ export default class GameView extends Laya.Scene {
             WebSocket.send({ method: 'SEND_CARD', user: this.user }).then((data) => {
                 for (let dataPoker of data.pokers) {
                     let poker = {}
-                    const pokerImg = this.getChildByName(dataPoker.pokerId)
+                    const imgPoker = this.getChildByName(dataPoker.pokerId)
                     // 手牌
                     if (dataPoker.seatId) {
-                        const seatImg = this.round.seatMap[dataPoker.seatId].seatImg
-                        poker = new Poker({ pokerImg, seatImg, dataPoker, isPublic: false })
+                        const imgSeat = this.round.seatMap[dataPoker.seatId].imgSeat
+                        poker = new Poker({ imgPoker, imgSeat, dataPoker, isPublic: false })
                     }
                     // 公牌
                     else {
-                        poker = new Poker({ pokerImg, dataPoker, isPublic: true })
+                        poker = new Poker({ imgPoker, dataPoker, isPublic: true })
                     }
                     this.pokers.push(poker)
                 }
@@ -128,22 +123,6 @@ export default class GameView extends Laya.Scene {
         // 全部牌未结束
         if (this.pokerSentIndex < this.pokers.length) {
             this.isSendPublic = true
-        }
-    }
-
-    // 大小盲移动
-    chipMove(chipSeatIdArr) {
-        if (chipSeatIdArr) {
-            // 大盲顺时针移动
-            this.chip2.x = this.round.seatMap[chipSeatIdArr[0]].seatImg.x + 10
-            this.chip2.y = this.round.seatMap[chipSeatIdArr[0]].seatImg.y - 30
-            this.chipText2.x = this.chip2.x - 10
-            this.chipText2.y = this.chip2.y - 15
-            // 小盲顺时针移动
-            this.chip1.x = this.round.seatMap[chipSeatIdArr[1]].seatImg.x + 10
-            this.chip1.y = this.round.seatMap[chipSeatIdArr[1]].seatImg.y - 30
-            this.chipText1.x = this.chip1.x - 10
-            this.chipText1.y = this.chip1.y - 15
         }
     }
 }

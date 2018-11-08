@@ -3,8 +3,10 @@
  */
 export default class Poker {
     constructor(inparam) {
-        this.pokerImg = inparam.pokerImg
-        this.seatImg = inparam.seatImg
+        // UI元素
+        this.imgPoker = inparam.imgPoker
+        this.imgSeat = inparam.imgSeat
+        // 数据信息
         this.dataPoker = inparam.dataPoker
         this.isPublic = inparam.isPublic        
         this.isMe = false
@@ -12,36 +14,36 @@ export default class Poker {
     }
     // 重置
     reset() {
-        this.pokerImg.x = 160
-        this.pokerImg.y = 297
-        this.pokerImg.skin='ui/poker.png'
-        this.pokerImg.visible = true
+        this.imgPoker.x = 160
+        this.imgPoker.y = 297
+        this.imgPoker.skin='ui/poker.png'
+        this.imgPoker.visible = true
     }
     // 隐藏
     hide() {
-        this.pokerImg.visible = false
+        this.imgPoker.visible = false
     }
     // 发牌
     send(pokerSentIndex) {
-        this.isMe = this.seatImg.name == 'seat0' ? true : false
-        let x = this.seatImg.x
+        this.isMe = this.imgSeat.name == 'seat0' ? true : false
+        let x = this.imgSeat.x
         if (this.isMe) {
             pokerSentIndex == 0 ? x += 50 : x += 100
         }
-        Laya.Tween.to(this.pokerImg, { x, y: this.seatImg.y }, 500, Laya.Ease.strongOut, Laya.Handler.create(this, this.sendComplete))
+        Laya.Tween.to(this.imgPoker, { x, y: this.imgSeat.y }, 500, Laya.Ease.strongOut, Laya.Handler.create(this, this.sendComplete))
     }
     // 手牌发牌完成
     sendComplete() {
         if (!this.isMe) {
-            this.pokerImg.visible = false
+            this.imgPoker.visible = false
         } else {
-            this.pokerImg.skin = `ui/${this.dataPoker.card}.png`
+            this.imgPoker.skin = `ui/${this.dataPoker.card}.png`
         }
     }
     // 发公共牌
     sendPublic(publicIndex) {
-        let x = this.pokerImg.x
-        let y = this.pokerImg.y + 80
+        let x = this.imgPoker.x
+        let y = this.imgPoker.y + 80
         switch (publicIndex) {
             case 0:
                 x -= 110
@@ -60,10 +62,10 @@ export default class Poker {
             default:
                 break;
         }
-        Laya.Tween.to(this.pokerImg, { x, y }, 500, Laya.Ease.strongOut, Laya.Handler.create(this, this.sendPublicComplete))
+        Laya.Tween.to(this.imgPoker, { x, y }, 500, Laya.Ease.strongOut, Laya.Handler.create(this, this.sendPublicComplete))
     }
     // 公牌发牌完成
     sendPublicComplete() {
-        this.pokerImg.skin = `ui/${this.dataPoker.card}.png`
+        this.imgPoker.skin = `ui/${this.dataPoker.card}.png`
     }
 }

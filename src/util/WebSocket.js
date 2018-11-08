@@ -48,30 +48,30 @@ export default class WebSocket {
                 // case 'JOIN_TABLE':
                 //     break;
                 case 'ROUND_BEGIN':
+                    // 根据返回数据更新局信息，然后重置游戏界面
                     if (!res.err && WebSocket.globalData) {
-                        WebSocket.globalData.round = res.round
+                        WebSocket.globalData.round = Object.assign(WebSocket.globalData.round, res.round)
                         WebSocket.globalData.gameView.reset()
                     }
                     break;
                 case 'SIT_DOWN':
                     if (!res.err) {
-                        // 根据返回座位图数据显示
+                        // 根据返回数据更新座位图，然后显示
                         for (let seatId in res.seatMap) {
                             round.seatMap[seatId] = Object.assign(round.seatMap[seatId], res.seatMap[seatId])
-                            round.seatMap[seatId].seatImg.skin = `ui/${round.seatMap[seatId].headurl}`
+                            round.seatMap[seatId].sitdown()
                         }
-                        // 服务器决定是否开始发牌
+                        // 根据返回是否开始
                         round.isBegin = res.isBegin
                     }
                     break;
                 case 'SEND_CARD':
                     if (!res.err) {
                         // 根据返回座位图数据显示
-
                         // 发牌结束，服务器指定玩家显示控制台
                         for (let seatId in res.seatMap) {
                             round.seatMap[seatId] = Object.assign(round.seatMap[seatId], res.seatMap[seatId])
-                            if(seatId.userId == res.user.userId){
+                            if (seatId.userId == res.user.userId) {
                                 // TODO:显示控制台
                                 break
                             }
@@ -94,7 +94,7 @@ export default class WebSocket {
 
                             }
                             // 服务器指定玩家显示控制台，显示控制台
-                            if(seatId.userId == res.bet.userId){
+                            if (seatId.userId == res.bet.userId) {
 
                             }
                         }
