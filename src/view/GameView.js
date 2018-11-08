@@ -36,16 +36,20 @@ export default class GameView extends Laya.Scene {
         this.pokers = []                                    // 扑克牌数组
         this.pokerSentIndex = 0                             // 已发牌索引
         this.isSendPublic = false                           // 公牌发放开始
+        const pointVslider = this.getChildByName(`pointVslider`)
         // 遍历所有空座位
         for (let i = 0; i < 9; i++) {
             // 获取界面元素
             const seat = this.getChildByName(`seat${i}`)
             const point = this.getChildByName(`point${i}`)
+            const box = this.getChildByName(`box${i}`)            
             // 显示头像
             const seatData = this.round.seatMap[seat.name]
             seat.skin = `ui/${seatData.headurl}`
             seatData.seatImg = seat
             seatData.pointText = point
+            seatData.box = box
+            seatData.pointVslider = pointVslider
             seatData.sendCount = 0
             // 显示筹码
             if (seatData.userId != 0) {

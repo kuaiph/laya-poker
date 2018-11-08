@@ -2,11 +2,11 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":86,
+    "selecteID":110,
     "searchKey":"View",
     "props":{"width":370,"sceneColor":"#000000","runtime":"view/GameView.js","height":658},
     "nodeParent":-1,
-    "maxID":109,
+    "maxID":120,
     "label":"View",
     "isOpen":true,
     "isDirectory":true,
@@ -145,36 +145,6 @@
                     "isAniNode":true,
                     "hasChild":false,
                     "compId":105,
-                    "child":[
-                        ]
-                }]
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "searchKey":"Image,seat0",
-            "props":{"y":578,"x":120,"skin":"ui/head.png","name":"seat0"},
-            "nodeParent":1,
-            "label":"seat0",
-            "isOpen":null,
-            "isDirectory":true,
-            "isAniNode":true,
-            "hasChild":true,
-            "compId":8,
-            "child":[
-                {
-                    "type":"Script",
-                    "switchAble":true,
-                    "source":"src/sprite/Seat.js",
-                    "searchKey":"Script,Seat",
-                    "removeAble":true,
-                    "props":{},
-                    "nodeParent":8,
-                    "label":"Seat",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":108,
                     "child":[
                         ]
                 }]
@@ -703,20 +673,6 @@
         {
             "x":15,
             "type":"Text",
-            "searchKey":"Text,point0",
-            "props":{"y":628,"x":120,"width":50,"visible":false,"text":"200","name":"point0","height":15,"color":"#ffffff","align":"center"},
-            "nodeParent":1,
-            "label":"point0",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":58,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Text",
             "searchKey":"Text,point1",
             "props":{"y":504,"x":0,"width":50,"visible":false,"text":"200","name":"point1","height":15,"color":"#ffffff","align":"center"},
             "nodeParent":1,
@@ -867,48 +823,6 @@
             "compId":70,
             "child":[
                 ]
-        },
-        {
-            "x":15,
-            "type":"Box",
-            "searchKey":"Box",
-            "props":{"y":489,"x":130,"visible":false},
-            "nodeParent":1,
-            "label":"Box",
-            "isOpen":true,
-            "isDirectory":true,
-            "isAniNode":true,
-            "hasChild":true,
-            "compId":73,
-            "child":[
-                {
-                    "x":30,
-                    "type":"Image",
-                    "searchKey":"Image",
-                    "props":{"y":2,"x":-0.5,"width":25,"skin":"ui/chiplove.png","height":25},
-                    "nodeParent":73,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":57,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Text",
-                    "searchKey":"Text",
-                    "props":{"x":22.5,"width":50,"valign":"middle","text":"20","height":30,"color":"#ffffff","align":"left"},
-                    "nodeParent":73,
-                    "label":"Text",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":71,
-                    "child":[
-                        ]
-                }]
         },
         {
             "x":15,
@@ -1271,6 +1185,194 @@
             "isAniNode":true,
             "hasChild":false,
             "compId":99,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "searchKey":"Image",
+            "props":{"y":509,"x":72.5,"skin":"ui/abandon.png"},
+            "nodeParent":1,
+            "label":"Image",
+            "isOpen":null,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":109,
+            "child":[
+                {
+                    "type":"Script",
+                    "switchAble":true,
+                    "source":"src/sprite/Abandon.js",
+                    "searchKey":"Script,Abandon",
+                    "removeAble":true,
+                    "props":{},
+                    "nodeParent":109,
+                    "label":"Abandon",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":114,
+                    "child":[
+                        ]
+                }]
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "searchKey":"Image",
+            "props":{"y":478,"x":160,"skin":"ui/rise.png"},
+            "nodeParent":1,
+            "label":"Image",
+            "isOpen":null,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":110,
+            "child":[
+                {
+                    "type":"Script",
+                    "switchAble":true,
+                    "source":"src/sprite/Rise.js",
+                    "searchKey":"Script,Rise",
+                    "removeAble":true,
+                    "props":{},
+                    "nodeParent":110,
+                    "label":"Rise",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":115,
+                    "child":[
+                        ]
+                }]
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "searchKey":"Image",
+            "props":{"y":509,"x":246.25,"skin":"ui/follow.png"},
+            "nodeParent":1,
+            "label":"Image",
+            "isOpen":null,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":111,
+            "child":[
+                {
+                    "type":"Script",
+                    "switchAble":true,
+                    "source":"src/sprite/Follow.js",
+                    "searchKey":"Script,Follow",
+                    "removeAble":true,
+                    "props":{},
+                    "nodeParent":111,
+                    "label":"Follow",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":116,
+                    "child":[
+                        ]
+                }]
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "searchKey":"Image,seat0",
+            "props":{"y":578,"x":120,"skin":"ui/head.png","name":"seat0"},
+            "nodeParent":1,
+            "label":"seat0",
+            "isOpen":null,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":8,
+            "child":[
+                {
+                    "type":"Script",
+                    "switchAble":true,
+                    "source":"src/sprite/Seat.js",
+                    "searchKey":"Script,Seat",
+                    "removeAble":true,
+                    "props":{},
+                    "nodeParent":8,
+                    "label":"Seat",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":108,
+                    "child":[
+                        ]
+                }]
+        },
+        {
+            "x":15,
+            "type":"Text",
+            "searchKey":"Text,point0",
+            "props":{"y":628,"x":120,"width":50,"visible":false,"text":"200","name":"point0","height":15,"color":"#ffffff","align":"center"},
+            "nodeParent":1,
+            "label":"point0",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":58,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Box",
+            "searchKey":"Box,box0",
+            "props":{"y":544,"x":170,"visible":false,"name":"box0"},
+            "nodeParent":1,
+            "label":"box0",
+            "isOpen":false,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":73,
+            "child":[
+                {
+                    "type":"Image",
+                    "searchKey":"Image,boxChip",
+                    "props":{"y":2,"x":-0.5,"width":25,"skin":"ui/chiplove.png","name":"boxChip","height":25},
+                    "nodeParent":73,
+                    "label":"boxChip",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":57,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"Text",
+                    "searchKey":"Text,boxPoint",
+                    "props":{"x":22.5,"width":50,"valign":"middle","text":"20","name":"boxPoint","height":30,"color":"#ffffff","align":"left"},
+                    "nodeParent":73,
+                    "label":"boxPoint",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":71,
+                    "child":[
+                        ]
+                }]
+        },
+        {
+            "x":15,
+            "type":"VSlider",
+            "searchKey":"VSlider,pointVslider",
+            "props":{"y":420.5,"x":183.5,"width":14,"visible":false,"value":100,"skin":"ui/vslider.png","name":"pointVslider","height":120},
+            "nodeParent":1,
+            "label":"pointVslider",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":119,
             "child":[
                 ]
         }],
