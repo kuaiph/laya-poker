@@ -56,14 +56,50 @@ export default class WebSocket {
                 case 'SIT_DOWN':
                     if (!res.err) {
                         // 根据返回座位图数据显示
-                        for (let key in res.seatMap) {
-                            round.seatMap[key] = Object.assign(round.seatMap[key], res.seatMap[key])
-                            round.seatMap[key].seatImg.skin = `ui/${round.seatMap[key].headurl}`
+                        for (let seatId in res.seatMap) {
+                            round.seatMap[seatId] = Object.assign(round.seatMap[seatId], res.seatMap[seatId])
+                            round.seatMap[seatId].seatImg.skin = `ui/${round.seatMap[seatId].headurl}`
                         }
                         // 服务器决定是否开始发牌
                         round.isBegin = res.isBegin
                     }
                     break;
+                case 'SEND_CARD':
+                    if (!res.err) {
+                        // 根据返回座位图数据显示
+
+                        // 发牌结束，服务器指定玩家显示控制台
+                        for (let seatId in res.seatMap) {
+                            round.seatMap[seatId] = Object.assign(round.seatMap[seatId], res.seatMap[seatId])
+                            if(seatId.userId == res.user.userId){
+                                // TODO:显示控制台
+                                break
+                            }
+                        }
+                    }
+                    break
+                case 'BET':
+                    if (!res.err) {
+                        // 更新座位图上显示所有人的投注情况
+                        for (let seatId in res.seatMap) {
+                            round.seatMap[seatId] = Object.assign(round.seatMap[seatId], res.seatMap[seatId])
+                            // 更新每个人投注值
+                            let boxPoint = round.seatMap[seatId].box.getChildByName(`boxPoint`)
+                            boxPoint.text = this.boxPointCount += 10
+                            boxPoint.visible = true
+                            // TODO:更新底池
+
+                            // 投注玩家的座位，隐藏控制台
+                            if (seatId.userId == res.user.userId) {
+
+                            }
+                            // 服务器指定玩家显示控制台，显示控制台
+                            if(seatId.userId == res.bet.userId){
+
+                            }
+                        }
+                    }
+                    break
                 case 'CLOSE':
                     if (!res.err) {
                         // 根据返回座位图显示
