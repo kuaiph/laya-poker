@@ -1,5 +1,6 @@
 import WebSocket from '../util/WebSocket'
 import Poker from '../sprite/Poker'
+import Dealer from '../sprite/Dealer'
 import Seat from '../sprite/Seat'
 import Blind from '../sprite/Blind'
 
@@ -27,35 +28,30 @@ export default class GameView extends Laya.Scene {
     }
     // 重置
     reset() {
-        // 所有扑克恢复
-        if (this.pokers) {
-            for (let poker of this.pokers) {
-                poker.reset()
-            }
-        }
+        // 获取UI元素
         this.user = WebSocket.globalData.user                   // 当前玩家
         this.round = WebSocket.globalData.round                 // 当前局状态
-        this.pokers = []                                        // 扑克牌数组
-        this.pokerSentIndex = 0                                 // 已发牌索引
-        this.isSendPublic = false                               // 公牌发放开始
         const vsliderPoint = this.getChildByName(`pointVslider`)// 点数推杆
-        // 遍历所有空座位
+        // 创建发牌器
+        if (this.round.dealer) {
+            this.round.dealer.reset()
+        }
+        this.round.dealer = new Dealer()
+        // 创建空座位
         for (let i = 0; i < 9; i++) {
             // 获取界面元素
             const imgSeat = this.getChildByName(`seat${i}`)
             const textPoint = this.getChildByName(`point${i}`)
             const box = this.getChildByName(`box${i}`)
-            // 创建座位对象，并更新全局座位图
+            // 创建座位对象，并更新全局座位图，最后全局状态持久化
             // console.log(Object.assign(this.round.seatMap[imgSeat.name], { imgSeat, textPoint, box, vsliderPoint }))
             const seat = new Seat(Object.assign(this.round.seatMap[imgSeat.name], { imgSeat, textPoint, box, vsliderPoint }))
             seat.init()
-            // 全局状态持久化
             this.round.seatMap[imgSeat.name] = seat
         }
-        // 创建盲注，且移动
+        // 创建盲注，且移动，最后全局状态持久化
         const blind = new Blind({ imgChipBig: this.imgChipBig, imgChipSmall: this.imgChipSmall, textChipBig: this.textChipBig, textChipSmall: this.textChipSmall, chipSeatIdArr: this.round.chipSeatIdArr, seatMap: this.round.seatMap })
         blind.move()
-        // 全局状态持久化
         this.round.blind = blind
     }
     // 鼠标点击事件
@@ -63,9 +59,10 @@ export default class GameView extends Laya.Scene {
         this.clickCount ? this.clickCount++ : this.clickCount = 1
         this.clickCount > 6 ? this.clickCount = 0 : null
         // 每局游戏新开始，并且就坐人数大于2
-        if (this.pokerSentIndex == 0 && this.round.isBegin && this.clickCount > 5) {
-            // 初始化牌组
+        if (this.round.dealer.pokerSentIndex == 0 && this.round.isBegin && this.clickCount > 5) {
+            // 请求服务器发牌
             WebSocket.send({ method: 'SEND_CARD', user: this.user }).then((data) => {
+                // 初始化真实牌组
                 for (let dataPoker of data.pokers) {
                     let poker = {}
                     const imgPoker = this.getChildByName(dataPoker.pokerId)
@@ -78,51 +75,21 @@ export default class GameView extends Laya.Scene {
                     else {
                         poker = new Poker({ imgPoker, dataPoker, isPublic: true })
                     }
-                    this.pokers.push(poker)
+                    // 发牌手增加牌
+                    this.round.dealer.addPoker(poker)
                 }
-                // 发手牌
-                Laya.timer.loop(300, this, this.onSendPoker)  // 每300毫循环一次
-                // Laya.timer.frameLoop(10, this, this.onLoop) // 每10帧循环一次
+                // 初始化剩余牌组
+                for (let i = data.pokers.length; i < 23; i++) {
+                    this.round.dealer.addRestPoker(new Poker({ imgPoker: this.getChildByName(`poker${i}`) }))
+                }
+                this.round.dealer.sendPoker()
             })
         }
         // 发放公共牌
-        if (this.isSendPublic) {
-            Laya.timer.loop(300, this, this.onShowPublicPoker)
-        }
+        this.round.dealer.showPublicPoker()
         // 新一局
-        if (this.pokerSentIndex > 0 && this.pokerSentIndex == this.pokers.length) {
+        if (this.round.dealer.pokerSentIndex > 0 && this.round.dealer.pokerSentIndex == this.round.dealer.pokers.length) {
             WebSocket.send({ method: 'ROUND_BEGIN', user: this.user })
-        }
-    }
-
-    // 发手牌
-    onSendPoker() {
-        this.pokers[this.pokerSentIndex].send(this.pokerSentIndex)
-        this.pokerSentIndex++
-        // 手牌发牌结束
-        if (this.pokers[this.pokerSentIndex].isPublic) {
-            // 隐藏剩余牌，为展开公牌做准备
-            for (let i = this.pokerSentIndex + 5; i < 23; i++) {
-                this.getChildByName(`poker${i}`).visible = false
-            }
-            // 可以开始发公牌
-            this.isSendPublic = true
-            Laya.timer.clear(this, this.onSendPoker)
-        }
-    }
-
-    // 展开三张公牌
-    onShowPublicPoker() {
-        this.isSendPublic = false
-        this.pokers[this.pokerSentIndex].sendPublic(this.pokerSentIndex - (this.pokers.length - 5))
-        this.pokerSentIndex++
-        // 三张公牌结束
-        if (this.pokerSentIndex >= this.pokers.length - 2) {
-            Laya.timer.clear(this, this.onShowPublicPoker)
-        }
-        // 全部牌未结束
-        if (this.pokerSentIndex < this.pokers.length) {
-            this.isSendPublic = true
         }
     }
 }
