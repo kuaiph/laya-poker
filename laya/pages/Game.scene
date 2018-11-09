@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":95,
+    "selectedBox":73,
+    "selecteID":57,
     "searchKey":"View",
     "props":{"width":370,"sceneColor":"#000000","runtime":"view/GameView.js","height":658},
     "nodeParent":-1,
@@ -1125,14 +1125,13 @@
             "props":{"y":464,"x":247.5,"visible":false,"name":"box8"},
             "nodeParent":1,
             "label":"box8",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":95,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image",
                     "props":{"y":2,"x":-0.5,"width":25,"skin":"ui/chiplove.png","height":25},
@@ -1146,7 +1145,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Text",
                     "searchKey":"Text",
                     "props":{"x":22.5,"width":50,"valign":"middle","text":"20","height":30,"color":"#ffffff","align":"left"},
@@ -1192,7 +1190,7 @@
             "x":15,
             "type":"Image",
             "searchKey":"Image,imgAbandon",
-            "props":{"y":509,"x":72.5,"var":"imgAbandon","skin":"ui/abandon.png"},
+            "props":{"y":509,"x":72.5,"visible":false,"var":"imgAbandon","skin":"ui/abandon.png"},
             "nodeParent":1,
             "label":"imgAbandon",
             "isOpen":null,
@@ -1222,7 +1220,7 @@
             "x":15,
             "type":"Image",
             "searchKey":"Image,imgRise",
-            "props":{"y":478,"x":160,"var":"imgRise","skin":"ui/rise.png"},
+            "props":{"y":478,"x":160,"visible":false,"var":"imgRise","skin":"ui/rise.png"},
             "nodeParent":1,
             "label":"imgRise",
             "isOpen":null,
@@ -1252,7 +1250,7 @@
             "x":15,
             "type":"Image",
             "searchKey":"Image,imgFollow",
-            "props":{"y":509,"x":246.25,"var":"imgFollow","skin":"ui/follow.png"},
+            "props":{"y":509,"x":246.25,"visible":false,"var":"imgFollow","skin":"ui/follow.png"},
             "nodeParent":1,
             "label":"imgFollow",
             "isOpen":null,
@@ -1285,13 +1283,14 @@
             "props":{"y":578,"x":120,"skin":"ui/head.png","name":"seat0"},
             "nodeParent":1,
             "label":"seat0",
-            "isOpen":null,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":8,
             "child":[
                 {
+                    "x":30,
                     "type":"Script",
                     "switchAble":true,
                     "source":"src/sprite/Seat.js",
@@ -1329,13 +1328,14 @@
             "props":{"y":544,"x":170,"visible":false,"name":"box0"},
             "nodeParent":1,
             "label":"box0",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":73,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,boxChip",
                     "props":{"y":2,"x":-0.5,"width":25,"skin":"ui/chiplove.png","name":"boxChip","height":25},
@@ -1349,6 +1349,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Text",
                     "searchKey":"Text,boxPoint",
                     "props":{"x":22.5,"width":50,"valign":"middle","text":"20","name":"boxPoint","height":30,"color":"#ffffff","align":"left"},
