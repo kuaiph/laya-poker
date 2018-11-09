@@ -28,10 +28,15 @@ export default class GameView extends Laya.Scene {
     }
     // 重置
     reset() {
-        // 获取UI元素
+        // 获取全局状态信息
         this.user = WebSocket.globalData.user                   // 当前玩家
         this.round = WebSocket.globalData.round                 // 当前局状态
-        const vsliderPoint = this.getChildByName(`pointVslider`)// 点数推杆
+        // 获取UI元素
+        const imgAbandon = this.imgAbandon                      // 弃牌按钮
+        const imgRise = this.imgRise                            // 加注按钮
+        const imgFollow = this.imgFollow                        // 跟注按钮
+        const vsliderPoint = this.vsliderPoint                  // 点数推杆        
+        
         // 创建发牌器
         if (this.round.dealer) {
             this.round.dealer.reset()
@@ -44,8 +49,7 @@ export default class GameView extends Laya.Scene {
             const textPoint = this.getChildByName(`point${i}`)
             const box = this.getChildByName(`box${i}`)
             // 创建座位对象，并更新全局座位图，最后全局状态持久化
-            // console.log(Object.assign(this.round.seatMap[imgSeat.name], { imgSeat, textPoint, box, vsliderPoint }))
-            const seat = new Seat(Object.assign(this.round.seatMap[imgSeat.name], { imgSeat, textPoint, box, vsliderPoint }))
+            const seat = new Seat(Object.assign(this.round.seatMap[imgSeat.name], { imgSeat, textPoint, box, imgAbandon, imgRise, imgFollow, vsliderPoint }))
             seat.init()
             this.round.seatMap[imgSeat.name] = seat
         }

@@ -9,8 +9,11 @@ export default class Seat extends Laya.Script {
             // UI元素
             this.imgSeat = inparam.imgSeat              // 座位图
             this.textPoint = inparam.textPoint          // 玩家点数
-            this.box = inparam.box                      // 玩家投注点
-            this.vsliderPoint = inparam.vsliderPoint    // 玩家投注滑杆
+            this.box = inparam.box                      // 玩家投注盒子
+            this.imgAbandon = inparam.imgAbandon        // 弃牌按钮
+            this.imgRise = inparam.imgRise              // 加注按钮
+            this.imgFollow = inparam.imgFollow          // 跟注按钮
+            this.vsliderPoint = inparam.vsliderPoint    // 投注推杆
             // 数据信息
             this.seatId = inparam.seatId                // 座位显示ID
             this.seatNo = inparam.seatNo                // 座位真实ID
@@ -45,9 +48,10 @@ export default class Seat extends Laya.Script {
 
     // 发言
     speak() {
-
-    }
-
+        this.imgAbandon.visible = true      // 弃牌按钮
+        this.imgRise.visible = true         // 加注按钮
+        this.imgFollow.visible = true       // 跟注按钮
+    }   
     // 沉默
     silent() {
 

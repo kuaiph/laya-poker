@@ -11,15 +11,19 @@ export default class Rise extends Laya.Script {
             for (let seatId in this.seatMap) {
                 let seat = this.seatMap[seatId]
                 if (seat.userId == this.user.userId) {
+                    // 投注点数增加
                     this.boxPoint = seat.box.getChildByName(`boxPoint`)
                     this.boxPoint.text = this.boxPointCount += 10
+                    // 隐藏自己
                     this.owner.visible = false
                     // seat.pointVslider.max = 0
                     // seat.pointVslider.min = 200
                     // seat.pointVslider.value = 20
-                    seat.pointVslider.showLabel = false
-                    seat.pointVslider.visible = true
-                    seat.box.visible = true         
+                    // 显示推杆
+                    seat.vsliderPoint.showLabel = false
+                    seat.vsliderPoint.visible = true
+                    // 显示投注盒子
+                    seat.box.visible = true
                     break
                 }
             }

@@ -56,7 +56,7 @@ export default class WebSocket {
                     break;
                 case 'SIT_DOWN':
                     if (!res.err) {
-                        // 根据返回数据更新座位图，然后显示
+                        // 根据返回数据更新座位图，然后显示每个座位
                         for (let seatId in res.seatMap) {
                             round.seatMap[seatId] = Object.assign(round.seatMap[seatId], res.seatMap[seatId])
                             round.seatMap[seatId].sitdown()
@@ -67,12 +67,12 @@ export default class WebSocket {
                     break;
                 case 'SEND_CARD':
                     if (!res.err) {
-                        // 根据返回座位图数据显示
-                        // 发牌结束，服务器指定玩家显示控制台
+                        // 根据返回数据更新座位图，然后显示操作台
                         for (let seatId in res.seatMap) {
                             round.seatMap[seatId] = Object.assign(round.seatMap[seatId], res.seatMap[seatId])
+                            // 说话人显示操作台
                             if (seatId.userId == res.user.userId) {
-                                // TODO:显示控制台
+                                round.seatMap[seatId].speak()
                                 break
                             }
                         }
