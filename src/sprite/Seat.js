@@ -54,7 +54,11 @@ export default class Seat extends Laya.Script {
     }   
     // 沉默
     silent() {
-
+        this.imgAbandon.visible = false     // 弃牌按钮
+        this.imgRise.visible = false        // 加注按钮
+        this.imgFollow.visible = false      // 跟注按钮
+        this.vsliderPoint = false           // 分数推杆
+        this.box = false                    // 投注盒子
     }
 
     // 离座

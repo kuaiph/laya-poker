@@ -73,7 +73,10 @@ export default class WebSocket {
                             // 说话人显示操作台
                             if (seatId.userId == res.user.userId) {
                                 round.seatMap[seatId].speak()
-                                break
+                            }
+                            // 其他人隐藏操作台 
+                            else {
+                                round.seatMap[seatId].silent()
                             }
                         }
                     }
