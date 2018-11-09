@@ -39,6 +39,11 @@ export default class Seat extends Laya.Script {
         } else {
             this.textPoint.visible = false
         }
+        this.imgAbandon.visible = false
+        this.imgRise.visible = false
+        this.imgFollow.visible = false
+        this.vsliderPoint.visible = false
+        this.box.visible = false        
     }
 
     // 入座
@@ -51,7 +56,7 @@ export default class Seat extends Laya.Script {
         this.imgAbandon.visible = true      // 弃牌按钮
         this.imgRise.visible = true         // 加注按钮
         this.imgFollow.visible = true       // 跟注按钮
-    }   
+    }
     // 沉默
     silent() {
         this.imgAbandon.visible = false     // 弃牌按钮

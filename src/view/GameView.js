@@ -35,7 +35,7 @@ export default class GameView extends Laya.Scene {
         const imgAbandon = this.imgAbandon                      // 弃牌按钮
         const imgRise = this.imgRise                            // 加注按钮
         const imgFollow = this.imgFollow                        // 跟注按钮
-        const vsliderPoint = this.vsliderPoint                  // 点数推杆        
+        const vsliderPoint = this.vsliderPoint                  // 点数推杆
         
         // 创建发牌器
         if (this.round.dealer) {
