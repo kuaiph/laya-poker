@@ -71,7 +71,7 @@ export default class WebSocket {
                         for (let seatId in res.seatMap) {
                             round.seatMap[seatId] = Object.assign(round.seatMap[seatId], res.seatMap[seatId])
                             // 说话人显示操作台
-                            if (round.seatMap[seatId].isSpeak) {
+                            if (round.seatMap[seatId].isSpeak && round.seatMap[seatId].userId==WebSocket.globalData.user.userId) {
                                 round.seatMap[seatId].speak()
                             }
                             // 其他人隐藏操作台 
