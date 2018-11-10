@@ -50,7 +50,7 @@ export default class Seat extends Laya.Script {
         this.box.visible = false
     }
 
-    //倒计时20秒，每秒需要转18度
+    //倒计时18秒
     countDown() {
         this.maskSeat.alpha = 0.5
         let intervalHandle = setInterval(() => {
