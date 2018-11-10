@@ -36,7 +36,7 @@ export default class GameView extends Laya.Scene {
         const imgRise = this.imgRise                            // 加注按钮
         const imgFollow = this.imgFollow                        // 跟注按钮
         const vsliderPoint = this.vsliderPoint                  // 点数推杆
-        
+
         // 创建发牌器
         if (this.round.dealer) {
             this.round.dealer.reset()
@@ -48,8 +48,10 @@ export default class GameView extends Laya.Scene {
             const imgSeat = this.getChildByName(`seat${i}`)
             const textPoint = this.getChildByName(`point${i}`)
             const box = this.getChildByName(`box${i}`)
+            const maskSeat = this[`mask${i}`]
+            // const maskSeat = imgSeat.getChildByName(`mask${i}`)            
             // 创建座位对象，并更新全局座位图，最后全局状态持久化
-            const seat = new Seat(Object.assign(this.round.seatMap[imgSeat.name], { imgSeat, textPoint, box, imgAbandon, imgRise, imgFollow, vsliderPoint }))
+            const seat = new Seat(Object.assign(this.round.seatMap[imgSeat.name], { imgSeat, textPoint, box, imgAbandon, imgRise, imgFollow, vsliderPoint, maskSeat }))
             seat.init()
             this.round.seatMap[imgSeat.name] = seat
         }

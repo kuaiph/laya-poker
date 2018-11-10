@@ -70,9 +70,16 @@ export default class WebSocket {
                         // 根据返回数据更新座位图，然后显示操作台
                         for (let seatId in res.seatMap) {
                             round.seatMap[seatId] = Object.assign(round.seatMap[seatId], res.seatMap[seatId])
-                            // 说话人显示操作台
-                            if (round.seatMap[seatId].userId == WebSocket.globalData.user.userId && round.seatMap[seatId].isSpeak) {
-                                round.seatMap[seatId].speak()
+                            // 找到说话人
+                            if (round.seatMap[seatId].isSpeak) {
+                                // 如果是自己显示操作台
+                                if (round.seatMap[seatId].userId == WebSocket.globalData.user.userId) {
+                                    round.seatMap[seatId].speak()
+                                }
+                                // 其他人显示倒计时
+                                else {
+                                    round.seatMap[seatId].countDown()
+                                }
                                 break
                             }
                         }

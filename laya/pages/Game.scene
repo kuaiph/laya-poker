@@ -1,12 +1,12 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":73,
-    "selecteID":57,
+    "selectedBox":12,
+    "selecteID":129,
     "searchKey":"View",
     "props":{"width":370,"sceneColor":"#000000","runtime":"view/GameView.js","height":658},
     "nodeParent":-1,
-    "maxID":120,
+    "maxID":130,
     "label":"View",
     "isOpen":true,
     "isDirectory":true,
@@ -32,17 +32,63 @@
         {
             "x":15,
             "type":"Image",
+            "searchKey":"Image,seat8",
+            "props":{"y":454,"x":320,"skin":"ui/head.png","name":"seat8"},
+            "nodeParent":1,
+            "label":"seat8",
+            "isOpen":true,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":12,
+            "child":[
+                {
+                    "x":30,
+                    "type":"Script",
+                    "switchAble":true,
+                    "source":"src/sprite/Seat.js",
+                    "searchKey":"Script,Seat",
+                    "removeAble":true,
+                    "props":{},
+                    "nodeParent":12,
+                    "label":"Seat",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":101,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Sprite",
+                    "searchKey":"Sprite,mask8,mask8",
+                    "props":{"y":0,"x":0,"width":50,"var":"mask8","texture":"ui/head.png","renderType":"mask","name":"mask8","height":50,"alpha":0.5},
+                    "nodeParent":12,
+                    "label":"mask8",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":129,
+                    "child":[
+                        ]
+                }]
+        },
+        {
+            "x":15,
+            "type":"Image",
             "searchKey":"Image,seat7",
             "props":{"y":304,"x":320,"visible":true,"skin":"ui/head.png","name":"seat7"},
             "nodeParent":1,
             "label":"seat7",
-            "isOpen":null,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":4,
             "child":[
                 {
+                    "x":30,
                     "type":"Script",
                     "switchAble":true,
                     "source":"src/sprite/Seat.js",
@@ -57,34 +103,18 @@
                     "compId":100,
                     "child":[
                         ]
-                }]
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "searchKey":"Image,seat2",
-            "props":{"y":304,"x":0,"skin":"ui/head.png","name":"seat2"},
-            "nodeParent":1,
-            "label":"seat2",
-            "isOpen":null,
-            "isDirectory":true,
-            "isAniNode":true,
-            "hasChild":true,
-            "compId":5,
-            "child":[
+                },
                 {
-                    "type":"Script",
-                    "switchAble":true,
-                    "source":"src/sprite/Seat.js",
-                    "searchKey":"Script,Seat",
-                    "removeAble":true,
-                    "props":{},
-                    "nodeParent":5,
-                    "label":"Seat",
+                    "x":30,
+                    "type":"Sprite",
+                    "searchKey":"Sprite,mask7,mask7",
+                    "props":{"y":0,"x":0,"width":50,"var":"mask7","texture":"ui/head.png","renderType":"mask","name":"mask7","height":50,"alpha":0.5},
+                    "nodeParent":4,
+                    "label":"mask7",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":106,
+                    "compId":128,
                     "child":[
                         ]
                 }]
@@ -96,13 +126,14 @@
             "props":{"y":159,"x":320,"skin":"ui/head.png","name":"seat6"},
             "nodeParent":1,
             "label":"seat6",
-            "isOpen":null,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":6,
             "child":[
                 {
+                    "x":30,
                     "type":"Script",
                     "switchAble":true,
                     "source":"src/sprite/Seat.js",
@@ -117,64 +148,18 @@
                     "compId":102,
                     "child":[
                         ]
-                }]
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "searchKey":"Image,seat3",
-            "props":{"y":159,"x":0,"skin":"ui/head.png","name":"seat3"},
-            "nodeParent":1,
-            "label":"seat3",
-            "isOpen":null,
-            "isDirectory":true,
-            "isAniNode":true,
-            "hasChild":true,
-            "compId":7,
-            "child":[
+                },
                 {
-                    "type":"Script",
-                    "switchAble":true,
-                    "source":"src/sprite/Seat.js",
-                    "searchKey":"Script,Seat",
-                    "removeAble":true,
-                    "props":{},
-                    "nodeParent":7,
-                    "label":"Seat",
+                    "x":30,
+                    "type":"Sprite",
+                    "searchKey":"Sprite,mask6,mask6",
+                    "props":{"y":0,"x":0,"width":50,"var":"mask6","texture":"ui/head.png","renderType":"mask","name":"mask6","height":50,"alpha":0.5},
+                    "nodeParent":6,
+                    "label":"mask6",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":105,
-                    "child":[
-                        ]
-                }]
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "searchKey":"Image,seat4",
-            "props":{"y":50,"x":70,"skin":"ui/head.png","name":"seat4"},
-            "nodeParent":1,
-            "label":"seat4",
-            "isOpen":null,
-            "isDirectory":true,
-            "isAniNode":true,
-            "hasChild":true,
-            "compId":9,
-            "child":[
-                {
-                    "type":"Script",
-                    "switchAble":true,
-                    "source":"src/sprite/Seat.js",
-                    "searchKey":"Script,Seat",
-                    "removeAble":true,
-                    "props":{},
-                    "nodeParent":9,
-                    "label":"Seat",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":104,
+                    "compId":127,
                     "child":[
                         ]
                 }]
@@ -186,13 +171,14 @@
             "props":{"y":50,"x":250,"skin":"ui/head.png","name":"seat5"},
             "nodeParent":1,
             "label":"seat5",
-            "isOpen":null,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":10,
             "child":[
                 {
+                    "x":30,
                     "type":"Script",
                     "switchAble":true,
                     "source":"src/sprite/Seat.js",
@@ -207,6 +193,155 @@
                     "compId":103,
                     "child":[
                         ]
+                },
+                {
+                    "x":30,
+                    "type":"Sprite",
+                    "searchKey":"Sprite,mask5,mask5",
+                    "props":{"y":0,"x":0,"width":50,"var":"mask5","texture":"ui/head.png","renderType":"mask","name":"mask5","height":50,"alpha":0.5},
+                    "nodeParent":10,
+                    "label":"mask5",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":126,
+                    "child":[
+                        ]
+                }]
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "searchKey":"Image,seat4",
+            "props":{"y":50,"x":70,"skin":"ui/head.png","name":"seat4"},
+            "nodeParent":1,
+            "label":"seat4",
+            "isOpen":true,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":9,
+            "child":[
+                {
+                    "x":30,
+                    "type":"Script",
+                    "switchAble":true,
+                    "source":"src/sprite/Seat.js",
+                    "searchKey":"Script,Seat",
+                    "removeAble":true,
+                    "props":{},
+                    "nodeParent":9,
+                    "label":"Seat",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":104,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Sprite",
+                    "searchKey":"Sprite,mask4,mask4",
+                    "props":{"y":0,"x":0,"width":50,"var":"mask4","texture":"ui/head.png","renderType":"mask","name":"mask4","height":50,"alpha":0.5},
+                    "nodeParent":9,
+                    "label":"mask4",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":125,
+                    "child":[
+                        ]
+                }]
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "searchKey":"Image,seat3",
+            "props":{"y":159,"x":0,"skin":"ui/head.png","name":"seat3"},
+            "nodeParent":1,
+            "label":"seat3",
+            "isOpen":true,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":7,
+            "child":[
+                {
+                    "x":30,
+                    "type":"Script",
+                    "switchAble":true,
+                    "source":"src/sprite/Seat.js",
+                    "searchKey":"Script,Seat",
+                    "removeAble":true,
+                    "props":{},
+                    "nodeParent":7,
+                    "label":"Seat",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":105,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Sprite",
+                    "searchKey":"Sprite,mask3,mask3",
+                    "props":{"y":0,"x":0,"width":50,"var":"mask3","texture":"ui/head.png","renderType":"mask","name":"mask3","height":50,"alpha":0.5},
+                    "nodeParent":7,
+                    "label":"mask3",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":124,
+                    "child":[
+                        ]
+                }]
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "searchKey":"Image,seat2",
+            "props":{"y":304,"x":0,"skin":"ui/head.png","name":"seat2"},
+            "nodeParent":1,
+            "label":"seat2",
+            "isOpen":true,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":5,
+            "child":[
+                {
+                    "x":30,
+                    "type":"Script",
+                    "switchAble":true,
+                    "source":"src/sprite/Seat.js",
+                    "searchKey":"Script,Seat",
+                    "removeAble":true,
+                    "props":{},
+                    "nodeParent":5,
+                    "label":"Seat",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":106,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Sprite",
+                    "searchKey":"Sprite,mask2,mask2",
+                    "props":{"y":0,"x":0,"width":50,"var":"mask2","texture":"ui/head.png","renderType":"mask","name":"mask2","height":50,"alpha":0.5},
+                    "nodeParent":5,
+                    "label":"mask2",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":123,
+                    "child":[
+                        ]
                 }]
         },
         {
@@ -216,13 +351,14 @@
             "props":{"y":454,"x":0,"skin":"ui/head.png","name":"seat1"},
             "nodeParent":1,
             "label":"seat1",
-            "isOpen":null,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":11,
             "child":[
                 {
+                    "x":30,
                     "type":"Script",
                     "switchAble":true,
                     "source":"src/sprite/Seat.js",
@@ -237,34 +373,63 @@
                     "compId":107,
                     "child":[
                         ]
+                },
+                {
+                    "x":30,
+                    "type":"Sprite",
+                    "searchKey":"Sprite,mask1,mask1",
+                    "props":{"y":0,"x":0,"width":50,"var":"mask1","texture":"ui/head.png","renderType":"mask","name":"mask1","height":50,"alpha":0.5},
+                    "nodeParent":11,
+                    "label":"mask1",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":122,
+                    "child":[
+                        ]
                 }]
         },
         {
             "x":15,
             "type":"Image",
-            "searchKey":"Image,seat8",
-            "props":{"y":454,"x":320,"skin":"ui/head.png","name":"seat8"},
+            "searchKey":"Image,seat0",
+            "props":{"y":578,"x":120,"skin":"ui/head.png","name":"seat0"},
             "nodeParent":1,
-            "label":"seat8",
-            "isOpen":null,
+            "label":"seat0",
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
-            "compId":12,
+            "compId":8,
             "child":[
                 {
+                    "x":30,
                     "type":"Script",
                     "switchAble":true,
                     "source":"src/sprite/Seat.js",
                     "searchKey":"Script,Seat",
                     "removeAble":true,
                     "props":{},
-                    "nodeParent":12,
+                    "nodeParent":8,
                     "label":"Seat",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":101,
+                    "compId":108,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Sprite",
+                    "searchKey":"Sprite,mask0,mask0",
+                    "props":{"width":50,"var":"mask0","texture":"ui/head.png","renderType":"mask","name":"mask0","height":50,"alpha":0.5},
+                    "nodeParent":8,
+                    "label":"mask0",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":120,
                     "child":[
                         ]
                 }]
@@ -1272,37 +1437,6 @@
                     "isAniNode":true,
                     "hasChild":false,
                     "compId":116,
-                    "child":[
-                        ]
-                }]
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "searchKey":"Image,seat0",
-            "props":{"y":578,"x":120,"skin":"ui/head.png","name":"seat0"},
-            "nodeParent":1,
-            "label":"seat0",
-            "isOpen":true,
-            "isDirectory":true,
-            "isAniNode":true,
-            "hasChild":true,
-            "compId":8,
-            "child":[
-                {
-                    "x":30,
-                    "type":"Script",
-                    "switchAble":true,
-                    "source":"src/sprite/Seat.js",
-                    "searchKey":"Script,Seat",
-                    "removeAble":true,
-                    "props":{},
-                    "nodeParent":8,
-                    "label":"Seat",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":108,
                     "child":[
                         ]
                 }]

@@ -2,11 +2,11 @@
     "x":0,
     "type":"View",
     "selectedBox":2,
-    "selecteID":7,
+    "selecteID":30,
     "searchKey":"View",
-    "props":{"width":370,"sceneColor":"#000000","height":658},
+    "props":{"width":370,"sceneColor":"#000000","runtime":"view/StartView.js","height":658},
     "nodeParent":-1,
-    "maxID":8,
+    "maxID":37,
     "label":"View",
     "isOpen":true,
     "isDirectory":true,
@@ -21,7 +21,7 @@
             "props":{"y":309,"x":122,"stateNum":"3","skin":"ui/btn_start.png"},
             "nodeParent":2,
             "label":"Button",
-            "isOpen":null,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
@@ -57,6 +57,130 @@
             "compId":7,
             "child":[
                 ]
+        },
+        {
+            "x":15,
+            "type":"Box",
+            "searchKey":"Box",
+            "props":{"y":420,"x":62.59509897659362},
+            "nodeParent":2,
+            "label":"Box",
+            "isOpen":false,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":15,
+            "child":[
+                {
+                    "type":"Sprite",
+                    "searchKey":"Sprite",
+                    "props":{"y":4.90490102340641,"x":5.4049010234063815,"texture":"ui/person.jpg"},
+                    "nodeParent":15,
+                    "label":"Sprite",
+                    "isOpen":false,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":8,
+                    "child":[
+                        {
+                            "type":"Sprite",
+                            "searchKey":"Sprite",
+                            "props":{"y":0,"x":0,"width":50,"renderType":"mask","height":50},
+                            "nodeParent":8,
+                            "label":"Sprite",
+                            "isOpen":true,
+                            "isDirectory":true,
+                            "isAniNode":true,
+                            "hasChild":true,
+                            "compId":9,
+                            "child":[
+                                {
+                                    "type":"Circle",
+                                    "searchKey":"Circle",
+                                    "props":{"y":25,"x":25,"radius":25,"lineWidth":1,"fillColor":"#ff0000"},
+                                    "nodeParent":9,
+                                    "label":"Circle",
+                                    "isDirectory":false,
+                                    "isAniNode":true,
+                                    "hasChild":false,
+                                    "compId":13,
+                                    "child":[
+                                        ]
+                                }]
+                        }]
+                },
+                {
+                    "type":"Pie",
+                    "searchKey":"Pie",
+                    "props":{"y":29.90490102340641,"x":29.40490102340638,"startAngle":15,"radius":30,"lineWidth":1,"fillColor":"#ff0000","endAngle":135},
+                    "nodeParent":15,
+                    "label":"Pie",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":14,
+                    "child":[
+                        ]
+                }]
+        },
+        {
+            "x":15,
+            "type":"Sprite",
+            "searchKey":"Sprite",
+            "props":{"zOrder":0,"y":424.9524505117032,"x":159.5,"texture":"ui/person.jpg","alpha":1},
+            "nodeParent":2,
+            "label":"Sprite",
+            "isOpen":true,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":17,
+            "child":[
+                {
+                    "x":30,
+                    "type":"Sprite",
+                    "searchKey":"Sprite,s1,s1",
+                    "props":{"zOrder":1,"y":0,"x":0,"width":50,"var":"s1","renderType":"mask","name":"s1","height":50,"alpha":1},
+                    "nodeParent":17,
+                    "label":"s1",
+                    "isOpen":true,
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":18,
+                    "child":[
+                        ]
+                }]
+        },
+        {
+            "x":15,
+            "type":"Sprite",
+            "searchKey":"Sprite",
+            "props":{"y":424.9524505117032,"x":247,"width":50,"texture":"ui/person.jpg","height":50,"alpha":1},
+            "nodeParent":2,
+            "label":"Sprite",
+            "isOpen":true,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":30,
+            "child":[
+                {
+                    "x":30,
+                    "type":"Sprite",
+                    "searchKey":"Sprite,s2",
+                    "props":{"y":0,"x":0,"width":50,"var":"s2","texture":"ui/person.jpg","renderType":"mask","height":50,"alpha":0.5},
+                    "nodeParent":30,
+                    "label":"s2",
+                    "isOpen":true,
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":29,
+                    "child":[
+                        ]
+                }]
         }],
     "animations":[
         {
