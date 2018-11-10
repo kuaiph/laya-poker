@@ -63,9 +63,9 @@ export default class GameView extends Laya.Scene {
     // 鼠标点击事件
     onMouseDown() {
         this.clickCount ? this.clickCount++ : this.clickCount = 1
-        this.clickCount > 6 ? this.clickCount = 0 : null
+        this.clickCount > 4 ? this.clickCount = 0 : null
         // 每局游戏新开始，并且就坐人数大于2
-        if (this.round.dealer.pokerSentIndex == 0 && this.round.isBegin && this.clickCount > 5) {
+        if (this.round.dealer.pokerSentIndex == 0 && this.round.isBegin && this.clickCount > 3) {
             // 请求服务器发牌
             WebSocket.send({ method: 'SEND_CARD', user: this.user }).then((data) => {
                 // 初始化真实牌组

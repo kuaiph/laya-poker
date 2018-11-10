@@ -90,19 +90,21 @@ export default class WebSocket {
                         // 更新座位图上显示所有人的投注情况
                         for (let seatId in res.seatMap) {
                             round.seatMap[seatId] = Object.assign(round.seatMap[seatId], res.seatMap[seatId])
-                            // 更新每个人投注值
-                            let boxPoint = round.seatMap[seatId].box.getChildByName(`boxPoint`)
-                            boxPoint.text = this.boxPointCount += 10
-                            boxPoint.visible = true
-                            // TODO:更新底池
-
-                            // 投注玩家的座位，隐藏控制台
-                            if (seatId.userId == res.user.userId) {
-
+                            // 更新投注值
+                            if(round.seatMap[seatId].userId == res.betUserId){
+                                round.seatMap[seatId].bet(10)
                             }
-                            // 服务器指定玩家显示控制台，显示控制台
-                            if (seatId.userId == res.bet.userId) {
-
+                            // TODO:更新底池
+                        }
+                        // 如果有下一位投注
+                        if (res.nextBetSeatId) {
+                            // 如果是自己显示操作台
+                            if (round.seatMap[res.nextBetSeatId].userId == WebSocket.globalData.user.userId) {
+                                round.seatMap[res.nextBetSeatId].speak()
+                            }
+                             // 其他人显示倒计时
+                            else {
+                                round.seatMap[res.nextBetSeatId].countDown()
                             }
                         }
                     }
