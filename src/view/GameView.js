@@ -60,42 +60,75 @@ export default class GameView extends Laya.Scene {
         blind.move()
         this.round.blind = blind
     }
-    // 鼠标点击事件
-    onMouseDown() {
-        this.clickCount ? this.clickCount++ : this.clickCount = 1
-        this.clickCount > 4 ? this.clickCount = 0 : null
-        // 每局游戏新开始，并且就坐人数大于2
-        if (this.round.dealer.pokerSentIndex == 0 && this.round.isBegin && this.clickCount > 3) {
-            // 请求服务器发牌
-            WebSocket.send({ method: 'SEND_CARD', user: this.user }).then((data) => {
-                // 初始化真实牌组
-                for (let dataPoker of data.pokers) {
-                    let poker = {}
-                    const imgPoker = this.getChildByName(dataPoker.pokerId)
-                    // 手牌
-                    if (dataPoker.seatId) {
-                        const imgSeat = this.round.seatMap[dataPoker.seatId].imgSeat
-                        poker = new Poker({ imgPoker, imgSeat, dataPoker, isPublic: false })
-                    }
-                    // 公牌
-                    else {
-                        poker = new Poker({ imgPoker, dataPoker, isPublic: true })
-                    }
-                    // 发牌手增加牌
-                    this.round.dealer.addPoker(poker)
-                }
-                // 初始化剩余牌组
-                for (let i = data.pokers.length; i < 23; i++) {
-                    this.round.dealer.addRestPoker(new Poker({ imgPoker: this.getChildByName(`poker${i}`) }))
-                }
-                this.round.dealer.sendPoker()
-            })
+    
+    // 发牌事件
+    sendPoker(data) {
+        // 初始化真实牌组
+        for (let dataPoker of data.pokers) {
+            let poker = {}
+            const imgPoker = this.getChildByName(dataPoker.pokerId)
+            // 手牌
+            if (dataPoker.seatId) {
+                const imgSeat = this.round.seatMap[dataPoker.seatId].imgSeat
+                poker = new Poker({ imgPoker, imgSeat, dataPoker, isPublic: false })
+            }
+            // 公牌
+            else {
+                poker = new Poker({ imgPoker, dataPoker, isPublic: true })
+            }
+            // 发牌手增加牌
+            this.round.dealer.addPoker(poker)
         }
+        // 初始化剩余牌组
+        for (let i = data.pokers.length; i < 23; i++) {
+            this.round.dealer.addRestPoker(new Poker({ imgPoker: this.getChildByName(`poker${i}`) }))
+        }
+        this.round.dealer.sendPoker()
+
         // 发放公共牌
-        this.round.dealer.showPublicPoker()
+        // this.round.dealer.showPublicPoker()
         // 新一局
-        if (this.round.dealer.pokerSentIndex > 0 && this.round.dealer.pokerSentIndex == this.round.dealer.pokers.length) {
-            WebSocket.send({ method: 'ROUND_BEGIN', user: this.user })
-        }
+        // if (this.round.dealer.pokerSentIndex > 0 && this.round.dealer.pokerSentIndex == this.round.dealer.pokers.length) {
+        //     WebSocket.send({ method: 'ROUND_BEGIN', user: this.user })
+        // }
     }
+
+    // 鼠标点击事件
+    // onMouseDown() {
+    //     this.clickCount ? this.clickCount++ : this.clickCount = 1
+    //     this.clickCount > 4 ? this.clickCount = 0 : null
+    //     // 每局游戏新开始，并且就坐人数大于2
+    //     if (this.round.dealer.pokerSentIndex == 0 && this.round.isBegin && this.clickCount > 3) {
+    //         // 请求服务器发牌
+    //         WebSocket.send({ method: 'SEND_CARD', user: this.user }).then((data) => {
+    //             // 初始化真实牌组
+    //             for (let dataPoker of data.pokers) {
+    //                 let poker = {}
+    //                 const imgPoker = this.getChildByName(dataPoker.pokerId)
+    //                 // 手牌
+    //                 if (dataPoker.seatId) {
+    //                     const imgSeat = this.round.seatMap[dataPoker.seatId].imgSeat
+    //                     poker = new Poker({ imgPoker, imgSeat, dataPoker, isPublic: false })
+    //                 }
+    //                 // 公牌
+    //                 else {
+    //                     poker = new Poker({ imgPoker, dataPoker, isPublic: true })
+    //                 }
+    //                 // 发牌手增加牌
+    //                 this.round.dealer.addPoker(poker)
+    //             }
+    //             // 初始化剩余牌组
+    //             for (let i = data.pokers.length; i < 23; i++) {
+    //                 this.round.dealer.addRestPoker(new Poker({ imgPoker: this.getChildByName(`poker${i}`) }))
+    //             }
+    //             this.round.dealer.sendPoker()
+    //         })
+    //     }
+    //     // 发放公共牌
+    //     this.round.dealer.showPublicPoker()
+    //     // 新一局
+    //     if (this.round.dealer.pokerSentIndex > 0 && this.round.dealer.pokerSentIndex == this.round.dealer.pokers.length) {
+    //         WebSocket.send({ method: 'ROUND_BEGIN', user: this.user })
+    //     }
+    // }
 }

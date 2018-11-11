@@ -49,7 +49,10 @@ export default class WebSocket {
                 //     break;
                 case 'ROUND_BEGIN':
                     // 根据返回数据更新局信息，然后重置游戏界面
-                    if (!res.err && WebSocket.globalData) {
+                    if (!WebSocket.globalData) {
+                        WebSocket.globalData = { user: res.user, round: res.round }
+                        Laya.Scene.open('Game.scene')
+                    } else {
                         WebSocket.globalData.round = Object.assign(WebSocket.globalData.round, res.round)
                         WebSocket.globalData.gameView.reset()
                     }
@@ -61,12 +64,12 @@ export default class WebSocket {
                             round.seatMap[seatId] = Object.assign(round.seatMap[seatId], res.seatMap[seatId])
                             round.seatMap[seatId].sitdown()
                         }
-                        // 根据返回是否开始
-                        round.isBegin = res.isBegin
                     }
                     break;
                 case 'SEND_CARD':
                     if (!res.err) {
+                        // 开始发牌
+                        WebSocket.globalData.gameView.sendPoker(res)
                         // 根据返回数据更新座位图，然后显示操作台
                         for (let seatId in res.seatMap) {
                             round.seatMap[seatId] = Object.assign(round.seatMap[seatId], res.seatMap[seatId])
@@ -91,7 +94,7 @@ export default class WebSocket {
                         for (let seatId in res.seatMap) {
                             round.seatMap[seatId] = Object.assign(round.seatMap[seatId], res.seatMap[seatId])
                             // 更新投注值
-                            if(round.seatMap[seatId].userId == res.betUserId){
+                            if (round.seatMap[seatId].userId == res.betUserId) {
                                 round.seatMap[seatId].bet(10)
                             }
                             // TODO:更新底池
@@ -102,7 +105,7 @@ export default class WebSocket {
                             if (round.seatMap[res.nextBetSeatId].userId == WebSocket.globalData.user.userId) {
                                 round.seatMap[res.nextBetSeatId].speak()
                             }
-                             // 其他人显示倒计时
+                            // 其他人显示倒计时
                             else {
                                 round.seatMap[res.nextBetSeatId].countDown()
                             }

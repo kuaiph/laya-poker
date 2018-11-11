@@ -8,12 +8,7 @@ export default class Start extends Laya.Script {
         let userId = Math.floor(Math.random() * 1000000)
         let point = 200
         let headurl = 'person.jpg'
-        WebSocket.send({ method: 'ROUND_BEGIN', user: { userId, point, headurl } }).then((res) => {
-            if (!res.err) {
-                WebSocket.globalData = { user: res.user, round: res.round }
-                Laya.Scene.open('Game.scene')
-            }
-        })
+        WebSocket.send({ method: 'ROUND_BEGIN', user: { userId, point, headurl } })
     }
 
     // onAssetsLoaded(settings) {
@@ -29,7 +24,7 @@ export default class Start extends Laya.Script {
     //     let lb = [minX,maxY]
     //     let rt = [maxX,minY]
     //     let rb = [maxX,maxY]
-        
+
     //     // console.log(lt,lb,rt,rb)
 
     //     p.x = minX
