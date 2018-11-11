@@ -1,8 +1,7 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":86,
-    "selecteID":88,
+    "selectedBox":1,
     "searchKey":"View",
     "props":{"width":370,"sceneColor":"#000000","runtime":"view/GameView.js","height":658},
     "nodeParent":-1,
