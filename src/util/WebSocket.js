@@ -70,22 +70,6 @@ export default class WebSocket {
                     if (!res.err) {
                         // 开始发牌
                         WebSocket.globalData.gameView.sendPoker(res)
-                        // 根据返回数据更新座位图，然后显示操作台
-                        for (let seatId in res.seatMap) {
-                            round.seatMap[seatId] = Object.assign(round.seatMap[seatId], res.seatMap[seatId])
-                            // 找到说话人
-                            if (round.seatMap[seatId].isSpeak) {
-                                // 如果是自己显示操作台
-                                if (round.seatMap[seatId].userId == WebSocket.globalData.user.userId) {
-                                    round.seatMap[seatId].speak()
-                                }
-                                // 其他人显示倒计时
-                                else {
-                                    round.seatMap[seatId].countDown()
-                                }
-                                break
-                            }
-                        }
                     }
                     break
                 case 'BET':
@@ -99,16 +83,34 @@ export default class WebSocket {
                             }
                             // TODO:更新底池
                         }
-                        // 如果有下一位投注
-                        if (res.nextBetSeatId) {
+                        // // 如果有下一位投注
+                        // if (res.nextBetSeatId) {
+                        //     // 如果是自己显示操作台
+                        //     if (round.seatMap[res.nextBetSeatId].userId == WebSocket.globalData.user.userId) {
+                        //         round.seatMap[res.nextBetSeatId].speak()
+                        //     }
+                        //     // 其他人显示倒计时
+                        //     else {
+                        //         round.seatMap[res.nextBetSeatId].countDown()
+                        //     }
+                        // }
+                    }
+                    break
+                case 'NEXT_SPEAK':
+                    // 根据返回数据更新座位图，然后显示操作台
+                    for (let seatId in res.seatMap) {
+                        round.seatMap[seatId] = Object.assign(round.seatMap[seatId], res.seatMap[seatId])
+                        // 找到说话人
+                        if (round.seatMap[seatId].isSpeak) {
                             // 如果是自己显示操作台
-                            if (round.seatMap[res.nextBetSeatId].userId == WebSocket.globalData.user.userId) {
-                                round.seatMap[res.nextBetSeatId].speak()
+                            if (round.seatMap[seatId].userId == WebSocket.globalData.user.userId) {
+                                round.seatMap[seatId].speak()
                             }
                             // 其他人显示倒计时
                             else {
-                                round.seatMap[res.nextBetSeatId].countDown()
+                                round.seatMap[seatId].countDown()
                             }
+                            break
                         }
                     }
                     break
