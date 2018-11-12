@@ -61,7 +61,7 @@ export default class GameView extends Laya.Scene {
         this.round.blind = blind
     }
     
-    // 发牌事件
+    // 发手牌
     sendPoker(data) {
         // 初始化真实牌组
         for (let dataPoker of data.pokers) {
@@ -84,13 +84,11 @@ export default class GameView extends Laya.Scene {
             this.round.dealer.addRestPoker(new Poker({ imgPoker: this.getChildByName(`poker${i}`) }))
         }
         this.round.dealer.sendPoker()
+    }
 
-        // 发放公共牌
-        // this.round.dealer.showPublicPoker()
-        // 新一局
-        // if (this.round.dealer.pokerSentIndex > 0 && this.round.dealer.pokerSentIndex == this.round.dealer.pokers.length) {
-        //     WebSocket.send({ method: 'ROUND_BEGIN', user: this.user })
-        // }
+    // 发公共牌
+    sendPublicPoker(){
+        this.round.dealer.showPublicPoker()
     }
 
     // 鼠标点击事件

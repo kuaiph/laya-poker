@@ -68,8 +68,22 @@ export default class WebSocket {
                     break;
                 case 'SEND_CARD':
                     if (!res.err) {
-                        // 开始发牌
-                        WebSocket.globalData.gameView.sendPoker(res)
+                        // 发手牌
+                        if (res.phase == 0) {
+                            WebSocket.globalData.gameView.sendPoker(res)
+                        }
+                        // 3张公牌
+                        else if (res.phase == 1) {
+                            WebSocket.globalData.gameView.sendPublicPoker(res)
+                        }
+                        // 4张公牌 
+                        else if (res.phase == 2) {
+                            WebSocket.globalData.gameView.sendPublicPoker(res)
+                        }
+                        // 5张公牌 
+                        else if (res.phase == 3) {
+                            WebSocket.globalData.gameView.sendPublicPoker(res)
+                        }
                     }
                     break
                 case 'BET':
