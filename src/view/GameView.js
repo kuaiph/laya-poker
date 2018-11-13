@@ -78,7 +78,6 @@ export default class GameView extends Laya.Scene {
 
     // 发公共牌
     sendPublicPoker(pokerArr) {
-        this.round.blind.move(this.round.chipSeatIdArr)
         for (let dataPoker of pokerArr) {
             const imgPoker = this.getChildByName(dataPoker.pokerId)
             let poker = new Poker({ imgPoker, dataPoker, isPublic: true })

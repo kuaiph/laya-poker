@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":55,
+    "selecteID":8,
     "searchKey":"View",
     "props":{"width":370,"sceneColor":"#000000","runtime":"view/GameView.js","height":658},
     "nodeParent":-1,
@@ -380,13 +380,14 @@
             "props":{"y":578,"x":120,"width":50,"skin":"ui/head.png","rotation":0,"name":"seat0","height":50},
             "nodeParent":1,
             "label":"seat0",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":8,
             "child":[
                 {
+                    "x":30,
                     "type":"Script",
                     "switchAble":true,
                     "source":"src/sprite/Seat.js",
@@ -403,6 +404,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Sprite",
                     "searchKey":"Sprite,mask0,mask0",
                     "props":{"width":50,"var":"mask0","texture":"ui/head.png","renderType":"mask","name":"mask0","height":50,"alpha":0.5},
