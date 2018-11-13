@@ -61,7 +61,7 @@ export default class Seat extends Laya.Script {
                 clearInterval(intervalHandle)
             }
             this.speakCountDown++
-        }, 50)
+        }, 25)
     }
 
     // 入座
@@ -84,7 +84,7 @@ export default class Seat extends Laya.Script {
         this.imgRise.visible = false        // 加注按钮
         this.imgFollow.visible = false      // 跟注按钮
         this.vsliderPoint.visible = false   // 分数推杆
-        this.box.visible = false            // 投注盒子
+        // this.box.visible = false            // 投注盒子
     }
     // 投注
     bet(point) {

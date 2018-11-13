@@ -66,23 +66,46 @@ export default class WebSocket {
                         }
                     }
                     break;
-                case 'SEND_CARD':
+                case 'SEND_POKER':
                     if (!res.err) {
+                        let phase = res.phase
+                        let pokerArr = res.pokerArr
+                        // console.log(phase)
+                        // console.log(JSON.stringify(pokerArr))
                         // 发手牌
-                        if (res.phase == 0) {
-                            WebSocket.globalData.gameView.sendPoker(res)
+                        if (phase == 0) {
+                            WebSocket.globalData.gameView.sendPoker(pokerArr)
                         }
                         // 3张公牌
-                        else if (res.phase == 1) {
-                            WebSocket.globalData.gameView.sendPublicPoker(res)
+                        else if (phase == 1) {
+                            WebSocket.globalData.gameView.sendPublicPoker(pokerArr)
                         }
                         // 4张公牌 
-                        else if (res.phase == 2) {
-                            WebSocket.globalData.gameView.sendPublicPoker(res)
+                        else if (phase == 2) {
+                            WebSocket.globalData.gameView.sendPublicPoker(pokerArr)
                         }
-                        // 5张公牌 
-                        else if (res.phase == 3) {
-                            WebSocket.globalData.gameView.sendPublicPoker(res)
+                        // 5张公牌
+                        else if (phase == 3) {
+                            WebSocket.globalData.gameView.sendPublicPoker(pokerArr)
+                        }
+                    }
+                    break
+                case 'NEXT_SPEAK':
+                    // 根据返回数据更新座位图，然后显示操作台
+                    for (let seatId in res.seatMap) {
+                        round.seatMap[seatId] = Object.assign(round.seatMap[seatId], res.seatMap[seatId])
+                        // 找到说话人
+                        if (round.seatMap[seatId].isSpeak) {
+                            // 如果是自己显示操作台
+                            if (round.seatMap[seatId].userId == WebSocket.globalData.user.userId) {
+                                round.seatMap[seatId].speak()
+                            }
+                            // 其他人显示倒计时
+                            else {
+                                round.seatMap[seatId].silent()
+                                round.seatMap[seatId].countDown()
+                            }
+                            break
                         }
                     }
                     break
@@ -108,24 +131,6 @@ export default class WebSocket {
                         //         round.seatMap[res.nextBetSeatId].countDown()
                         //     }
                         // }
-                    }
-                    break
-                case 'NEXT_SPEAK':
-                    // 根据返回数据更新座位图，然后显示操作台
-                    for (let seatId in res.seatMap) {
-                        round.seatMap[seatId] = Object.assign(round.seatMap[seatId], res.seatMap[seatId])
-                        // 找到说话人
-                        if (round.seatMap[seatId].isSpeak) {
-                            // 如果是自己显示操作台
-                            if (round.seatMap[seatId].userId == WebSocket.globalData.user.userId) {
-                                round.seatMap[seatId].speak()
-                            }
-                            // 其他人显示倒计时
-                            else {
-                                round.seatMap[seatId].countDown()
-                            }
-                            break
-                        }
                     }
                     break
                 case 'CLOSE':
