@@ -58,7 +58,6 @@ export default class Dealer {
 
     // 展开3/4/5公牌
     onShowPublicPoker() {
-        console.log('发公牌')
         this.pokers[this.pokerSentIndex].sendPublic(this.pokerPublicSentIndex)
         this.pokerPublicSentIndex++
         this.pokerSentIndex++        

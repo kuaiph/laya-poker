@@ -55,14 +55,13 @@ export default class GameView extends Laya.Scene {
             seat.init()
             this.round.seatMap[imgSeat.name] = seat
         }
-        // 创建盲注，且移动，最后全局状态持久化
-        const blind = new Blind({ imgChipBig: this.imgChipBig, imgChipSmall: this.imgChipSmall, textChipBig: this.textChipBig, textChipSmall: this.textChipSmall, chipSeatIdArr: this.round.chipSeatIdArr, seatMap: this.round.seatMap })
-        blind.move()
-        this.round.blind = blind
+        // 创建盲注，最后全局状态持久化
+        this.round.blind = new Blind({ imgChipBig: this.imgChipBig, imgChipSmall: this.imgChipSmall, textChipBig: this.textChipBig, textChipSmall: this.textChipSmall, seatMap: this.round.seatMap })
     }
 
     // 发手牌
     sendPoker(pokerArr, seatCount) {
+        this.round.blind.move(this.round.chipSeatIdArr)
         for (let dataPoker of pokerArr) {
             const imgPoker = this.getChildByName(dataPoker.pokerId)
             const imgSeat = this.round.seatMap[dataPoker.seatId].imgSeat
@@ -79,6 +78,7 @@ export default class GameView extends Laya.Scene {
 
     // 发公共牌
     sendPublicPoker(pokerArr) {
+        this.round.blind.move(this.round.chipSeatIdArr)
         for (let dataPoker of pokerArr) {
             const imgPoker = this.getChildByName(dataPoker.pokerId)
             let poker = new Poker({ imgPoker, dataPoker, isPublic: true })

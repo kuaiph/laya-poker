@@ -54,12 +54,13 @@ export default class Seat extends Laya.Script {
     countDown() {
         this.maskSeat.alpha = 0.5
         let intervalHandle = setInterval(() => {
-            this.maskSeat.graphics.drawPie(this.maskSeat.width / 2, this.maskSeat.height / 2, this.maskSeat.width, 0, this.speakCountDown, "#000000");
-            if (this.speakCountDown > 360) {
-                this.maskSeat.graphics.clear()
+            this.maskSeat.graphics.clear()
+            if (this.speakCountDown >= 360) {
                 this.speakCountDown = 0
-                clearInterval(intervalHandle)
+                this.maskSeat.alpha = 1
+                return clearInterval(intervalHandle)
             }
+            this.maskSeat.graphics.drawPie(this.maskSeat.width / 2, this.maskSeat.height / 2, this.maskSeat.width, 0, this.speakCountDown, "#ffffff");
             this.speakCountDown++
         }, 25)
     }
@@ -88,7 +89,7 @@ export default class Seat extends Laya.Script {
     }
     // 投注
     bet(point) {
-        this.silent()        
+        this.silent()
         this.box.getChildByName('boxPoint').text = this.seatPoint += point
         this.box.visible = true
     }

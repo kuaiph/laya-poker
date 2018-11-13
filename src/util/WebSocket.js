@@ -66,34 +66,33 @@ export default class WebSocket {
                         }
                     }
                     break;
-                case 'SEND_POKER':
-                    if (!res.err) {
+                case 'NEXT_SPEAK':
+                    let sendPokerArr = res.sendPokerArr
+                    let seatMap = res.seatMap
+                    // 根据返回数据判断是否需要发新牌
+                    if (sendPokerArr) {
                         let phase = res.phase
-                        let pokerArr = res.pokerArr
-                        // console.log(phase)
-                        // console.log(JSON.stringify(pokerArr))
+                        round.chipSeatIdArr = res.chipSeatIdArr
                         // 发手牌
                         if (phase == 0) {
-                            WebSocket.globalData.gameView.sendPoker(pokerArr)
+                            WebSocket.globalData.gameView.sendPoker(sendPokerArr)
                         }
                         // 3张公牌
                         else if (phase == 1) {
-                            WebSocket.globalData.gameView.sendPublicPoker(pokerArr)
+                            WebSocket.globalData.gameView.sendPublicPoker(sendPokerArr)
                         }
                         // 4张公牌 
                         else if (phase == 2) {
-                            WebSocket.globalData.gameView.sendPublicPoker(pokerArr)
+                            WebSocket.globalData.gameView.sendPublicPoker(sendPokerArr)
                         }
                         // 5张公牌
                         else if (phase == 3) {
-                            WebSocket.globalData.gameView.sendPublicPoker(pokerArr)
+                            WebSocket.globalData.gameView.sendPublicPoker(sendPokerArr)
                         }
                     }
-                    break
-                case 'NEXT_SPEAK':
                     // 根据返回数据更新座位图，然后显示操作台
-                    for (let seatId in res.seatMap) {
-                        round.seatMap[seatId] = Object.assign(round.seatMap[seatId], res.seatMap[seatId])
+                    for (let seatId in seatMap) {
+                        round.seatMap[seatId] = Object.assign(round.seatMap[seatId], seatMap[seatId])
                         // 找到说话人
                         if (round.seatMap[seatId].isSpeak) {
                             // 如果是自己显示操作台
