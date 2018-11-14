@@ -93,18 +93,21 @@ export default class WebSocket {
                     // 根据返回数据更新座位图，然后显示操作台
                     for (let seatId in seatMap) {
                         round.seatMap[seatId] = Object.assign(round.seatMap[seatId], seatMap[seatId])
-                        // 找到说话人
+                        // 只有一个座位说话
                         if (round.seatMap[seatId].isSpeak) {
-                            // 如果是自己显示操作台
+                            // 显示倒计时
+                            round.seatMap[seatId].countDown()
+
+                            // 如果是自己显示操作台，否则隐藏
                             if (round.seatMap[seatId].userId == WebSocket.globalData.user.userId) {
                                 round.seatMap[seatId].speak()
-                            }
-                            // 其他人显示倒计时
-                            else {
+                            } else {
                                 round.seatMap[seatId].silent()
-                                round.seatMap[seatId].countDown()
                             }
-                            break
+                        }
+                        // 隐藏倒计时
+                        else{
+                            round.seatMap[seatId].closeCountDown()
                         }
                     }
                     break

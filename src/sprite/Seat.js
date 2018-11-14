@@ -53,23 +53,29 @@ export default class Seat extends Laya.Script {
     //倒计时18秒
     countDown() {
         this.maskSeat.alpha = 0.5
-        let intervalHandle = setInterval(() => {
+        this.speakCountDown = 0
+        this.intervalCountDown = setInterval(() => {
             this.maskSeat.graphics.clear()
-            if (this.speakCountDown >= 360) {
-                this.speakCountDown = 0
-                this.maskSeat.alpha = 1
-                return clearInterval(intervalHandle)
+            if (this.speakCountDown > 360) {
+                this.closeCountDown()
             }
             this.maskSeat.graphics.drawPie(this.maskSeat.width / 2, this.maskSeat.height / 2, this.maskSeat.width, 0, this.speakCountDown, "#ffffff");
             this.speakCountDown++
         }, 25)
     }
 
+    // 关闭倒计时
+    closeCountDown() {
+        clearInterval(this.intervalCountDown)
+        this.maskSeat.alpha = 1
+        this.maskSeat.graphics.clear()
+        this.maskSeat.graphics.drawPie(this.maskSeat.width / 2, this.maskSeat.height / 2, this.maskSeat.width, 0, 360, "#ffffff");
+    }
+
     // 入座
     sitdown() {
         this.imgSeat.skin = `ui/${this.headurl}`
         this.maskSeat.texture = `ui/${this.headurl}`
-        this.maskSeat.alpha = 1
     }
 
     // 发言
@@ -77,7 +83,6 @@ export default class Seat extends Laya.Script {
         this.imgAbandon.visible = true      // 弃牌按钮
         this.imgRise.visible = true         // 加注按钮
         this.imgFollow.visible = true       // 跟注按钮
-        this.countDown()                    // 开启遮罩倒计时
     }
     // 沉默
     silent() {
