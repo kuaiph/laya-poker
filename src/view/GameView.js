@@ -46,12 +46,12 @@ export default class GameView extends Laya.Scene {
         for (let i = 0; i < 9; i++) {
             // 获取界面元素
             const imgSeat = this.getChildByName(`seat${i}`)
-            const textPoint = this.getChildByName(`point${i}`)
+            const textSeatPoint = this.getChildByName(`seatPoint${i}`)
             const box = this.getChildByName(`box${i}`)
             const maskSeat = this[`mask${i}`]
             // const maskSeat = imgSeat.getChildByName(`mask${i}`)            
             // 创建座位对象，并更新全局座位图，最后全局状态持久化
-            const seat = new Seat(Object.assign(this.round.seatMap[imgSeat.name], { imgSeat, textPoint, box, imgAbandon, imgRise, imgFollow, vsliderPoint, maskSeat }))
+            const seat = new Seat(Object.assign(this.round.seatMap[imgSeat.name], { imgSeat, textSeatPoint, box, imgAbandon, imgRise, imgFollow, vsliderPoint, maskSeat }))
             seat.init()
             this.round.seatMap[imgSeat.name] = seat
         }

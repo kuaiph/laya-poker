@@ -97,7 +97,6 @@ export default class WebSocket {
                         if (round.seatMap[seatId].isSpeak) {
                             // 显示倒计时
                             round.seatMap[seatId].countDown()
-
                             // 如果是自己显示操作台，否则隐藏
                             if (round.seatMap[seatId].userId == WebSocket.globalData.user.userId) {
                                 round.seatMap[seatId].speak()
@@ -108,6 +107,10 @@ export default class WebSocket {
                         // 隐藏倒计时
                         else{
                             round.seatMap[seatId].closeCountDown()
+                        }
+                        // 大小盲座位自动投注
+                        if(round.seatMap[seatId].betPoint){
+                            round.seatMap[seatId].blindBet()
                         }
                     }
                     break
