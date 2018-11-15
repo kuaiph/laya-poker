@@ -100,17 +100,21 @@ export default class Seat extends Laya.Script {
         // this.box.visible = false            // 投注盒子
     }
     // 大小盲自动投注
-    blindBet() {
+    bet() {
         this.textSeatPoint.text = this.seatPoint
         this.box.getChildByName('boxPoint').text = this.betPoint
         this.box.visible = true
     }
-    // 投注
-    bet(point) {
-        this.silent()
-        this.box.getChildByName('boxPoint').text = this.seatPoint += point
-        this.box.visible = true
+    // 隐藏投注盒子
+    hideBet(){
+        this.box.visible = false
     }
+    // // 投注
+    // bet(point) {
+    //     this.silent()
+    //     this.box.getChildByName('boxPoint').text = this.seatPoint += point
+    //     this.box.visible = true
+    // }
     // 离座
     leave() {
 

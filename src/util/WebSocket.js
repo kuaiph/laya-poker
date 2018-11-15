@@ -110,7 +110,9 @@ export default class WebSocket {
                         }
                         // 大小盲座位自动投注
                         if(round.seatMap[seatId].betPoint){
-                            round.seatMap[seatId].blindBet()
+                            round.seatMap[seatId].bet()
+                        }else{
+                            round.seatMap[seatId].hideBet()
                         }
                     }
                     break
