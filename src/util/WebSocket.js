@@ -43,7 +43,9 @@ export default class WebSocket {
         }
         WebSocket.socket.on(Laya.Event.MESSAGE, this, (res) => {
             res = JSON.parse(res)
-            let round = WebSocket.globalData ? WebSocket.globalData.round : false
+            let round = WebSocket.globalData ? WebSocket.globalData.round : null
+            let user = WebSocket.globalData ? WebSocket.globalData.user : null
+            let gameView = WebSocket.globalData ? WebSocket.globalData.gameView : null
             switch (res.method) {
                 // case 'JOIN_TABLE':
                 //     break;
@@ -54,7 +56,7 @@ export default class WebSocket {
                         Laya.Scene.open('Game.scene')
                     } else {
                         WebSocket.globalData.round = Object.assign(WebSocket.globalData.round, res.round)
-                        WebSocket.globalData.gameView.reset()
+                        gameView.reset()
                     }
                     break;
                 case 'SIT_DOWN':
@@ -79,19 +81,19 @@ export default class WebSocket {
                         round.chipSeatIdArr = chipSeatIdArr
                         // 发手牌
                         if (phase == 0) {
-                            WebSocket.globalData.gameView.sendPoker(sendPokerArr)
+                            gameView.sendPoker(sendPokerArr)
                         }
                         // 3张公牌
                         else if (phase == 1) {
-                            WebSocket.globalData.gameView.sendPublicPoker(sendPokerArr)
+                            gameView.sendPublicPoker(sendPokerArr)
                         }
                         // 4张公牌 
                         else if (phase == 2) {
-                            WebSocket.globalData.gameView.sendPublicPoker(sendPokerArr)
+                            gameView.sendPublicPoker(sendPokerArr)
                         }
                         // 5张公牌
                         else if (phase == 3) {
-                            WebSocket.globalData.gameView.sendPublicPoker(sendPokerArr)
+                            gameView.sendPublicPoker(sendPokerArr)
                         }
                     }
                     // 根据返回数据更新座位图，然后显示操作台
@@ -101,26 +103,28 @@ export default class WebSocket {
                         if (round.seatMap[seatId].isSpeak) {
                             // 显示倒计时
                             round.seatMap[seatId].countDown()
+
                             // 如果是自己显示操作台，否则隐藏
-                            if (round.seatMap[seatId].userId == WebSocket.globalData.user.userId) {
+                            if (round.seatMap[seatId].userId == user.userId) {
                                 round.seatMap[seatId].speak()
+                                gameView.control.speak(round.seatMap[seatId].seatPoint)
                             } else {
-                                round.seatMap[seatId].silent()
+                                gameView.control.silent()
                             }
                         }
                         // 隐藏倒计时
-                        else{
+                        else {
                             round.seatMap[seatId].closeCountDown()
                         }
                         // 大小盲座位自动投注
-                        if(round.seatMap[seatId].betPoint){
+                        if (round.seatMap[seatId].betPoint) {
                             round.seatMap[seatId].bet()
-                        }else{
+                        } else {
                             round.seatMap[seatId].hideBet()
                         }
                     }
                     // 更新阶段累计点数和底池累计点数
-                    WebSocket.globalData.gameView.updatePoint()
+                    gameView.updatePoint()
                     break
                 // case 'BET':
                 //     if (!res.err) {

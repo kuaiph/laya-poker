@@ -8,28 +8,23 @@ export default class Seat extends Laya.Script {
         if (inparam) {
             // UI元素
             this.imgSeat = inparam.imgSeat                  // 座位图
-            this.textSeatPoint = inparam.textSeatPoint      // 玩家点数
-            this.box = inparam.box                          // 玩家投注盒子
-            this.imgAbandon = inparam.imgAbandon            // 弃牌按钮
-            this.imgRise = inparam.imgRise                  // 加注按钮
-            this.imgFollow = inparam.imgFollow              // 跟注按钮
-            this.vsliderPoint = inparam.vsliderPoint        // 投注推杆
+            this.textSeatPoint = inparam.textSeatPoint      // 座位点数
             this.maskSeat = inparam.maskSeat                // 倒计时遮罩
-
+            this.box = inparam.box                          // 玩家投注盒子
             // 数据信息
-            this.seatId = inparam.seatId                // 座位显示ID
-            this.seatNo = inparam.seatNo                // 座位真实ID
-            this.userId = inparam.userId                // 玩家ID
-            this.headurl = inparam.headurl              // 座位图片名称
-            this.seatPoint = inparam.seatPoint          // 座位带入点数
-            this.betPoint = 0                           // 投注点数
-            this.betPointArr = []                       // 投注点数数组
-            this.speakCountDown = 0                     // 说话时间倒计时
+            this.seatId = inparam.seatId                    // 座位显示ID
+            this.seatNo = inparam.seatNo                    // 座位真实ID
+            this.userId = inparam.userId                    // 玩家ID
+            this.headurl = inparam.headurl                  // 座位图片名称
+            this.seatPoint = inparam.seatPoint              // 座位带入点数
+            this.betPoint = 0                               // 投注点数
+            this.betPointArr = []                           // 投注点数数组
+            this.speakCountDown = 0                         // 说话时间倒计时
         }
     }
     onEnable() {
     }
-    
+
     // 点击头像请求服务器坐下
     onClick() {
         WebSocket.send({ method: 'SIT_DOWN', user: WebSocket.globalData.user, seatId: this.owner.name, seatPoint: 200 })
@@ -48,10 +43,6 @@ export default class Seat extends Laya.Script {
         } else {
             this.textSeatPoint.visible = false
         }
-        this.imgAbandon.visible = false
-        this.imgRise.visible = false
-        this.imgFollow.visible = false
-        this.vsliderPoint.visible = false
         this.box.visible = false
     }
 
@@ -89,20 +80,13 @@ export default class Seat extends Laya.Script {
 
     // 发言
     speak() {
-        this.imgAbandon.visible = true              // 弃牌按钮显示
-        this.imgRise.visible = true                 // 加注按钮显示
-        this.imgFollow.visible = true               // 跟注按钮显示
         this.textSeatPoint.text = this.seatPoint    // 座位分数更新
     }
 
-    // 沉默
-    silent() {
-        this.imgAbandon.visible = false     // 弃牌按钮
-        this.imgRise.visible = false        // 加注按钮
-        this.imgFollow.visible = false      // 跟注按钮
-        this.vsliderPoint.visible = false   // 分数推杆
-        // this.box.visible = false            // 投注盒子
-    }
+    // // 沉默
+    // silent() {
+    //     // this.box.visible = false            // 投注盒子
+    // }
 
     // 大小盲自动投注
     bet() {
@@ -110,12 +94,12 @@ export default class Seat extends Laya.Script {
         this.box.getChildByName('boxPoint').text = this.betPoint
         this.box.visible = true
     }
-    
+
     // 隐藏投注盒子
-    hideBet(){
+    hideBet() {
         this.box.visible = false
     }
-    
+
     // // 投注
     // bet(point) {
     //     this.silent()

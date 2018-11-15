@@ -2,11 +2,11 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":99,
+    "selecteID":119,
     "searchKey":"View",
     "props":{"width":370,"sceneColor":"#000000","runtime":"view/GameView.js","height":658},
     "nodeParent":-1,
-    "maxID":131,
+    "maxID":134,
     "label":"View",
     "isOpen":true,
     "isDirectory":true,
@@ -1434,7 +1434,7 @@
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
-                    "compId":115,
+                    "compId":133,
                     "child":[
                         ]
                 }]
@@ -1490,6 +1490,7 @@
             "props":{"y":420.5,"x":183.5,"width":14,"visible":false,"var":"vsliderPoint","value":100,"skin":"ui/vslider.png","height":120},
             "nodeParent":1,
             "label":"vsliderPoint",
+            "isOpen":null,
             "isDirectory":false,
             "isAniNode":true,
             "hasChild":false,
