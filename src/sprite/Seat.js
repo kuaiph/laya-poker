@@ -7,14 +7,15 @@ export default class Seat extends Laya.Script {
         super()
         if (inparam) {
             // UI元素
-            this.imgSeat = inparam.imgSeat              // 座位图
-            this.textSeatPoint = inparam.textSeatPoint  // 玩家点数
-            this.box = inparam.box                      // 玩家投注盒子
-            this.imgAbandon = inparam.imgAbandon        // 弃牌按钮
-            this.imgRise = inparam.imgRise              // 加注按钮
-            this.imgFollow = inparam.imgFollow          // 跟注按钮
-            this.vsliderPoint = inparam.vsliderPoint    // 投注推杆
-            this.maskSeat = inparam.maskSeat            // 倒计时遮罩
+            this.imgSeat = inparam.imgSeat                  // 座位图
+            this.textSeatPoint = inparam.textSeatPoint      // 玩家点数
+            this.box = inparam.box                          // 玩家投注盒子
+            this.imgAbandon = inparam.imgAbandon            // 弃牌按钮
+            this.imgRise = inparam.imgRise                  // 加注按钮
+            this.imgFollow = inparam.imgFollow              // 跟注按钮
+            this.vsliderPoint = inparam.vsliderPoint        // 投注推杆
+            this.maskSeat = inparam.maskSeat                // 倒计时遮罩
+
             // 数据信息
             this.seatId = inparam.seatId                // 座位显示ID
             this.seatNo = inparam.seatNo                // 座位真实ID
@@ -28,6 +29,8 @@ export default class Seat extends Laya.Script {
     }
     onEnable() {
     }
+    
+    // 点击头像请求服务器坐下
     onClick() {
         WebSocket.send({ method: 'SIT_DOWN', user: WebSocket.globalData.user, seatId: this.owner.name, seatPoint: 200 })
     }
@@ -52,7 +55,7 @@ export default class Seat extends Laya.Script {
         this.box.visible = false
     }
 
-    //倒计时18秒
+    // 倒计时20秒
     countDown() {
         this.maskSeat.alpha = 0.5
         this.speakCountDown = 0
@@ -91,6 +94,7 @@ export default class Seat extends Laya.Script {
         this.imgFollow.visible = true               // 跟注按钮显示
         this.textSeatPoint.text = this.seatPoint    // 座位分数更新
     }
+
     // 沉默
     silent() {
         this.imgAbandon.visible = false     // 弃牌按钮
@@ -99,22 +103,26 @@ export default class Seat extends Laya.Script {
         this.vsliderPoint.visible = false   // 分数推杆
         // this.box.visible = false            // 投注盒子
     }
+
     // 大小盲自动投注
     bet() {
         this.textSeatPoint.text = this.seatPoint
         this.box.getChildByName('boxPoint').text = this.betPoint
         this.box.visible = true
     }
+    
     // 隐藏投注盒子
     hideBet(){
         this.box.visible = false
     }
+    
     // // 投注
     // bet(point) {
     //     this.silent()
     //     this.box.getChildByName('boxPoint').text = this.seatPoint += point
     //     this.box.visible = true
     // }
+
     // 离座
     leave() {
 

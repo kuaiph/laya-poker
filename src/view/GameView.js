@@ -31,11 +31,14 @@ export default class GameView extends Laya.Scene {
         // 获取全局状态信息
         this.user = WebSocket.globalData.user                   // 当前玩家
         this.round = WebSocket.globalData.round                 // 当前局状态
+        this.textPhasePoint.text = 0                            // 阶段分数
+        this.textRoundPoint.text = '底池：0'                     // 底池分数
         // 获取UI元素
         const imgAbandon = this.imgAbandon                      // 弃牌按钮
         const imgRise = this.imgRise                            // 加注按钮
         const imgFollow = this.imgFollow                        // 跟注按钮
         const vsliderPoint = this.vsliderPoint                  // 点数推杆
+
 
         // 创建发牌器
         if (this.round.dealer) {
@@ -49,6 +52,7 @@ export default class GameView extends Laya.Scene {
             const textSeatPoint = this.getChildByName(`seatPoint${i}`)
             const box = this.getChildByName(`box${i}`)
             const maskSeat = this[`mask${i}`]
+
             // const maskSeat = imgSeat.getChildByName(`mask${i}`)            
             // 创建座位对象，并更新全局座位图，最后全局状态持久化
             const seat = new Seat(Object.assign(this.round.seatMap[imgSeat.name], { imgSeat, textSeatPoint, box, imgAbandon, imgRise, imgFollow, vsliderPoint, maskSeat }))
@@ -85,5 +89,11 @@ export default class GameView extends Laya.Scene {
             this.round.dealer.addPoker(poker)
         }
         this.round.dealer.showPublicPoker()
+    }
+
+    // 更新阶段累计点数和底池累计点数
+    updatePoint() {
+        this.textPhasePoint.text = this.round.phasePoint                // 阶段分数
+        this.textRoundPoint.text = `底池：${this.round.roundPoint}`      // 底池分数
     }
 }

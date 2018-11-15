@@ -67,12 +67,16 @@ export default class WebSocket {
                     }
                     break;
                 case 'NEXT_SPEAK':
+                    let phase = res.phase
+                    round.phasePoint = res.phasePoint
+                    round.roundPoint = res.roundPoint
                     let sendPokerArr = res.sendPokerArr
+                    let chipSeatIdArr = res.chipSeatIdArr
                     let seatMap = res.seatMap
+
                     // 根据返回数据判断是否需要发新牌
                     if (sendPokerArr) {
-                        let phase = res.phase
-                        round.chipSeatIdArr = res.chipSeatIdArr
+                        round.chipSeatIdArr = chipSeatIdArr
                         // 发手牌
                         if (phase == 0) {
                             WebSocket.globalData.gameView.sendPoker(sendPokerArr)
@@ -115,26 +119,28 @@ export default class WebSocket {
                             round.seatMap[seatId].hideBet()
                         }
                     }
+                    // 更新阶段累计点数和底池累计点数
+                    WebSocket.globalData.gameView.updatePoint()
                     break
-                case 'BET':
-                    if (!res.err) {
-                        // 更新座位图上显示所有人的投注情况
-                        for (let seatId in res.seatMap) {
-                            round.seatMap[seatId] = Object.assign(round.seatMap[seatId], res.seatMap[seatId])
-                            // 弃牌
-                            if (round.seatMap[seatId].isGiveUp) {
-                                console.log(`${seatId}放弃了`)
-                            }
-                            // 跟注
-                            // 加注
-                            // 更新投注值
-                            // if (round.seatMap[seatId].userId == res.betUserId) {
-                            //     round.seatMap[seatId].bet(10)
-                            // }
-                            // TODO:更新底池
-                        }
-                    }
-                    break
+                // case 'BET':
+                //     if (!res.err) {
+                //         // 更新座位图上显示所有人的投注情况
+                //         for (let seatId in res.seatMap) {
+                //             round.seatMap[seatId] = Object.assign(round.seatMap[seatId], res.seatMap[seatId])
+                //             // 弃牌
+                //             if (round.seatMap[seatId].isGiveUp) {
+                //                 console.log(`${seatId}放弃了`)
+                //             }
+                //             // 跟注
+                //             // 加注
+                //             // 更新投注值
+                //             // if (round.seatMap[seatId].userId == res.betUserId) {
+                //             //     round.seatMap[seatId].bet(10)
+                //             // }
+                //             // TODO:更新底池
+                //         }
+                //     }
+                //     break
                 case 'CLOSE':
                     if (!res.err) {
                         // 根据返回座位图显示
