@@ -39,8 +39,6 @@ export default class GameView extends Laya.Scene {
         const imgRise = this.imgRise                            // 加注按钮
         const imgFollow = this.imgFollow                        // 跟注按钮
         const vsliderPoint = this.vsliderPoint                  // 点数推杆
-        // 创建控制台
-        this.control = new Control({ imgAbandon, imgRise, imgFollow, vsliderPoint })
         // 创建发牌器
         if (this.round.dealer) {
             this.round.dealer.reset()
@@ -53,13 +51,12 @@ export default class GameView extends Laya.Scene {
             const textSeatPoint = this.getChildByName(`seatPoint${i}`)
             const box = this.getChildByName(`box${i}`)
             const maskSeat = this[`mask${i}`]
-
             // const maskSeat = imgSeat.getChildByName(`mask${i}`)            
-            // 创建座位对象，并更新全局座位图，最后全局状态持久化
-            const seat = new Seat(Object.assign(this.round.seatMap[imgSeat.name], { imgSeat, textSeatPoint, box, maskSeat }))
-            seat.init()
-            this.round.seatMap[imgSeat.name] = seat
+            // 创建座位对象，最后全局状态持久化
+            this.round.seatMap[imgSeat.name] = new Seat(Object.assign(this.round.seatMap[imgSeat.name], { imgSeat, textSeatPoint, box, maskSeat }))
         }
+        // 创建控制台
+        this.control = new Control({ imgAbandon, imgRise, imgFollow, vsliderPoint })
         // 创建盲注，最后全局状态持久化
         this.round.blind = new Blind({ imgChipBig: this.imgChipBig, imgChipSmall: this.imgChipSmall, textChipBig: this.textChipBig, textChipSmall: this.textChipSmall, seatMap: this.round.seatMap })
     }

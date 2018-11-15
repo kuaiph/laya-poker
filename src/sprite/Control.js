@@ -1,4 +1,6 @@
-/**
+import WebSocket from '../util/WebSocket'
+
+/** 
  * 操作台
  */
 export default class Control {
@@ -21,11 +23,13 @@ export default class Control {
         this.vsliderPoint.on(Laya.Event.MOUSE_UP, this, this.onVsliderUp)
     }
     // 发言
-    speak(seatPoint) {
+    speak(selfSeat) {
+        this.selfSeat = selfSeat
         this.imgAbandon.visible = true                                  // 弃牌按钮显示
         this.imgRise.visible = true                                     // 加注按钮显示
         this.imgFollow.visible = true                                   // 跟注按钮显示
-        this.vsliderPoint.max = seatPoint                               // 设置加注推杆的最大值
+        this.vsliderPoint.max = selfSeat.seatPoint                      // 设置加注推杆的最大值
+        selfSeat.speak()
     }
 
     // 沉默
@@ -36,18 +40,21 @@ export default class Control {
         this.vsliderPoint.visible = false                               // 分数推杆
     }
 
+    // 响应自由加注
     onRiseClick() {
         this.imgRise.visible = false
         this.vsliderPoint.visible = true
     }
 
+    // 响应滑杆变动
     onVsliderChange() {
         this.betPoint = Math.abs(this.vsliderPoint.value - this.vsliderPoint.max)
     }
 
+    // 响应滑杆触摸离开，请求自由投注
     onVsliderUp() {
-        if (this.vsliderPoint.visible) {
-            console.log("抬起投注值：" + this.betPoint);
+        if (this.betPoint > 0) {
+            WebSocket.send({ method: 'BET', user: WebSocket.globalData.user, betPoint: this.betPoint })
         }
     }
 }

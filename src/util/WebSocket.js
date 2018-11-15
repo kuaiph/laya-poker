@@ -103,11 +103,9 @@ export default class WebSocket {
                         if (round.seatMap[seatId].isSpeak) {
                             // 显示倒计时
                             round.seatMap[seatId].countDown()
-
                             // 如果是自己显示操作台，否则隐藏
                             if (round.seatMap[seatId].userId == user.userId) {
-                                round.seatMap[seatId].speak()
-                                gameView.control.speak(round.seatMap[seatId].seatPoint)
+                                gameView.control.speak(round.seatMap[seatId])
                             } else {
                                 gameView.control.silent()
                             }
@@ -116,7 +114,7 @@ export default class WebSocket {
                         else {
                             round.seatMap[seatId].closeCountDown()
                         }
-                        // 大小盲座位自动投注
+                        // 投注更新
                         if (round.seatMap[seatId].betPoint) {
                             round.seatMap[seatId].bet()
                         } else {

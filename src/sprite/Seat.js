@@ -20,6 +20,8 @@ export default class Seat extends Laya.Script {
             this.betPoint = 0                               // 投注点数
             this.betPointArr = []                           // 投注点数数组
             this.speakCountDown = 0                         // 说话时间倒计时
+            // 初始化
+            this.init()
         }
     }
     onEnable() {
@@ -82,11 +84,6 @@ export default class Seat extends Laya.Script {
     speak() {
         this.textSeatPoint.text = this.seatPoint    // 座位分数更新
     }
-
-    // // 沉默
-    // silent() {
-    //     // this.box.visible = false            // 投注盒子
-    // }
 
     // 大小盲自动投注
     bet() {
