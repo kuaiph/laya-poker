@@ -39,6 +39,10 @@ export default class GameView extends Laya.Scene {
         const imgRise = this.imgRise                            // 加注按钮
         const imgFollow = this.imgFollow                        // 跟注按钮
         const vsliderPoint = this.vsliderPoint                  // 点数推杆
+        const imgFixrise0 = this.imgFixrise0                    // 定制加注按钮0
+        const imgFixrise1 = this.imgFixrise1                    // 定制加注按钮1
+        const imgFixrise2 = this.imgFixrise2                    // 定制加注按钮2
+
         // 创建发牌器
         if (this.round.dealer) {
             this.round.dealer.reset()
@@ -56,7 +60,7 @@ export default class GameView extends Laya.Scene {
             this.round.seatMap[imgSeat.name] = new Seat(Object.assign(this.round.seatMap[imgSeat.name], { imgSeat, textSeatPoint, box, maskSeat }))
         }
         // 创建控制台
-        this.control = new Control({ imgAbandon, imgRise, imgFollow, vsliderPoint })
+        this.control = new Control({ imgAbandon, imgRise, imgFollow, vsliderPoint, imgFixrise0, imgFixrise1, imgFixrise2 })
         // 创建盲注，最后全局状态持久化
         this.round.blind = new Blind({ imgChipBig: this.imgChipBig, imgChipSmall: this.imgChipSmall, textChipBig: this.textChipBig, textChipSmall: this.textChipSmall, seatMap: this.round.seatMap })
     }
