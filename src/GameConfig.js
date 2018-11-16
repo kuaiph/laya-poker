@@ -20,10 +20,10 @@ export default class GameConfig {
 		reg("sprite/Start.js",Start);
     }
 }
-GameConfig.width = 370;
-GameConfig.height = 658;
-GameConfig.scaleMode ="showall";
-GameConfig.screenMode = "none";
+GameConfig.width = 400;
+GameConfig.height = 800;
+GameConfig.scaleMode ="exactfit";
+GameConfig.screenMode = "vertical";
 GameConfig.alignV = "middle";
 GameConfig.alignH = "center";
 GameConfig.startScene = "Start.scene";

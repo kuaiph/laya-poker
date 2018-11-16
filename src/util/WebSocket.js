@@ -10,8 +10,8 @@ export default class WebSocket {
     }
     init() {
         // ws://192.168.3.224:5000/socket/poker
-        // WebSocket.socket.connectByUrl('ws://192.168.3.105:5000/socket/poker')
-        WebSocket.socket.connectByUrl('ws://localhost:5000/socket/poker')
+        WebSocket.socket.connectByUrl('ws://192.168.3.105:5000/socket/poker')
+        // WebSocket.socket.connectByUrl('ws://localhost:5000/socket/poker')
         WebSocket.socket.on(Laya.Event.OPEN, this, (e) => {
             console.log('连接建立')
         })
