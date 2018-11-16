@@ -5,7 +5,6 @@ import Abandon from "./sprite/Abandon"
 import Rise from "./sprite/Rise"
 import Follow from "./sprite/Follow"
 import StartView from "./view/StartView"
-import Start from "./sprite/Start"
 
 export default class GameConfig {
     static init() {
@@ -17,7 +16,6 @@ export default class GameConfig {
 		reg("sprite/Rise.js",Rise);
 		reg("sprite/Follow.js",Follow);
 		reg("view/StartView.js",StartView);
-		reg("sprite/Start.js",Start);
     }
 }
 GameConfig.width = 400;
@@ -26,7 +24,7 @@ GameConfig.scaleMode ="exactfit";
 GameConfig.screenMode = "vertical";
 GameConfig.alignV = "middle";
 GameConfig.alignH = "center";
-GameConfig.startScene = "Start.scene";
+GameConfig.startScene = "Game.scene";
 GameConfig.sceneRoot = "";
 GameConfig.debug = false;
 GameConfig.stat = false;

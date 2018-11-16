@@ -23,16 +23,16 @@ class Main {
 
         //激活资源版本控制，version.json由IDE发布功能自动生成，如果没有也不影响后续流程
         Laya.ResourceVersion.enable("version.json", Laya.Handler.create(this, this.onVersionLoaded), Laya.ResourceVersion.FILENAME_VERSION)
-        //加载网络连接
-        new WebSocket().init()
     }
     onVersionLoaded() {
         //激活大小图映射，加载小图的时候，如果发现小图在大图合集里面，则优先加载大图合集，而不是小图
         Laya.AtlasInfoManager.enable("fileconfig.json", Laya.Handler.create(this, this.onConfigLoaded))
     }
     onConfigLoaded() {
+        //加载网络连接，网络连接建立得到响应后，初始化游戏界面
+        new WebSocket(GameConfig.startScene).init()
         //加载IDE指定的场景
-        GameConfig.startScene && Laya.Scene.open(GameConfig.startScene)
+        // GameConfig.startScene && Laya.Scene.open(GameConfig.startScene)
         // beginLoad()
     }
     // // 加载资源

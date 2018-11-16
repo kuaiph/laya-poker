@@ -2,11 +2,11 @@
     "x":0,
     "type":"View",
     "selectedBox":2,
-    "selecteID":30,
+    "selecteID":4,
     "searchKey":"View",
     "props":{"width":400,"sceneColor":"#000000","runtime":"view/StartView.js","height":800},
     "nodeParent":-1,
-    "maxID":37,
+    "maxID":39,
     "label":"View",
     "isOpen":true,
     "isDirectory":true,
@@ -22,27 +22,12 @@
             "nodeParent":2,
             "label":"Button",
             "isOpen":false,
-            "isDirectory":true,
+            "isDirectory":false,
             "isAniNode":true,
-            "hasChild":true,
+            "hasChild":false,
             "compId":4,
             "child":[
-                {
-                    "type":"Script",
-                    "switchAble":true,
-                    "source":"src/sprite/Start.js",
-                    "searchKey":"Script,Start",
-                    "removeAble":true,
-                    "props":{"enabled":true},
-                    "nodeParent":4,
-                    "label":"Start",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":6,
-                    "child":[
-                        ]
-                }]
+                ]
         },
         {
             "x":15,
@@ -128,7 +113,7 @@
             "x":15,
             "type":"Sprite",
             "searchKey":"Sprite",
-            "props":{"zOrder":0,"y":424,"x":175,"texture":"ui/person.jpg","alpha":1},
+            "props":{"zOrder":0,"y":420,"x":175,"texture":"ui/person.jpg","alpha":1},
             "nodeParent":2,
             "label":"Sprite",
             "isOpen":true,

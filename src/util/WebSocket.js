@@ -2,17 +2,25 @@
  * 网络长连接类
  */
 export default class WebSocket {
-    constructor() {
-        WebSocket.instance = this
-        // 长连接服务器
-        WebSocket.socket = new Laya.Socket()
-        WebSocket.socket.endian = Laya.Byte.LITTLE_ENDIAN//采用小端
+    constructor(startScene) {
+        this.startScene = startScene                        // 启动界面        
+        WebSocket.socket = new Laya.Socket()                // 实例Socket
+        WebSocket.socket.endian = Laya.Byte.LITTLE_ENDIAN   // 采用小端
+        // WebSocket.instance = this                           // 单例
+        // WebSocket.globalData = { user: {}, round: {} }      // 全局数据对象
     }
-    init() {
+    // 与服务端建立长连接
+    connect() {
         // ws://192.168.3.224:5000/socket/poker
-        WebSocket.socket.connectByUrl('ws://192.168.3.105:5000/socket/poker')
+        WebSocket.socket.connectByUrl('ws://192.168.1.2:5000/socket/poker')
+        // WebSocket.socket.connectByUrl('ws://192.168.3.105:5000/socket/poker')
         // WebSocket.socket.connectByUrl('ws://localhost:5000/socket/poker')
+    }
+    // 初始化连接
+    init() {
+        this.connect()
         WebSocket.socket.on(Laya.Event.OPEN, this, (e) => {
+            this.login()
             console.log('连接建立')
         })
         WebSocket.socket.on(Laya.Event.CLOSE, this, (e) => {
@@ -20,24 +28,33 @@ export default class WebSocket {
         })
         WebSocket.socket.on(Laya.Event.ERROR, this, (e) => {
             console.error('连接出错')
+            setTimeout(() => {
+                console.log('尝试重新建立长连接')
+                this.connect()
+            }, 1000)
         })
         // 封装发送数据方法
         WebSocket.send = (req) => {
             // try {
-            return new Promise((resolve, reject) => {
-                WebSocket.socket.send(JSON.stringify(req))
-                // 返回数据
-                WebSocket.socket.on(Laya.Event.MESSAGE, this, (res) => {
-                    res = JSON.parse(res)
-                    if (req.method == res.method) {
-                        resolve(res)
-                    }
+                return new Promise((resolve, reject) => {
+                    // console.log(1)
+                    WebSocket.socket.send(JSON.stringify(req))
+                    // console.log(2)
+                    // 返回数据
+                    WebSocket.socket.on(Laya.Event.MESSAGE, this, (res) => {
+                        res = JSON.parse(res)
+                        if (req.method == res.method) {
+                            resolve(res)
+                        }
+                    })
                 })
-            })
             // } catch (error) {
+            //     console.error(error)
             //     setTimeout(() => {
-            //         console.log(`重试发送：${data}`)
-            //         WebSocket.send(data)
+            //         console.log('尝试重新建立长连接')
+            //         this.connect()
+            //         // console.log(`重试发送：${data}`)
+            //         // WebSocket.send(data)
             //     }, 500)
             // }
         }
@@ -47,13 +64,11 @@ export default class WebSocket {
             let user = WebSocket.globalData ? WebSocket.globalData.user : null
             let gameView = WebSocket.globalData ? WebSocket.globalData.gameView : null
             switch (res.method) {
-                // case 'JOIN_TABLE':
-                //     break;
                 case 'ROUND_BEGIN':
                     // 根据返回数据更新局信息，然后重置游戏界面
                     if (!WebSocket.globalData) {
                         WebSocket.globalData = { user: res.user, round: res.round }
-                        Laya.Scene.open('Game.scene')
+                        Laya.Scene.open(this.startScene)
                     } else {
                         WebSocket.globalData.round = Object.assign(WebSocket.globalData.round, res.round)
                         gameView.reset()
@@ -124,25 +139,6 @@ export default class WebSocket {
                     // 更新阶段累计点数和底池累计点数
                     gameView.updatePoint()
                     break
-                // case 'BET':
-                //     if (!res.err) {
-                //         // 更新座位图上显示所有人的投注情况
-                //         for (let seatId in res.seatMap) {
-                //             round.seatMap[seatId] = Object.assign(round.seatMap[seatId], res.seatMap[seatId])
-                //             // 弃牌
-                //             if (round.seatMap[seatId].isGiveUp) {
-                //                 console.log(`${seatId}放弃了`)
-                //             }
-                //             // 跟注
-                //             // 加注
-                //             // 更新投注值
-                //             // if (round.seatMap[seatId].userId == res.betUserId) {
-                //             //     round.seatMap[seatId].bet(10)
-                //             // }
-                //             // TODO:更新底池
-                //         }
-                //     }
-                //     break
                 case 'CLOSE':
                     if (!res.err) {
                         // 根据返回座位图显示
@@ -156,5 +152,19 @@ export default class WebSocket {
                     break;
             }
         })
+    }
+    // 玩家登录
+    login() {
+        const queryParams = this.getQueryParams()
+        let userId = queryParams.userId || 123456
+        let headurl = `person${Math.floor(Math.random() * 5)}.jpg`
+        let point = 200
+        WebSocket.send({ method: 'ROUND_BEGIN', user: { userId, point, headurl } })
+    }
+    // 获取URL参数
+    getQueryParams() {
+        const params = {}
+        window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, (m, key, value) => { params[key] = value })
+        return params
     }
 }
