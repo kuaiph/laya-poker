@@ -28,7 +28,7 @@ export default class Poker {
         this.isMe = this.imgSeat.name == 'seat0' ? true : false
         let x = this.imgSeat.x
         if (this.isMe) {
-            pokerSentIndex == 0 ? x += 50 : x += 100
+            pokerSentIndex == 0 ? x += 50 : x += 107
         }
         Laya.Tween.to(this.imgPoker, { x, y: this.imgSeat.y }, 500, Laya.Ease.strongOut, Laya.Handler.create(this, this.sendComplete))
     }
