@@ -51,7 +51,7 @@ export default class Poker {
     // 发公共牌
     sendPublic(publicIndex) {
         let x = this.imgPoker.x
-        let y = this.imgPoker.y + 80
+        let y = this.imgPoker.y + 100
         switch (publicIndex) {
             case 0:
                 x -= 110
