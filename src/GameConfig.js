@@ -2,8 +2,8 @@
 import GameView from "./view/GameView"
 import Seat from "./sprite/Seat"
 import Abandon from "./sprite/Abandon"
-import Rise from "./sprite/Rise"
 import Follow from "./sprite/Follow"
+import Rise from "./sprite/Rise"
 import StartView from "./view/StartView"
 
 export default class GameConfig {
@@ -13,8 +13,8 @@ export default class GameConfig {
 		reg("view/GameView.js",GameView);
 		reg("sprite/Seat.js",Seat);
 		reg("sprite/Abandon.js",Abandon);
-		reg("sprite/Rise.js",Rise);
 		reg("sprite/Follow.js",Follow);
+		reg("sprite/Rise.js",Rise);
 		reg("view/StartView.js",StartView);
     }
 }

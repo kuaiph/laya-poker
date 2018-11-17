@@ -1,12 +1,12 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":4,
-    "selecteID":128,
+    "selectedBox":136,
+    "selecteID":140,
     "searchKey":"View",
     "props":{"width":400,"sceneColor":"#000000","runtime":"view/GameView.js","height":800},
     "nodeParent":-1,
-    "maxID":137,
+    "maxID":145,
     "label":"View",
     "isOpen":true,
     "isDirectory":true,
@@ -79,14 +79,13 @@
             "props":{"y":304,"x":350,"visible":true,"skin":"ui/head.png","name":"seat7"},
             "nodeParent":1,
             "label":"seat7",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":4,
             "child":[
                 {
-                    "x":30,
                     "type":"Script",
                     "switchAble":true,
                     "source":"src/sprite/Seat.js",
@@ -103,7 +102,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Sprite",
                     "searchKey":"Sprite,mask7,mask7",
                     "props":{"y":0,"x":0,"width":50,"var":"mask7","texture":"ui/head.png","renderType":"mask","name":"mask7","height":50,"alpha":0.5},
@@ -1417,27 +1415,12 @@
             "nodeParent":1,
             "label":"imgRise",
             "isOpen":false,
-            "isDirectory":true,
+            "isDirectory":false,
             "isAniNode":true,
-            "hasChild":true,
+            "hasChild":false,
             "compId":110,
             "child":[
-                {
-                    "type":"Script",
-                    "switchAble":true,
-                    "source":"src/sprite/Rise.js",
-                    "searchKey":"Script,Rise",
-                    "removeAble":true,
-                    "props":{},
-                    "nodeParent":110,
-                    "label":"Rise",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":133,
-                    "child":[
-                        ]
-                }]
+                ]
         },
         {
             "x":15,
@@ -1515,44 +1498,137 @@
         {
             "x":15,
             "type":"Image",
-            "searchKey":"Image,imgFixrise0",
-            "props":{"y":560,"x":70,"visible":false,"var":"imgFixrise0","skin":"ui/fixrise.png"},
+            "searchKey":"Image,imgFixrise0,imgFixrise0",
+            "props":{"y":560,"x":70,"visible":false,"var":"imgFixrise0","skin":"ui/fixrise.png","name":"imgFixrise0"},
             "nodeParent":1,
             "label":"imgFixrise0",
-            "isDirectory":false,
+            "isOpen":true,
+            "isDirectory":true,
             "isAniNode":true,
-            "hasChild":false,
+            "hasChild":true,
             "compId":134,
             "child":[
-                ]
+                {
+                    "x":30,
+                    "type":"Text",
+                    "searchKey":"Text",
+                    "props":{"y":0,"x":0,"width":50,"valign":"middle","text":"4","mouseEnabled":false,"height":30,"fontSize":16,"font":"Helvetica","color":"#ffffff","align":"center"},
+                    "nodeParent":134,
+                    "label":"Text",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":138,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Script",
+                    "switchAble":true,
+                    "source":"src/sprite/Rise.js",
+                    "searchKey":"Script,Rise",
+                    "removeAble":true,
+                    "props":{},
+                    "nodeParent":134,
+                    "label":"Rise",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":141,
+                    "child":[
+                        ]
+                }]
         },
         {
             "x":15,
             "type":"Image",
-            "searchKey":"Image,imgFixrise1",
-            "props":{"y":560,"x":175,"visible":false,"var":"imgFixrise1","skin":"ui/fixrise.png"},
+            "searchKey":"Image,imgFixrise1,imgFixrise1",
+            "props":{"y":560,"x":175,"visible":false,"var":"imgFixrise1","skin":"ui/fixrise.png","name":"imgFixrise1"},
             "nodeParent":1,
             "label":"imgFixrise1",
-            "isDirectory":false,
+            "isOpen":true,
+            "isDirectory":true,
             "isAniNode":true,
-            "hasChild":false,
+            "hasChild":true,
             "compId":135,
             "child":[
-                ]
+                {
+                    "x":30,
+                    "type":"Text",
+                    "searchKey":"Text",
+                    "props":{"y":0,"x":0,"width":50,"valign":"middle","text":"6","height":30,"fontSize":16,"font":"Helvetica","color":"#ffffff","align":"center"},
+                    "nodeParent":135,
+                    "label":"Text",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":139,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Script",
+                    "switchAble":true,
+                    "source":"src/sprite/Rise.js",
+                    "searchKey":"Script,Rise",
+                    "removeAble":true,
+                    "props":{},
+                    "nodeParent":135,
+                    "label":"Rise",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":143,
+                    "child":[
+                        ]
+                }]
         },
         {
             "x":15,
             "type":"Image",
-            "searchKey":"Image,imgFixrise2",
-            "props":{"y":560,"x":279,"visible":false,"var":"imgFixrise2","skin":"ui/fixrise.png"},
+            "searchKey":"Image,imgFixrise2,imgFixrise2",
+            "props":{"y":560,"x":279,"visible":false,"var":"imgFixrise2","skin":"ui/fixrise.png","name":"imgFixrise2"},
             "nodeParent":1,
             "label":"imgFixrise2",
-            "isDirectory":false,
+            "isOpen":true,
+            "isDirectory":true,
             "isAniNode":true,
-            "hasChild":false,
+            "hasChild":true,
             "compId":136,
             "child":[
-                ]
+                {
+                    "x":30,
+                    "type":"Text",
+                    "searchKey":"Text",
+                    "props":{"y":0,"x":0,"width":50,"valign":"middle","text":"12","height":30,"fontSize":16,"font":"Helvetica","color":"#ffffff","align":"center"},
+                    "nodeParent":136,
+                    "label":"Text",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":140,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Script",
+                    "switchAble":true,
+                    "source":"src/sprite/Rise.js",
+                    "searchKey":"Script,Rise",
+                    "removeAble":true,
+                    "props":{},
+                    "nodeParent":136,
+                    "label":"Rise",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":144,
+                    "child":[
+                        ]
+                }]
         }],
     "animations":[
         {

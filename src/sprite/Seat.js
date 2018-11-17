@@ -56,10 +56,11 @@ export default class Seat extends Laya.Script {
             this.maskSeat.graphics.clear()
             if (this.speakCountDown > 360) {
                 this.closeCountDown()
+            } else {
+                this.speakCountDown += 0.72                
+                this.maskSeat.graphics.drawPie(this.maskSeat.width / 2, this.maskSeat.height / 2, this.maskSeat.width, 0, this.speakCountDown, "#ffffff");
             }
-            this.maskSeat.graphics.drawPie(this.maskSeat.width / 2, this.maskSeat.height / 2, this.maskSeat.width, 0, this.speakCountDown, "#ffffff");
-            this.speakCountDown++
-        }, 25)
+        }, 40)
     }
 
     // 关闭倒计时

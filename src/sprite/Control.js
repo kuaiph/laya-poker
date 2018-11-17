@@ -29,9 +29,9 @@ export default class Control {
         this.vsliderPoint.changeHandler = new Laya.Handler(this, this.onVsliderChange)
         this.vsliderPoint.on(Laya.Event.MOUSE_UP, this, this.onVsliderUp)
         // 定制加注事件
-        this.imgFixrise0.on(Laya.Event.CLICK, this, this.onRise0Click)
-        this.imgFixrise1.on(Laya.Event.CLICK, this, this.onRise1Click)
-        this.imgFixrise2.on(Laya.Event.CLICK, this, this.onRise2Click)
+        // this.imgFixrise0.on(Laya.Event.CLICK, this, this.onRise0Click)
+        // this.imgFixrise1.on(Laya.Event.CLICK, this, this.onRise1Click)
+        // this.imgFixrise2.on(Laya.Event.CLICK, this, this.onRise2Click)
     }
     // 发言
     speak(selfSeat) {
@@ -76,15 +76,16 @@ export default class Control {
     }
 
     // 定制加注0
-    onRise0Click() {
-        WebSocket.send({ method: 'BET', user: WebSocket.globalData.user, betPoint: 4 })
-    }
-    // 定制加注1
-    onRise1Click() {
-        WebSocket.send({ method: 'BET', user: WebSocket.globalData.user, betPoint: 8 })
-    }
-    // 定制加注2
-    onRise2Click() {
-        WebSocket.send({ method: 'BET', user: WebSocket.globalData.user, betPoint: 16 })
-    }
+    // onRise0Click(e) {
+    //     console.log('请求4')
+    //     WebSocket.send({ method: 'BET', user: WebSocket.globalData.user, betPoint: 4 })
+    // }
+    // // 定制加注1
+    // onRise1Click() {
+    //     WebSocket.send({ method: 'BET', user: WebSocket.globalData.user, betPoint: 8 })
+    // }
+    // // 定制加注2
+    // onRise2Click() {
+    //     WebSocket.send({ method: 'BET', user: WebSocket.globalData.user, betPoint: 16 })
+    // }
 }
