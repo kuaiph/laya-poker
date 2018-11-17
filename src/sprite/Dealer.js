@@ -1,4 +1,3 @@
-import WebSocket from '../util/WebSocket'
 /**
  * 发牌手
  */
@@ -44,7 +43,7 @@ export default class Dealer {
 
     // 发手牌
     onSendPoker() {
-        this.pokers[this.pokerSentIndex].send(this.pokerSentIndex)
+        this.pokers[this.pokerSentIndex].send()
         this.pokerSentIndex++
         // 手牌发牌结束
         if (!this.pokers[this.pokerSentIndex]) {

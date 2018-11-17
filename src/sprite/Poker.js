@@ -1,3 +1,5 @@
+import WebSocket from '../util/WebSocket'
+
 /**
  * 扑克类
  */
@@ -8,15 +10,16 @@ export default class Poker {
         this.imgSeat = inparam.imgSeat
         // 数据信息
         this.dataPoker = inparam.dataPoker
-        this.isPublic = inparam.isPublic        
+        this.isPublic = inparam.isPublic
         this.isMe = false
+        this.user = WebSocket.globalData.user
         // this.reset()
     }
     // 重置
     reset() {
         this.imgPoker.x = 160
         this.imgPoker.y = 297
-        this.imgPoker.skin='ui/poker.png'
+        this.imgPoker.skin = 'ui/poker.png'
         this.imgPoker.visible = true
     }
     // 隐藏
@@ -24,11 +27,16 @@ export default class Poker {
         this.imgPoker.visible = false
     }
     // 发牌
-    send(pokerSentIndex) {
+    send() {
         this.isMe = this.imgSeat.name == 'seat0' ? true : false
         let x = this.imgSeat.x
         if (this.isMe) {
-            pokerSentIndex == 0 ? x += 50 : x += 107
+            if (!this.user.firstSent) {
+                x += 50
+                this.user.firstSent = true
+            } else {
+                x += 107
+            }
         }
         Laya.Tween.to(this.imgPoker, { x, y: this.imgSeat.y }, 500, Laya.Ease.strongOut, Laya.Handler.create(this, this.sendComplete))
     }
