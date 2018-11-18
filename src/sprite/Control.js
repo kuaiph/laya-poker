@@ -35,13 +35,19 @@ export default class Control {
     }
     // 发言
     speak(selfSeat) {
+        let roundPoint = WebSocket.globalData.round.roundPoint
         this.selfSeat = selfSeat
         this.imgAbandon.visible = true                                  // 弃牌按钮显示
         this.imgRise.visible = true                                     // 加注按钮显示
         this.imgFollow.visible = true                                   // 跟注按钮显示
+
+        this.imgFixrise0.getChildByName('textFixrise0').text = Math.floor(1 / 2 * roundPoint)
+        this.imgFixrise1.getChildByName('textFixrise1').text = Math.floor(2 / 3 * roundPoint)
+        this.imgFixrise2.getChildByName('textFixrise2').text = Math.floor(2 * roundPoint)
         this.imgFixrise0.visible = true                                 // 定制加注按钮0
         this.imgFixrise1.visible = true                                 // 定制加注按钮1
         this.imgFixrise2.visible = true                                 // 定制加注按钮2
+        
         this.vsliderPoint.max = selfSeat.seatPoint                      // 设置加注推杆的最大值
         selfSeat.speak()
     }

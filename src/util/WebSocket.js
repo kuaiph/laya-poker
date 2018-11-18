@@ -12,7 +12,7 @@ export default class WebSocket {
     // 与服务端建立长连接
     connect() {
         // ws://192.168.3.224:5000/socket/poker
-        WebSocket.socket.connectByUrl('ws://192.168.1.2:5000/socket/poker')
+        WebSocket.socket.connectByUrl('ws://192.168.1.6:5000/socket/poker')
         // WebSocket.socket.connectByUrl('ws://192.168.3.105:5000/socket/poker')
         // WebSocket.socket.connectByUrl('ws://localhost:5000/socket/poker')
     }

@@ -2,11 +2,11 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":95,
+    "selecteID":136,
     "searchKey":"View",
     "props":{"width":400,"sceneColor":"#000000","runtime":"view/GameView.js","height":800},
     "nodeParent":-1,
-    "maxID":145,
+    "maxID":154,
     "label":"View",
     "isOpen":true,
     "isDirectory":true,
@@ -1499,7 +1499,7 @@
             "x":15,
             "type":"Image",
             "searchKey":"Image,imgFixrise0,imgFixrise0",
-            "props":{"y":590,"x":72,"visible":false,"var":"imgFixrise0","skin":"ui/fixrise.png","name":"imgFixrise0"},
+            "props":{"y":590,"x":72.5,"width":50,"visible":false,"var":"imgFixrise0","skin":"ui/fixrise.png","name":"imgFixrise0","height":30},
             "nodeParent":1,
             "label":"imgFixrise0",
             "isOpen":true,
@@ -1512,7 +1512,7 @@
                     "x":30,
                     "type":"Text",
                     "searchKey":"Text",
-                    "props":{"y":0,"x":0,"width":50,"valign":"middle","text":"4","mouseEnabled":false,"height":30,"fontSize":16,"font":"Helvetica","color":"#ffffff","align":"center"},
+                    "props":{"y":0,"x":0,"wordWrap":false,"width":50,"valign":"middle","text":"1/2","mouseEnabled":false,"height":15,"fontSize":14,"font":"Helvetica","color":"#ffffff","align":"center"},
                     "nodeParent":134,
                     "label":"Text",
                     "isDirectory":false,
@@ -1538,6 +1538,34 @@
                     "compId":141,
                     "child":[
                         ]
+                },
+                {
+                    "x":30,
+                    "type":"Text",
+                    "searchKey":"Text",
+                    "props":{"y":14,"x":0,"wordWrap":false,"width":50,"valign":"middle","text":"底池","mouseEnabled":false,"height":15,"fontSize":12,"font":"Helvetica","color":"#ffffff","align":"center"},
+                    "nodeParent":134,
+                    "label":"Text",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":145,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Text",
+                    "searchKey":"Text,textFixrise0",
+                    "props":{"y":29,"x":0,"wordWrap":false,"width":50,"visible":true,"valign":"middle","text":"0","name":"textFixrise0","mouseEnabled":false,"height":15,"font":"Helvetica","color":"#ffffff","align":"center"},
+                    "nodeParent":134,
+                    "label":"textFixrise0",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":151,
+                    "child":[
+                        ]
                 }]
         },
         {
@@ -1557,7 +1585,7 @@
                     "x":30,
                     "type":"Text",
                     "searchKey":"Text",
-                    "props":{"y":0,"x":0,"width":50,"valign":"middle","text":"6","height":30,"fontSize":16,"font":"Helvetica","color":"#ffffff","align":"center"},
+                    "props":{"y":0,"x":0,"width":50,"valign":"middle","text":"2/3","height":15,"fontSize":14,"font":"Helvetica","color":"#ffffff","align":"center"},
                     "nodeParent":135,
                     "label":"Text",
                     "isDirectory":false,
@@ -1583,6 +1611,34 @@
                     "compId":143,
                     "child":[
                         ]
+                },
+                {
+                    "x":30,
+                    "type":"Text",
+                    "searchKey":"Text",
+                    "props":{"y":14,"x":0,"width":50,"valign":"middle","text":"底池","height":15,"fontSize":12,"font":"Helvetica","color":"#ffffff","align":"center"},
+                    "nodeParent":135,
+                    "label":"Text",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":149,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Text",
+                    "searchKey":"Text,textFixrise1",
+                    "props":{"y":29,"x":0,"wordWrap":false,"width":50,"visible":true,"valign":"middle","text":"0","name":"textFixrise1","mouseEnabled":false,"height":15,"font":"Helvetica","color":"#ffffff","align":"center"},
+                    "nodeParent":135,
+                    "label":"textFixrise1",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":152,
+                    "child":[
+                        ]
                 }]
         },
         {
@@ -1602,7 +1658,7 @@
                     "x":30,
                     "type":"Text",
                     "searchKey":"Text",
-                    "props":{"y":0,"x":0,"width":50,"valign":"middle","text":"12","height":30,"fontSize":16,"font":"Helvetica","color":"#ffffff","align":"center"},
+                    "props":{"y":0,"x":0,"width":50,"valign":"middle","text":"1×","height":15,"fontSize":14,"font":"Helvetica","color":"#ffffff","align":"center"},
                     "nodeParent":136,
                     "label":"Text",
                     "isDirectory":false,
@@ -1626,6 +1682,34 @@
                     "isAniNode":true,
                     "hasChild":false,
                     "compId":144,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Text",
+                    "searchKey":"Text",
+                    "props":{"y":14,"x":0,"width":50,"valign":"middle","text":"底池","height":15,"fontSize":12,"font":"Helvetica","color":"#ffffff","align":"center"},
+                    "nodeParent":136,
+                    "label":"Text",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":150,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Text",
+                    "searchKey":"Text,textFixrise2",
+                    "props":{"y":29,"x":0,"wordWrap":false,"width":50,"visible":true,"valign":"middle","text":"0","name":"textFixrise2","mouseEnabled":false,"height":15,"font":"Helvetica","color":"#ffffff","align":"center"},
+                    "nodeParent":136,
+                    "label":"textFixrise2",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":153,
                     "child":[
                         ]
                 }]
