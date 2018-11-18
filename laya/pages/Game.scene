@@ -6,7 +6,7 @@
     "searchKey":"View",
     "props":{"width":400,"sceneColor":"#000000","runtime":"view/GameView.js","height":800},
     "nodeParent":-1,
-    "maxID":157,
+    "maxID":162,
     "label":"View",
     "isOpen":true,
     "isDirectory":true,
@@ -1392,23 +1392,6 @@
             "child":[
                 {
                     "x":30,
-                    "type":"Script",
-                    "switchAble":true,
-                    "source":"src/sprite/Abandon.js",
-                    "searchKey":"Script,Abandon",
-                    "removeAble":true,
-                    "props":{},
-                    "nodeParent":109,
-                    "label":"Abandon",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":114,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
                     "type":"Text",
                     "searchKey":"Text,textFollow",
                     "props":{"y":42.5,"x":0,"wordWrap":false,"width":50,"visible":true,"valign":"middle","text":"弃牌","name":"textFollow","mouseEnabled":false,"height":15,"fontSize":10,"font":"Helvetica","color":"#ffffff","align":"center"},
@@ -1418,6 +1401,23 @@
                     "isAniNode":true,
                     "hasChild":false,
                     "compId":156,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Script",
+                    "switchAble":true,
+                    "source":"src/script/Abandon.js",
+                    "searchKey":"Script,Abandon",
+                    "removeAble":true,
+                    "props":{},
+                    "nodeParent":109,
+                    "label":"Abandon",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":160,
                     "child":[
                         ]
                 }]
@@ -1465,23 +1465,6 @@
             "child":[
                 {
                     "x":30,
-                    "type":"Script",
-                    "switchAble":true,
-                    "source":"src/sprite/Follow.js",
-                    "searchKey":"Script,Follow",
-                    "removeAble":true,
-                    "props":{},
-                    "nodeParent":111,
-                    "label":"Follow",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":116,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
                     "type":"Text",
                     "searchKey":"Text,textFollow",
                     "props":{"y":42.5,"x":0,"wordWrap":false,"width":50,"visible":true,"valign":"middle","text":"看牌","name":"textFollow","mouseEnabled":false,"height":15,"fontSize":10,"font":"Helvetica","color":"#ffffff","align":"center"},
@@ -1491,6 +1474,23 @@
                     "isAniNode":true,
                     "hasChild":false,
                     "compId":154,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Script",
+                    "switchAble":true,
+                    "source":"src/script/Follow.js",
+                    "searchKey":"Script,Follow",
+                    "removeAble":true,
+                    "props":{},
+                    "nodeParent":111,
+                    "label":"Follow",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":161,
                     "child":[
                         ]
                 }],
@@ -1566,22 +1566,6 @@
                         ]
                 },
                 {
-                    "type":"Script",
-                    "switchAble":true,
-                    "source":"src/sprite/Rise.js",
-                    "searchKey":"Script,Rise",
-                    "removeAble":true,
-                    "props":{},
-                    "nodeParent":134,
-                    "label":"Rise",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":141,
-                    "child":[
-                        ]
-                },
-                {
                     "type":"Text",
                     "searchKey":"Text",
                     "props":{"y":14,"x":0,"wordWrap":false,"width":50,"valign":"middle","text":"底池","mouseEnabled":false,"height":15,"fontSize":12,"font":"Helvetica","color":"#ffffff","align":"center"},
@@ -1604,6 +1588,22 @@
                     "isAniNode":true,
                     "hasChild":false,
                     "compId":151,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"Script",
+                    "switchAble":true,
+                    "source":"src/script/Rise.js",
+                    "searchKey":"Script,Rise",
+                    "removeAble":true,
+                    "props":{},
+                    "nodeParent":134,
+                    "label":"Rise",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":157,
                     "child":[
                         ]
                 }]
@@ -1635,22 +1635,6 @@
                         ]
                 },
                 {
-                    "type":"Script",
-                    "switchAble":true,
-                    "source":"src/sprite/Rise.js",
-                    "searchKey":"Script,Rise",
-                    "removeAble":true,
-                    "props":{},
-                    "nodeParent":135,
-                    "label":"Rise",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":143,
-                    "child":[
-                        ]
-                },
-                {
                     "type":"Text",
                     "searchKey":"Text",
                     "props":{"y":14,"x":0,"width":50,"valign":"middle","text":"底池","height":15,"fontSize":12,"font":"Helvetica","color":"#ffffff","align":"center"},
@@ -1673,6 +1657,22 @@
                     "isAniNode":true,
                     "hasChild":false,
                     "compId":152,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"Script",
+                    "switchAble":true,
+                    "source":"src/script/Rise.js",
+                    "searchKey":"Script,Rise",
+                    "removeAble":true,
+                    "props":{},
+                    "nodeParent":135,
+                    "label":"Rise",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":158,
                     "child":[
                         ]
                 }]
@@ -1706,23 +1706,6 @@
                 },
                 {
                     "x":30,
-                    "type":"Script",
-                    "switchAble":true,
-                    "source":"src/sprite/Rise.js",
-                    "searchKey":"Script,Rise",
-                    "removeAble":true,
-                    "props":{},
-                    "nodeParent":136,
-                    "label":"Rise",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":144,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
                     "type":"Text",
                     "searchKey":"Text",
                     "props":{"y":14,"x":0,"width":50,"valign":"middle","text":"底池","height":15,"fontSize":12,"font":"Helvetica","color":"#ffffff","align":"center"},
@@ -1746,6 +1729,23 @@
                     "isAniNode":true,
                     "hasChild":false,
                     "compId":153,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Script",
+                    "switchAble":true,
+                    "source":"src/script/Rise.js",
+                    "searchKey":"Script,Rise",
+                    "removeAble":true,
+                    "props":{},
+                    "nodeParent":136,
+                    "label":"Rise",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":159,
                     "child":[
                         ]
                 }]

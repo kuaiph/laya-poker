@@ -5,6 +5,7 @@ import WebSocket from '../util/WebSocket'
  */
 export default class Control {
     constructor(inparam) {
+        // UI元素
         this.imgAbandon = inparam.imgAbandon
         this.imgRise = inparam.imgRise
         this.imgFollow = inparam.imgFollow
@@ -12,8 +13,12 @@ export default class Control {
         this.imgFixrise0 = inparam.imgFixrise0
         this.imgFixrise1 = inparam.imgFixrise1
         this.imgFixrise2 = inparam.imgFixrise2
+        // 数据信息
+        this.round = inparam.round
+        // 初始化
         this.init()
     }
+    // 初始化
     init() {
         this.imgAbandon.visible = false                         // 弃牌按钮
         this.imgRise.visible = false                            // 加注按钮
@@ -28,15 +33,11 @@ export default class Control {
         this.imgRise.on(Laya.Event.CLICK, this, this.onRiseClick)
         this.vsliderPoint.changeHandler = new Laya.Handler(this, this.onVsliderChange)
         this.vsliderPoint.on(Laya.Event.MOUSE_UP, this, this.onVsliderUp)
-        // 定制加注事件
-        // this.imgFixrise0.on(Laya.Event.CLICK, this, this.onRise0Click)
-        // this.imgFixrise1.on(Laya.Event.CLICK, this, this.onRise1Click)
-        // this.imgFixrise2.on(Laya.Event.CLICK, this, this.onRise2Click)
     }
     // 发言
     speak(selfSeat) {
-        let roundPoint = WebSocket.globalData.round.roundPoint
-        let minBetPoint = WebSocket.globalData.round.seatMap['seat0'].minBetPoint
+        let roundPoint = this.round.roundPoint
+        let minBetPoint = this.round.seatMap['seat0'].minBetPoint
 
         this.selfSeat = selfSeat
         this.imgAbandon.visible = true                                  // 弃牌按钮显示
@@ -85,18 +86,4 @@ export default class Control {
             WebSocket.send({ method: 'BET', user: WebSocket.globalData.user, betPoint: this.betPoint })
         }
     }
-
-    // 定制加注0
-    // onRise0Click(e) {
-    //     console.log('请求4')
-    //     WebSocket.send({ method: 'BET', user: WebSocket.globalData.user, betPoint: 4 })
-    // }
-    // // 定制加注1
-    // onRise1Click() {
-    //     WebSocket.send({ method: 'BET', user: WebSocket.globalData.user, betPoint: 8 })
-    // }
-    // // 定制加注2
-    // onRise2Click() {
-    //     WebSocket.send({ method: 'BET', user: WebSocket.globalData.user, betPoint: 16 })
-    // }
 }

@@ -3,12 +3,14 @@
  */
 export default class Dealer {
     constructor(inparam) {
+        // 数据信息
         this.pokers = []                                        // 扑克牌数组
         this.restPokers = []                                    // 剩余扑克牌组
         this.pokerSentIndex = 0                                 // 已发牌索引
         this.pokerPublicSentIndex = 0                           // 公牌发牌索引
     }
 
+    // 重置牌组
     reset() {
         if (this.pokers) {
             for (let poker of this.pokers) {
@@ -22,11 +24,11 @@ export default class Dealer {
             }
         }
     }
-
+    // 增加有用扑克
     addPoker(poker) {
         this.pokers.push(poker)
     }
-
+    // 增加无用扑克
     addRestPoker(poker) {
         this.restPokers.push(poker)
     }

@@ -1,5 +1,3 @@
-import WebSocket from '../util/WebSocket'
-
 /**
  * 扑克类
  */
@@ -12,7 +10,7 @@ export default class Poker {
         this.dataPoker = inparam.dataPoker
         this.isPublic = inparam.isPublic
         this.isMe = false
-        this.user = WebSocket.globalData.user
+        this.user = inparam.user
         // this.reset()
     }
     // 重置
