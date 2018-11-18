@@ -11,7 +11,7 @@ export default class Control {
         this.vsliderPoint = inparam.vsliderPoint
         this.imgFixrise0 = inparam.imgFixrise0
         this.imgFixrise1 = inparam.imgFixrise1
-        this.imgFixrise2 = inparam.imgFixrise2        
+        this.imgFixrise2 = inparam.imgFixrise2
         this.init()
     }
     init() {
@@ -23,7 +23,7 @@ export default class Control {
         this.imgFixrise0.visible = false                        // 定制加注按钮0
         this.imgFixrise1.visible = false                        // 定制加注按钮1
         this.imgFixrise2.visible = false                        // 定制加注按钮2
-        
+
         // 控制台事件
         this.imgRise.on(Laya.Event.CLICK, this, this.onRiseClick)
         this.vsliderPoint.changeHandler = new Laya.Handler(this, this.onVsliderChange)
@@ -36,6 +36,8 @@ export default class Control {
     // 发言
     speak(selfSeat) {
         let roundPoint = WebSocket.globalData.round.roundPoint
+        let minBetPoint = WebSocket.globalData.round.seatMap['seat0'].minBetPoint
+
         this.selfSeat = selfSeat
         this.imgAbandon.visible = true                                  // 弃牌按钮显示
         this.imgRise.visible = true                                     // 加注按钮显示
@@ -47,7 +49,10 @@ export default class Control {
         this.imgFixrise0.visible = true                                 // 定制加注按钮0
         this.imgFixrise1.visible = true                                 // 定制加注按钮1
         this.imgFixrise2.visible = true                                 // 定制加注按钮2
-        
+
+        // 设定跟注最小值
+        this.imgFollow.getChildByName('textFollow').text = minBetPoint > 0 ? `跟注 ${minBetPoint}` : '看牌'
+
         this.vsliderPoint.max = selfSeat.seatPoint                      // 设置加注推杆的最大值
         selfSeat.speak()
     }
