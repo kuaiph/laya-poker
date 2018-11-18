@@ -5,8 +5,6 @@ import WebSocket from '../util/WebSocket'
  */
 export default class Abandon extends Laya.Script {
     onEnable() {
-        this.user = WebSocket.globalData.user
-        this.seatMap = WebSocket.globalData.round.seatMap
     }
     onClick() {
         WebSocket.send({ method: 'BET', user: WebSocket.globalData.user, betPoint: 0 })
