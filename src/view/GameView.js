@@ -62,7 +62,7 @@ export default class GameView extends Laya.Scene {
         // 创建控制台
         this.control = new Control({ imgAbandon, imgRise, imgFollow, vsliderPoint, imgFixrise0, imgFixrise1, imgFixrise2, round: this.round })
         // 创建盲注，最后全局状态持久化
-        this.round.blind = new Blind({ imgChipBig: this.imgChipBig, imgChipSmall: this.imgChipSmall, textChipBig: this.textChipBig, textChipSmall: this.textChipSmall, seatMap: this.round.seatMap })
+        this.round.blind = new Blind({ textChipBig: this.textChipBig, textChipSmall: this.textChipSmall, seatMap: this.round.seatMap })
     }
 
     // 发手牌
