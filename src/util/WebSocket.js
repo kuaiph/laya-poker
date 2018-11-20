@@ -8,7 +8,7 @@ import close from '../action/CLOSE.js'
  */
 export default class WebSocket {
     constructor(startScene) {
-        // WebSocket.instance = this                                       // 单例        
+        // WebSocket.instance = this                                       // 单例
         WebSocket.socket = new Laya.Socket()                            // 实例Socket
         WebSocket.socket.endian = Laya.Byte.LITTLE_ENDIAN               // 采用小端
         WebSocket.globalData = { user: {}, round: {}, startScene }      // 全局数据对象

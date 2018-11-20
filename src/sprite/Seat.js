@@ -8,13 +8,13 @@ export default class Seat extends Laya.Script {
         if (inparam) {
             // UI元素
             this.boxSeat = inparam.boxSeat                                          // 座位
+            this.textName = this.boxSeat.getChildByName('textName')                 // 座位昵称
             this.imgSeat = this.boxSeat.getChildByName('imgSeat')                   // 座位头像
             this.textSeatPoint = this.boxSeat.getChildByName('textSeatPoint')       // 座位点数
+            this.boxBet = this.boxSeat.getChildByName('boxBet')                     // 玩家投注盒子
             this.imgTag = this.boxSeat.getChildByName('imgTag') || {}               // 状态标记
             this.imgHandPoker = this.boxSeat.getChildByName('imgHandPoker') || {}   // 座位手牌标记
-            this.box = inparam.box                          // 玩家投注盒子
             this.maskSeat = inparam.maskSeat                // 倒计时遮罩
-
             // 数据信息
             this.seatId = inparam.seatId                    // 座位显示ID
             this.seatNo = inparam.seatNo                    // 座位真实ID
@@ -50,7 +50,7 @@ export default class Seat extends Laya.Script {
         } else {
             this.textSeatPoint.visible = false
         }
-        this.box.visible = false
+        this.boxBet.visible = false
         // 隐藏手牌标识
         this.imgHandPoker.visible = false
     }
@@ -98,13 +98,13 @@ export default class Seat extends Laya.Script {
     // 投注
     bet() {
         this.textSeatPoint.text = this.seatPoint
-        this.box.getChildByName('boxPoint').text = this.betPoint
-        this.box.visible = true
+        this.boxBet.getChildByName('boxPoint').text = this.betPoint
+        this.boxBet.visible = true
     }
 
     // 隐藏投注盒子
     hideBet() {
-        this.box.visible = false
+        this.boxBet.visible = false
     }
 
     // 根据状态显示提示

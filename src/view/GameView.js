@@ -52,21 +52,20 @@ export default class GameView extends Laya.Scene {
         for (let i = 0; i < 9; i++) {
             // 获取界面元素
             const boxSeat = this.getChildByName(`seat${i}`)
-            const box = this.getChildByName(`box${i}`)
             const maskSeat = this[`mask${i}`]
             // const maskSeat = boxSeat.getChildByName(`mask${i}`)            
             // 创建座位对象，最后全局状态持久化
-            this.round.seatMap[boxSeat.name] = new Seat(Object.assign(this.round.seatMap[boxSeat.name], { boxSeat, box, maskSeat }))
+            this.round.seatMap[boxSeat.name] = new Seat(Object.assign(this.round.seatMap[boxSeat.name], { boxSeat, maskSeat }))
         }
         // 创建控制台
         this.control = new Control({ imgAbandon, imgRise, imgFollow, vsliderPoint, imgFixrise0, imgFixrise1, imgFixrise2, round: this.round })
         // 创建盲注，最后全局状态持久化
-        this.round.blind = new Blind({ textChipBig: this.textChipBig, textChipSmall: this.textChipSmall, seatMap: this.round.seatMap })
+        // this.round.blind = new Blind({ textChipBig: this.textChipBig, textChipSmall: this.textChipSmall, seatMap: this.round.seatMap })
     }
 
     // 发手牌
     sendPoker(pokerArr, seatCount) {
-        this.round.blind.move(this.round.chipSeatIdArr)
+        // this.round.blind.move(this.round.chipSeatIdArr)
         for (let dataPoker of pokerArr) {
             const imgPoker = this.getChildByName(dataPoker.pokerId)
             const seat = this.round.seatMap[dataPoker.seatId]
