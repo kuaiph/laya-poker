@@ -2,7 +2,7 @@ import WebSocket from '../util/WebSocket'
 import Poker from '../sprite/Poker'
 import Dealer from '../sprite/Dealer'
 import Seat from '../sprite/Seat'
-import Blind from '../sprite/Blind'
+// import Blind from '../sprite/Blind'
 import Control from '../sprite/Control'
 
 /**
