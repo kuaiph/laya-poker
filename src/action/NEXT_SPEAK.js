@@ -39,6 +39,9 @@ export default function nextSpeak(globalData, res) {
     // 根据返回数据更新座位图，然后显示操作台
     for (let seatId in seatMap) {
         round.seatMap[seatId] = Object.assign(round.seatMap[seatId], seatMap[seatId])
+        // 提示更新
+        round.seatMap[seatId].showTip()
+
         // 只有一个座位说话
         if (round.seatMap[seatId].isSpeak) {
             // 显示倒计时
@@ -54,6 +57,7 @@ export default function nextSpeak(globalData, res) {
         else {
             round.seatMap[seatId].closeCountDown()
         }
+        
         // 投注更新
         if (round.seatMap[seatId].betPoint) {
             round.seatMap[seatId].bet()

@@ -5,7 +5,7 @@ export default class Poker {
     constructor(inparam) {
         // UI元素
         this.imgPoker = inparam.imgPoker
-        this.imgSeat = inparam.imgSeat
+        this.seat = inparam.seat
         // 数据信息
         this.dataPoker = inparam.dataPoker
         this.isPublic = inparam.isPublic
@@ -26,8 +26,8 @@ export default class Poker {
     }
     // 发牌
     send() {
-        this.isMe = this.imgSeat.name == 'seat0' ? true : false
-        let x = this.imgSeat.x
+        this.isMe = this.seat.boxSeat.name == 'seat0' ? true : false
+        let x = this.seat.boxSeat.x
         if (this.isMe) {
             if (!this.user.firstSent) {
                 x += 50
@@ -36,7 +36,7 @@ export default class Poker {
                 x += 107
             }
         }
-        Laya.Tween.to(this.imgPoker, { x, y: this.imgSeat.y }, 500, Laya.Ease.strongOut, Laya.Handler.create(this, this.sendComplete))
+        Laya.Tween.to(this.imgPoker, { x, y: this.seat.boxSeat.y }, 500, Laya.Ease.strongOut, Laya.Handler.create(this, this.sendComplete))
     }
     // 手牌发牌完成
     sendComplete() {
@@ -45,6 +45,7 @@ export default class Poker {
         } else {
             this.imgPoker.skin = `ui/${this.dataPoker.card}.png`
         }
+        this.seat.imgHandPoker.visible = true
     }
     // 发公共牌
     sendPublic(publicIndex) {

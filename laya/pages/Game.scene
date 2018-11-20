@@ -1,13 +1,13 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":110,
-    "searchKey":"View",
-    "props":{"width":400,"sceneColor":"#000000","runtime":"view/GameView.js","height":800},
+    "selectedBox":185,
+    "selecteID":63,
+    "searchKey":"View,imgTag",
+    "props":{"width":400,"sceneColor":"#000000","runtime":"view/GameView.js","name":"imgTag","height":800},
     "nodeParent":-1,
-    "maxID":179,
-    "label":"View",
+    "maxID":198,
+    "label":"imgTag",
     "isOpen":true,
     "isDirectory":true,
     "isAniNode":true,
@@ -28,526 +28,6 @@
             "child":[
                 ],
             "$LOCKED":true
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "searchKey":"Image,seat8",
-            "props":{"y":492,"x":350,"skin":"ui/head.png","name":"seat8"},
-            "nodeParent":1,
-            "label":"seat8",
-            "isOpen":true,
-            "isDirectory":true,
-            "isAniNode":true,
-            "hasChild":true,
-            "compId":12,
-            "child":[
-                {
-                    "x":30,
-                    "type":"Script",
-                    "switchAble":true,
-                    "source":"src/sprite/Seat.js",
-                    "searchKey":"Script,Seat",
-                    "removeAble":true,
-                    "props":{},
-                    "nodeParent":12,
-                    "label":"Seat",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":101,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Sprite",
-                    "searchKey":"Sprite,mask8,mask8",
-                    "props":{"y":0,"x":0,"width":50,"var":"mask8","texture":"ui/head.png","renderType":"mask","name":"mask8","height":50,"alpha":0.5},
-                    "nodeParent":12,
-                    "label":"mask8",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":129,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Image",
-                    "searchKey":"Image",
-                    "props":{"y":25,"x":1.5,"skin":"ui/poker2.png"},
-                    "nodeParent":12,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":170,
-                    "child":[
-                        ]
-                }]
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "searchKey":"Image,seat7",
-            "props":{"y":330,"x":350,"visible":true,"skin":"ui/head.png","name":"seat7"},
-            "nodeParent":1,
-            "label":"seat7",
-            "isOpen":true,
-            "isDirectory":true,
-            "isAniNode":true,
-            "hasChild":true,
-            "compId":4,
-            "child":[
-                {
-                    "x":30,
-                    "type":"Script",
-                    "switchAble":true,
-                    "source":"src/sprite/Seat.js",
-                    "searchKey":"Script,Seat",
-                    "removeAble":true,
-                    "props":{},
-                    "nodeParent":4,
-                    "label":"Seat",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":100,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Sprite",
-                    "searchKey":"Sprite,mask7,mask7",
-                    "props":{"y":0,"x":0,"width":50,"var":"mask7","texture":"ui/head.png","renderType":"mask","name":"mask7","height":50,"alpha":0.5},
-                    "nodeParent":4,
-                    "label":"mask7",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":128,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Image",
-                    "searchKey":"Image",
-                    "props":{"y":25,"x":0,"skin":"ui/poker2.png"},
-                    "nodeParent":4,
-                    "label":"Image",
-                    "isOpen":true,
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":169,
-                    "child":[
-                        ]
-                }]
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "searchKey":"Image,seat6",
-            "props":{"y":170,"x":350,"skin":"ui/head.png","name":"seat6"},
-            "nodeParent":1,
-            "label":"seat6",
-            "isOpen":true,
-            "isDirectory":true,
-            "isAniNode":true,
-            "hasChild":true,
-            "compId":6,
-            "child":[
-                {
-                    "x":30,
-                    "type":"Script",
-                    "switchAble":true,
-                    "source":"src/sprite/Seat.js",
-                    "searchKey":"Script,Seat",
-                    "removeAble":true,
-                    "props":{},
-                    "nodeParent":6,
-                    "label":"Seat",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":102,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Sprite",
-                    "searchKey":"Sprite,mask6,mask6",
-                    "props":{"y":0,"x":0,"width":50,"var":"mask6","texture":"ui/head.png","renderType":"mask","name":"mask6","height":50,"alpha":0.5},
-                    "nodeParent":6,
-                    "label":"mask6",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":127,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Image",
-                    "searchKey":"Image",
-                    "props":{"y":25,"x":1.5,"skin":"ui/poker2.png"},
-                    "nodeParent":6,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":168,
-                    "child":[
-                        ]
-                }]
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "searchKey":"Image,seat5",
-            "props":{"y":25,"x":287.75,"skin":"ui/head.png","name":"seat5"},
-            "nodeParent":1,
-            "label":"seat5",
-            "isOpen":true,
-            "isDirectory":true,
-            "isAniNode":true,
-            "hasChild":true,
-            "compId":10,
-            "child":[
-                {
-                    "x":30,
-                    "type":"Script",
-                    "switchAble":true,
-                    "source":"src/sprite/Seat.js",
-                    "searchKey":"Script,Seat",
-                    "removeAble":true,
-                    "props":{},
-                    "nodeParent":10,
-                    "label":"Seat",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":103,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Sprite",
-                    "searchKey":"Sprite,mask5,mask5",
-                    "props":{"y":0,"x":0,"width":50,"var":"mask5","texture":"ui/head.png","renderType":"mask","name":"mask5","height":50,"alpha":0.5},
-                    "nodeParent":10,
-                    "label":"mask5",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":126,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Image",
-                    "searchKey":"Image",
-                    "props":{"y":25,"x":1.5,"skin":"ui/poker2.png"},
-                    "nodeParent":10,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":167,
-                    "child":[
-                        ]
-                }]
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "searchKey":"Image,seat4",
-            "props":{"y":25,"x":61.25,"skin":"ui/head.png","name":"seat4"},
-            "nodeParent":1,
-            "label":"seat4",
-            "isOpen":true,
-            "isDirectory":true,
-            "isAniNode":true,
-            "hasChild":true,
-            "compId":9,
-            "child":[
-                {
-                    "x":30,
-                    "type":"Script",
-                    "switchAble":true,
-                    "source":"src/sprite/Seat.js",
-                    "searchKey":"Script,Seat",
-                    "removeAble":true,
-                    "props":{},
-                    "nodeParent":9,
-                    "label":"Seat",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":104,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Sprite",
-                    "searchKey":"Sprite,mask4,mask4",
-                    "props":{"y":0,"x":0,"width":50,"var":"mask4","texture":"ui/head.png","renderType":"mask","name":"mask4","height":50,"alpha":0.5},
-                    "nodeParent":9,
-                    "label":"mask4",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":125,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Image",
-                    "searchKey":"Image",
-                    "props":{"y":25,"x":25,"skin":"ui/poker2.png"},
-                    "nodeParent":9,
-                    "label":"Image",
-                    "isOpen":true,
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":166,
-                    "child":[
-                        ]
-                }]
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "searchKey":"Image,seat3",
-            "props":{"y":170,"x":0,"skin":"ui/head.png","name":"seat3"},
-            "nodeParent":1,
-            "label":"seat3",
-            "isOpen":true,
-            "isDirectory":true,
-            "isAniNode":true,
-            "hasChild":true,
-            "compId":7,
-            "child":[
-                {
-                    "x":30,
-                    "type":"Script",
-                    "switchAble":true,
-                    "source":"src/sprite/Seat.js",
-                    "searchKey":"Script,Seat",
-                    "removeAble":true,
-                    "props":{},
-                    "nodeParent":7,
-                    "label":"Seat",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":105,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Sprite",
-                    "searchKey":"Sprite,mask3,mask3",
-                    "props":{"y":0,"x":0,"width":50,"var":"mask3","texture":"ui/head.png","renderType":"mask","name":"mask3","height":50,"alpha":0.5},
-                    "nodeParent":7,
-                    "label":"mask3",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":124,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Image",
-                    "searchKey":"Image",
-                    "props":{"y":25,"x":25,"skin":"ui/poker2.png"},
-                    "nodeParent":7,
-                    "label":"Image",
-                    "isOpen":true,
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":165,
-                    "child":[
-                        ]
-                }]
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "searchKey":"Image,seat2",
-            "props":{"y":330,"x":0,"skin":"ui/head.png","name":"seat2"},
-            "nodeParent":1,
-            "label":"seat2",
-            "isOpen":true,
-            "isDirectory":true,
-            "isAniNode":true,
-            "hasChild":true,
-            "compId":5,
-            "child":[
-                {
-                    "x":30,
-                    "type":"Script",
-                    "switchAble":true,
-                    "source":"src/sprite/Seat.js",
-                    "searchKey":"Script,Seat",
-                    "removeAble":true,
-                    "props":{},
-                    "nodeParent":5,
-                    "label":"Seat",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":106,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Sprite",
-                    "searchKey":"Sprite,mask2,mask2",
-                    "props":{"y":0,"x":0,"width":50,"var":"mask2","texture":"ui/head.png","renderType":"mask","name":"mask2","height":50,"alpha":0.5},
-                    "nodeParent":5,
-                    "label":"mask2",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":123,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Image",
-                    "searchKey":"Image",
-                    "props":{"y":25,"x":25,"skin":"ui/poker2.png"},
-                    "nodeParent":5,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":164,
-                    "child":[
-                        ]
-                }]
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "searchKey":"Image,seat1",
-            "props":{"y":492,"x":0,"skin":"ui/head.png","name":"seat1"},
-            "nodeParent":1,
-            "label":"seat1",
-            "isOpen":true,
-            "isDirectory":true,
-            "isAniNode":true,
-            "hasChild":true,
-            "compId":11,
-            "child":[
-                {
-                    "x":30,
-                    "type":"Script",
-                    "switchAble":true,
-                    "source":"src/sprite/Seat.js",
-                    "searchKey":"Script,Seat",
-                    "removeAble":true,
-                    "props":{},
-                    "nodeParent":11,
-                    "label":"Seat",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":107,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Sprite",
-                    "searchKey":"Sprite,mask1,mask1",
-                    "props":{"y":0,"x":0,"width":50,"var":"mask1","texture":"ui/head.png","renderType":"mask","name":"mask1","height":50,"alpha":0.5},
-                    "nodeParent":11,
-                    "label":"mask1",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":122,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Image",
-                    "searchKey":"Image",
-                    "props":{"y":25,"x":25,"skin":"ui/poker2.png"},
-                    "nodeParent":11,
-                    "label":"Image",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":163,
-                    "child":[
-                        ]
-                }]
-        },
-        {
-            "x":15,
-            "type":"Image",
-            "searchKey":"Image,seat0",
-            "props":{"y":724,"x":120,"width":50,"skin":"ui/head.png","rotation":0,"name":"seat0","height":50},
-            "nodeParent":1,
-            "label":"seat0",
-            "isOpen":true,
-            "isDirectory":true,
-            "isAniNode":true,
-            "hasChild":true,
-            "compId":8,
-            "child":[
-                {
-                    "x":30,
-                    "type":"Script",
-                    "switchAble":true,
-                    "source":"src/sprite/Seat.js",
-                    "searchKey":"Script,Seat",
-                    "removeAble":true,
-                    "props":{},
-                    "nodeParent":8,
-                    "label":"Seat",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":108,
-                    "child":[
-                        ]
-                },
-                {
-                    "x":30,
-                    "type":"Sprite",
-                    "searchKey":"Sprite,mask0,mask0",
-                    "props":{"width":50,"var":"mask0","texture":"ui/head.png","renderType":"mask","name":"mask0","height":50,"alpha":0.5},
-                    "nodeParent":8,
-                    "label":"mask0",
-                    "isDirectory":false,
-                    "isAniNode":true,
-                    "hasChild":false,
-                    "compId":120,
-                    "child":[
-                        ]
-                }]
         },
         {
             "x":15,
@@ -924,118 +404,6 @@
         },
         {
             "x":15,
-            "type":"Text",
-            "searchKey":"Text,seatPoint1",
-            "props":{"y":542,"x":0,"width":50,"visible":false,"text":"200","name":"seatPoint1","height":15,"color":"#ffffff","align":"center"},
-            "nodeParent":1,
-            "label":"seatPoint1",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":59,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Text",
-            "searchKey":"Text,seatPoint2",
-            "props":{"y":380,"x":0,"width":50,"visible":false,"text":"200","name":"seatPoint2","height":15,"color":"#ffffff","align":"center"},
-            "nodeParent":1,
-            "label":"seatPoint2",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":60,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Text",
-            "searchKey":"Text,seatPoint3",
-            "props":{"y":219,"x":0,"width":50,"visible":false,"text":"200","name":"seatPoint3","height":15,"color":"#ffffff","align":"center"},
-            "nodeParent":1,
-            "label":"seatPoint3",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":61,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Text",
-            "searchKey":"Text,seatPoint4",
-            "props":{"y":76,"x":61,"width":50,"visible":false,"text":"200","name":"seatPoint4","height":15,"color":"#ffffff","align":"center"},
-            "nodeParent":1,
-            "label":"seatPoint4",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":62,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Text",
-            "searchKey":"Text,seatPoint5",
-            "props":{"y":75,"x":287,"width":50,"visible":false,"text":"200","name":"seatPoint5","height":15,"color":"#ffffff","align":"center"},
-            "nodeParent":1,
-            "label":"seatPoint5",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":63,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Text",
-            "searchKey":"Text,seatPoint6",
-            "props":{"y":219,"x":349,"width":50,"visible":false,"text":"200","name":"seatPoint6","height":15,"color":"#ffffff","align":"center"},
-            "nodeParent":1,
-            "label":"seatPoint6",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":64,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Text",
-            "searchKey":"Text,seatPoint7",
-            "props":{"y":379,"x":349,"width":50,"visible":false,"text":"200","name":"seatPoint7","height":15,"color":"#ffffff","align":"center"},
-            "nodeParent":1,
-            "label":"seatPoint7",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":65,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
-            "type":"Text",
-            "searchKey":"Text,seatPoint8",
-            "props":{"y":542,"x":349,"width":50,"visible":false,"text":"200","name":"seatPoint8","height":16,"color":"#ffffff","align":"center"},
-            "nodeParent":1,
-            "label":"seatPoint8",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":66,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
             "type":"Image",
             "searchKey":"Image",
             "props":{"y":210,"x":173.75,"width":25,"skin":"ui/chiplove.png","height":25},
@@ -1083,14 +451,13 @@
             "props":{"y":693,"x":173.75,"visible":false,"name":"box0"},
             "nodeParent":1,
             "label":"box0",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":73,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,boxChip",
                     "props":{"y":2,"x":-0.5,"width":25,"skin":"ui/chiplove.png","name":"boxChip","height":25},
@@ -1104,7 +471,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Text",
                     "searchKey":"Text,boxPoint",
                     "props":{"x":22.5,"width":50,"valign":"middle","text":"20","name":"boxPoint","height":30,"color":"#ffffff","align":"left"},
@@ -1125,14 +491,13 @@
             "props":{"y":502,"x":50,"visible":false,"name":"box1"},
             "nodeParent":1,
             "label":"box1",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":74,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,boxChip",
                     "props":{"y":2,"x":-0.5,"width":25,"skin":"ui/chiplove.png","name":"boxChip","height":25},
@@ -1146,7 +511,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Text",
                     "searchKey":"Text,boxPoint",
                     "props":{"x":22.5,"width":50,"valign":"middle","text":"20","name":"boxPoint","height":30,"color":"#ffffff","align":"left"},
@@ -1167,14 +531,13 @@
             "props":{"y":341,"x":50,"visible":false,"name":"box2"},
             "nodeParent":1,
             "label":"box2",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":77,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,boxChip",
                     "props":{"y":2,"x":-0.5,"width":25,"skin":"ui/chiplove.png","name":"boxChip","height":25},
@@ -1188,7 +551,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Text",
                     "searchKey":"Text,boxPoint",
                     "props":{"x":22.5,"width":50,"valign":"middle","text":"20","name":"boxPoint","height":30,"color":"#ffffff","align":"left"},
@@ -1209,14 +571,13 @@
             "props":{"y":179,"x":50,"visible":false,"name":"box3"},
             "nodeParent":1,
             "label":"box3",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":80,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,boxChip",
                     "props":{"y":2,"x":-0.5,"width":25,"skin":"ui/chiplove.png","name":"boxChip","height":25},
@@ -1230,7 +591,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Text",
                     "searchKey":"Text,boxPoint",
                     "props":{"x":22.5,"width":50,"valign":"middle","text":"20","name":"boxPoint","height":30,"color":"#ffffff","align":"left"},
@@ -1251,14 +611,13 @@
             "props":{"y":76,"x":111,"visible":false,"name":"box4"},
             "nodeParent":1,
             "label":"box4",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":83,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,boxChip",
                     "props":{"y":2,"x":-0.5,"width":25,"skin":"ui/chiplove.png","name":"boxChip","height":25},
@@ -1272,7 +631,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Text",
                     "searchKey":"Text,boxPoint",
                     "props":{"x":22.5,"width":50,"valign":"middle","text":"20","name":"boxPoint","height":30,"color":"#ffffff","align":"left"},
@@ -1293,14 +651,13 @@
             "props":{"y":76,"x":251,"visible":false,"name":"box5"},
             "nodeParent":1,
             "label":"box5",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":86,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,boxChip",
                     "props":{"y":2,"x":-0.5,"width":25,"skin":"ui/chiplove.png","name":"boxChip","height":25},
@@ -1314,7 +671,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Text",
                     "searchKey":"Text,boxPoint",
                     "props":{"x":22.5,"width":50,"valign":"middle","text":"20","name":"boxPoint","height":30,"color":"#ffffff","align":"left"},
@@ -1335,14 +691,13 @@
             "props":{"y":180,"x":279,"visible":false,"name":"box6"},
             "nodeParent":1,
             "label":"box6",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":89,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,boxChip",
                     "props":{"y":2,"x":-0.5,"width":25,"skin":"ui/chiplove.png","name":"boxChip","height":25},
@@ -1356,7 +711,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Text",
                     "searchKey":"Text,boxPoint",
                     "props":{"x":22.5,"width":50,"valign":"middle","text":"20","name":"boxPoint","height":30,"color":"#ffffff","align":"left"},
@@ -1377,14 +731,13 @@
             "props":{"y":340,"x":276.5,"visible":false,"name":"box7"},
             "nodeParent":1,
             "label":"box7",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":92,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,boxChip",
                     "props":{"y":2,"x":-0.5,"width":25,"var":"boxChip","skin":"ui/chiplove.png","height":25},
@@ -1398,7 +751,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Text",
                     "searchKey":"Text,boxPoint",
                     "props":{"x":22.5,"width":50,"valign":"middle","text":"20","name":"boxPoint","height":30,"color":"#ffffff","align":"left"},
@@ -1419,14 +771,13 @@
             "props":{"y":502,"x":276.5,"visible":false,"name":"box8"},
             "nodeParent":1,
             "label":"box8",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":95,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,boxChip",
                     "props":{"y":2,"x":-0.5,"width":25,"skin":"ui/chiplove.png","name":"boxChip","height":25},
@@ -1440,7 +791,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Text",
                     "searchKey":"Text,boxPoint",
                     "props":{"x":22.5,"width":50,"valign":"middle","text":"20","name":"boxPoint","height":30,"color":"#ffffff","align":"left"},
@@ -1489,14 +839,13 @@
             "props":{"y":662,"x":70,"visible":false,"var":"imgAbandon","skin":"ui/abandon.png"},
             "nodeParent":1,
             "label":"imgAbandon",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":109,
             "child":[
                 {
-                    "x":30,
                     "type":"Text",
                     "searchKey":"Text,textFollow",
                     "props":{"y":42.5,"x":0,"wordWrap":false,"width":50,"visible":true,"valign":"middle","text":"弃牌","name":"textFollow","mouseEnabled":false,"height":15,"fontSize":10,"font":"Helvetica","color":"#ffffff","align":"center"},
@@ -1510,7 +859,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Script",
                     "switchAble":true,
                     "source":"src/script/Abandon.js",
@@ -1534,14 +882,13 @@
             "props":{"y":638,"x":175,"visible":false,"var":"imgRise","skin":"ui/rise.png"},
             "nodeParent":1,
             "label":"imgRise",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":110,
             "child":[
                 {
-                    "x":30,
                     "type":"Text",
                     "searchKey":"Text,textRise",
                     "props":{"y":42.5,"x":0,"wordWrap":false,"width":50,"visible":true,"valign":"middle","text":"加注","name":"textRise","mouseEnabled":false,"height":15,"fontSize":10,"font":"Helvetica","color":"#ffffff","align":"center"},
@@ -1562,14 +909,13 @@
             "props":{"y":662,"x":279,"visible":false,"var":"imgFollow","skin":"ui/follow.png"},
             "nodeParent":1,
             "label":"imgFollow",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":111,
             "child":[
                 {
-                    "x":30,
                     "type":"Text",
                     "searchKey":"Text,textFollow",
                     "props":{"y":42.5,"x":0,"wordWrap":false,"width":50,"visible":true,"valign":"middle","text":"看牌","name":"textFollow","mouseEnabled":false,"height":15,"fontSize":10,"font":"Helvetica","color":"#ffffff","align":"center"},
@@ -1583,7 +929,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Script",
                     "switchAble":true,
                     "source":"src/script/Follow.js",
@@ -1600,20 +945,6 @@
                         ]
                 }],
             "$HIDDEN":false
-        },
-        {
-            "x":15,
-            "type":"Text",
-            "searchKey":"Text,seatPoint0",
-            "props":{"y":774,"x":120,"width":50,"visible":false,"text":"200","name":"seatPoint0","height":15,"color":"#ffffff","align":"center"},
-            "nodeParent":1,
-            "label":"seatPoint0",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":58,
-            "child":[
-                ]
         },
         {
             "x":15,
@@ -1789,14 +1120,13 @@
             "props":{"y":590,"x":279,"visible":false,"var":"imgFixrise2","skin":"ui/fixrise.png","name":"imgFixrise2"},
             "nodeParent":1,
             "label":"imgFixrise2",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":136,
             "child":[
                 {
-                    "x":30,
                     "type":"Text",
                     "searchKey":"Text",
                     "props":{"y":0,"x":0,"width":50,"valign":"middle","text":"1×","height":15,"fontSize":14,"font":"Helvetica","color":"#ffffff","align":"center"},
@@ -1810,7 +1140,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Text",
                     "searchKey":"Text",
                     "props":{"y":14,"x":0,"width":50,"valign":"middle","text":"底池","height":15,"fontSize":12,"font":"Helvetica","color":"#ffffff","align":"center"},
@@ -1824,7 +1153,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Text",
                     "searchKey":"Text,textFixrise2",
                     "props":{"y":29,"x":0,"wordWrap":false,"width":50,"visible":true,"valign":"middle","text":"0","name":"textFixrise2","mouseEnabled":false,"height":15,"font":"Helvetica","color":"#ffffff","align":"center"},
@@ -1838,7 +1166,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Script",
                     "switchAble":true,
                     "source":"src/script/Rise.js",
@@ -1857,115 +1184,863 @@
         },
         {
             "x":15,
-            "type":"Sprite",
-            "searchKey":"Sprite",
-            "props":{"y":318,"x":50,"visible":false,"texture":"ui/tip_watch.png"},
+            "type":"Box",
+            "searchKey":"Box,seat8",
+            "props":{"y":492,"x":350,"name":"seat8"},
             "nodeParent":1,
-            "label":"Sprite",
-            "isDirectory":false,
+            "label":"seat8",
+            "isOpen":false,
+            "isDirectory":true,
             "isAniNode":true,
-            "hasChild":false,
-            "compId":171,
+            "hasChild":true,
+            "compId":179,
             "child":[
-                ]
+                {
+                    "type":"Image",
+                    "searchKey":"Image,imgSeat",
+                    "props":{"skin":"ui/head.png","name":"imgSeat"},
+                    "nodeParent":179,
+                    "label":"imgSeat",
+                    "isOpen":false,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":12,
+                    "child":[
+                        {
+                            "type":"Sprite",
+                            "searchKey":"Sprite,mask8,mask8",
+                            "props":{"y":0,"x":0,"width":50,"var":"mask8","texture":"ui/head.png","renderType":"mask","name":"mask8","height":50,"alpha":0.5},
+                            "nodeParent":12,
+                            "label":"mask8",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":129,
+                            "child":[
+                                ]
+                        }]
+                },
+                {
+                    "type":"Image",
+                    "searchKey":"Image,imgHandPoker",
+                    "props":{"y":25,"x":2,"skin":"ui/poker2.png","name":"imgHandPoker"},
+                    "nodeParent":179,
+                    "label":"imgHandPoker",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":170,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"Script",
+                    "switchAble":true,
+                    "source":"src/sprite/Seat.js",
+                    "searchKey":"Script,Seat",
+                    "removeAble":true,
+                    "props":{},
+                    "nodeParent":179,
+                    "label":"Seat",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":180,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"Text",
+                    "searchKey":"Text,textSeatPoint",
+                    "props":{"y":50,"x":-1,"width":50,"visible":false,"text":"200","name":"textSeatPoint","height":16,"color":"#ffffff","align":"center"},
+                    "nodeParent":179,
+                    "label":"textSeatPoint",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":66,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"Image",
+                    "searchKey":"Image,imgTag",
+                    "props":{"y":-12,"x":-47,"width":49,"visible":false,"skin":"ui/tip_watch.png","name":"imgTag","height":24},
+                    "nodeParent":179,
+                    "label":"imgTag",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":178,
+                    "child":[
+                        ]
+                }]
         },
         {
             "x":15,
-            "type":"Sprite",
-            "searchKey":"Sprite",
-            "props":{"y":480,"x":50,"visible":false,"texture":"ui/tip_watch.png"},
+            "type":"Box",
+            "searchKey":"Box,seat7",
+            "props":{"y":330,"x":350,"name":"seat7"},
             "nodeParent":1,
-            "label":"Sprite",
-            "isDirectory":false,
+            "label":"seat7",
+            "isOpen":false,
+            "isDirectory":true,
             "isAniNode":true,
-            "hasChild":false,
-            "compId":172,
+            "hasChild":true,
+            "compId":181,
             "child":[
-                ]
+                {
+                    "type":"Image",
+                    "searchKey":"Image,imgSeat",
+                    "props":{"visible":true,"skin":"ui/head.png","name":"imgSeat"},
+                    "nodeParent":181,
+                    "label":"imgSeat",
+                    "isOpen":false,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":4,
+                    "child":[
+                        {
+                            "type":"Sprite",
+                            "searchKey":"Sprite,mask7,mask7",
+                            "props":{"y":0,"x":0,"width":50,"var":"mask7","texture":"ui/head.png","renderType":"mask","name":"mask7","height":50,"alpha":0.5},
+                            "nodeParent":4,
+                            "label":"mask7",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":128,
+                            "child":[
+                                ]
+                        }]
+                },
+                {
+                    "type":"Script",
+                    "switchAble":true,
+                    "source":"src/sprite/Seat.js",
+                    "searchKey":"Script,Seat",
+                    "removeAble":true,
+                    "props":{},
+                    "nodeParent":181,
+                    "label":"Seat",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":182,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"Image",
+                    "searchKey":"Image,imgHandPoker",
+                    "props":{"y":25,"x":0,"skin":"ui/poker2.png","name":"imgHandPoker"},
+                    "nodeParent":181,
+                    "label":"imgHandPoker",
+                    "isOpen":true,
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":169,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"Text",
+                    "searchKey":"Text,textSeatPoint",
+                    "props":{"y":49,"x":-1,"width":50,"visible":false,"text":"200","name":"textSeatPoint","height":15,"color":"#ffffff","align":"center"},
+                    "nodeParent":181,
+                    "label":"textSeatPoint",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":65,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"Image",
+                    "searchKey":"Image,imgTag",
+                    "props":{"y":-12,"x":-50,"width":49,"visible":false,"skin":"ui/tip_watch.png","name":"imgTag","height":24},
+                    "nodeParent":181,
+                    "label":"imgTag",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":177,
+                    "child":[
+                        ]
+                }]
         },
         {
             "x":15,
-            "type":"Sprite",
-            "searchKey":"Sprite",
-            "props":{"y":158,"x":50,"visible":false,"texture":"ui/tip_watch.png"},
+            "type":"Box",
+            "searchKey":"Box,seat6",
+            "props":{"y":170,"x":350,"name":"seat6"},
             "nodeParent":1,
-            "label":"Sprite",
-            "isDirectory":false,
+            "label":"seat6",
+            "isOpen":false,
+            "isDirectory":true,
             "isAniNode":true,
-            "hasChild":false,
-            "compId":173,
+            "hasChild":true,
+            "compId":183,
             "child":[
-                ]
+                {
+                    "type":"Image",
+                    "searchKey":"Image,imgSeat",
+                    "props":{"skin":"ui/head.png","name":"imgSeat"},
+                    "nodeParent":183,
+                    "label":"imgSeat",
+                    "isOpen":false,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":6,
+                    "child":[
+                        {
+                            "type":"Sprite",
+                            "searchKey":"Sprite,mask6,mask6",
+                            "props":{"y":0,"x":0,"width":50,"var":"mask6","texture":"ui/head.png","renderType":"mask","name":"mask6","height":50,"alpha":0.5},
+                            "nodeParent":6,
+                            "label":"mask6",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":127,
+                            "child":[
+                                ]
+                        }]
+                },
+                {
+                    "type":"Script",
+                    "switchAble":true,
+                    "source":"src/sprite/Seat.js",
+                    "searchKey":"Script,Seat",
+                    "removeAble":true,
+                    "props":{},
+                    "nodeParent":183,
+                    "label":"Seat",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":184,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"Image",
+                    "searchKey":"Image,imgHandPoker",
+                    "props":{"y":25,"x":2,"skin":"ui/poker2.png","name":"imgHandPoker"},
+                    "nodeParent":183,
+                    "label":"imgHandPoker",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":168,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"Text",
+                    "searchKey":"Text,textSeatPoint",
+                    "props":{"y":49,"x":-1,"width":50,"visible":false,"text":"200","name":"textSeatPoint","height":15,"color":"#ffffff","align":"center"},
+                    "nodeParent":183,
+                    "label":"textSeatPoint",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":64,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"Image",
+                    "searchKey":"Image,imgTag",
+                    "props":{"y":-12,"x":-50,"width":49,"visible":false,"skin":"ui/tip_watch.png","name":"imgTag","height":24},
+                    "nodeParent":183,
+                    "label":"imgTag",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":176,
+                    "child":[
+                        ]
+                }]
         },
         {
             "x":15,
-            "type":"Sprite",
-            "searchKey":"Sprite",
-            "props":{"y":13,"x":111,"width":49,"visible":false,"texture":"ui/tip_watch.png","height":24},
+            "type":"Box",
+            "searchKey":"Box,seat5",
+            "props":{"y":25,"x":287.75,"name":"seat5"},
             "nodeParent":1,
-            "label":"Sprite",
-            "isDirectory":false,
+            "label":"seat5",
+            "isOpen":true,
+            "isDirectory":true,
             "isAniNode":true,
-            "hasChild":false,
-            "compId":174,
+            "hasChild":true,
+            "compId":185,
             "child":[
-                ]
+                {
+                    "x":30,
+                    "type":"Image",
+                    "searchKey":"Image,imgSeat",
+                    "props":{"x":-0.75,"skin":"ui/head.png","name":"imgSeat"},
+                    "nodeParent":185,
+                    "label":"imgSeat",
+                    "isOpen":false,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":10,
+                    "child":[
+                        {
+                            "type":"Sprite",
+                            "searchKey":"Sprite,mask5,mask5",
+                            "props":{"y":0,"x":0,"width":50,"var":"mask5","texture":"ui/head.png","renderType":"mask","name":"mask5","height":50,"alpha":0.5},
+                            "nodeParent":10,
+                            "label":"mask5",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":126,
+                            "child":[
+                                ]
+                        }]
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "searchKey":"Image,imgHandPoker",
+                    "props":{"y":25,"x":1,"skin":"ui/poker2.png","name":"imgHandPoker"},
+                    "nodeParent":185,
+                    "label":"imgHandPoker",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":167,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Script",
+                    "switchAble":true,
+                    "source":"src/sprite/Seat.js",
+                    "searchKey":"Script,Seat",
+                    "removeAble":true,
+                    "props":{},
+                    "nodeParent":185,
+                    "label":"Seat",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":186,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Text",
+                    "searchKey":"Text,textSeatPoint",
+                    "props":{"y":50,"x":-1,"width":50,"visible":false,"text":"200","name":"textSeatPoint","height":15,"color":"#ffffff","align":"center"},
+                    "nodeParent":185,
+                    "label":"textSeatPoint",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":63,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "searchKey":"Image,imgTag",
+                    "props":{"y":-12,"x":-50,"width":49,"visible":false,"skin":"ui/tip_watch.png","name":"imgTag","height":24},
+                    "nodeParent":185,
+                    "label":"imgTag",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":175,
+                    "child":[
+                        ]
+                }]
         },
         {
             "x":15,
-            "type":"Sprite",
-            "searchKey":"Sprite",
-            "props":{"y":13,"x":238,"width":49,"visible":false,"texture":"ui/tip_watch.png","height":24},
+            "type":"Box",
+            "searchKey":"Box,seat4",
+            "props":{"y":25,"x":61.25,"name":"seat4"},
             "nodeParent":1,
-            "label":"Sprite",
-            "isDirectory":false,
+            "label":"seat4",
+            "isOpen":true,
+            "isDirectory":true,
             "isAniNode":true,
-            "hasChild":false,
-            "compId":175,
+            "hasChild":true,
+            "compId":187,
             "child":[
-                ]
+                {
+                    "x":30,
+                    "type":"Image",
+                    "searchKey":"Image,imgSeat",
+                    "props":{"x":-0.25,"skin":"ui/head.png","name":"imgSeat"},
+                    "nodeParent":187,
+                    "label":"imgSeat",
+                    "isOpen":false,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":9,
+                    "child":[
+                        {
+                            "type":"Sprite",
+                            "searchKey":"Sprite,mask4,mask4",
+                            "props":{"y":0,"x":0,"width":50,"var":"mask4","texture":"ui/head.png","renderType":"mask","name":"mask4","height":50,"alpha":0.5},
+                            "nodeParent":9,
+                            "label":"mask4",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":125,
+                            "child":[
+                                ]
+                        }]
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "searchKey":"Image,imgHandPoker",
+                    "props":{"y":25,"x":25,"skin":"ui/poker2.png","name":"imgHandPoker"},
+                    "nodeParent":187,
+                    "label":"imgHandPoker",
+                    "isOpen":true,
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":166,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Script",
+                    "switchAble":true,
+                    "source":"src/sprite/Seat.js",
+                    "searchKey":"Script,Seat",
+                    "removeAble":true,
+                    "props":{},
+                    "nodeParent":187,
+                    "label":"Seat",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":188,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Text",
+                    "searchKey":"Text,textSeatPoint",
+                    "props":{"y":51,"x":0,"width":50,"visible":false,"text":"200","name":"textSeatPoint","height":15,"color":"#ffffff","align":"center"},
+                    "nodeParent":187,
+                    "label":"textSeatPoint",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":62,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "searchKey":"Image,imgTag",
+                    "props":{"y":-12,"x":50,"width":49,"visible":false,"skin":"ui/tip_watch.png","name":"imgTag","height":24},
+                    "nodeParent":187,
+                    "label":"imgTag",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":174,
+                    "child":[
+                        ]
+                }]
         },
         {
             "x":15,
-            "type":"Sprite",
-            "searchKey":"Sprite",
-            "props":{"y":158,"x":300,"width":49,"visible":false,"texture":"ui/tip_watch.png","height":24},
+            "type":"Box",
+            "searchKey":"Box,seat3",
+            "props":{"y":170,"x":0,"name":"seat3"},
             "nodeParent":1,
-            "label":"Sprite",
-            "isDirectory":false,
+            "label":"seat3",
+            "isOpen":true,
+            "isDirectory":true,
             "isAniNode":true,
-            "hasChild":false,
-            "compId":176,
+            "hasChild":true,
+            "compId":189,
             "child":[
-                ]
+                {
+                    "x":30,
+                    "type":"Image",
+                    "searchKey":"Image,imgSeat",
+                    "props":{"skin":"ui/head.png","name":"imgSeat"},
+                    "nodeParent":189,
+                    "label":"imgSeat",
+                    "isOpen":false,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":7,
+                    "child":[
+                        {
+                            "type":"Sprite",
+                            "searchKey":"Sprite,mask3,mask3",
+                            "props":{"y":0,"x":0,"width":50,"var":"mask3","texture":"ui/head.png","renderType":"mask","name":"mask3","height":50,"alpha":0.5},
+                            "nodeParent":7,
+                            "label":"mask3",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":124,
+                            "child":[
+                                ]
+                        }]
+                },
+                {
+                    "x":30,
+                    "type":"Script",
+                    "switchAble":true,
+                    "source":"src/sprite/Seat.js",
+                    "searchKey":"Script,Seat",
+                    "removeAble":true,
+                    "props":{},
+                    "nodeParent":189,
+                    "label":"Seat",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":193,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "searchKey":"Image,imgHandPoker",
+                    "props":{"y":25,"x":25,"skin":"ui/poker2.png","name":"imgHandPoker"},
+                    "nodeParent":189,
+                    "label":"imgHandPoker",
+                    "isOpen":true,
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":165,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Text",
+                    "searchKey":"Text,textSeatPoint",
+                    "props":{"y":49,"x":0,"width":50,"visible":false,"text":"200","name":"textSeatPoint","height":15,"color":"#ffffff","align":"center"},
+                    "nodeParent":189,
+                    "label":"textSeatPoint",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":61,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "searchKey":"Image,imgTag",
+                    "props":{"y":-12,"x":50,"visible":false,"skin":"ui/tip_watch.png","name":"imgTag"},
+                    "nodeParent":189,
+                    "label":"imgTag",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":173,
+                    "child":[
+                        ]
+                }]
         },
         {
             "x":15,
-            "type":"Sprite",
-            "searchKey":"Sprite",
-            "props":{"y":318,"x":300,"width":49,"visible":false,"texture":"ui/tip_watch.png","height":24},
+            "type":"Box",
+            "searchKey":"Box,seat2",
+            "props":{"y":330,"x":0,"name":"seat2"},
             "nodeParent":1,
-            "label":"Sprite",
-            "isDirectory":false,
+            "label":"seat2",
+            "isOpen":true,
+            "isDirectory":true,
             "isAniNode":true,
-            "hasChild":false,
-            "compId":177,
+            "hasChild":true,
+            "compId":190,
             "child":[
-                ]
+                {
+                    "x":30,
+                    "type":"Image",
+                    "searchKey":"Image,imgSeat",
+                    "props":{"skin":"ui/head.png","name":"imgSeat"},
+                    "nodeParent":190,
+                    "label":"imgSeat",
+                    "isOpen":false,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":5,
+                    "child":[
+                        {
+                            "type":"Sprite",
+                            "searchKey":"Sprite,mask2,mask2",
+                            "props":{"y":0,"x":0,"width":50,"var":"mask2","texture":"ui/head.png","renderType":"mask","name":"mask2","height":50,"alpha":0.5},
+                            "nodeParent":5,
+                            "label":"mask2",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":123,
+                            "child":[
+                                ]
+                        }]
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "searchKey":"Image,imgHandPoker",
+                    "props":{"y":25,"x":25,"skin":"ui/poker2.png","name":"imgHandPoker"},
+                    "nodeParent":190,
+                    "label":"imgHandPoker",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":164,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Script",
+                    "switchAble":true,
+                    "source":"src/sprite/Seat.js",
+                    "searchKey":"Script,Seat",
+                    "removeAble":true,
+                    "props":{},
+                    "nodeParent":190,
+                    "label":"Seat",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":194,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Text",
+                    "searchKey":"Text,textSeatPoint",
+                    "props":{"y":50,"x":0,"width":50,"visible":false,"text":"200","name":"textSeatPoint","height":15,"color":"#ffffff","align":"center"},
+                    "nodeParent":190,
+                    "label":"textSeatPoint",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":60,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "searchKey":"Image,imgTag",
+                    "props":{"y":-12,"x":50,"visible":false,"skin":"ui/tip_watch.png","name":"imgTag"},
+                    "nodeParent":190,
+                    "label":"imgTag",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":171,
+                    "child":[
+                        ]
+                }]
         },
         {
             "x":15,
-            "type":"Sprite",
-            "searchKey":"Sprite",
-            "props":{"y":480,"x":302.5,"width":49,"visible":false,"texture":"ui/tip_watch.png","height":24},
+            "type":"Box",
+            "searchKey":"Box,seat1",
+            "props":{"y":492,"x":0,"name":"seat1"},
             "nodeParent":1,
-            "label":"Sprite",
-            "isDirectory":false,
+            "label":"seat1",
+            "isOpen":true,
+            "isDirectory":true,
             "isAniNode":true,
-            "hasChild":false,
-            "compId":178,
+            "hasChild":true,
+            "compId":191,
             "child":[
-                ]
+                {
+                    "x":30,
+                    "type":"Image",
+                    "searchKey":"Image,imgSeat",
+                    "props":{"skin":"ui/head.png","name":"imgSeat"},
+                    "nodeParent":191,
+                    "label":"imgSeat",
+                    "isOpen":false,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":11,
+                    "child":[
+                        {
+                            "type":"Sprite",
+                            "searchKey":"Sprite,mask1,mask1",
+                            "props":{"y":0,"x":0,"width":50,"var":"mask1","texture":"ui/head.png","renderType":"mask","name":"mask1","height":50,"alpha":0.5},
+                            "nodeParent":11,
+                            "label":"mask1",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":122,
+                            "child":[
+                                ]
+                        }]
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "searchKey":"Image,imgHandPoker",
+                    "props":{"y":25,"x":25,"skin":"ui/poker2.png","name":"imgHandPoker"},
+                    "nodeParent":191,
+                    "label":"imgHandPoker",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":163,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Script",
+                    "switchAble":true,
+                    "source":"src/sprite/Seat.js",
+                    "searchKey":"Script,Seat",
+                    "removeAble":true,
+                    "props":{},
+                    "nodeParent":191,
+                    "label":"Seat",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":195,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Text",
+                    "searchKey":"Text,textSeatPoint",
+                    "props":{"y":50,"x":0,"width":50,"visible":false,"text":"200","name":"textSeatPoint","height":15,"color":"#ffffff","align":"center"},
+                    "nodeParent":191,
+                    "label":"textSeatPoint",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":59,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Image",
+                    "searchKey":"Image,imgTag",
+                    "props":{"y":-12,"x":50,"visible":false,"skin":"ui/tip_watch.png","name":"imgTag"},
+                    "nodeParent":191,
+                    "label":"imgTag",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":172,
+                    "child":[
+                        ]
+                }]
+        },
+        {
+            "x":15,
+            "type":"Box",
+            "searchKey":"Box,seat0",
+            "props":{"y":724,"x":120,"name":"seat0"},
+            "nodeParent":1,
+            "label":"seat0",
+            "isOpen":true,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":192,
+            "child":[
+                {
+                    "x":30,
+                    "type":"Image",
+                    "searchKey":"Image,imgSeat",
+                    "props":{"width":50,"skin":"ui/head.png","rotation":0,"name":"imgSeat","height":50},
+                    "nodeParent":192,
+                    "label":"imgSeat",
+                    "isOpen":false,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":8,
+                    "child":[
+                        {
+                            "type":"Sprite",
+                            "searchKey":"Sprite,mask0,mask0",
+                            "props":{"width":50,"var":"mask0","texture":"ui/head.png","renderType":"mask","name":"mask0","height":50,"alpha":0.5},
+                            "nodeParent":8,
+                            "label":"mask0",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":120,
+                            "child":[
+                                ]
+                        }]
+                },
+                {
+                    "x":30,
+                    "type":"Script",
+                    "switchAble":true,
+                    "source":"src/sprite/Seat.js",
+                    "searchKey":"Script,Seat",
+                    "removeAble":true,
+                    "props":{},
+                    "nodeParent":192,
+                    "label":"Seat",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":197,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Text",
+                    "searchKey":"Text,textSeatPoint",
+                    "props":{"y":50,"x":0,"width":50,"visible":false,"text":"200","name":"textSeatPoint","height":15,"color":"#ffffff","align":"center"},
+                    "nodeParent":192,
+                    "label":"textSeatPoint",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":58,
+                    "child":[
+                        ]
+                }]
         }],
     "animations":[
         {

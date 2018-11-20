@@ -51,13 +51,12 @@ export default class GameView extends Laya.Scene {
         // 创建空座位
         for (let i = 0; i < 9; i++) {
             // 获取界面元素
-            const imgSeat = this.getChildByName(`seat${i}`)
-            const textSeatPoint = this.getChildByName(`seatPoint${i}`)
+            const boxSeat = this.getChildByName(`seat${i}`)
             const box = this.getChildByName(`box${i}`)
             const maskSeat = this[`mask${i}`]
-            // const maskSeat = imgSeat.getChildByName(`mask${i}`)            
+            // const maskSeat = boxSeat.getChildByName(`mask${i}`)            
             // 创建座位对象，最后全局状态持久化
-            this.round.seatMap[imgSeat.name] = new Seat(Object.assign(this.round.seatMap[imgSeat.name], { imgSeat, textSeatPoint, box, maskSeat }))
+            this.round.seatMap[boxSeat.name] = new Seat(Object.assign(this.round.seatMap[boxSeat.name], { boxSeat, box, maskSeat }))
         }
         // 创建控制台
         this.control = new Control({ imgAbandon, imgRise, imgFollow, vsliderPoint, imgFixrise0, imgFixrise1, imgFixrise2, round: this.round })
@@ -70,8 +69,8 @@ export default class GameView extends Laya.Scene {
         this.round.blind.move(this.round.chipSeatIdArr)
         for (let dataPoker of pokerArr) {
             const imgPoker = this.getChildByName(dataPoker.pokerId)
-            const imgSeat = this.round.seatMap[dataPoker.seatId].imgSeat
-            let poker = new Poker({ imgPoker, imgSeat, dataPoker, isPublic: false, user: this.user })
+            const seat = this.round.seatMap[dataPoker.seatId]
+            let poker = new Poker({ imgPoker, seat, dataPoker, isPublic: false, user: this.user })
             // 发牌手增加牌
             this.round.dealer.addPoker(poker)
         }

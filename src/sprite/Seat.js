@@ -7,10 +7,14 @@ export default class Seat extends Laya.Script {
         super()
         if (inparam) {
             // UI元素
-            this.imgSeat = inparam.imgSeat                  // 座位图
-            this.textSeatPoint = inparam.textSeatPoint      // 座位点数
-            this.maskSeat = inparam.maskSeat                // 倒计时遮罩
+            this.boxSeat = inparam.boxSeat                                          // 座位
+            this.imgSeat = this.boxSeat.getChildByName('imgSeat')                   // 座位头像
+            this.textSeatPoint = this.boxSeat.getChildByName('textSeatPoint')       // 座位点数
+            this.imgTag = this.boxSeat.getChildByName('imgTag') || {}               // 状态标记
+            this.imgHandPoker = this.boxSeat.getChildByName('imgHandPoker') || {}   // 座位手牌标记
             this.box = inparam.box                          // 玩家投注盒子
+            this.maskSeat = inparam.maskSeat                // 倒计时遮罩
+
             // 数据信息
             this.seatId = inparam.seatId                    // 座位显示ID
             this.seatNo = inparam.seatNo                    // 座位真实ID
@@ -20,6 +24,7 @@ export default class Seat extends Laya.Script {
             this.betPoint = 0                               // 投注点数
             this.betPointArr = []                           // 投注点数数组
             this.speakCountDown = 0                         // 说话时间倒计时
+            this.status = null                              // 座位状态
             // 初始化
             this.init()
         }
@@ -46,6 +51,8 @@ export default class Seat extends Laya.Script {
             this.textSeatPoint.visible = false
         }
         this.box.visible = false
+        // 隐藏手牌标识
+        this.imgHandPoker.visible = false
     }
 
     // 倒计时20秒
@@ -57,10 +64,12 @@ export default class Seat extends Laya.Script {
             if (this.speakCountDown > 360) {
                 this.closeCountDown()
             } else {
-                this.speakCountDown += 0.72                
+                this.speakCountDown += 0.72
                 this.maskSeat.graphics.drawPie(this.maskSeat.width / 2, this.maskSeat.height / 2, this.maskSeat.width, 0, this.speakCountDown, "#ffffff");
             }
         }, 40)
+        // 隐藏提示
+        this.imgTag.visible = false
     }
 
     // 关闭倒计时
@@ -86,7 +95,7 @@ export default class Seat extends Laya.Script {
         this.textSeatPoint.text = this.seatPoint    // 座位分数更新
     }
 
-    // 大小盲自动投注
+    // 投注
     bet() {
         this.textSeatPoint.text = this.seatPoint
         this.box.getChildByName('boxPoint').text = this.betPoint
@@ -98,12 +107,19 @@ export default class Seat extends Laya.Script {
         this.box.visible = false
     }
 
-    // // 投注
-    // bet(point) {
-    //     this.silent()
-    //     this.box.getChildByName('boxPoint').text = this.seatPoint += point
-    //     this.box.visible = true
-    // }
+    // 根据状态显示提示
+    showTip() {
+        if (this.status) {
+            if (this.status != 'allin') {
+                this.imgTag.skin = `ui/tip_${this.status}.png`
+                this.imgTag.visible = true
+            } else {
+                console.log('allin')
+            }
+        } else {
+            this.imgTag.visible = false
+        }
+    }
 
     // 离座
     leave() {
