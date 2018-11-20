@@ -1,5 +1,11 @@
 D .
 R 39B957DA texture.png
+D tmp
+P F5958858 btn_start.png
+R C21BC498 tmp_bg.jpg
+P 108EC77D tmp_head.png
+P 5650BF68 tmp_poker.png
+P 660D155D tmp_poker2.png
 D ui
 P D5D65AD4 10C.png
 P 3879DD6B 10D.png
@@ -53,16 +59,16 @@ P 0798454F 9C.png
 P ECA4A4C9 9D.png
 P F404E365 9H.png
 P 72B477D0 9S.png
-P 7AEAA601 abandon.png
 R 0D775494 bg.png
-P F5958858 btn_start.png
+P 7AEAA601 btn_abandon.png
+P F2E7F086 btn_follow.png
+P 9C4FDD4C btn_rise.png
 P FD2659FA chip.png
-P EFA54601 chipb.png
+P 32DAB131 chipb.png
 P D6145DD2 chiplove.png
 P 845CA5B1 chipround.png
-P C3B10E1A chips.png
+P 69EAE12A chips.png
 P 91B637DA fixrise.png
-P F2E7F086 follow.png
 P 9FE3F7E4 head.png
 R 3EA2326A persion5.jpg
 R 0EB59AB8 person.jpg
@@ -73,15 +79,10 @@ R C03ED1C6 person3.jpg
 R AFF6FDBB person4.jpg
 P 559BB2E8 poker.png
 P 1F699711 poker2.png
-P 9C4FDD4C rise.png
 P 9ECC34CA tip_follow.png
 P C50CF71F tip_giveup.png
 P CBBB431F tip_rise.png
 P B4807345 tip_straddle.png
 P 239EC2AE tip_watch.png
-R C21BC498 tmp_bg.jpg
-P 108EC77D tmp_head.png
-P 5650BF68 tmp_poker.png
-P 660D155D tmp_poker2.png
 P E466EB1C vslider$bar.png
 P 2BFF7046 vslider.png
