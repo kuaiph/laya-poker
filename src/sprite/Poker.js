@@ -36,7 +36,7 @@ export default class Poker {
                 x += 107
             }
         }
-        Laya.Tween.to(this.imgPoker, { x, y: this.seat.boxSeat.y }, 500, Laya.Ease.strongOut, Laya.Handler.create(this, this.sendComplete))
+        Laya.Tween.to(this.imgPoker, { x, y: this.seat.boxSeat.y + 50 }, 500, Laya.Ease.strongOut, Laya.Handler.create(this, this.sendComplete))
     }
     // 手牌发牌完成
     sendComplete() {

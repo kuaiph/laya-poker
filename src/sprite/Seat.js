@@ -3,6 +3,9 @@ import WebSocket from '../util/WebSocket'
  * 座位类
  */
 export default class Seat extends Laya.Script {
+
+    /** @prop {name:seatId,tips:"座位ID"} */
+
     constructor(inparam) {
         super()
         if (inparam) {
@@ -12,11 +15,11 @@ export default class Seat extends Laya.Script {
             this.imgSeat = this.boxSeat.getChildByName('imgSeat')                   // 座位头像
             this.textSeatPoint = this.boxSeat.getChildByName('textSeatPoint')       // 座位点数
             this.boxBet = this.boxSeat.getChildByName('boxBet')                     // 玩家投注盒子
+            this.imgChip = this.boxSeat.getChildByName('imgChip')                   // 用于移动的筹码
             this.imgTag = this.boxSeat.getChildByName('imgTag') || {}               // 状态标记
             this.imgHandPoker = this.boxSeat.getChildByName('imgHandPoker') || {}   // 座位手牌标记
             this.maskSeat = inparam.maskSeat                // 倒计时遮罩
             // 数据信息
-            this.seatId = inparam.seatId                    // 座位显示ID
             this.seatNo = inparam.seatNo                    // 座位真实ID
             this.userId = inparam.userId                    // 玩家ID
             this.headurl = inparam.headurl                  // 座位图片名称
@@ -34,7 +37,7 @@ export default class Seat extends Laya.Script {
 
     // 点击头像请求服务器坐下
     onClick() {
-        WebSocket.send({ method: 'SIT_DOWN', user: WebSocket.globalData.user, seatId: this.owner.name, seatPoint: 200 })
+        WebSocket.send({ method: 'SIT_DOWN', user: WebSocket.globalData.user, seatId: this.seatId, seatPoint: 200 })
     }
 
     // 初始化
@@ -53,6 +56,9 @@ export default class Seat extends Laya.Script {
         this.boxBet.visible = false
         // 隐藏手牌标识
         this.imgHandPoker.visible = false
+        // 记录移动筹码的初始坐标以便复原
+        this.imgChipX = this.imgSeat.x
+        this.imgChipY = this.imgSeat.y
     }
 
     // 倒计时20秒
@@ -95,8 +101,24 @@ export default class Seat extends Laya.Script {
         this.textSeatPoint.text = this.seatPoint    // 座位分数更新
     }
 
-    // 投注
+    // 投注动画
     bet() {
+        if (this.textSeatPoint.text != this.seatPoint) {
+            let x = this.boxBet.x
+            let y = this.boxBet.y
+            this.imgChip.visible = true
+            Laya.Tween.to(this.imgChip, { x, y }, 800, Laya.Ease.strongOut, Laya.Handler.create(this, this.betComplete))
+        } else {
+            this.betComplete()
+        }
+    }
+    // 投注完成
+    betComplete() {
+        // 移动筹码还原
+        this.imgChip.visible = false
+        this.imgChip.x = this.imgChipX
+        this.imgChip.y = this.imgChipY
+        // 座位点数更新，显示新投注点数
         this.textSeatPoint.text = this.seatPoint
         this.boxBet.getChildByName('boxPoint').text = this.betPoint
         this.boxBet.visible = true
