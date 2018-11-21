@@ -22,6 +22,7 @@ export default function nextSpeak(globalData, res) {
         round.chipSeatIdArr = chipSeatIdArr
         // 发手牌
         if (phase == 0) {
+            round.isBegin = true
             gameView.sendPoker(sendPokerArr)
         }
         // 3张公牌

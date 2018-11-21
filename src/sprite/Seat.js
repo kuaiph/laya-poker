@@ -22,14 +22,14 @@ export default class Seat extends Laya.Script {
             this.imgTag = this.boxSeat.getChildByName('imgTag') || {}               // 状态标记
             this.imgHandPoker = this.boxSeat.getChildByName('imgHandPoker') || {}   // 座位手牌标记
             // 数据信息
-            this.seatNo = inparam.seatNo                    // 座位真实ID
-            this.userId = inparam.userId                    // 玩家ID
-            this.headurl = inparam.headurl                  // 座位图片名称
-            this.seatPoint = inparam.seatPoint              // 座位带入点数
-            this.betPoint = 0                               // 投注点数
-            this.betPointArr = []                           // 投注点数数组
-            this.speakCountDown = 0                         // 说话时间倒计时
-            this.status = null                              // 座位状态
+            this.seatNo = inparam.seatNo                                            // 座位真实ID
+            this.userId = inparam.userId                                            // 玩家ID
+            this.headurl = inparam.headurl                                          // 座位图片名称
+            this.seatPoint = inparam.seatPoint                                      // 座位带入点数
+            this.betPoint = 0                                                       // 投注点数
+            this.betPointArr = []                                                   // 投注点数数组
+            this.speakCountDown = 0                                                 // 说话时间倒计时
+            this.status = null                                                      // 座位状态
             // 初始化
             this.init()
         }
@@ -39,7 +39,11 @@ export default class Seat extends Laya.Script {
 
     // 点击头像请求服务器坐下
     onClick() {
-        WebSocket.send({ method: 'SIT_DOWN', user: WebSocket.globalData.user, seatId: this.seatId, seatPoint: 200 })
+        if (!WebSocket.globalData.round.isBegin) {
+            WebSocket.send({ method: 'SIT_DOWN', user: WebSocket.globalData.user, seatId: this.seatId, seatPoint: 200 })
+        } else {
+            console.log('已开局，不能换座')
+        }
     }
 
     // 初始化
@@ -62,7 +66,7 @@ export default class Seat extends Laya.Script {
         this.imgChipX = this.imgChip.x
         this.imgChipY = this.imgChip.y
         this.boxBetX = this.boxBet.x
-        this.boxBetY = this.boxBet.y   
+        this.boxBetY = this.boxBet.y
     }
 
     // 入座
