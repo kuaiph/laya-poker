@@ -2,10 +2,15 @@ D .
 R 39B957DA texture.png
 D tmp
 P F5958858 btn_start.png
+P 3930FFE1 game_bet_thumb.png
+P CE28EC39 game_bet_thumb2 2.png
+P 710BDB26 game_bet_thumb2.png
 R C21BC498 tmp_bg.jpg
 P 108EC77D tmp_head.png
 P 5650BF68 tmp_poker.png
 P 660D155D tmp_poker2.png
+P E466EB1C tmp_vslider$bar.png
+P 2BFF7046 tmp_vslider.png
 D ui
 P D5D65AD4 10C.png
 P 3879DD6B 10D.png
@@ -84,5 +89,6 @@ P C50CF71F tip_giveup.png
 P CBBB431F tip_rise.png
 P B4807345 tip_straddle.png
 P 239EC2AE tip_watch.png
-P E466EB1C vslider$bar.png
-P 2BFF7046 vslider.png
+P AE8B9147 vslider$bar.png
+P 02D2CB64 vslider$progress.png
+P 26FD12BC vslider.png

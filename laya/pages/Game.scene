@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":299,
+    "selecteID":354,
     "searchKey":"View",
     "props":{"width":400,"sceneColor":"#000000","runtime":"view/GameView.js","height":800},
     "nodeParent":-1,
@@ -578,7 +578,7 @@
             "x":15,
             "type":"VSlider",
             "searchKey":"VSlider,vsliderPoint",
-            "props":{"y":555,"x":193,"width":14,"visible":false,"var":"vsliderPoint","value":100,"skin":"ui/vslider.png","height":120},
+            "props":{"y":497,"x":194,"width":11,"visible":false,"var":"vsliderPoint","value":100,"skin":"ui/vslider.png","height":183},
             "nodeParent":1,
             "label":"vsliderPoint",
             "isOpen":null,
@@ -857,13 +857,14 @@
             "props":{"y":470,"x":305,"width":95,"name":"seat8","height":100},
             "nodeParent":1,
             "label":"seat8",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":354,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,imgSeat",
                     "props":{"y":35,"x":45,"skin":"ui/head.png","name":"imgSeat"},
@@ -906,9 +907,10 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,imgHandPoker",
-                    "props":{"y":55,"x":47.5,"skin":"ui/poker2.png","name":"imgHandPoker"},
+                    "props":{"y":59,"x":47.5,"skin":"ui/poker2.png","name":"imgHandPoker"},
                     "nodeParent":354,
                     "label":"imgHandPoker",
                     "isDirectory":false,
@@ -919,6 +921,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Text",
                     "searchKey":"Text,textSeatPoint",
                     "props":{"y":84,"x":45,"width":50,"visible":false,"text":"200","name":"textSeatPoint","height":16,"color":"#ffffff","align":"center"},
@@ -932,6 +935,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,imgTag",
                     "props":{"y":15,"x":0,"visible":false,"skin":"ui/tip_watch.png","name":"imgTag"},
@@ -945,6 +949,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Text",
                     "searchKey":"Text,textName",
                     "props":{"y":20,"x":45,"width":50,"visible":false,"valign":"middle","text":"昵称","name":"textName","height":15,"color":"#ffffff","align":"center"},
@@ -1019,13 +1024,14 @@
             "props":{"y":317,"x":305,"width":95,"name":"seat7","height":100},
             "nodeParent":1,
             "label":"seat7",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":342,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,imgSeat",
                     "props":{"y":35,"x":45,"skin":"ui/head.png","name":"imgSeat"},
@@ -1038,6 +1044,7 @@
                     "compId":345,
                     "child":[
                         {
+                            "x":45,
                             "type":"Sprite",
                             "searchKey":"Sprite,mask7,mask7",
                             "props":{"y":0,"x":0,"width":50,"var":"mask7","texture":"ui/head.png","renderType":"mask","name":"mask7","height":50,"alpha":0.5},
@@ -1051,6 +1058,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Script",
                             "switchAble":true,
                             "source":"src/sprite/Seat.js",
@@ -1068,9 +1076,10 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,imgHandPoker",
-                    "props":{"y":55,"x":47.5,"skin":"ui/poker2.png","name":"imgHandPoker"},
+                    "props":{"y":59,"x":47.5,"skin":"ui/poker2.png","name":"imgHandPoker"},
                     "nodeParent":342,
                     "label":"imgHandPoker",
                     "isDirectory":false,
@@ -1081,6 +1090,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Text",
                     "searchKey":"Text,textSeatPoint",
                     "props":{"y":84,"x":45,"width":50,"visible":false,"text":"200","name":"textSeatPoint","height":16,"color":"#ffffff","align":"center"},
@@ -1094,6 +1104,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,imgTag",
                     "props":{"y":15,"x":0,"visible":false,"skin":"ui/tip_watch.png","name":"imgTag"},
@@ -1107,6 +1118,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Text",
                     "searchKey":"Text,textName",
                     "props":{"y":20,"x":45,"width":50,"visible":false,"valign":"middle","text":"昵称","name":"textName","height":15,"color":"#ffffff","align":"center"},
@@ -1181,13 +1193,14 @@
             "props":{"y":170,"x":305,"width":95,"name":"seat6","height":100},
             "nodeParent":1,
             "label":"seat6",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":330,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,imgSeat",
                     "props":{"y":35,"x":45,"skin":"ui/head.png","name":"imgSeat"},
@@ -1200,6 +1213,7 @@
                     "compId":333,
                     "child":[
                         {
+                            "x":45,
                             "type":"Sprite",
                             "searchKey":"Sprite,mask6,mask6",
                             "props":{"y":0,"x":0,"width":50,"var":"mask6","texture":"ui/head.png","renderType":"mask","name":"mask6","height":50,"alpha":0.5},
@@ -1213,6 +1227,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Script",
                             "switchAble":true,
                             "source":"src/sprite/Seat.js",
@@ -1230,9 +1245,10 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,imgHandPoker",
-                    "props":{"y":55,"x":47.5,"skin":"ui/poker2.png","name":"imgHandPoker"},
+                    "props":{"y":59,"x":47.5,"skin":"ui/poker2.png","name":"imgHandPoker"},
                     "nodeParent":330,
                     "label":"imgHandPoker",
                     "isDirectory":false,
@@ -1243,6 +1259,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Text",
                     "searchKey":"Text,textSeatPoint",
                     "props":{"y":84,"x":45,"width":50,"visible":false,"text":"200","name":"textSeatPoint","height":16,"color":"#ffffff","align":"center"},
@@ -1256,6 +1273,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,imgTag",
                     "props":{"y":15,"x":0,"visible":false,"skin":"ui/tip_watch.png","name":"imgTag"},
@@ -1269,6 +1287,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Text",
                     "searchKey":"Text,textName",
                     "props":{"y":20,"x":45,"width":50,"visible":false,"valign":"middle","text":"昵称","name":"textName","height":15,"color":"#ffffff","align":"center"},
@@ -1343,13 +1362,14 @@
             "props":{"y":25,"x":255,"width":95,"name":"seat5","height":100},
             "nodeParent":1,
             "label":"seat5",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":289,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,imgSeat",
                     "props":{"y":35,"x":45,"skin":"ui/head.png","name":"imgSeat"},
@@ -1362,6 +1382,7 @@
                     "compId":290,
                     "child":[
                         {
+                            "x":45,
                             "type":"Sprite",
                             "searchKey":"Sprite,mask5,mask5",
                             "props":{"y":0,"x":0,"width":50,"var":"mask5","texture":"ui/head.png","renderType":"mask","name":"mask5","height":50,"alpha":0.5},
@@ -1375,6 +1396,7 @@
                                 ]
                         },
                         {
+                            "x":45,
                             "type":"Script",
                             "switchAble":true,
                             "source":"src/sprite/Seat.js",
@@ -1392,9 +1414,10 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,imgHandPoker",
-                    "props":{"y":55,"x":47.5,"skin":"ui/poker2.png","name":"imgHandPoker"},
+                    "props":{"y":59,"x":47.5,"skin":"ui/poker2.png","name":"imgHandPoker"},
                     "nodeParent":289,
                     "label":"imgHandPoker",
                     "isDirectory":false,
@@ -1405,6 +1428,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Text",
                     "searchKey":"Text,textSeatPoint",
                     "props":{"y":84,"x":45,"width":50,"visible":false,"text":"200","name":"textSeatPoint","height":16,"color":"#ffffff","align":"center"},
@@ -1418,6 +1442,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,imgTag",
                     "props":{"y":15,"x":0,"visible":false,"skin":"ui/tip_watch.png","name":"imgTag"},
@@ -1431,6 +1456,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Text",
                     "searchKey":"Text,textName",
                     "props":{"y":20,"x":45,"width":50,"visible":false,"valign":"middle","text":"昵称","name":"textName","height":15,"color":"#ffffff","align":"center"},
@@ -1505,13 +1531,14 @@
             "props":{"y":25,"x":55,"width":95,"name":"seat4","height":100},
             "nodeParent":1,
             "label":"seat4",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":255,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,imgSeat",
                     "props":{"y":35,"x":0,"skin":"ui/head.png","name":"imgSeat"},
@@ -1554,6 +1581,7 @@
                         }]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,imgHandPoker",
                     "props":{"y":60,"x":25,"skin":"ui/poker2.png","name":"imgHandPoker"},
@@ -1567,6 +1595,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Text",
                     "searchKey":"Text,textSeatPoint",
                     "props":{"y":85,"x":0,"width":50,"visible":false,"text":"200","name":"textSeatPoint","height":15,"color":"#ffffff","align":"center"},
@@ -1580,6 +1609,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,imgTag",
                     "props":{"y":15,"x":45,"visible":false,"skin":"ui/tip_watch.png","name":"imgTag"},
@@ -1594,6 +1624,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Text",
                     "searchKey":"Text,textName",
                     "props":{"y":19.5,"x":0,"width":50,"visible":false,"valign":"middle","text":"昵称","name":"textName","height":15,"color":"#ffffff","align":"center"},
@@ -2114,7 +2145,7 @@
             "x":15,
             "type":"Box",
             "searchKey":"Box,boxBet0",
-            "props":{"y":680,"x":185,"width":25,"visible":false,"name":"boxBet0","height":40},
+            "props":{"y":680,"x":187,"width":25,"visible":false,"name":"boxBet0","height":40},
             "nodeParent":1,
             "label":"boxBet0",
             "isOpen":false,
