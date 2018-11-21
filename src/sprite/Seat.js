@@ -11,6 +11,7 @@ export default class Seat extends Laya.Script {
         if (inparam) {
             // UI元素
             this.boxSeat = inparam.boxSeat                                          // 座位
+            this.maskSeat = inparam.maskSeat                                        // 倒计时遮罩            
             this.textName = this.boxSeat.getChildByName('textName')                 // 座位昵称
             this.imgSeat = this.boxSeat.getChildByName('imgSeat')                   // 座位头像
             this.textSeatPoint = this.boxSeat.getChildByName('textSeatPoint')       // 座位点数
@@ -18,7 +19,6 @@ export default class Seat extends Laya.Script {
             this.imgChip = this.boxSeat.getChildByName('imgChip')                   // 用于移动的筹码
             this.imgTag = this.boxSeat.getChildByName('imgTag') || {}               // 状态标记
             this.imgHandPoker = this.boxSeat.getChildByName('imgHandPoker') || {}   // 座位手牌标记
-            this.maskSeat = inparam.maskSeat                // 倒计时遮罩
             // 数据信息
             this.seatNo = inparam.seatNo                    // 座位真实ID
             this.userId = inparam.userId                    // 玩家ID
@@ -90,9 +90,14 @@ export default class Seat extends Laya.Script {
     sitdown() {
         this.imgSeat.skin = `ui/${this.headurl}`
         this.maskSeat.texture = `ui/${this.headurl}`
-        if (this.seatPoint > 0) {
+        if (this.userId) {
+            this.textName.text = this.userId
             this.textSeatPoint.text = this.seatPoint
+            this.textName.visible = true
             this.textSeatPoint.visible = true
+        }else{
+            this.textName.visible = false
+            this.textSeatPoint.visible = false
         }
     }
 
