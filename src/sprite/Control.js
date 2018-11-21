@@ -55,7 +55,6 @@ export default class Control {
         this.imgFollow.getChildByName('textFollow').text = minBetPoint > 0 ? `跟注 ${minBetPoint}` : '看牌'
 
         this.vsliderPoint.max = selfSeat.seatPoint                      // 设置加注推杆的最大值
-        selfSeat.speak()
     }
 
     // 沉默

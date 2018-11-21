@@ -11,12 +11,14 @@ export default class Seat extends Laya.Script {
         if (inparam) {
             // UI元素
             this.boxSeat = inparam.boxSeat                                          // 座位
-            this.maskSeat = inparam.maskSeat                                        // 倒计时遮罩            
+            this.maskSeat = inparam.maskSeat                                        // 倒计时遮罩
+            this.textRoundPoint = inparam.textRoundPoint                            // 底池
+            this.boxBet = inparam.boxBet                                            // 玩家投注盒子
+            this.imgChip = inparam.imgChip                                          // 用于移动的筹码
+
             this.textName = this.boxSeat.getChildByName('textName')                 // 座位昵称
             this.imgSeat = this.boxSeat.getChildByName('imgSeat')                   // 座位头像
             this.textSeatPoint = this.boxSeat.getChildByName('textSeatPoint')       // 座位点数
-            this.boxBet = this.boxSeat.getChildByName('boxBet')                     // 玩家投注盒子
-            this.imgChip = this.boxSeat.getChildByName('imgChip')                   // 用于移动的筹码
             this.imgTag = this.boxSeat.getChildByName('imgTag') || {}               // 状态标记
             this.imgHandPoker = this.boxSeat.getChildByName('imgHandPoker') || {}   // 座位手牌标记
             // 数据信息
@@ -57,8 +59,25 @@ export default class Seat extends Laya.Script {
         // 隐藏手牌标识
         this.imgHandPoker.visible = false
         // 记录移动筹码的初始坐标以便复原
-        this.imgChipX = this.imgSeat.x
-        this.imgChipY = this.imgSeat.y
+        this.imgChipX = this.imgChip.x
+        this.imgChipY = this.imgChip.y
+        this.boxBetX = this.boxBet.x
+        this.boxBetY = this.boxBet.y   
+    }
+
+    // 入座
+    sitdown() {
+        this.imgSeat.skin = `ui/${this.headurl}`
+        this.maskSeat.texture = `ui/${this.headurl}`
+        if (this.userId) {
+            this.textName.text = this.userId
+            this.textSeatPoint.text = this.seatPoint
+            this.textName.visible = true
+            this.textSeatPoint.visible = true
+        } else {
+            this.textName.visible = false
+            this.textSeatPoint.visible = false
+        }
     }
 
     // 倒计时20秒
@@ -86,26 +105,6 @@ export default class Seat extends Laya.Script {
         this.maskSeat.graphics.drawPie(this.maskSeat.width / 2, this.maskSeat.height / 2, this.maskSeat.width, 0, 360, "#ffffff");
     }
 
-    // 入座
-    sitdown() {
-        this.imgSeat.skin = `ui/${this.headurl}`
-        this.maskSeat.texture = `ui/${this.headurl}`
-        if (this.userId) {
-            this.textName.text = this.userId
-            this.textSeatPoint.text = this.seatPoint
-            this.textName.visible = true
-            this.textSeatPoint.visible = true
-        }else{
-            this.textName.visible = false
-            this.textSeatPoint.visible = false
-        }
-    }
-
-    // 发言
-    speak() {
-        this.textSeatPoint.text = this.seatPoint    // 座位分数更新
-    }
-
     // 投注动画
     bet() {
         if (this.textSeatPoint.text != this.seatPoint) {
@@ -118,7 +117,7 @@ export default class Seat extends Laya.Script {
         }
     }
     // 投注完成
-    betComplete() {
+    betComplete(args) {
         // 移动筹码还原
         this.imgChip.visible = false
         this.imgChip.x = this.imgChipX
@@ -127,6 +126,21 @@ export default class Seat extends Laya.Script {
         this.textSeatPoint.text = this.seatPoint
         this.boxBet.getChildByName('boxPoint').text = this.betPoint
         this.boxBet.visible = true
+    }
+
+    // 阶段结束动画
+    phaseEnd() {
+        if (this.boxBet.visible) {
+            let x = this.textRoundPoint.x
+            let y = this.textRoundPoint.y
+            Laya.Tween.to(this.boxBet, { x, y }, 800, Laya.Ease.strongOut, Laya.Handler.create(this, this.phaseEndComplete))
+        }
+    }
+    // 阶段结束动画完成
+    phaseEndComplete() {
+        this.boxBet.visible = false
+        this.boxBet.x = this.boxBetX
+        this.boxBet.y = this.boxBetY
     }
 
     // 隐藏投注盒子

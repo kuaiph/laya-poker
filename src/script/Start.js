@@ -34,7 +34,6 @@ export default class Start extends Laya.Script {
     //     let c2 = 0
     //     let c3 = 0
     //     let c4 = 0
-    //     console.log()
     //     setInterval(()=>{
     //         if(p.x < maxX && p.y == minY){
     //             p.x += 1

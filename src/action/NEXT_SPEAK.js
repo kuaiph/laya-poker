@@ -7,11 +7,12 @@ export default function nextSpeak(globalData, res) {
     let user = globalData.user
     let round = globalData.round
     let gameView = globalData.gameView
-    
+
     let phase = res.phase
     let sendPokerArr = res.sendPokerArr
     let chipSeatIdArr = res.chipSeatIdArr
     let seatMap = res.seatMap
+    let isPhaseEnd = res.isPhaseEnd
 
     round.phasePoint = res.phasePoint
     round.roundPoint = res.roundPoint
@@ -42,9 +43,8 @@ export default function nextSpeak(globalData, res) {
         // 提示更新
         round.seatMap[seatId].showTip()
 
-        // 只有一个座位说话
+        // 说话的座位显示倒计时
         if (round.seatMap[seatId].isSpeak) {
-            // 显示倒计时
             round.seatMap[seatId].countDown()
             // 如果是自己显示操作台，否则隐藏
             if (round.seatMap[seatId].userId == user.userId) {
@@ -53,16 +53,22 @@ export default function nextSpeak(globalData, res) {
                 gameView.control.silent()
             }
         }
-        // 隐藏倒计时
+        // 其余的座位隐藏倒计时
         else {
             round.seatMap[seatId].closeCountDown()
         }
-        
+
         // 投注更新
         if (round.seatMap[seatId].betPoint) {
             round.seatMap[seatId].bet()
         } else {
             round.seatMap[seatId].hideBet()
+        }
+        // 阶段结束执行收集动画
+        if (isPhaseEnd) {
+            setTimeout(() => {
+                round.seatMap[seatId].phaseEnd()
+            }, 850)
         }
     }
     // 更新阶段累计点数和底池累计点数
