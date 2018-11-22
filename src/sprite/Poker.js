@@ -30,41 +30,41 @@ export default class Poker {
         let x = this.seat.boxSeat.x
         if (this.isMe) {
             if (!this.user.firstSent) {
-                x += 50
+                x += 90
                 this.user.firstSent = true
             } else {
-                x += 107
+                x += 190
             }
         }
-        Laya.Tween.to(this.imgPoker, { x, y: this.seat.boxSeat.y + 50 }, 500, Laya.Ease.strongOut, Laya.Handler.create(this, this.sendComplete))
+        Laya.Tween.to(this.imgPoker, { x, y: this.seat.boxSeat.y + 35 }, 500, Laya.Ease.strongOut, Laya.Handler.create(this, this.sendComplete))
     }
     // 手牌发牌完成
     sendComplete() {
         if (!this.isMe) {
             this.imgPoker.visible = false
         } else {
-            this.imgPoker.skin = `ui/${this.dataPoker.card}.png`
+            this.imgPoker.skin = `ui/pokers/${this.dataPoker.card}.png`
         }
         this.seat.imgHandPoker.visible = true
     }
     // 发公共牌
     sendPublic(publicIndex) {
         let x = this.imgPoker.x
-        let y = this.imgPoker.y + 100
+        let y = this.imgPoker.y + 175
         switch (publicIndex) {
             case 0:
-                x -= 110
+                x -= 200
                 break;
             case 1:
-                x -= 55
+                x -= 100
                 break;
             case 2:
                 break;
             case 3:
-                x += 55
+                x += 100
                 break;
             case 4:
-                x += 110
+                x += 200
                 break;
             default:
                 break;
@@ -73,6 +73,6 @@ export default class Poker {
     }
     // 公牌发牌完成
     sendPublicComplete() {
-        this.imgPoker.skin = `ui/${this.dataPoker.card}.png`
+        this.imgPoker.skin = `ui/pokers/${this.dataPoker.card}.png`
     }
 }

@@ -14,9 +14,9 @@ export default class Rise extends Laya.Script {
         let fixBetPoint0 = Math.floor(1 / 2 * roundPoint)
         let fixBetPoint1 = Math.floor(2 / 3 * roundPoint)
         let fixBetPoint2 = Math.floor(2 * roundPoint)
-        if (this.owner.name == 'imgFixrise0') {
+        if (this.owner.name == 'btnFixrise0') {
             WebSocket.send({ method: 'BET', user: WebSocket.globalData.user, betPoint: fixBetPoint0 })
-        } else if (this.owner.name == 'imgFixrise1') {
+        } else if (this.owner.name == 'btnFixrise1') {
             WebSocket.send({ method: 'BET', user: WebSocket.globalData.user, betPoint: fixBetPoint1 })
         } else {
             WebSocket.send({ method: 'BET', user: WebSocket.globalData.user, betPoint: fixBetPoint2 })

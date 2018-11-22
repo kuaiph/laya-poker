@@ -156,7 +156,7 @@ export default class Seat extends Laya.Script {
     showTip() {
         if (this.status) {
             if (this.status != 'allin') {
-                this.imgTag.skin = `ui/tip_${this.status}.png`
+                this.imgTag.skin = `ui/tag_${this.status}.png`
                 this.imgTag.visible = true
             } else {
                 console.log('allin')

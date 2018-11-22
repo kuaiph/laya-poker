@@ -6,13 +6,13 @@ import WebSocket from '../util/WebSocket'
 export default class Control {
     constructor(inparam) {
         // UI元素
-        this.imgAbandon = inparam.imgAbandon
-        this.imgRise = inparam.imgRise
-        this.imgFollow = inparam.imgFollow
+        this.btnAbandon = inparam.btnAbandon
+        this.btnRise = inparam.btnRise
+        this.btnFollow = inparam.btnFollow
         this.vsliderPoint = inparam.vsliderPoint
-        this.imgFixrise0 = inparam.imgFixrise0
-        this.imgFixrise1 = inparam.imgFixrise1
-        this.imgFixrise2 = inparam.imgFixrise2
+        this.btnFixrise0 = inparam.btnFixrise0
+        this.btnFixrise1 = inparam.btnFixrise1
+        this.btnFixrise2 = inparam.btnFixrise2
         // 数据信息
         this.round = inparam.round
         // 初始化
@@ -20,17 +20,17 @@ export default class Control {
     }
     // 初始化
     init() {
-        this.imgAbandon.visible = false                         // 弃牌按钮
-        this.imgRise.visible = false                            // 加注按钮
-        this.imgFollow.visible = false                          // 跟注按钮
+        this.btnAbandon.visible = false                         // 弃牌按钮
+        this.btnRise.visible = false                            // 加注按钮
+        this.btnFollow.visible = false                          // 跟注按钮
         this.vsliderPoint.visible = false                       // 点数推杆
         this.vsliderPoint.showLabel = false                     // 点数推杆不显示标签
-        this.imgFixrise0.visible = false                        // 定制加注按钮0
-        this.imgFixrise1.visible = false                        // 定制加注按钮1
-        this.imgFixrise2.visible = false                        // 定制加注按钮2
+        this.btnFixrise0.visible = false                        // 定制加注按钮0
+        this.btnFixrise1.visible = false                        // 定制加注按钮1
+        this.btnFixrise2.visible = false                        // 定制加注按钮2
 
         // 控制台事件
-        this.imgRise.on(Laya.Event.CLICK, this, this.onRiseClick)
+        this.btnRise.on(Laya.Event.CLICK, this, this.onRiseClick)
         this.vsliderPoint.changeHandler = new Laya.Handler(this, this.onVsliderChange)
         this.vsliderPoint.on(Laya.Event.MOUSE_UP, this, this.onVsliderUp)
     }
@@ -40,37 +40,38 @@ export default class Control {
         let minBetPoint = this.round.seatMap['seat0'].minBetPoint
 
         this.selfSeat = selfSeat
-        this.imgAbandon.visible = true                                  // 弃牌按钮显示
-        this.imgRise.visible = true                                     // 加注按钮显示
-        this.imgFollow.visible = true                                   // 跟注按钮显示
+        this.btnAbandon.visible = true                                  // 弃牌按钮显示
+        this.btnRise.visible = true                                     // 加注按钮显示
+        this.btnFollow.visible = true                                   // 跟注按钮显示
 
-        this.imgFixrise0.getChildByName('textFixrise0').text = Math.floor(1 / 2 * roundPoint)
-        this.imgFixrise1.getChildByName('textFixrise1').text = Math.floor(2 / 3 * roundPoint)
-        this.imgFixrise2.getChildByName('textFixrise2').text = Math.floor(2 * roundPoint)
-        this.imgFixrise0.visible = true                                 // 定制加注按钮0
-        this.imgFixrise1.visible = true                                 // 定制加注按钮1
-        this.imgFixrise2.visible = true                                 // 定制加注按钮2
+        this.btnFixrise0.getChildByName('textFixrise0').text = Math.floor(1 / 2 * roundPoint)
+        this.btnFixrise1.getChildByName('textFixrise1').text = Math.floor(2 / 3 * roundPoint)
+        this.btnFixrise2.getChildByName('textFixrise2').text = Math.floor(2 * roundPoint)
+        this.btnFixrise0.visible = true                                 // 定制加注按钮0
+        this.btnFixrise1.visible = true                                 // 定制加注按钮1
+        this.btnFixrise2.visible = true                                 // 定制加注按钮2
 
         // 设定跟注最小值
-        this.imgFollow.getChildByName('textFollow').text = minBetPoint > 0 ? `跟注 ${minBetPoint}` : '看牌'
+        this.btnFollow.getChildByName('textFollow').text = minBetPoint > 0 ? `跟注 ${minBetPoint}` : '看牌'
 
         this.vsliderPoint.max = selfSeat.seatPoint                      // 设置加注推杆的最大值
+        this.vsliderPoint.value = (this.vsliderPoint.max - minBetPoint) // 初始推杆最小值
     }
 
     // 沉默
     silent() {
-        this.imgAbandon.visible = false                                 // 弃牌按钮
-        this.imgRise.visible = false                                    // 加注按钮
-        this.imgFollow.visible = false                                  // 跟注按钮
+        this.btnAbandon.visible = false                                 // 弃牌按钮
+        this.btnRise.visible = false                                    // 加注按钮
+        this.btnFollow.visible = false                                  // 跟注按钮
         this.vsliderPoint.visible = false                               // 分数推杆
-        this.imgFixrise0.visible = false                                // 定制加注按钮0
-        this.imgFixrise1.visible = false                                // 定制加注按钮1
-        this.imgFixrise2.visible = false                                // 定制加注按钮2
+        this.btnFixrise0.visible = false                                // 定制加注按钮0
+        this.btnFixrise1.visible = false                                // 定制加注按钮1
+        this.btnFixrise2.visible = false                                // 定制加注按钮2
     }
 
     // 响应自由加注
     onRiseClick() {
-        this.imgRise.visible = false
+        this.btnRise.visible = false
         this.vsliderPoint.visible = true
     }
 
@@ -82,6 +83,7 @@ export default class Control {
     // 响应滑杆触摸离开，请求自由投注
     onVsliderUp() {
         if (this.betPoint > 0) {
+            this.vsliderPoint.visible = false
             WebSocket.send({ method: 'BET', user: WebSocket.globalData.user, betPoint: this.betPoint })
         }
     }

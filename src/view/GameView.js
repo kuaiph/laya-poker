@@ -35,13 +35,13 @@ export default class GameView extends Laya.Scene {
         this.textPhasePoint.text = 0                            // 阶段分数
         this.textRoundPoint.text = '底池：0'                     // 底池分数
         // 获取UI元素
-        const imgAbandon = this.imgAbandon                      // 弃牌按钮
-        const imgRise = this.imgRise                            // 加注按钮
-        const imgFollow = this.imgFollow                        // 跟注按钮
+        const btnAbandon = this.btnAbandon                      // 弃牌按钮
+        const btnRise = this.btnRise                            // 加注按钮
+        const btnFollow = this.btnFollow                        // 跟注按钮
         const vsliderPoint = this.vsliderPoint                  // 点数推杆
-        const imgFixrise0 = this.imgFixrise0                    // 定制加注按钮0
-        const imgFixrise1 = this.imgFixrise1                    // 定制加注按钮1
-        const imgFixrise2 = this.imgFixrise2                    // 定制加注按钮2
+        const btnFixrise0 = this.btnFixrise0                    // 定制加注按钮0
+        const btnFixrise1 = this.btnFixrise1                    // 定制加注按钮1
+        const btnFixrise2 = this.btnFixrise2                    // 定制加注按钮2
 
         // 创建发牌器
         if (this.round.dealer) {
@@ -60,7 +60,7 @@ export default class GameView extends Laya.Scene {
             this.round.seatMap[boxSeat.name] = new Seat(Object.assign(this.round.seatMap[boxSeat.name], { boxSeat, maskSeat, boxBet, imgChip, textRoundPoint: this.textRoundPoint }))
         }
         // 创建控制台
-        this.control = new Control({ imgAbandon, imgRise, imgFollow, vsliderPoint, imgFixrise0, imgFixrise1, imgFixrise2, round: this.round })
+        this.control = new Control({ btnAbandon, btnRise, btnFollow, vsliderPoint, btnFixrise0, btnFixrise1, btnFixrise2, round: this.round })
         // 创建盲注，最后全局状态持久化
         // this.round.blind = new Blind({ textChipBig: this.textChipBig, textChipSmall: this.textChipSmall, seatMap: this.round.seatMap })
     }
