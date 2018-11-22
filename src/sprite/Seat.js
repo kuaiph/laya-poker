@@ -103,10 +103,12 @@ export default class Seat extends Laya.Script {
 
     // 关闭倒计时
     closeCountDown() {
-        clearInterval(this.intervalCountDown)
-        this.maskSeat.alpha = 1
-        this.maskSeat.graphics.clear()
-        this.maskSeat.graphics.drawPie(this.maskSeat.width / 2, this.maskSeat.height / 2, this.maskSeat.width, 0, 360, "#ffffff");
+        if (this.intervalCountDown) {
+            clearInterval(this.intervalCountDown)
+            this.maskSeat.alpha = 1
+            this.maskSeat.graphics.clear()
+            this.maskSeat.graphics.drawPie(this.maskSeat.width / 2, this.maskSeat.height / 2, this.maskSeat.width, 0, 360, "#ffffff");
+        }
     }
 
     // 投注动画
@@ -153,7 +155,7 @@ export default class Seat extends Laya.Script {
     }
 
     // 根据状态显示提示
-    showTip() {
+    showTag() {
         if (this.status) {
             if (this.status != 'allin') {
                 this.imgTag.skin = `ui/tag_${this.status}.png`
