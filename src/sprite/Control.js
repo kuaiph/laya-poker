@@ -69,18 +69,18 @@ export default class Control {
         this.btnFixrise2.visible = false                                // 定制加注按钮2
     }
 
-    // 响应自由加注
+    // 响应自由加注，隐藏其他按钮，只显示推杆
     onRiseClick() {
         this.silent()
         this.vsliderPoint.visible = true
     }
 
-    // 响应滑杆变动
+    // 响应推杆变动
     onVsliderChange() {
         this.betPoint = Math.abs(this.vsliderPoint.value - this.vsliderPoint.max)
     }
 
-    // 响应滑杆触摸离开，请求自由投注
+    // 响应推杆触摸离开，请求自由投注
     onVsliderUp() {
         // 隐藏控制台
         this.silent()
