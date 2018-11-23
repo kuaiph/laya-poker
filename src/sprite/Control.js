@@ -10,6 +10,8 @@ export default class Control {
         this.btnRise = inparam.btnRise
         this.btnFollow = inparam.btnFollow
         this.vsliderPoint = inparam.vsliderPoint
+        this.imgBetnum = inparam.imgBetnum
+        this.textBetnum = inparam.textBetnum
         this.btnFixrise0 = inparam.btnFixrise0
         this.btnFixrise1 = inparam.btnFixrise1
         this.btnFixrise2 = inparam.btnFixrise2
@@ -25,6 +27,8 @@ export default class Control {
         this.btnFollow.visible = false                          // 跟注按钮
         this.vsliderPoint.visible = false                       // 点数推杆
         this.vsliderPoint.showLabel = false                     // 点数推杆不显示标签
+        this.imgBetnum.visible = false                          // 推杆显示点数背景
+        this.textBetnum.visible = false                         // 推杆显示点数
         this.btnFixrise0.visible = false                        // 定制加注按钮0
         this.btnFixrise1.visible = false                        // 定制加注按钮1
         this.btnFixrise2.visible = false                        // 定制加注按钮2
@@ -64,6 +68,8 @@ export default class Control {
         this.btnRise.visible = false                                    // 加注按钮
         this.btnFollow.visible = false                                  // 跟注按钮
         this.vsliderPoint.visible = false                               // 分数推杆
+        this.imgBetnum.visible = false                                  // 推杆显示点数背景
+        this.textBetnum.visible = false                                 // 推杆显示点数
         this.btnFixrise0.visible = false                                // 定制加注按钮0
         this.btnFixrise1.visible = false                                // 定制加注按钮1
         this.btnFixrise2.visible = false                                // 定制加注按钮2
@@ -73,11 +79,18 @@ export default class Control {
     onRiseClick() {
         this.silent()
         this.vsliderPoint.visible = true
+        this.imgBetnum.visible = true
+        this.textBetnum.visible = true
     }
 
     // 响应推杆变动
     onVsliderChange() {
         this.betPoint = Math.abs(this.vsliderPoint.value - this.vsliderPoint.max)
+        if (this.betPoint == this.vsliderPoint.max) {
+            this.textBetnum.text = 'ALLIN'
+        } else {
+            this.textBetnum.text = this.betPoint
+        }
     }
 
     // 响应推杆触摸离开，请求自由投注

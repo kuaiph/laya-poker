@@ -31,11 +31,13 @@ export default class GameView extends Laya.Scene {
         const btnRise = this.btnRise                            // 加注按钮
         const btnFollow = this.btnFollow                        // 跟注按钮
         const vsliderPoint = this.vsliderPoint                  // 点数推杆
+        const imgBetnum = this.imgBetnum                        // 推杆显示点数背景
+        const textBetnum = this.textBetnum                      // 推杆显示点数
         const btnFixrise0 = this.btnFixrise0                    // 定制加注按钮0
         const btnFixrise1 = this.btnFixrise1                    // 定制加注按钮1
         const btnFixrise2 = this.btnFixrise2                    // 定制加注按钮2
         // 创建控制台
-        this.control = new Control({ btnAbandon, btnRise, btnFollow, vsliderPoint, btnFixrise0, btnFixrise1, btnFixrise2, round: this.round })
+        this.control = new Control({ btnAbandon, btnRise, btnFollow, vsliderPoint, imgBetnum, textBetnum, btnFixrise0, btnFixrise1, btnFixrise2, round: this.round })
         // 创建发牌器
         this.round.dealer = new Dealer()
         // 创建座位
@@ -57,7 +59,7 @@ export default class GameView extends Laya.Scene {
     // 重置
     reset() {
         // 状态信息初始化
-        WebSocket.globalData.user.firstSent = false        
+        WebSocket.globalData.user.firstSent = false
         // UI数据初始
         this.textPhasePoint.text = 0                            // 阶段分数
         this.textRoundPoint.text = '底池：0'                     // 底池分数

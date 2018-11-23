@@ -2,11 +2,11 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":99,
+    "selecteID":436,
     "searchKey":"View",
     "props":{"width":750,"sceneColor":"#000000","runtime":"view/GameView.js","height":1334},
     "nodeParent":-1,
-    "maxID":436,
+    "maxID":438,
     "label":"View",
     "isOpen":true,
     "isDirectory":true,
@@ -1323,13 +1323,14 @@
             "props":{"y":21,"x":435,"width":34,"visible":false,"name":"boxBet5","height":55},
             "nodeParent":1,
             "label":"boxBet5",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":425,
             "child":[
                 {
+                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,boxChip",
                     "props":{"y":0,"x":0,"skin":"ui/chip.png","name":"boxChip"},
@@ -1343,6 +1344,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Text",
                     "searchKey":"Text,boxPoint",
                     "props":{"y":34,"x":-8,"width":50,"valign":"middle","text":"20","name":"boxPoint","height":20,"fontSize":20,"color":"#e3b154","align":"center"},
@@ -2289,6 +2291,35 @@
                     "child":[
                         ]
                 }]
+        },
+        {
+            "x":15,
+            "type":"Image",
+            "searchKey":"Image,imgBetnum",
+            "props":{"y":921,"x":339,"visible":false,"var":"imgBetnum","skin":"ui/betnum.png"},
+            "nodeParent":1,
+            "label":"imgBetnum",
+            "isOpen":true,
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":436,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Text",
+            "searchKey":"Text,textBetnum",
+            "props":{"zOrder":0,"y":921,"x":339,"width":71,"visible":false,"var":"textBetnum","valign":"middle","text":"0","height":30,"fontSize":20,"color":"#e3b154","align":"center"},
+            "nodeParent":1,
+            "label":"textBetnum",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":437,
+            "child":[
+                ]
         }],
     "animations":[
         {
