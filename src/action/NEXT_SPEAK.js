@@ -63,7 +63,7 @@ export default function nextSpeak(globalData, res) {
             round.seatMap[seatId].hideBet()
         }
         // 阶段结束执行收集动画
-        if (isPhaseEnd) {
+        if (isPhaseEnd == 'collect') {
             setTimeout(() => {
                 round.seatMap[seatId].phaseEnd()
             }, 850)
