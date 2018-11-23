@@ -7,6 +7,9 @@ export default class Abandon extends Laya.Script {
     onEnable() {
     }
     onClick() {
+        // 隐藏控制台
+        WebSocket.globalData.gameView.control.silent()
+        // 弃牌请求        
         WebSocket.send({ method: 'BET', user: WebSocket.globalData.user, betPoint: 0 })
     }
 }

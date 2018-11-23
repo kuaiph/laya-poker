@@ -5,6 +5,7 @@ import nextSpeak from '../action/NEXT_SPEAK.js'
 import close from '../action/CLOSE.js'
 /**
  * 网络长连接类
+ * globalData:{startScene,gameView,user,round}
  */
 export default class WebSocket {
     constructor(startScene) {

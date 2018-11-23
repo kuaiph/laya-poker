@@ -55,7 +55,7 @@ export default class Control {
         this.btnFollow.getChildByName('textFollow').text = minBetPoint > 0 ? `跟注 ${minBetPoint}` : '看牌'
 
         this.vsliderPoint.max = selfSeat.seatPoint                      // 设置加注推杆的最大值
-        this.vsliderPoint.value = (this.vsliderPoint.max - minBetPoint) // 初始推杆最小值
+        this.vsliderPoint.value = this.vsliderPoint.max                 // 初始推杆最小值(使其反减为0)
     }
 
     // 沉默
@@ -71,7 +71,7 @@ export default class Control {
 
     // 响应自由加注
     onRiseClick() {
-        this.btnRise.visible = false
+        this.silent()
         this.vsliderPoint.visible = true
     }
 
@@ -82,9 +82,8 @@ export default class Control {
 
     // 响应滑杆触摸离开，请求自由投注
     onVsliderUp() {
-        if (this.betPoint > 0) {
-            this.vsliderPoint.visible = false
-            WebSocket.send({ method: 'BET', user: WebSocket.globalData.user, betPoint: this.betPoint })
-        }
+        // 隐藏控制台
+        this.silent()
+        WebSocket.send({ method: 'BET', user: WebSocket.globalData.user, betPoint: this.betPoint })
     }
 }
