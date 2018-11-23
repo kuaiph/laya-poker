@@ -3,9 +3,20 @@ import WebSocket from '../util/WebSocket'
  * 座位类
  */
 export default class Seat extends Laya.Script {
-
+    // 作为脚本使用
     /** @prop {name:seatId,tips:"座位ID"} */
-
+    onEnable() {
+    }
+    // 点击头像请求服务器坐下
+    onClick() {
+        if (!WebSocket.globalData.round.isBegin) {
+            WebSocket.send({ method: 'SIT_DOWN', user: WebSocket.globalData.user, seatId: this.seatId, seatPoint: 200 })
+        } else {
+            console.log('已开局，不能换座')
+        }
+    }
+    
+    // 作为实例使用
     constructor(inparam) {
         super()
         if (inparam) {
@@ -34,18 +45,7 @@ export default class Seat extends Laya.Script {
             this.init()
         }
     }
-    onEnable() {
-    }
-
-    // 点击头像请求服务器坐下
-    onClick() {
-        if (!WebSocket.globalData.round.isBegin) {
-            WebSocket.send({ method: 'SIT_DOWN', user: WebSocket.globalData.user, seatId: this.seatId, seatPoint: 200 })
-        } else {
-            console.log('已开局，不能换座')
-        }
-    }
-
+    
     // 初始化
     init() {
         // 显示头像

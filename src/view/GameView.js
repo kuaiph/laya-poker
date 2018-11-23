@@ -23,17 +23,9 @@ export default class GameView extends Laya.Scene {
     }
     // 初始化
     init() {
-        this.reset()
-        // 加载鼠标点击事件
-        Laya.stage.on(Laya.Event.MOUSE_DOWN, this, this.onMouseDown)
-    }
-    // 重置
-    reset() {
         // 获取全局状态信息
         this.user = WebSocket.globalData.user                   // 当前玩家
         this.round = WebSocket.globalData.round                 // 当前局状态
-        this.textPhasePoint.text = 0                            // 阶段分数
-        this.textRoundPoint.text = '底池：0'                     // 底池分数
         // 获取UI元素
         const btnAbandon = this.btnAbandon                      // 弃牌按钮
         const btnRise = this.btnRise                            // 加注按钮
@@ -42,13 +34,21 @@ export default class GameView extends Laya.Scene {
         const btnFixrise0 = this.btnFixrise0                    // 定制加注按钮0
         const btnFixrise1 = this.btnFixrise1                    // 定制加注按钮1
         const btnFixrise2 = this.btnFixrise2                    // 定制加注按钮2
-
         // 创建发牌器
-        if (this.round.dealer) {
-            this.round.dealer.reset()
-        }
         this.round.dealer = new Dealer()
-        // 创建空座位
+        // 创建控制台
+        this.control = new Control({ btnAbandon, btnRise, btnFollow, vsliderPoint, btnFixrise0, btnFixrise1, btnFixrise2, round: this.round })
+        // 创建盲注，最后全局状态持久化
+        // this.round.blind = new Blind({ textChipBig: this.textChipBig, textChipSmall: this.textChipSmall, seatMap: this.round.seatMap })
+        this.reset()
+    }
+    // 重置
+    reset() {
+        WebSocket.globalData.user.firstSent = false
+        // UI数据初始
+        this.textPhasePoint.text = 0                            // 阶段分数
+        this.textRoundPoint.text = '底池：0'                     // 底池分数
+        // 座位初始化
         for (let i = 0; i < 9; i++) {
             // 获取界面元素
             const boxSeat = this.getChildByName(`seat${i}`)
@@ -59,12 +59,9 @@ export default class GameView extends Laya.Scene {
             // 创建座位对象，最后全局状态持久化
             this.round.seatMap[boxSeat.name] = new Seat(Object.assign(this.round.seatMap[boxSeat.name], { boxSeat, maskSeat, boxBet, imgChip, textRoundPoint: this.textRoundPoint }))
         }
-        // 创建控制台
-        this.control = new Control({ btnAbandon, btnRise, btnFollow, vsliderPoint, btnFixrise0, btnFixrise1, btnFixrise2, round: this.round })
-        // 创建盲注，最后全局状态持久化
-        // this.round.blind = new Blind({ textChipBig: this.textChipBig, textChipSmall: this.textChipSmall, seatMap: this.round.seatMap })
+        // 发牌手重置
+        this.round.dealer.reset()
     }
-
     // 发手牌
     sendPoker(pokerArr, seatCount) {
         // this.round.blind.move(this.round.chipSeatIdArr)
@@ -81,7 +78,6 @@ export default class GameView extends Laya.Scene {
         }
         this.round.dealer.sendPoker()
     }
-
     // 发公共牌
     sendPublicPoker(pokerArr) {
         for (let dataPoker of pokerArr) {
@@ -92,7 +88,6 @@ export default class GameView extends Laya.Scene {
         }
         this.round.dealer.showPublicPoker()
     }
-
     // 更新阶段累计点数和底池累计点数
     updatePoint() {
         this.textPhasePoint.text = this.round.phasePoint                // 阶段分数

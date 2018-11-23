@@ -11,13 +11,15 @@ export default class Poker {
         this.isPublic = inparam.isPublic
         this.isMe = false
         this.user = inparam.user
+        this.pokerX = this.imgPoker.x
+        this.pokerY = this.imgPoker.y
         // this.reset()
     }
     // 重置
     reset() {
-        this.imgPoker.x = 160
-        this.imgPoker.y = 297
-        this.imgPoker.skin = 'ui/poker.png'
+        this.imgPoker.skin = 'ui/poker.png'        
+        this.imgPoker.x = this.pokerX
+        this.imgPoker.y = this.pokerY
         this.imgPoker.visible = true
     }
     // 隐藏
