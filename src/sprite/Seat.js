@@ -15,18 +15,18 @@ export default class Seat extends Laya.Script {
             console.log('已开局，不能换座')
         }
     }
-    
+
     // 作为实例使用
     constructor(inparam) {
         super()
         if (inparam) {
-            // UI元素
+            // 父级UI元素
             this.boxSeat = inparam.boxSeat                                          // 座位
             this.maskSeat = inparam.maskSeat                                        // 倒计时遮罩
             this.textRoundPoint = inparam.textRoundPoint                            // 底池
             this.boxBet = inparam.boxBet                                            // 玩家投注盒子
             this.imgChip = inparam.imgChip                                          // 用于移动的筹码
-
+            // 子级UI元素
             this.textName = this.boxSeat.getChildByName('textName')                 // 座位昵称
             this.imgSeat = this.boxSeat.getChildByName('imgSeat')                   // 座位头像
             this.textSeatPoint = this.boxSeat.getChildByName('textSeatPoint')       // 座位点数
@@ -41,13 +41,11 @@ export default class Seat extends Laya.Script {
             this.betPointArr = []                                                   // 投注点数数组
             this.speakCountDown = 0                                                 // 说话时间倒计时
             this.status = null                                                      // 座位状态
-            // 初始化
-            this.init()
         }
     }
-    
-    // 初始化
-    init() {
+
+    // 重置
+    reset() {
         // 显示头像
         this.imgSeat.skin = `ui/${this.headurl}`
         this.maskSeat.texture = `ui/${this.headurl}`

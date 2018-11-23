@@ -34,21 +34,11 @@ export default class GameView extends Laya.Scene {
         const btnFixrise0 = this.btnFixrise0                    // 定制加注按钮0
         const btnFixrise1 = this.btnFixrise1                    // 定制加注按钮1
         const btnFixrise2 = this.btnFixrise2                    // 定制加注按钮2
-        // 创建发牌器
-        this.round.dealer = new Dealer()
         // 创建控制台
         this.control = new Control({ btnAbandon, btnRise, btnFollow, vsliderPoint, btnFixrise0, btnFixrise1, btnFixrise2, round: this.round })
-        // 创建盲注，最后全局状态持久化
-        // this.round.blind = new Blind({ textChipBig: this.textChipBig, textChipSmall: this.textChipSmall, seatMap: this.round.seatMap })
-        this.reset()
-    }
-    // 重置
-    reset() {
-        WebSocket.globalData.user.firstSent = false
-        // UI数据初始
-        this.textPhasePoint.text = 0                            // 阶段分数
-        this.textRoundPoint.text = '底池：0'                     // 底池分数
-        // 座位初始化
+        // 创建发牌器
+        this.round.dealer = new Dealer()
+        // 创建座位
         for (let i = 0; i < 9; i++) {
             // 获取界面元素
             const boxSeat = this.getChildByName(`seat${i}`)
@@ -58,6 +48,22 @@ export default class GameView extends Laya.Scene {
             // const maskSeat = boxSeat.getChildByName(`mask${i}`)
             // 创建座位对象，最后全局状态持久化
             this.round.seatMap[boxSeat.name] = new Seat(Object.assign(this.round.seatMap[boxSeat.name], { boxSeat, maskSeat, boxBet, imgChip, textRoundPoint: this.textRoundPoint }))
+        }
+        // 创建盲注，最后全局状态持久化
+        // this.round.blind = new Blind({ textChipBig: this.textChipBig, textChipSmall: this.textChipSmall, seatMap: this.round.seatMap })
+        // 重置界面信息
+        this.reset()
+    }
+    // 重置
+    reset() {
+        // 状态信息初始化
+        WebSocket.globalData.user.firstSent = false        
+        // UI数据初始
+        this.textPhasePoint.text = 0                            // 阶段分数
+        this.textRoundPoint.text = '底池：0'                     // 底池分数
+        // 座位初始化
+        for (let i = 0; i < 9; i++) {
+            this.round.seatMap[`seat${i}`].reset()
         }
         // 发牌手重置
         this.round.dealer.reset()

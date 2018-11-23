@@ -9,11 +9,11 @@ export default class Poker {
         // 数据信息
         this.dataPoker = inparam.dataPoker
         this.isPublic = inparam.isPublic
-        this.isMe = false
         this.user = inparam.user
+        this.isMe = false        
+        // 坐标还原信息
         this.pokerX = this.imgPoker.x
         this.pokerY = this.imgPoker.y
-        // this.reset()
     }
     // 重置
     reset() {

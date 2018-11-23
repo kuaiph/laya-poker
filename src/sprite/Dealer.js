@@ -3,26 +3,19 @@
  */
 export default class Dealer {
     constructor(inparam) {
-        // 数据信息
-        this.pokers = []                                        // 扑克牌数组
-        this.restPokers = []                                    // 剩余扑克牌组
-        this.pokerSentIndex = 0                                 // 已发牌索引
-        this.pokerPublicSentIndex = 0                           // 公牌发牌索引
     }
-
     // 重置牌组
     reset() {
-        if (this.pokers) {
-            for (let poker of this.pokers) {
-                poker.reset()
-            }
-
+        this.pokerSentIndex = 0                                 // 已发牌索引
+        this.pokerPublicSentIndex = 0                           // 公牌发牌索引
+        for (let poker of this.pokers || []) {
+            poker.reset()
         }
-        if (this.restPokers) {
-            for (let poker of this.restPokers) {
-                poker.reset()
-            }
+        for (let poker of this.restPokers || []) {
+            poker.reset()
         }
+        this.pokers = []                                        // 扑克牌数组
+        this.restPokers = []                                    // 剩余扑克牌组
     }
     // 增加有用扑克
     addPoker(poker) {
@@ -61,7 +54,7 @@ export default class Dealer {
     onShowPublicPoker() {
         this.pokers[this.pokerSentIndex].sendPublic(this.pokerPublicSentIndex)
         this.pokerPublicSentIndex++
-        this.pokerSentIndex++        
+        this.pokerSentIndex++
         // 公牌发牌结束
         if (!this.pokers[this.pokerSentIndex]) {
             Laya.timer.clear(this, this.onShowPublicPoker)
