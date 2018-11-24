@@ -116,8 +116,8 @@ export default class Seat extends Laya.Script {
             clearInterval(this.intervalCountDown)
             // this.maskSeat.alpha = 1
             this.maskSeat.graphics.clear()
+            this.maskSeat.graphics.drawPie(this.maskSeat.width / 2, this.maskSeat.height / 2, this.maskSeat.width, 0, 0.72, "#ffffff");
             this.imgSeat.visible = false
-            // this.maskSeat.graphics.drawPie(this.maskSeat.width / 2, this.maskSeat.height / 2, this.maskSeat.width, 0, 0, "#ffffff");            
             // this.maskSeat.graphics.drawPie(this.maskSeat.width / 2, this.maskSeat.height / 2, this.maskSeat.width, 0, 360, "#ffffff");
         }
     }
