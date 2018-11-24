@@ -44,10 +44,16 @@ export default function nextSpeak(globalData, res) {
         round.seatMap[seatId] = Object.assign(round.seatMap[seatId], seatMap[seatId])
         // 提示更新
         round.seatMap[seatId].showTag()
+        // 投注更新
+        if (round.seatMap[seatId].betPoint) {
+            round.seatMap[seatId].bet()
+        } else {
+            round.seatMap[seatId].hideBet()
+        }
         // 所有座位倒计时关闭
         round.seatMap[seatId].closeCountDown()
-        // 说话的座位显示倒计时
-        if (round.seatMap[seatId].isSpeak) {
+        // 非阶段结束，说话的座位显示倒计时
+        if (!isPhaseEnd && round.seatMap[seatId].isSpeak) {
             round.seatMap[seatId].countDown()
             // 如果是自己显示操作台，否则隐藏
             if (round.seatMap[seatId].userId == user.userId) {
@@ -56,12 +62,6 @@ export default function nextSpeak(globalData, res) {
                 gameView.control.silent()
             }
         }
-        // 投注更新
-        if (round.seatMap[seatId].betPoint) {
-            round.seatMap[seatId].bet()
-        } else {
-            round.seatMap[seatId].hideBet()
-        }
         // 阶段结束执行收集动画
         if (isPhaseEnd == 'collect') {
             setTimeout(() => {
@@ -69,7 +69,7 @@ export default function nextSpeak(globalData, res) {
             }, 850)
         }
         // 单局结束执行结束动画
-        if(isRoundEnd){
+        if (isRoundEnd) {
             gameView.reset()
         }
     }

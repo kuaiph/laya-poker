@@ -42,6 +42,11 @@ export default class Seat extends Laya.Script {
             this.betPointArr = []                                                   // 投注点数数组
             this.speakCountDown = 0                                                 // 说话时间倒计时
             this.status = null                                                      // 座位状态
+            // 坐标还原信息
+            this.imgChipX = this.imgChip.x
+            this.imgChipY = this.imgChip.y
+            this.boxBetX = this.boxBet.x
+            this.boxBetY = this.boxBet.y
         }
     }
 
@@ -63,11 +68,11 @@ export default class Seat extends Laya.Script {
         this.boxBet.visible = false
         // 隐藏手牌标识
         this.imgHandPoker.visible = false
-        // 记录移动筹码的初始坐标以便复原
-        this.imgChipX = this.imgChip.x
-        this.imgChipY = this.imgChip.y
-        this.boxBetX = this.boxBet.x
-        this.boxBetY = this.boxBet.y
+        // 还原动画元素
+        this.imgChip.x = this.imgChipX
+        this.imgChip.y = this.imgChipY
+        this.boxBet.x = this.boxBetX
+        this.boxBet.y = this.boxBetY
     }
 
     // 入座

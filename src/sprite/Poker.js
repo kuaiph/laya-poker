@@ -17,7 +17,7 @@ export default class Poker {
     }
     // 重置
     reset() {
-        this.imgPoker.skin = 'ui/poker.png'        
+        this.imgPoker.skin = 'ui/poker.png'
         this.imgPoker.x = this.pokerX
         this.imgPoker.y = this.pokerY
         this.imgPoker.visible = true
