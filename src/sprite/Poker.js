@@ -32,10 +32,10 @@ export default class Poker {
         let x = this.seat.boxSeat.x
         if (this.isMe) {
             if (!this.user.firstSent) {
-                x += 90
+                x += 100
                 this.user.firstSent = true
             } else {
-                x += 190
+                x += 200
             }
         }
         Laya.Tween.to(this.imgPoker, { x, y: this.seat.boxSeat.y + 35 }, 500, Laya.Ease.strongOut, Laya.Handler.create(this, this.sendComplete))

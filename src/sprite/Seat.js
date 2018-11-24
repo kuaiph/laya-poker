@@ -28,7 +28,8 @@ export default class Seat extends Laya.Script {
             this.imgChip = inparam.imgChip                                          // 用于移动的筹码
             // 子级UI元素
             this.textName = this.boxSeat.getChildByName('textName')                 // 座位昵称
-            this.imgSeat = this.boxSeat.getChildByName('imgSeat')                   // 座位头像
+            this.imgHead = this.boxSeat.getChildByName('imgHead')                   // 座位头像
+            this.imgSeat = this.boxSeat.getChildByName('imgSeat')                   // 座位底图
             this.textSeatPoint = this.boxSeat.getChildByName('textSeatPoint')       // 座位点数
             this.imgTag = this.boxSeat.getChildByName('imgTag') || {}               // 状态标记
             this.imgHandPoker = this.boxSeat.getChildByName('imgHandPoker') || {}   // 座位手牌标记
@@ -47,9 +48,11 @@ export default class Seat extends Laya.Script {
     // 重置
     reset() {
         // 显示头像
-        this.imgSeat.skin = `ui/${this.headurl}`
-        this.maskSeat.texture = `ui/${this.headurl}`
-        this.maskSeat.alpha = 1
+        this.imgHead.skin = `ui/${this.headurl}`
+        // this.imgSeat.skin = `ui/${this.headurl}`
+        // this.imgSeat.skin = `ui/rectprogress.png`
+        // this.maskSeat.texture = `ui/${this.headurl}`
+        // this.maskSeat.alpha = 1
         // 显示筹码
         if (this.userId != 0) {
             this.textSeatPoint.text = this.seatPoint
@@ -69,8 +72,10 @@ export default class Seat extends Laya.Script {
 
     // 入座
     sitdown() {
-        this.imgSeat.skin = `ui/${this.headurl}`
-        this.maskSeat.texture = `ui/${this.headurl}`
+        this.imgHead.skin = `ui/${this.headurl}`
+        // this.imgSeat.skin = `ui/${this.headurl}`
+        // this.imgSeat.skin = `ui/rectprogress.png`
+        // this.maskSeat.texture = `ui/${this.headurl}`
         if (this.userId) {
             this.textName.text = this.userId
             this.textSeatPoint.text = this.seatPoint
@@ -84,8 +89,9 @@ export default class Seat extends Laya.Script {
 
     // 倒计时20秒
     countDown() {
-        this.maskSeat.alpha = 0.5
+        // this.maskSeat.alpha = 0.5
         this.speakCountDown = 0
+        this.imgSeat.visible = true
         this.intervalCountDown = setInterval(() => {
             this.maskSeat.graphics.clear()
             if (this.speakCountDown > 360) {
@@ -103,9 +109,11 @@ export default class Seat extends Laya.Script {
     closeCountDown() {
         if (this.intervalCountDown) {
             clearInterval(this.intervalCountDown)
-            this.maskSeat.alpha = 1
+            // this.maskSeat.alpha = 1
             this.maskSeat.graphics.clear()
-            this.maskSeat.graphics.drawPie(this.maskSeat.width / 2, this.maskSeat.height / 2, this.maskSeat.width, 0, 360, "#ffffff");
+            this.imgSeat.visible = false
+            // this.maskSeat.graphics.drawPie(this.maskSeat.width / 2, this.maskSeat.height / 2, this.maskSeat.width, 0, 0, "#ffffff");            
+            // this.maskSeat.graphics.drawPie(this.maskSeat.width / 2, this.maskSeat.height / 2, this.maskSeat.width, 0, 360, "#ffffff");
         }
     }
 
