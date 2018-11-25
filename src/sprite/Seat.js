@@ -26,7 +26,7 @@ export default class Seat extends Laya.Script {
             this.textRoundPoint = inparam.textRoundPoint                            // 底池
             this.boxBet = inparam.boxBet                                            // 玩家投注盒子
             this.imgChip = inparam.imgChip                                          // 用于移动的筹码
-            this.boxCardType = inparam.boxCardType                                  // 牌型
+            this.boxPokerType = inparam.boxPokerType                                // 牌型
             // 子级UI元素
             this.textName = this.boxSeat.getChildByName('textName')                 // 座位昵称
             this.imgHead = this.boxSeat.getChildByName('imgHead')                   // 座位头像
@@ -34,7 +34,7 @@ export default class Seat extends Laya.Script {
             this.textSeatPoint = this.boxSeat.getChildByName('textSeatPoint')       // 座位点数
             this.imgTag = this.boxSeat.getChildByName('imgTag') || {}               // 状态标记
             this.imgHandPoker = this.boxSeat.getChildByName('imgHandPoker') || {}   // 座位手牌标记
-            this.textCardType = this.boxCardType.getChildByName('textCardType')     // 牌型文字
+            this.textPokerType = this.boxPokerType.getChildByName('textPokerType')  // 牌型文字
             // 数据信息
             this.seatNo = inparam.seatNo                                            // 座位真实ID
             this.userId = inparam.userId                                            // 玩家ID
@@ -68,6 +68,7 @@ export default class Seat extends Laya.Script {
             this.textSeatPoint.visible = false
         }
         this.boxBet.visible = false
+        this.boxPokerType.visible = false        
         // 隐藏手牌标识
         this.imgHandPoker.visible = false
         // 还原动画元素
@@ -179,6 +180,12 @@ export default class Seat extends Laya.Script {
         } else {
             this.imgTag.visible = false
         }
+    }
+
+    // 更新牌型
+    updatePokerType(pokerType) {
+        this.boxPokerType.visible = true
+        this.textPokerType.text = pokerType
     }
 
     // 离座

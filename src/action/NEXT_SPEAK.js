@@ -11,13 +11,13 @@ export default function nextSpeak(globalData, res) {
     let phase = res.phase
     let sendPokerArr = res.sendPokerArr
     let chipSeatIdArr = res.chipSeatIdArr
+    let pokerType = res.pokerType
     let seatMap = res.seatMap
     let isPhaseEnd = res.isPhaseEnd
     let isRoundEnd = res.isRoundEnd
 
     round.phasePoint = res.phasePoint
     round.roundPoint = res.roundPoint
-
     // 根据返回数据判断是否需要发新牌
     if (sendPokerArr) {
         round.chipSeatIdArr = chipSeatIdArr
@@ -44,6 +44,10 @@ export default function nextSpeak(globalData, res) {
         round.seatMap[seatId] = Object.assign(round.seatMap[seatId], seatMap[seatId])
         // 提示更新
         round.seatMap[seatId].showTag()
+        // 自己位置更新牌型
+        if (round.seatMap[seatId].userId == user.userId) {
+            pokerType && round.seatMap[seatId].updatePokerType(pokerType)
+        }
         // 投注更新
         if (round.seatMap[seatId].betPoint) {
             round.seatMap[seatId].bet()
