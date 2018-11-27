@@ -74,7 +74,10 @@ export default function nextSpeak(globalData, res) {
         }
         // 单局结束执行结束动画
         if (isRoundEnd) {
-            gameView.reset()
+            round.seatMap[seatId].roundEnd()
+            setTimeout(() => {
+                gameView.reset()
+            }, 850)
         }
     }
     // 更新阶段累计点数和底池累计点数

@@ -68,7 +68,7 @@ export default class Seat extends Laya.Script {
             this.textSeatPoint.visible = false
         }
         this.boxBet.visible = false
-        this.boxPokerType.visible = false        
+        this.boxPokerType.visible = false
         // 隐藏手牌标识
         this.imgHandPoker.visible = false
         // 还原动画元素
@@ -161,6 +161,21 @@ export default class Seat extends Laya.Script {
         this.boxBet.visible = false
         this.boxBet.x = this.boxBetX
         this.boxBet.y = this.boxBetY
+    }
+    // 回收所有筹码动画
+    roundEnd() {
+        if (this.status == 'win') {
+            let x = this.imgChip.x
+            let y = this.imgChip.y
+            this.imgChip.x = this.textRoundPoint.x
+            this.imgChip.y = this.textRoundPoint.y
+            this.imgChip.visible = true
+            Laya.Tween.to(this.imgChip, { x, y }, 800, Laya.Ease.strongOut, Laya.Handler.create(this, this.roundEndComplete))
+        }
+    }
+    // 回收所有筹码动画完成
+    roundEndComplete() {
+        this.imgChip.visible = false
     }
 
     // 隐藏投注盒子
