@@ -29,24 +29,26 @@ class Main {
         Laya.AtlasInfoManager.enable("fileconfig.json", Laya.Handler.create(this, this.onConfigLoaded))
     }
     onConfigLoaded() {
+        // 加载动画图集
+        Laya.loader.load("res/atlas/ui/ani.atlas", null, null, Laya.Loader.ATLAS)
         //加载网络连接，网络连接建立得到响应后，初始化游戏界面
         new WebSocket(GameConfig.startScene).init()
         //加载IDE指定的场景
         // GameConfig.startScene && Laya.Scene.open(GameConfig.startScene)
-        // beginLoad()
+        // this.beginLoad()
     }
     // // 加载资源
     // beginLoad() {
     //     // 加载图集
-    //     Laya.loader.load("res/atlas/ui.atlas", Laya.Handler.create(this, this.onLoaded), null, Laya.Loader.ATLAS)
+    //     Laya.loader.load("res/atlas/ui/ani.atlas", Laya.Handler.create(this, this.onLoaded), null, Laya.Loader.ATLAS)
     //     // 播放背景音乐
     //     // Laya.SoundManager.playMusic("res/sounds/bgm.mp3", 0, null)
     // }
     // // 加载完成回调
     // onLoaded() {
     //     // 启动游戏界面
-    //     LayaApp.gameView = new GameView()
-    //     Laya.stage.addChild(LayaApp.gameView)
+    //     // LayaApp.gameView = new GameView()
+    //     // Laya.stage.addChild(LayaApp.gameView)
     //     // LayaApp.gameStartView = new GameStartView()
     //     // Laya.stage.addChild(LayaApp.gameStartView)
     // }

@@ -17,6 +17,14 @@ export default class GameView extends Laya.Scene {
     }
     onEnable() {
         this.init()
+        //创建一个Animation实例
+        var tl = new Laya.Animation()
+        //加载动画文件
+        tl.loadAnimation("Fire.ani")
+        //添加到舞台
+        Laya.stage.addChild(tl)
+        //播放Animation动画
+        tl.play()
     }
     onClosed() {
         WebSocket.socket.close()

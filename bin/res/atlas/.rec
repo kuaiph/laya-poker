@@ -65,6 +65,15 @@ P C50CF71F tip_giveup.png
 P CBBB431F tip_rise.png
 P B4807345 tip_straddle.png
 P 239EC2AE tip_watch.png
+D ui/ani
+P 8F1B0DC2 fire0.png
+P 2E2ABAB5 fire1.png
+P 073DF77F fire2.png
+P E085783E fire3.png
+P 4842C3F8 fire4.png
+P AEC9E76F fire5.png
+P E760EC1D fire6.png
+P F6C4973F fire7.png
 D ui/pokers
 P EE13F043 10C.png
 P C96E5DB5 10D.png
