@@ -17,14 +17,6 @@ export default class GameView extends Laya.Scene {
     }
     onEnable() {
         this.init()
-        //创建一个Animation实例
-        var tl = new Laya.Animation()
-        //加载动画文件
-        tl.loadAnimation("Fire.ani")
-        //添加到舞台
-        Laya.stage.addChild(tl)
-        //播放Animation动画
-        tl.play()
     }
     onClosed() {
         WebSocket.socket.close()
@@ -44,7 +36,7 @@ export default class GameView extends Laya.Scene {
         const btnFixrise0 = this.btnFixrise0                    // 定制加注按钮0
         const btnFixrise1 = this.btnFixrise1                    // 定制加注按钮1
         const btnFixrise2 = this.btnFixrise2                    // 定制加注按钮2
-        const boxPokerType = this.boxPokerType                    // 牌型
+        const boxPokerType = this.boxPokerType                  // 牌型
 
         // 创建控制台
         this.control = new Control({ btnAbandon, btnRise, btnFollow, vsliderPoint, imgBetnum, textBetnum, btnFixrise0, btnFixrise1, btnFixrise2, round: this.round })
