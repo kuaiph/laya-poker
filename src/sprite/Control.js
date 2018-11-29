@@ -56,7 +56,22 @@ export default class Control {
         this.btnFixrise2.visible = true                                 // 定制加注按钮2
 
         // 设定跟注最小值
-        this.btnFollow.getChildByName('textFollow').text = minBetPoint > 0 ? `跟注 ${minBetPoint}` : '看牌'
+        if (minBetPoint == selfSeat.seatPoint) {
+            this.btnFollow.skin = 'ui/btn_allin.png'
+            this.btnFollow.getChildByName('textFollow').text = minBetPoint
+            this.btnRise.visible = false
+            this.btnFixrise0.visible = false
+            this.btnFixrise1.visible = false
+            this.btnFixrise2.visible = false
+        } else {
+            this.btnFixrise0.getChildByName('textFixrise0').text < minBetPoint ? this.btnFixrise0.visible = false : null
+            this.btnFixrise1.getChildByName('textFixrise1').text < minBetPoint ? this.btnFixrise1.visible = false : null
+            this.btnFixrise2.getChildByName('textFixrise2').text < minBetPoint ? this.btnFixrise2.visible = false : null
+            this.btnFollow.getChildByName('textFollow').text = minBetPoint > 0 ? `跟注 ${minBetPoint}` : '看牌'
+        }
+
+        console.log(selfSeat.seatPoint)
+        console.log(minBetPoint)
 
         this.vsliderPoint.max = selfSeat.seatPoint                      // 设置加注推杆的最大值
         this.vsliderPoint.value = this.vsliderPoint.max                 // 初始推杆最小值(使其反减为0)
