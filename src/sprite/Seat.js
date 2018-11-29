@@ -36,8 +36,10 @@ export default class Seat extends Laya.Script {
             this.imgHandPoker = this.boxSeat.getChildByName('imgHandPoker') || {}   // 座位手牌标记
             this.textPokerType = this.boxPokerType.getChildByName('textPokerType')  // 牌型文字
             // 动画元素
-            this.aniFire = new Laya.Animation()
-            this.aniFire.loadAnimation('Fire.ani')                                  // ALLIN火焰
+            this.aniFire = new Laya.Animation()                                     // ALLIN火焰
+            this.aniFire.loadAnimation('Fire.ani')
+            this.aniFire.visible = false
+            Laya.stage.addChild(this.aniFire)
             // 数据信息
             this.seatNo = inparam.seatNo                                            // 座位真实ID
             this.userId = inparam.userId                                            // 玩家ID
@@ -74,8 +76,9 @@ export default class Seat extends Laya.Script {
         this.boxPokerType.visible = false
         // 隐藏手牌标识
         this.imgHandPoker.visible = false
-        // 动画停止
-        // this.aniFire.clear()
+        // 火焰动画停止
+        this.aniFire.stop()
+        this.aniFire.visible = false
         // 还原动画元素
         this.imgChip.x = this.imgChipX
         this.imgChip.y = this.imgChipY
@@ -155,7 +158,7 @@ export default class Seat extends Laya.Script {
 
     // 阶段结束动画
     phaseEnd() {
-        if (this.boxBet.visible) {            
+        if (this.boxBet.visible) {
             let x = this.textRoundPoint.x
             let y = this.textRoundPoint.y
             Laya.Tween.to(this.boxBet, { x, y }, 800, Laya.Ease.strongOut, Laya.Handler.create(this, this.phaseEndComplete))
@@ -194,9 +197,8 @@ export default class Seat extends Laya.Script {
             if (this.status != 'allin') {
                 this.imgTag.skin = `ui/tag_${this.status}.png`
                 this.imgTag.visible = true
-            } else {
-                console.log('allin')
-                Laya.stage.addChild(this.aniFire)
+            } else if (!this.aniFire.visible) {
+                this.aniFire.visible = true
                 this.aniFire.x = this.boxSeat.x + this.imgHead.x
                 this.aniFire.y = this.boxSeat.y + this.imgHead.y + 5
                 this.aniFire.play()
