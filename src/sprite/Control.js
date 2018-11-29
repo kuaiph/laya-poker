@@ -25,6 +25,7 @@ export default class Control {
         this.btnAbandon.visible = false                         // 弃牌按钮
         this.btnRise.visible = false                            // 加注按钮
         this.btnFollow.visible = false                          // 跟注按钮
+        this.textFollow = this.btnFollow.getChildByName('textFollow')
         this.vsliderPoint.visible = false                       // 点数推杆
         this.vsliderPoint.showLabel = false                     // 点数推杆不显示标签
         this.imgBetnum.visible = false                          // 推杆显示点数背景
@@ -32,6 +33,9 @@ export default class Control {
         this.btnFixrise0.visible = false                        // 定制加注按钮0
         this.btnFixrise1.visible = false                        // 定制加注按钮1
         this.btnFixrise2.visible = false                        // 定制加注按钮2
+        this.textFixrise0 = this.btnFixrise0.getChildByName('textFixrise')
+        this.textFixrise1 = this.btnFixrise1.getChildByName('textFixrise')
+        this.textFixrise2 = this.btnFixrise2.getChildByName('textFixrise')
 
         // 控制台事件
         this.btnRise.on(Laya.Event.CLICK, this, this.onRiseClick)
@@ -41,40 +45,43 @@ export default class Control {
     // 发言
     speak(selfSeat) {
         let roundPoint = this.round.roundPoint
-        let minBetPoint = this.round.seatMap['seat0'].minBetPoint
+        this.minBetPoint = this.round.seatMap['seat0'].minBetPoint
 
         this.selfSeat = selfSeat
         this.btnAbandon.visible = true                                  // 弃牌按钮显示
         this.btnRise.visible = true                                     // 加注按钮显示
         this.btnFollow.visible = true                                   // 跟注按钮显示
 
-        this.btnFixrise0.getChildByName('textFixrise0').text = Math.floor(1 / 2 * roundPoint)
-        this.btnFixrise1.getChildByName('textFixrise1').text = Math.floor(2 / 3 * roundPoint)
-        this.btnFixrise2.getChildByName('textFixrise2').text = Math.floor(2 * roundPoint)
+        this.textFixrise0.text = Math.floor(1 / 2 * roundPoint)
+        this.textFixrise1.text = Math.floor(2 / 3 * roundPoint)
+        this.textFixrise2.text = Math.floor(2 * roundPoint)
         this.btnFixrise0.visible = true                                 // 定制加注按钮0
         this.btnFixrise1.visible = true                                 // 定制加注按钮1
         this.btnFixrise2.visible = true                                 // 定制加注按钮2
 
         // 设定跟注最小值
-        if (minBetPoint == selfSeat.seatPoint) {
+        if (this.minBetPoint == selfSeat.seatPoint) {
             this.btnFollow.skin = 'ui/btn_allin.png'
-            this.btnFollow.getChildByName('textFollow').text = minBetPoint
+            this.textFollow.text = this.minBetPoint
             this.btnRise.visible = false
             this.btnFixrise0.visible = false
             this.btnFixrise1.visible = false
             this.btnFixrise2.visible = false
         } else {
-            this.btnFixrise0.getChildByName('textFixrise0').text < minBetPoint ? this.btnFixrise0.visible = false : null
-            this.btnFixrise1.getChildByName('textFixrise1').text < minBetPoint ? this.btnFixrise1.visible = false : null
-            this.btnFixrise2.getChildByName('textFixrise2').text < minBetPoint ? this.btnFixrise2.visible = false : null
-            this.btnFollow.getChildByName('textFollow').text = minBetPoint > 0 ? `跟注 ${minBetPoint}` : '看牌'
+            this.textFixrise0.text >= selfSeat.seatPoint ? this.btnFixrise0.visible = false : null
+            this.textFixrise1.text >= selfSeat.seatPoint ? this.btnFixrise1.visible = false : null
+            this.textFixrise2.text >= selfSeat.seatPoint ? this.btnFixrise2.visible = false : null
+
+            this.textFixrise0.text < this.minBetPoint ? this.btnFixrise0.visible = false : null
+            this.textFixrise1.text < this.minBetPoint ? this.btnFixrise1.visible = false : null
+            this.textFixrise2.text < this.minBetPoint ? this.btnFixrise2.visible = false : null
+            this.textFollow.text = this.minBetPoint > 0 ? `跟注 ${this.minBetPoint}` : '看牌'
         }
-
-        console.log(selfSeat.seatPoint)
-        console.log(minBetPoint)
-
-        this.vsliderPoint.max = selfSeat.seatPoint                      // 设置加注推杆的最大值
-        this.vsliderPoint.value = this.vsliderPoint.max                 // 初始推杆最小值(使其反减为0)
+        this.vsliderPoint.max = selfSeat.seatPoint                           // 设置加注推杆的最大值
+        this.vsliderPoint.value = this.vsliderPoint.max - this.minBetPoint   // 设置加注推杆的初始值
+        this.vsliderPoint.visible = false
+        this.imgBetnum.visible = false
+        this.textBetnum.visible = false
     }
 
     // 沉默
@@ -103,15 +110,18 @@ export default class Control {
         this.betPoint = Math.abs(this.vsliderPoint.value - this.vsliderPoint.max)
         if (this.betPoint == this.vsliderPoint.max) {
             this.textBetnum.text = 'ALLIN'
-        } else {
+        } else if (this.betPoint >= this.minBetPoint) {
             this.textBetnum.text = this.betPoint
+        } else {
+            this.textBetnum.text = ''
         }
     }
 
     // 响应推杆触摸离开，请求自由投注
     onVsliderUp() {
-        // 隐藏控制台
-        this.silent()
-        WebSocket.send({ method: 'BET', user: WebSocket.globalData.user, betPoint: this.betPoint })
+        if (this.betPoint >= this.minBetPoint) {
+            this.silent()   // 隐藏控制台
+            WebSocket.send({ method: 'BET', user: WebSocket.globalData.user, betPoint: this.betPoint })
+        }
     }
 }

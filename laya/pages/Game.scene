@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":110,
+    "selectedBox":136,
+    "selecteID":153,
     "searchKey":"View",
     "props":{"width":750,"sceneColor":"#000000","runtime":"view/GameView.js","height":1334},
     "nodeParent":-1,
@@ -601,13 +601,14 @@
             "props":{"y":1003,"x":170,"visible":false,"var":"btnFixrise0","stateNum":"2","skin":"ui/fixrise.png","name":"btnFixrise0"},
             "nodeParent":1,
             "label":"btnFixrise0",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":134,
             "child":[
                 {
+                    "x":30,
                     "type":"Text",
                     "searchKey":"Text",
                     "props":{"y":-1,"x":0,"wordWrap":false,"width":88,"valign":"middle","text":"1/2","mouseEnabled":false,"height":20,"fontSize":18,"font":"Helvetica","color":"#ffffff","align":"center"},
@@ -621,6 +622,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Text",
                     "searchKey":"Text",
                     "props":{"y":15,"x":0,"wordWrap":false,"width":88,"valign":"middle","text":"底池","mouseEnabled":false,"height":20,"fontSize":18,"font":"Helvetica","color":"#ffffff","align":"center"},
@@ -634,11 +636,12 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Text",
-                    "searchKey":"Text,textFixrise0",
-                    "props":{"y":32,"x":0,"wordWrap":false,"width":88,"visible":true,"valign":"middle","text":"0","name":"textFixrise0","mouseEnabled":false,"height":20,"fontSize":18,"font":"Helvetica","color":"#ffffff","align":"center"},
+                    "searchKey":"Text,textFixrise",
+                    "props":{"y":32,"x":0,"wordWrap":false,"width":88,"visible":true,"valign":"middle","text":"0","name":"textFixrise","mouseEnabled":false,"height":20,"fontSize":18,"font":"Helvetica","color":"#ffffff","align":"center"},
                     "nodeParent":134,
-                    "label":"textFixrise0",
+                    "label":"textFixrise",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -647,6 +650,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Script",
                     "switchAble":true,
                     "source":"src/script/Rise.js",
@@ -670,13 +674,14 @@
             "props":{"y":1003,"x":330,"visible":false,"var":"btnFixrise1","stateNum":"2","skin":"ui/fixrise.png","name":"btnFixrise1"},
             "nodeParent":1,
             "label":"btnFixrise1",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":135,
             "child":[
                 {
+                    "x":30,
                     "type":"Text",
                     "searchKey":"Text",
                     "props":{"y":-1,"x":0,"width":88,"valign":"middle","text":"2/3","height":20,"fontSize":18,"font":"Helvetica","color":"#ffffff","align":"center"},
@@ -690,6 +695,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Text",
                     "searchKey":"Text",
                     "props":{"y":15,"x":0,"width":88,"valign":"middle","text":"底池","height":20,"fontSize":18,"font":"Helvetica","color":"#ffffff","align":"center"},
@@ -703,11 +709,12 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Text",
-                    "searchKey":"Text,textFixrise1",
-                    "props":{"y":32,"x":0,"wordWrap":false,"width":88,"visible":true,"valign":"middle","text":"0","name":"textFixrise1","mouseEnabled":false,"height":20,"fontSize":18,"font":"Helvetica","color":"#ffffff","align":"center"},
+                    "searchKey":"Text,textFixrise",
+                    "props":{"y":32,"x":0,"wordWrap":false,"width":88,"visible":true,"valign":"middle","text":"0","name":"textFixrise","mouseEnabled":false,"height":20,"fontSize":18,"font":"Helvetica","color":"#ffffff","align":"center"},
                     "nodeParent":135,
-                    "label":"textFixrise1",
+                    "label":"textFixrise",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -716,6 +723,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Script",
                     "switchAble":true,
                     "source":"src/script/Rise.js",
@@ -739,13 +747,14 @@
             "props":{"y":1003,"x":479,"visible":false,"var":"btnFixrise2","stateNum":"2","skin":"ui/fixrise.png","name":"btnFixrise2"},
             "nodeParent":1,
             "label":"btnFixrise2",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":136,
             "child":[
                 {
+                    "x":30,
                     "type":"Text",
                     "searchKey":"Text",
                     "props":{"y":-1,"x":0,"width":88,"valign":"middle","text":"1×","height":20,"fontSize":18,"font":"Helvetica","color":"#ffffff","align":"center"},
@@ -759,6 +768,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Text",
                     "searchKey":"Text",
                     "props":{"y":15,"x":0,"width":88,"valign":"middle","text":"底池","height":20,"fontSize":18,"font":"Helvetica","color":"#ffffff","align":"center"},
@@ -772,11 +782,12 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Text",
-                    "searchKey":"Text,textFixrise2",
-                    "props":{"y":32,"x":0,"wordWrap":false,"width":88,"visible":true,"valign":"middle","text":"0","name":"textFixrise2","mouseEnabled":false,"height":15,"fontSize":18,"font":"Helvetica","color":"#ffffff","align":"center"},
+                    "searchKey":"Text,textFixrise",
+                    "props":{"y":32,"x":0,"wordWrap":false,"width":88,"visible":true,"valign":"middle","text":"0","name":"textFixrise","mouseEnabled":false,"height":15,"fontSize":18,"font":"Helvetica","color":"#ffffff","align":"center"},
                     "nodeParent":136,
-                    "label":"textFixrise2",
+                    "label":"textFixrise",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -785,6 +796,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Script",
                     "switchAble":true,
                     "source":"src/script/Rise.js",
