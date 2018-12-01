@@ -57,6 +57,17 @@ export default class GameView extends Laya.Scene {
         // this.round.blind = new Blind({ textChipBig: this.textChipBig, textChipSmall: this.textChipSmall, seatMap: this.round.seatMap })
         // 重置界面信息
         this.reset()
+
+        let data = []
+        for (let i = 0; i < 20; i++) {
+            data.push({
+                m_label0: { text: `label0-${i}` },
+                m_label1: { text: `label1-${i}` },
+                m_label2: { text: `label2-${i}` }
+            })
+        }
+        this.listUser.vScrollBarSkin = "";
+        this.listUser.array = data
     }
     // 重置
     reset() {
