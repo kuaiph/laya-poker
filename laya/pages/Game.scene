@@ -1,12 +1,11 @@
 {
-    "x":0,
     "type":"View",
-    "selectedBox":136,
-    "selecteID":153,
+    "selectedBox":1,
+    "selecteID":450,
     "searchKey":"View",
     "props":{"width":750,"sceneColor":"#000000","runtime":"view/GameView.js","height":1334},
     "nodeParent":-1,
-    "maxID":450,
+    "maxID":454,
     "label":"View",
     "isOpen":true,
     "isDirectory":true,
@@ -15,7 +14,6 @@
     "compId":1,
     "child":[
         {
-            "x":15,
             "type":"Image",
             "searchKey":"Image,table",
             "props":{"y":0,"x":0,"skin":"ui/bg.png","name":"table"},
@@ -30,7 +28,6 @@
             "$LOCKED":true
         },
         {
-            "x":15,
             "type":"Image",
             "searchKey":"Image,poker22",
             "props":{"y":464.5,"x":325,"skin":"ui/poker.png","name":"poker22"},
@@ -45,7 +42,6 @@
             "$LOCKED":false
         },
         {
-            "x":15,
             "type":"Image",
             "searchKey":"Image,poker21",
             "props":{"y":467,"x":325,"skin":"ui/poker.png","name":"poker21"},
@@ -60,7 +56,6 @@
             "$LOCKED":false
         },
         {
-            "x":15,
             "type":"Image",
             "searchKey":"Image,poker20",
             "props":{"y":467,"x":325,"skin":"ui/poker.png","name":"poker20"},
@@ -75,7 +70,6 @@
             "$LOCKED":false
         },
         {
-            "x":15,
             "type":"Image",
             "searchKey":"Image,poker19",
             "props":{"y":467,"x":325,"skin":"ui/poker.png","name":"poker19"},
@@ -90,7 +84,6 @@
             "$LOCKED":false
         },
         {
-            "x":15,
             "type":"Image",
             "searchKey":"Image,poker18",
             "props":{"y":467,"x":325,"skin":"ui/poker.png","name":"poker18"},
@@ -105,7 +98,6 @@
             "$LOCKED":false
         },
         {
-            "x":15,
             "type":"Image",
             "searchKey":"Image,poker17",
             "props":{"y":467,"x":325,"skin":"ui/poker.png","name":"poker17"},
@@ -120,7 +112,6 @@
             "$LOCKED":false
         },
         {
-            "x":15,
             "type":"Image",
             "searchKey":"Image,poker16",
             "props":{"y":467,"x":325,"skin":"ui/poker.png","name":"poker16"},
@@ -135,7 +126,6 @@
             "$LOCKED":false
         },
         {
-            "x":15,
             "type":"Image",
             "searchKey":"Image,poker15",
             "props":{"y":467,"x":325,"skin":"ui/poker.png","name":"poker15"},
@@ -150,7 +140,6 @@
             "$LOCKED":false
         },
         {
-            "x":15,
             "type":"Image",
             "searchKey":"Image,poker14",
             "props":{"y":467,"x":325,"skin":"ui/poker.png","name":"poker14"},
@@ -165,7 +154,6 @@
             "$LOCKED":false
         },
         {
-            "x":15,
             "type":"Image",
             "searchKey":"Image,poker13",
             "props":{"y":467,"x":325,"skin":"ui/poker.png","name":"poker13"},
@@ -180,7 +168,6 @@
             "$LOCKED":false
         },
         {
-            "x":15,
             "type":"Image",
             "searchKey":"Image,poker12",
             "props":{"y":467,"x":325,"skin":"ui/poker.png","name":"poker12"},
@@ -195,7 +182,6 @@
             "$LOCKED":false
         },
         {
-            "x":15,
             "type":"Image",
             "searchKey":"Image,poker11",
             "props":{"y":467,"x":325,"skin":"ui/poker.png","name":"poker11"},
@@ -210,7 +196,6 @@
             "$LOCKED":false
         },
         {
-            "x":15,
             "type":"Image",
             "searchKey":"Image,poker10",
             "props":{"y":467,"x":325,"skin":"ui/poker.png","name":"poker10"},
@@ -225,7 +210,6 @@
             "$LOCKED":false
         },
         {
-            "x":15,
             "type":"Image",
             "searchKey":"Image,poker9",
             "props":{"y":467,"x":325,"skin":"ui/poker.png","name":"poker9"},
@@ -240,7 +224,6 @@
             "$LOCKED":false
         },
         {
-            "x":15,
             "type":"Image",
             "searchKey":"Image,poker8",
             "props":{"y":467,"x":325,"skin":"ui/poker.png","name":"poker8"},
@@ -255,7 +238,6 @@
             "$LOCKED":false
         },
         {
-            "x":15,
             "type":"Image",
             "searchKey":"Image,poker7",
             "props":{"y":467,"x":325,"skin":"ui/poker.png","name":"poker7"},
@@ -270,7 +252,6 @@
             "$LOCKED":false
         },
         {
-            "x":15,
             "type":"Image",
             "searchKey":"Image,poker6",
             "props":{"y":467,"x":325,"skin":"ui/poker.png","name":"poker6"},
@@ -285,7 +266,6 @@
             "$LOCKED":false
         },
         {
-            "x":15,
             "type":"Image",
             "searchKey":"Image,poker5",
             "props":{"y":467,"x":325,"skin":"ui/poker.png","name":"poker5"},
@@ -300,7 +280,6 @@
             "$LOCKED":false
         },
         {
-            "x":15,
             "type":"Image",
             "searchKey":"Image,poker4",
             "props":{"y":467,"x":325,"skin":"ui/poker.png","name":"poker4"},
@@ -315,7 +294,6 @@
             "$LOCKED":false
         },
         {
-            "x":15,
             "type":"Image",
             "searchKey":"Image,poker3",
             "props":{"y":467,"x":325,"skin":"ui/poker.png","name":"poker3"},
@@ -330,7 +308,6 @@
             "$LOCKED":false
         },
         {
-            "x":15,
             "type":"Image",
             "searchKey":"Image,poker2",
             "props":{"y":467,"x":325,"skin":"ui/poker.png","name":"poker2"},
@@ -345,7 +322,6 @@
             "$LOCKED":false
         },
         {
-            "x":15,
             "type":"Image",
             "searchKey":"Image,poker1",
             "props":{"y":467,"x":325,"skin":"ui/poker.png","name":"poker1"},
@@ -360,7 +336,6 @@
             "$LOCKED":false
         },
         {
-            "x":15,
             "type":"Image",
             "searchKey":"Image,poker0",
             "props":{"y":467,"x":325,"width":100,"skin":"ui/poker.png","name":"poker0","height":153},
@@ -375,7 +350,6 @@
             "$LOCKED":false
         },
         {
-            "x":15,
             "type":"Text",
             "searchKey":"Text,textChipBig",
             "props":{"y":711,"x":120,"width":50,"visible":false,"var":"textChipBig","text":"大盲","height":13,"color":"#ffffff","bold":false,"align":"center"},
@@ -390,7 +364,6 @@
             "$HIDDEN":true
         },
         {
-            "x":15,
             "type":"Text",
             "searchKey":"Text,textChipSmall",
             "props":{"y":480,"x":349,"width":50,"visible":false,"var":"textChipSmall","valign":"middle","text":"小盲","height":12,"color":"#ffffff","align":"center"},
@@ -405,7 +378,6 @@
             "$HIDDEN":true
         },
         {
-            "x":15,
             "type":"Text",
             "searchKey":"Text,textRule",
             "props":{"y":620,"x":346.5,"width":57,"valign":"middle","text":"0/1/2","name":"textRule","height":20,"fontSize":20,"color":"#ffffff","align":"center"},
@@ -419,7 +391,6 @@
                 ]
         },
         {
-            "x":15,
             "type":"Image",
             "searchKey":"Image,imgChipround",
             "props":{"y":385,"x":304,"skin":"ui/chipround.png","name":"imgChipround"},
@@ -433,7 +404,6 @@
                 ]
         },
         {
-            "x":15,
             "type":"Text",
             "searchKey":"Text,textPhasePoint",
             "props":{"zOrder":1,"y":405,"x":335,"width":100,"var":"textPhasePoint","valign":"middle","text":"0","rotation":0,"height":20,"fontSize":20,"color":"#ffffff","align":"center"},
@@ -447,7 +417,6 @@
                 ]
         },
         {
-            "x":15,
             "type":"Text",
             "searchKey":"Text,textRoundPoint",
             "props":{"y":436,"x":325,"width":100,"var":"textRoundPoint","valign":"middle","text":"底池：0","height":25,"fontSize":24,"color":"#ffffff","align":"center"},
@@ -461,7 +430,6 @@
                 ]
         },
         {
-            "x":15,
             "type":"Button",
             "searchKey":"Button,btnAbandon",
             "props":{"y":1097,"x":170,"visible":false,"var":"btnAbandon","skin":"ui/btn_abandon.png"},
@@ -474,7 +442,6 @@
             "compId":109,
             "child":[
                 {
-                    "x":30,
                     "type":"Text",
                     "searchKey":"Text,textAbandon",
                     "props":{"y":88,"x":0,"wordWrap":false,"width":88,"visible":true,"valign":"middle","text":"弃牌","name":"textAbandon","mouseEnabled":false,"height":20,"fontSize":20,"font":"Helvetica","color":"#ffffff","align":"center"},
@@ -488,7 +455,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Script",
                     "switchAble":true,
                     "source":"src/script/Abandon.js",
@@ -506,7 +472,6 @@
                 }]
         },
         {
-            "x":15,
             "type":"Button",
             "searchKey":"Button,btnRise",
             "props":{"y":1071,"x":331,"visible":false,"var":"btnRise","skin":"ui/btn_rise.png"},
@@ -519,7 +484,6 @@
             "compId":110,
             "child":[
                 {
-                    "x":30,
                     "type":"Text",
                     "searchKey":"Text,textRise",
                     "props":{"y":88,"x":0,"wordWrap":false,"width":88,"visible":true,"valign":"middle","text":"加注","name":"textRise","mouseEnabled":false,"height":20,"fontSize":20,"font":"Helvetica","color":"#ffffff","align":"center"},
@@ -534,7 +498,6 @@
                 }]
         },
         {
-            "x":15,
             "type":"Button",
             "searchKey":"Button,btnFollow",
             "props":{"y":1097,"x":479,"visible":false,"var":"btnFollow","skin":"ui/btn_follow.png"},
@@ -547,7 +510,6 @@
             "compId":111,
             "child":[
                 {
-                    "x":30,
                     "type":"Text",
                     "searchKey":"Text,textFollow",
                     "props":{"y":88,"x":0,"wordWrap":false,"width":88,"visible":true,"valign":"middle","text":"看牌","name":"textFollow","mouseEnabled":false,"height":20,"fontSize":20,"font":"Helvetica","color":"#ffffff","align":"center"},
@@ -561,7 +523,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Script",
                     "switchAble":true,
                     "source":"src/script/Follow.js",
@@ -580,7 +541,6 @@
             "$HIDDEN":false
         },
         {
-            "x":15,
             "type":"VSlider",
             "searchKey":"VSlider,vsliderPoint",
             "props":{"y":955,"x":369,"visible":false,"var":"vsliderPoint","value":200,"skin":"ui/vslider.png"},
@@ -595,7 +555,6 @@
                 ]
         },
         {
-            "x":15,
             "type":"Button",
             "searchKey":"Button,btnFixrise0,btnFixrise0",
             "props":{"y":1003,"x":170,"visible":false,"var":"btnFixrise0","stateNum":"2","skin":"ui/fixrise.png","name":"btnFixrise0"},
@@ -608,7 +567,6 @@
             "compId":134,
             "child":[
                 {
-                    "x":30,
                     "type":"Text",
                     "searchKey":"Text",
                     "props":{"y":-1,"x":0,"wordWrap":false,"width":88,"valign":"middle","text":"1/2","mouseEnabled":false,"height":20,"fontSize":18,"font":"Helvetica","color":"#ffffff","align":"center"},
@@ -622,7 +580,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Text",
                     "searchKey":"Text",
                     "props":{"y":15,"x":0,"wordWrap":false,"width":88,"valign":"middle","text":"底池","mouseEnabled":false,"height":20,"fontSize":18,"font":"Helvetica","color":"#ffffff","align":"center"},
@@ -636,7 +593,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Text",
                     "searchKey":"Text,textFixrise",
                     "props":{"y":32,"x":0,"wordWrap":false,"width":88,"visible":true,"valign":"middle","text":"0","name":"textFixrise","mouseEnabled":false,"height":20,"fontSize":18,"font":"Helvetica","color":"#ffffff","align":"center"},
@@ -650,7 +606,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Script",
                     "switchAble":true,
                     "source":"src/script/Rise.js",
@@ -668,7 +623,6 @@
                 }]
         },
         {
-            "x":15,
             "type":"Button",
             "searchKey":"Button,btnFixrise1,btnFixrise1",
             "props":{"y":1003,"x":330,"visible":false,"var":"btnFixrise1","stateNum":"2","skin":"ui/fixrise.png","name":"btnFixrise1"},
@@ -681,7 +635,6 @@
             "compId":135,
             "child":[
                 {
-                    "x":30,
                     "type":"Text",
                     "searchKey":"Text",
                     "props":{"y":-1,"x":0,"width":88,"valign":"middle","text":"2/3","height":20,"fontSize":18,"font":"Helvetica","color":"#ffffff","align":"center"},
@@ -695,7 +648,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Text",
                     "searchKey":"Text",
                     "props":{"y":15,"x":0,"width":88,"valign":"middle","text":"底池","height":20,"fontSize":18,"font":"Helvetica","color":"#ffffff","align":"center"},
@@ -709,7 +661,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Text",
                     "searchKey":"Text,textFixrise",
                     "props":{"y":32,"x":0,"wordWrap":false,"width":88,"visible":true,"valign":"middle","text":"0","name":"textFixrise","mouseEnabled":false,"height":20,"fontSize":18,"font":"Helvetica","color":"#ffffff","align":"center"},
@@ -723,7 +674,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Script",
                     "switchAble":true,
                     "source":"src/script/Rise.js",
@@ -741,7 +691,6 @@
                 }]
         },
         {
-            "x":15,
             "type":"Button",
             "searchKey":"Button,btnFixrise2,btnFixrise2",
             "props":{"y":1003,"x":479,"visible":false,"var":"btnFixrise2","stateNum":"2","skin":"ui/fixrise.png","name":"btnFixrise2"},
@@ -754,7 +703,6 @@
             "compId":136,
             "child":[
                 {
-                    "x":30,
                     "type":"Text",
                     "searchKey":"Text",
                     "props":{"y":-1,"x":0,"width":88,"valign":"middle","text":"1×","height":20,"fontSize":18,"font":"Helvetica","color":"#ffffff","align":"center"},
@@ -768,7 +716,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Text",
                     "searchKey":"Text",
                     "props":{"y":15,"x":0,"width":88,"valign":"middle","text":"底池","height":20,"fontSize":18,"font":"Helvetica","color":"#ffffff","align":"center"},
@@ -782,7 +729,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Text",
                     "searchKey":"Text,textFixrise",
                     "props":{"y":32,"x":0,"wordWrap":false,"width":88,"visible":true,"valign":"middle","text":"0","name":"textFixrise","mouseEnabled":false,"height":15,"fontSize":18,"font":"Helvetica","color":"#ffffff","align":"center"},
@@ -796,7 +742,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Script",
                     "switchAble":true,
                     "source":"src/script/Rise.js",
@@ -814,7 +759,6 @@
                 }]
         },
         {
-            "x":15,
             "type":"Image",
             "searchKey":"Image,imgChip8",
             "props":{"zOrder":1,"y":945,"x":687,"visible":false,"skin":"ui/chip.png","name":"imgChip8"},
@@ -828,7 +772,6 @@
                 ]
         },
         {
-            "x":15,
             "type":"Box",
             "searchKey":"Box,boxBet8",
             "props":{"y":890,"x":555,"width":34,"visible":false,"name":"boxBet8","height":55},
@@ -868,7 +811,6 @@
                 }]
         },
         {
-            "x":15,
             "type":"Box",
             "searchKey":"Box,seat8",
             "props":{"y":890,"x":590,"width":160,"name":"seat8","height":140},
@@ -881,7 +823,6 @@
             "compId":354,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,imgHead",
                     "props":{"zOrder":1,"y":28,"x":68,"width":84,"skin":"ui/head.png","name":"imgHead","height":84},
@@ -895,7 +836,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,imgSeat",
                     "props":{"y":20,"x":60,"skin":"ui/rectprogress.png","name":"imgSeat"},
@@ -908,7 +848,6 @@
                     "compId":357,
                     "child":[
                         {
-                            "x":45,
                             "type":"Sprite",
                             "searchKey":"Sprite,mask8,mask8",
                             "props":{"y":0,"x":0,"width":100,"var":"mask8","renderType":"mask","name":"mask8","height":100},
@@ -922,7 +861,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Script",
                             "switchAble":true,
                             "source":"src/sprite/Seat.js",
@@ -940,7 +878,6 @@
                         }]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,imgHandPoker",
                     "props":{"zOrder":2,"y":70,"x":65,"skin":"ui/poker2.png","name":"imgHandPoker"},
@@ -954,7 +891,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Text",
                     "searchKey":"Text,textSeatPoint",
                     "props":{"y":120,"x":60,"width":100,"visible":false,"valign":"middle","text":"200","name":"textSeatPoint","height":20,"fontSize":20,"color":"#ffffff","align":"center"},
@@ -968,7 +904,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,imgTag",
                     "props":{"y":0,"x":0,"visible":false,"skin":"ui/tag_watch.png","name":"imgTag"},
@@ -982,7 +917,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Text",
                     "searchKey":"Text,textName",
                     "props":{"y":0,"x":60,"width":100,"visible":false,"valign":"middle","text":"昵称","name":"textName","height":20,"fontSize":20,"color":"#ffffff","align":"center"},
@@ -997,7 +931,6 @@
                 }]
         },
         {
-            "x":15,
             "type":"Image",
             "searchKey":"Image,imgChip7",
             "props":{"zOrder":1,"y":645,"x":687,"visible":false,"skin":"ui/chip.png","name":"imgChip7"},
@@ -1011,7 +944,6 @@
                 ]
         },
         {
-            "x":15,
             "type":"Box",
             "searchKey":"Box,boxBet7",
             "props":{"y":590,"x":555,"width":34,"visible":false,"name":"boxBet7","height":55},
@@ -1051,7 +983,6 @@
                 }]
         },
         {
-            "x":15,
             "type":"Box",
             "searchKey":"Box,seat7",
             "props":{"y":590,"x":590,"width":160,"name":"seat7","height":140},
@@ -1064,7 +995,6 @@
             "compId":402,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,imgHead",
                     "props":{"zOrder":1,"y":28,"x":68,"width":84,"skin":"ui/head.png","name":"imgHead","height":84},
@@ -1078,7 +1008,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,imgSeat",
                     "props":{"y":20,"x":60,"skin":"ui/rectprogress.png","name":"imgSeat"},
@@ -1091,7 +1020,6 @@
                     "compId":405,
                     "child":[
                         {
-                            "x":45,
                             "type":"Sprite",
                             "searchKey":"Sprite,mask7,mask7",
                             "props":{"y":0,"x":0,"width":100,"var":"mask7","renderType":"mask","name":"mask7","height":100},
@@ -1105,7 +1033,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Script",
                             "switchAble":true,
                             "source":"src/sprite/Seat.js",
@@ -1123,7 +1050,6 @@
                         }]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,imgHandPoker",
                     "props":{"zOrder":2,"y":70,"x":65,"skin":"ui/poker2.png","name":"imgHandPoker"},
@@ -1137,7 +1063,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Text",
                     "searchKey":"Text,textSeatPoint",
                     "props":{"y":120,"x":60,"width":100,"visible":false,"valign":"middle","text":"200","name":"textSeatPoint","height":20,"fontSize":20,"color":"#ffffff","align":"center"},
@@ -1151,7 +1076,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,imgTag",
                     "props":{"y":0,"x":0,"visible":false,"skin":"ui/tag_watch.png","name":"imgTag"},
@@ -1165,7 +1089,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Text",
                     "searchKey":"Text,textName",
                     "props":{"y":0,"x":60,"width":100,"visible":false,"valign":"middle","text":"昵称","name":"textName","height":20,"fontSize":20,"color":"#ffffff","align":"center"},
@@ -1180,7 +1103,6 @@
                 }]
         },
         {
-            "x":15,
             "type":"Image",
             "searchKey":"Image,imgChip6",
             "props":{"zOrder":1,"y":347,"x":687,"visible":false,"skin":"ui/chip.png","name":"imgChip6"},
@@ -1195,7 +1117,6 @@
                 ]
         },
         {
-            "x":15,
             "type":"Box",
             "searchKey":"Box,boxBet6",
             "props":{"y":290,"x":555,"width":34,"visible":false,"name":"boxBet6","height":50},
@@ -1235,7 +1156,6 @@
                 }]
         },
         {
-            "x":15,
             "type":"Box",
             "searchKey":"Box,seat6",
             "props":{"y":290,"x":590,"width":160,"name":"seat6","height":140},
@@ -1248,7 +1168,6 @@
             "compId":414,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,imgHead",
                     "props":{"zOrder":1,"y":28,"x":68,"width":84,"skin":"ui/head.png","name":"imgHead","height":84},
@@ -1262,7 +1181,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,imgSeat",
                     "props":{"y":20,"x":60,"skin":"ui/rectprogress.png","name":"imgSeat"},
@@ -1275,7 +1193,6 @@
                     "compId":417,
                     "child":[
                         {
-                            "x":45,
                             "type":"Sprite",
                             "searchKey":"Sprite,mask6,mask6",
                             "props":{"y":0,"x":0,"width":100,"var":"mask6","renderType":"mask","name":"mask6","height":100},
@@ -1289,7 +1206,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Script",
                             "switchAble":true,
                             "source":"src/sprite/Seat.js",
@@ -1307,7 +1223,6 @@
                         }]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,imgHandPoker",
                     "props":{"zOrder":2,"y":70,"x":65,"skin":"ui/poker2.png","name":"imgHandPoker"},
@@ -1321,7 +1236,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Text",
                     "searchKey":"Text,textSeatPoint",
                     "props":{"y":120,"x":60,"width":100,"visible":false,"valign":"middle","text":"200","name":"textSeatPoint","height":20,"fontSize":20,"color":"#ffffff","align":"center"},
@@ -1335,7 +1249,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,imgTag",
                     "props":{"y":0,"x":0,"visible":false,"skin":"ui/tag_watch.png","name":"imgTag"},
@@ -1349,7 +1262,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Text",
                     "searchKey":"Text,textName",
                     "props":{"y":0,"x":60,"width":100,"visible":false,"valign":"middle","text":"昵称","name":"textName","height":20,"fontSize":20,"color":"#ffffff","align":"center"},
@@ -1364,7 +1276,6 @@
                 }]
         },
         {
-            "x":15,
             "type":"Image",
             "searchKey":"Image,imgChip5",
             "props":{"zOrder":1,"y":57,"x":565,"visible":false,"skin":"ui/chip.png","name":"imgChip5"},
@@ -1378,7 +1289,6 @@
                 ]
         },
         {
-            "x":15,
             "type":"Box",
             "searchKey":"Box,boxBet5",
             "props":{"y":21,"x":435,"width":34,"visible":false,"name":"boxBet5","height":55},
@@ -1391,7 +1301,6 @@
             "compId":425,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,boxChip",
                     "props":{"y":0,"x":0,"skin":"ui/chip.png","name":"boxChip"},
@@ -1405,7 +1314,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Text",
                     "searchKey":"Text,boxPoint",
                     "props":{"y":33,"x":-8,"width":50,"valign":"middle","text":"20","name":"boxPoint","height":20,"fontSize":20,"color":"#e3b154","align":"center"},
@@ -1420,7 +1328,6 @@
                 }]
         },
         {
-            "x":15,
             "type":"Box",
             "searchKey":"Box,seat5",
             "props":{"y":20,"x":470,"width":160,"name":"seat5","height":140},
@@ -1433,7 +1340,6 @@
             "compId":426,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,imgHead",
                     "props":{"zOrder":1,"y":28,"x":68,"width":84,"skin":"ui/head.png","name":"imgHead","height":84},
@@ -1447,7 +1353,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,imgSeat",
                     "props":{"y":20,"x":60,"skin":"ui/rectprogress.png","name":"imgSeat"},
@@ -1460,7 +1365,6 @@
                     "compId":429,
                     "child":[
                         {
-                            "x":45,
                             "type":"Sprite",
                             "searchKey":"Sprite,mask5,mask5",
                             "props":{"y":0,"x":0,"width":100,"var":"mask5","renderType":"mask","name":"mask5","height":100},
@@ -1474,7 +1378,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Script",
                             "switchAble":true,
                             "source":"src/sprite/Seat.js",
@@ -1492,7 +1395,6 @@
                         }]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,imgHandPoker",
                     "props":{"zOrder":2,"y":70,"x":68,"skin":"ui/poker2.png","name":"imgHandPoker"},
@@ -1506,7 +1408,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Text",
                     "searchKey":"Text,textSeatPoint",
                     "props":{"y":120,"x":60,"width":100,"visible":false,"valign":"middle","text":"200","name":"textSeatPoint","height":20,"fontSize":20,"color":"#ffffff","align":"center"},
@@ -1520,7 +1421,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,imgTag",
                     "props":{"y":0,"x":0,"visible":false,"skin":"ui/tag_watch.png","name":"imgTag"},
@@ -1534,7 +1434,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Text",
                     "searchKey":"Text,textName",
                     "props":{"y":0,"x":60,"width":100,"visible":false,"valign":"middle","text":"昵称","name":"textName","height":20,"fontSize":20,"color":"#ffffff","align":"center"},
@@ -1549,7 +1448,6 @@
                 }]
         },
         {
-            "x":15,
             "type":"Image",
             "searchKey":"Image,imgChip4",
             "props":{"zOrder":1,"y":57,"x":181,"visible":false,"skin":"ui/chip.png","name":"imgChip4"},
@@ -1563,7 +1461,6 @@
                 ]
         },
         {
-            "x":15,
             "type":"Box",
             "searchKey":"Box,boxBet4",
             "props":{"y":21,"x":296,"width":34,"visible":false,"name":"boxBet4","height":55},
@@ -1603,7 +1500,6 @@
                 }]
         },
         {
-            "x":15,
             "type":"Box",
             "searchKey":"Box,seat4",
             "props":{"y":21,"x":135,"width":160,"name":"seat4","height":140},
@@ -1616,7 +1512,6 @@
             "compId":390,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,imgHead",
                     "props":{"zOrder":1,"y":28,"x":18,"width":84,"skin":"ui/head.png","name":"imgHead","height":84},
@@ -1630,7 +1525,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,imgSeat",
                     "props":{"y":20,"x":10,"skin":"ui/rectprogress.png","name":"imgSeat"},
@@ -1643,7 +1537,6 @@
                     "compId":393,
                     "child":[
                         {
-                            "x":45,
                             "type":"Sprite",
                             "searchKey":"Sprite,mask4,mask4",
                             "props":{"y":0,"x":0,"width":100,"var":"mask4","renderType":"mask","name":"mask4","height":100},
@@ -1657,7 +1550,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Script",
                             "switchAble":true,
                             "source":"src/sprite/Seat.js",
@@ -1675,7 +1567,6 @@
                         }]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,imgHandPoker",
                     "props":{"y":70,"x":60,"skin":"ui/poker2.png","name":"imgHandPoker"},
@@ -1689,7 +1580,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Text",
                     "searchKey":"Text,textSeatPoint",
                     "props":{"y":120,"x":10,"width":100,"visible":false,"valign":"middle","text":"200","name":"textSeatPoint","height":20,"fontSize":20,"color":"#ffffff","align":"center"},
@@ -1703,7 +1593,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,imgTag",
                     "props":{"y":0,"x":93,"visible":false,"skin":"ui/tag_watch.png","name":"imgTag"},
@@ -1718,7 +1607,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Text",
                     "searchKey":"Text,textName",
                     "props":{"y":0,"x":10,"width":100,"visible":false,"valign":"middle","text":"昵称","name":"textName","height":20,"fontSize":20,"color":"#ffffff","align":"center"},
@@ -1733,7 +1621,6 @@
                 }]
         },
         {
-            "x":15,
             "type":"Image",
             "searchKey":"Image,imgChip3",
             "props":{"zOrder":1,"y":347,"x":46,"visible":false,"skin":"ui/chip.png","name":"imgChip3"},
@@ -1747,7 +1634,6 @@
                 ]
         },
         {
-            "x":15,
             "type":"Box",
             "searchKey":"Box,boxBet3",
             "props":{"y":290,"x":162,"width":34,"visible":false,"name":"boxBet3","height":55},
@@ -1787,7 +1673,6 @@
                 }]
         },
         {
-            "x":15,
             "type":"Box",
             "searchKey":"Box,seat3",
             "props":{"y":290,"x":0,"width":160,"name":"seat3","height":140},
@@ -1800,7 +1685,6 @@
             "compId":378,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,imgHead",
                     "props":{"zOrder":1,"y":33,"x":18,"width":84,"skin":"ui/head.png","name":"imgHead","height":84},
@@ -1814,7 +1698,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,imgSeat",
                     "props":{"y":25,"x":10,"skin":"ui/rectprogress.png","name":"imgSeat"},
@@ -1827,7 +1710,6 @@
                     "compId":381,
                     "child":[
                         {
-                            "x":45,
                             "type":"Sprite",
                             "searchKey":"Sprite,mask3,mask3",
                             "props":{"y":0,"x":0,"width":100,"var":"mask3","renderType":"mask","name":"mask3","height":100},
@@ -1841,7 +1723,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Script",
                             "switchAble":true,
                             "source":"src/sprite/Seat.js",
@@ -1859,7 +1740,6 @@
                         }]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,imgHandPoker",
                     "props":{"zOrder":2,"y":75,"x":60,"skin":"ui/poker2.png","name":"imgHandPoker"},
@@ -1873,7 +1753,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Text",
                     "searchKey":"Text,textSeatPoint",
                     "props":{"y":125,"x":10,"width":100,"visible":false,"valign":"middle","text":"200","name":"textSeatPoint","height":20,"fontSize":20,"color":"#ffffff","align":"center"},
@@ -1887,7 +1766,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,imgTag",
                     "props":{"y":0,"x":93,"visible":false,"skin":"ui/tag_watch.png","name":"imgTag"},
@@ -1902,7 +1780,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Text",
                     "searchKey":"Text,textName",
                     "props":{"y":5,"x":10,"width":100,"visible":false,"valign":"middle","text":"昵称","name":"textName","height":20,"fontSize":20,"color":"#ffffff","align":"center"},
@@ -1917,7 +1794,6 @@
                 }]
         },
         {
-            "x":15,
             "type":"Image",
             "searchKey":"Image,imgChip2",
             "props":{"zOrder":1,"y":645,"x":46,"visible":false,"skin":"ui/chip.png","name":"imgChip2"},
@@ -1931,7 +1807,6 @@
                 ]
         },
         {
-            "x":15,
             "type":"Box",
             "searchKey":"Box,boxBet2",
             "props":{"y":590,"x":162,"width":34,"visible":false,"name":"boxBet2","height":55},
@@ -1971,7 +1846,6 @@
                 }]
         },
         {
-            "x":15,
             "type":"Box",
             "searchKey":"Box,seat2",
             "props":{"y":590,"x":0,"width":160,"name":"seat2","height":140},
@@ -1984,7 +1858,6 @@
             "compId":366,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,imgHead",
                     "props":{"zOrder":1,"y":33,"x":18,"width":84,"skin":"ui/head.png","name":"imgHead","height":84},
@@ -1999,7 +1872,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,imgSeat",
                     "props":{"y":25,"x":10,"skin":"ui/rectprogress.png","name":"imgSeat"},
@@ -2012,7 +1884,6 @@
                     "compId":369,
                     "child":[
                         {
-                            "x":45,
                             "type":"Sprite",
                             "searchKey":"Sprite,mask2,mask2",
                             "props":{"y":0,"x":0,"width":100,"var":"mask2","renderType":"mask","name":"mask2","height":100},
@@ -2026,7 +1897,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Script",
                             "switchAble":true,
                             "source":"src/sprite/Seat.js",
@@ -2044,7 +1914,6 @@
                         }]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,imgHandPoker",
                     "props":{"zOrder":2,"y":75,"x":60,"skin":"ui/poker2.png","name":"imgHandPoker"},
@@ -2058,7 +1927,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Text",
                     "searchKey":"Text,textSeatPoint",
                     "props":{"y":125,"x":10,"width":100,"visible":false,"valign":"middle","text":"200","name":"textSeatPoint","height":20,"fontSize":20,"color":"#ffffff","align":"center"},
@@ -2072,7 +1940,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,imgTag",
                     "props":{"y":0,"x":93,"visible":false,"skin":"ui/tag_watch.png","name":"imgTag"},
@@ -2087,7 +1954,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Text",
                     "searchKey":"Text,textName",
                     "props":{"y":5,"x":10,"width":100,"visible":false,"valign":"middle","text":"昵称","name":"textName","height":20,"fontSize":20,"color":"#ffffff","align":"center"},
@@ -2102,7 +1968,6 @@
                 }]
         },
         {
-            "x":15,
             "type":"Image",
             "searchKey":"Image,imgChip1",
             "props":{"zOrder":1,"y":945,"x":46,"visible":false,"skin":"ui/chip.png","name":"imgChip1"},
@@ -2116,7 +1981,6 @@
                 ]
         },
         {
-            "x":15,
             "type":"Box",
             "searchKey":"Box,boxBet1",
             "props":{"y":890,"x":162,"width":34,"visible":false,"name":"boxBet1","height":55},
@@ -2156,7 +2020,6 @@
                 }]
         },
         {
-            "x":15,
             "type":"Box",
             "searchKey":"Box,seat1",
             "props":{"y":890,"x":0,"width":160,"name":"seat1","height":140},
@@ -2169,7 +2032,6 @@
             "compId":191,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,imgHead",
                     "props":{"zOrder":1,"y":33,"x":18,"width":84,"skin":"ui/head.png","name":"imgHead","height":84},
@@ -2183,7 +2045,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,imgSeat",
                     "props":{"y":25,"x":10,"skin":"ui/rectprogress.png","name":"imgSeat"},
@@ -2196,7 +2057,6 @@
                     "compId":11,
                     "child":[
                         {
-                            "x":45,
                             "type":"Sprite",
                             "searchKey":"Sprite,mask1,mask1",
                             "props":{"y":0,"x":0,"width":100,"var":"mask1","renderType":"mask","name":"mask1","height":100},
@@ -2210,7 +2070,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Script",
                             "switchAble":true,
                             "source":"src/sprite/Seat.js",
@@ -2228,7 +2087,6 @@
                         }]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,imgHandPoker",
                     "props":{"zOrder":2,"y":75,"x":60,"skin":"ui/poker2.png","name":"imgHandPoker"},
@@ -2242,7 +2100,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Text",
                     "searchKey":"Text,textSeatPoint",
                     "props":{"y":125,"x":10,"width":100,"visible":false,"valign":"middle","text":"200","name":"textSeatPoint","height":20,"fontSize":20,"color":"#ffffff","align":"center"},
@@ -2256,7 +2113,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,imgTag",
                     "props":{"y":0,"x":93,"visible":false,"skin":"ui/tag_watch.png","name":"imgTag"},
@@ -2271,7 +2127,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Text",
                     "searchKey":"Text,textName",
                     "props":{"y":5,"x":10,"width":100,"visible":false,"valign":"middle","text":"昵称","name":"textName","height":20,"fontSize":20,"color":"#ffffff","align":"center"},
@@ -2286,7 +2141,6 @@
                 }]
         },
         {
-            "x":15,
             "type":"Image",
             "searchKey":"Image,imgChip0",
             "props":{"y":1243,"x":329,"visible":false,"skin":"ui/chip.png","name":"imgChip0"},
@@ -2300,7 +2154,6 @@
                 ]
         },
         {
-            "x":15,
             "type":"Box",
             "searchKey":"Box,boxBet0",
             "props":{"y":1131.5,"x":280,"width":34,"visible":false,"name":"boxBet0","height":55},
@@ -2313,7 +2166,6 @@
             "compId":73,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,boxChip",
                     "props":{"y":0,"x":0,"skin":"ui/chip.png","name":"boxChip"},
@@ -2327,7 +2179,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Text",
                     "searchKey":"Text,boxPoint",
                     "props":{"y":34,"x":-8,"width":50,"valign":"middle","text":"20","rotation":0,"name":"boxPoint","height":20,"fontSize":20,"color":"#e3b154","align":"center"},
@@ -2342,7 +2193,6 @@
                 }]
         },
         {
-            "x":15,
             "type":"Box",
             "searchKey":"Box,seat0",
             "props":{"y":1185,"x":280,"width":100,"name":"seat0","height":150},
@@ -2355,7 +2205,6 @@
             "compId":192,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,imgHead",
                     "props":{"zOrder":1,"y":33,"x":8,"width":84,"skin":"ui/head.png","name":"imgHead","height":84},
@@ -2369,7 +2218,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,imgSeat",
                     "props":{"y":25,"x":0,"skin":"ui/rectprogress.png","rotation":0,"name":"imgSeat"},
@@ -2382,7 +2230,6 @@
                     "compId":8,
                     "child":[
                         {
-                            "x":45,
                             "type":"Sprite",
                             "searchKey":"Sprite,mask0,mask0",
                             "props":{"y":0,"x":0,"width":100,"var":"mask0","renderType":"mask","name":"mask0","height":100},
@@ -2396,7 +2243,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Script",
                             "switchAble":true,
                             "source":"src/sprite/Seat.js",
@@ -2414,7 +2260,6 @@
                         }]
                 },
                 {
-                    "x":30,
                     "type":"Text",
                     "searchKey":"Text,textSeatPoint",
                     "props":{"y":125,"x":0,"width":100,"visible":false,"valign":"middle","text":"200","name":"textSeatPoint","height":20,"fontSize":20,"color":"#ffffff","align":"center"},
@@ -2428,7 +2273,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Text",
                     "searchKey":"Text,textName",
                     "props":{"y":5,"x":0,"width":100,"visible":false,"valign":"middle","text":"昵称","name":"textName","height":20,"fontSize":20,"color":"#ffffff","align":"center"},
@@ -2443,7 +2287,6 @@
                 }]
         },
         {
-            "x":15,
             "type":"Image",
             "searchKey":"Image,imgBetnum",
             "props":{"y":921,"x":339,"visible":false,"var":"imgBetnum","skin":"ui/betnum.png"},
@@ -2458,7 +2301,6 @@
                 ]
         },
         {
-            "x":15,
             "type":"Text",
             "searchKey":"Text,textBetnum",
             "props":{"zOrder":0,"y":921,"x":339,"width":71,"visible":false,"var":"textBetnum","valign":"middle","text":"0","height":30,"fontSize":20,"color":"#e3b154","align":"center"},
@@ -2472,7 +2314,6 @@
                 ]
         },
         {
-            "x":15,
             "type":"Box",
             "searchKey":"Box,boxPokerType",
             "props":{"y":1238,"x":178,"visible":false,"var":"boxPokerType"},
@@ -2485,7 +2326,6 @@
             "compId":449,
             "child":[
                 {
-                    "x":30,
                     "type":"Image",
                     "searchKey":"Image,imgPokerType",
                     "props":{"skin":"ui/cardTypeBorder.png","name":"imgPokerType"},
@@ -2500,7 +2340,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Text",
                     "searchKey":"Text,textPokerType",
                     "props":{"y":0,"x":0,"width":72,"valign":"middle","text":"高牌","name":"textPokerType","height":44,"fontSize":20,"font":"Helvetica","color":"#e3b154","align":"center"},
@@ -2513,14 +2352,128 @@
                     "child":[
                         ]
                 }]
+        },
+        {
+            "type":"Dialog",
+            "searchKey":"Dialog,dialogSit",
+            "props":{"y":554,"x":262,"visible":true,"var":"dialogSit","runtime":"dialog/SitDialog.js"},
+            "nodeParent":1,
+            "label":"dialogSit",
+            "isOpen":true,
+            "isDirectory":true,
+            "isAniNode":true,
+            "hasChild":true,
+            "compId":450,
+            "child":[
+                {
+                    "type":"Image",
+                    "searchKey":"Image",
+                    "props":{"y":0,"x":0,"skin":"ui/dialog_sitdown.png"},
+                    "nodeParent":450,
+                    "label":"Image",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":452,
+                    "child":[
+                        ]
+                },
+                {
+                    "type":"Text",
+                    "searchKey":"Text",
+                    "props":{"y":95,"x":9,"text":"视角切换中...","fontSize":36,"color":"#ffffff"},
+                    "nodeParent":450,
+                    "label":"Text",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":453,
+                    "child":[
+                        ]
+                }]
         }],
     "animations":[
         {
             "nodes":[
-                ],
-            "name":"ani1",
+                {
+                    "target":450,
+                    "keyframes":{
+                        "x":[
+                            {
+                                "value":262,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":450,
+                                "key":"x",
+                                "index":0
+                            },
+                            {
+                                "value":262,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":450,
+                                "key":"x",
+                                "index":1
+                            },
+                            {
+                                "value":262,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":450,
+                                "key":"x",
+                                "index":2
+                            },
+                            {
+                                "value":262,
+                                "tweenMethod":"linearNone",
+                                "tween":true,
+                                "target":450,
+                                "key":"x",
+                                "index":3
+                            }]
+                    }
+                },
+                {
+                    "target":453,
+                    "keyframes":{
+                        "text":[
+                            {
+                                "value":"视角切换中",
+                                "tweenMethod":"linearNone",
+                                "tween":false,
+                                "target":453,
+                                "key":"text",
+                                "index":0
+                            },
+                            {
+                                "value":"视角切换中.",
+                                "tweenMethod":"linearNone",
+                                "tween":false,
+                                "target":453,
+                                "key":"text",
+                                "index":1
+                            },
+                            {
+                                "value":"视角切换中..",
+                                "tweenMethod":"linearNone",
+                                "tween":false,
+                                "target":453,
+                                "key":"text",
+                                "index":2
+                            },
+                            {
+                                "value":"视角切换中...",
+                                "tweenMethod":"linearNone",
+                                "tween":false,
+                                "target":453,
+                                "key":"text",
+                                "index":3
+                            }]
+                    }
+                }],
+            "name":"wait",
             "id":1,
-            "frameRate":24,
-            "action":0
+            "frameRate":4,
+            "action":2
         }]
 }

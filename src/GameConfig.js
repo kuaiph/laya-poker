@@ -4,6 +4,7 @@ import Abandon from "./script/Abandon"
 import Follow from "./script/Follow"
 import Rise from "./script/Rise"
 import Seat from "./sprite/Seat"
+import SitDialog from "./dialog/SitDialog"
 import StartView from "./view/StartView"
 
 export default class GameConfig {
@@ -15,6 +16,7 @@ export default class GameConfig {
 		reg("script/Follow.js",Follow);
 		reg("script/Rise.js",Rise);
 		reg("sprite/Seat.js",Seat);
+		reg("dialog/SitDialog.js",SitDialog);
 		reg("view/StartView.js",StartView);
     }
 }
