@@ -58,16 +58,8 @@ export default class GameView extends Laya.Scene {
         // 重置界面信息
         this.reset()
 
-        let data = []
-        for (let i = 0; i < 20; i++) {
-            data.push({
-                m_label0: { text: `label0-${i}` },
-                m_label1: { text: `label1-${i}` },
-                m_label2: { text: `label2-${i}` }
-            })
-        }
-        this.listUser.vScrollBarSkin = "";
-        this.listUser.array = data
+        // 注册点击事件
+        Laya.stage.on(Laya.Event.MOUSE_DOWN, this, this.onMouseDown)
     }
     // 重置
     reset() {
@@ -113,5 +105,16 @@ export default class GameView extends Laya.Scene {
     updatePoint() {
         this.textPhasePoint.text = this.round.phasePoint                // 阶段分数
         this.textRoundPoint.text = `底池：${this.round.roundPoint}`      // 底池分数
+    }
+    // 鼠标点击响应
+    onMouseDown(e) {
+        // 关闭玩家列表
+        if(e.stageX > this.listUser.width){
+            this.listUser.visible = false
+        }
+        // 关闭游戏记录列表
+        // if(e.stageX < this.listReocrd.width){
+        //     this.listReocrd.visible = false
+        // }
     }
 }

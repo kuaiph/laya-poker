@@ -2,11 +2,11 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":464,
+    "selecteID":460,
     "searchKey":"View",
     "props":{"width":750,"sceneColor":"#000000","runtime":"view/GameView.js","height":1334},
     "nodeParent":-1,
-    "maxID":467,
+    "maxID":471,
     "label":"View",
     "isOpen":true,
     "isDirectory":true,
@@ -2465,7 +2465,7 @@
             "x":15,
             "type":"List",
             "searchKey":"List,listUser",
-            "props":{"y":0,"x":0,"width":550,"var":"listUser","spaceY":50,"height":1334},
+            "props":{"y":0,"x":0,"width":550,"visible":false,"var":"listUser","spaceY":50,"height":1334},
             "nodeParent":1,
             "label":"listUser",
             "isOpen":false,
@@ -2535,12 +2535,28 @@
             "props":{"y":1250,"x":31,"var":"btnUsers","stateNum":"2","skin":"ui/btn_users.png"},
             "nodeParent":1,
             "label":"btnUsers",
-            "isDirectory":false,
+            "isOpen":null,
+            "isDirectory":true,
             "isAniNode":true,
-            "hasChild":false,
+            "hasChild":true,
             "compId":464,
             "child":[
-                ]
+                {
+                    "type":"Script",
+                    "switchAble":true,
+                    "source":"src/script/Users.js",
+                    "searchKey":"Script,Users",
+                    "removeAble":true,
+                    "props":{},
+                    "nodeParent":464,
+                    "label":"Users",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":467,
+                    "child":[
+                        ]
+                }]
         },
         {
             "x":15,
@@ -2549,12 +2565,28 @@
             "props":{"y":25,"x":31,"var":"btnConfig","stateNum":"2","skin":"ui/btn_config.png"},
             "nodeParent":1,
             "label":"btnConfig",
-            "isDirectory":false,
+            "isOpen":null,
+            "isDirectory":true,
             "isAniNode":true,
-            "hasChild":false,
+            "hasChild":true,
             "compId":465,
             "child":[
-                ]
+                {
+                    "type":"Script",
+                    "switchAble":true,
+                    "source":"src/script/Settings.js",
+                    "searchKey":"Script,Settings",
+                    "removeAble":true,
+                    "props":{},
+                    "nodeParent":465,
+                    "label":"Settings",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":470,
+                    "child":[
+                        ]
+                }]
         },
         {
             "x":15,
@@ -2563,12 +2595,28 @@
             "props":{"y":1250,"x":655,"var":"btnRecords","stateNum":"2","skin":"ui/btn_records.png"},
             "nodeParent":1,
             "label":"btnRecords",
-            "isDirectory":false,
+            "isOpen":null,
+            "isDirectory":true,
             "isAniNode":true,
-            "hasChild":false,
+            "hasChild":true,
             "compId":466,
             "child":[
-                ]
+                {
+                    "type":"Script",
+                    "switchAble":true,
+                    "source":"src/script/Records.js",
+                    "searchKey":"Script,Records",
+                    "removeAble":true,
+                    "props":{},
+                    "nodeParent":466,
+                    "label":"Records",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":468,
+                    "child":[
+                        ]
+                }]
         }],
     "animations":[
         {
