@@ -2,11 +2,11 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":460,
+    "selecteID":464,
     "searchKey":"View",
     "props":{"width":750,"sceneColor":"#000000","runtime":"view/GameView.js","height":1334},
     "nodeParent":-1,
-    "maxID":464,
+    "maxID":467,
     "label":"View",
     "isOpen":true,
     "isDirectory":true,
@@ -2463,33 +2463,18 @@
         },
         {
             "x":15,
-            "type":"Button",
-            "searchKey":"Button",
-            "props":{"y":1253,"x":22,"stateNum":"2","skin":"ui/btn_gamemsg.png"},
-            "nodeParent":1,
-            "label":"Button",
-            "isDirectory":false,
-            "isAniNode":true,
-            "hasChild":false,
-            "compId":454,
-            "child":[
-                ]
-        },
-        {
-            "x":15,
             "type":"List",
             "searchKey":"List,listUser",
             "props":{"y":0,"x":0,"width":550,"var":"listUser","spaceY":50,"height":1334},
             "nodeParent":1,
             "label":"listUser",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":460,
             "child":[
                 {
-                    "x":30,
                     "type":"Box",
                     "searchKey":"Box,render",
                     "props":{"y":0,"x":0,"name":"render"},
@@ -2502,7 +2487,6 @@
                     "compId":459,
                     "child":[
                         {
-                            "x":45,
                             "type":"Label",
                             "searchKey":"Label,m_label0",
                             "props":{"y":0,"x":0,"width":180,"text":"label","name":"m_label0","height":35,"fontSize":30},
@@ -2516,7 +2500,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "searchKey":"Label,m_label1",
                             "props":{"y":0,"x":180,"width":180,"text":"label","name":"m_label1","height":35,"fontSize":30},
@@ -2530,7 +2513,6 @@
                                 ]
                         },
                         {
-                            "x":45,
                             "type":"Label",
                             "searchKey":"Label,m_label2",
                             "props":{"y":3,"x":360,"width":180,"text":"label","name":"m_label2","height":35,"fontSize":30},
@@ -2544,7 +2526,49 @@
                                 ]
                         }]
                 }],
-            "$HIDDEN":false
+            "$HIDDEN":true
+        },
+        {
+            "x":15,
+            "type":"Button",
+            "searchKey":"Button,btnUsers",
+            "props":{"y":1250,"x":31,"var":"btnUsers","stateNum":"2","skin":"ui/btn_users.png"},
+            "nodeParent":1,
+            "label":"btnUsers",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":464,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Button",
+            "searchKey":"Button,btnConfig",
+            "props":{"y":25,"x":31,"var":"btnConfig","stateNum":"2","skin":"ui/btn_config.png"},
+            "nodeParent":1,
+            "label":"btnConfig",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":465,
+            "child":[
+                ]
+        },
+        {
+            "x":15,
+            "type":"Button",
+            "searchKey":"Button,btnRecords",
+            "props":{"y":1250,"x":655,"var":"btnRecords","stateNum":"2","skin":"ui/btn_records.png"},
+            "nodeParent":1,
+            "label":"btnRecords",
+            "isDirectory":false,
+            "isAniNode":true,
+            "hasChild":false,
+            "compId":466,
+            "child":[
+                ]
         }],
     "animations":[
         {
