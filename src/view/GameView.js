@@ -110,7 +110,7 @@ export default class GameView extends Laya.Scene {
     onMouseDown(e) {
         // 关闭玩家列表
         if(e.stageX > this.listUser.width){
-            this.listUser.visible = false
+            this.panelLeft.visible = false
         }
         // 关闭游戏记录列表
         // if(e.stageX < this.listReocrd.width){

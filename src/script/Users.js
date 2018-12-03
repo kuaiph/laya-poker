@@ -7,6 +7,7 @@ export default class Users extends Laya.Script {
     onEnable() {
     }
     onClick() {
+        let panelLeft = WebSocket.globalData.gameView.panelLeft
         let listUser = WebSocket.globalData.gameView.listUser
         let data = []
         for (let i = 0; i < 20; i++) {
@@ -18,6 +19,6 @@ export default class Users extends Laya.Script {
         }
         listUser.vScrollBarSkin = ""
         listUser.array = data
-        listUser.visible = true
+        panelLeft.visible = true
     }
 }
