@@ -1,5 +1,5 @@
 import util from './util.js'
-import roundBegin from '../action/ROUND_BEGIN.js'
+import roundIn from '../action/ROUND_IN.js'
 import sitDown from '../action/SIT_DOWN.js'
 import nextSpeak from '../action/NEXT_SPEAK.js'
 import close from '../action/CLOSE.js'
@@ -24,7 +24,7 @@ export default class WebSocket {
     // 玩家登录
     login() {
         WebSocket.send({
-            method: 'ROUND_BEGIN', user: {
+            method: 'ROUND_IN', user: {
                 userId: util.getQueryParams().userId || 123456,
                 headurl: `person${Math.floor(Math.random() * 5)}.jpg`,
                 point: 200
@@ -35,7 +35,7 @@ export default class WebSocket {
     init() {
         this.connect()
         this.actionMap = {
-            'ROUND_BEGIN': roundBegin,
+            'ROUND_IN': roundIn,
             'SIT_DOWN': sitDown,
             'NEXT_SPEAK': nextSpeak,
             'CLOSE': close

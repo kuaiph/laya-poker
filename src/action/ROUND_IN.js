@@ -1,10 +1,10 @@
 /**
- * 玩家开始一局
+ * 玩家入局
  * @param {*} globalData
  * @param {*} res 
  * @param {*} startScene 
  */
-export default function roundBegin(globalData, res) {
+export default function roundIn(globalData, res) {
     let startScene = globalData.startScene
     let user = globalData.user
     let round = globalData.round
