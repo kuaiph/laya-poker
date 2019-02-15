@@ -2,7 +2,6 @@ import WebSocket from '../util/WebSocket'
 import Poker from '../sprite/Poker'
 import Dealer from '../sprite/Dealer'
 import Seat from '../sprite/Seat'
-// import Blind from '../sprite/Blind'
 import Control from '../sprite/Control'
 
 /**
@@ -54,8 +53,6 @@ export default class GameView extends Laya.Scene {
             // 创建座位对象，最后全局状态持久化
             this.round.seatMap[boxSeat.name] = new Seat(Object.assign(this.round.seatMap[boxSeat.name], { boxSeat, maskSeat, boxBet, imgChip, textRoundPoint, boxPokerType }))
         }
-        // 创建盲注，最后全局状态持久化
-        // this.round.blind = new Blind({ textChipBig: this.textChipBig, textChipSmall: this.textChipSmall, seatMap: this.round.seatMap })
         // 重置界面信息
         this.reset()
 
@@ -78,7 +75,6 @@ export default class GameView extends Laya.Scene {
     }
     // 发手牌
     sendPoker(pokerArr, seatCount) {
-        // this.round.blind.move(this.round.chipSeatIdArr)
         for (let pokerData of pokerArr) {
             const imgPoker = this.getChildByName(pokerData.pokerId)
             const seat = this.round.seatMap[pokerData.seatId]
