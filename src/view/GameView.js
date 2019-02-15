@@ -79,10 +79,10 @@ export default class GameView extends Laya.Scene {
     // 发手牌
     sendPoker(pokerArr, seatCount) {
         // this.round.blind.move(this.round.chipSeatIdArr)
-        for (let dataPoker of pokerArr) {
-            const imgPoker = this.getChildByName(dataPoker.pokerId)
-            const seat = this.round.seatMap[dataPoker.seatId]
-            let poker = new Poker({ imgPoker, seat, dataPoker, isPublic: false, user: this.user })
+        for (let pokerData of pokerArr) {
+            const imgPoker = this.getChildByName(pokerData.pokerId)
+            const seat = this.round.seatMap[pokerData.seatId]
+            let poker = new Poker({ imgPoker, pokerData, seat, user: this.user })
             // 发牌手增加牌
             this.round.dealer.addPoker(poker)
         }
@@ -94,9 +94,9 @@ export default class GameView extends Laya.Scene {
     }
     // 发公共牌
     sendPublicPoker(pokerArr) {
-        for (let dataPoker of pokerArr) {
-            const imgPoker = this.getChildByName(dataPoker.pokerId)
-            let poker = new Poker({ imgPoker, dataPoker, isPublic: true })
+        for (let pokerData of pokerArr) {
+            const imgPoker = this.getChildByName(pokerData.pokerId)
+            let poker = new Poker({ imgPoker, pokerData })
             // 发牌手增加牌
             this.round.dealer.addPoker(poker)
         }
