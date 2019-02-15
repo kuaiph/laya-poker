@@ -36,6 +36,7 @@ export default class GameView extends Laya.Scene {
         const btnFixrise0 = this.btnFixrise0                    // 定制加注按钮0
         const btnFixrise1 = this.btnFixrise1                    // 定制加注按钮1
         const btnFixrise2 = this.btnFixrise2                    // 定制加注按钮2
+        const textRoundPoint = this.textRoundPoint              // 底池点数        
         const boxPokerType = this.boxPokerType                  // 牌型
 
         // 创建控制台
@@ -51,7 +52,7 @@ export default class GameView extends Laya.Scene {
             const imgChip = this.getChildByName(`imgChip${i}`)
             // const maskSeat = boxSeat.getChildByName(`mask${i}`)
             // 创建座位对象，最后全局状态持久化
-            this.round.seatMap[boxSeat.name] = new Seat(Object.assign(this.round.seatMap[boxSeat.name], { boxSeat, maskSeat, boxBet, imgChip, textRoundPoint: this.textRoundPoint, boxPokerType }))
+            this.round.seatMap[boxSeat.name] = new Seat(Object.assign(this.round.seatMap[boxSeat.name], { boxSeat, maskSeat, boxBet, imgChip, textRoundPoint, boxPokerType }))
         }
         // 创建盲注，最后全局状态持久化
         // this.round.blind = new Blind({ textChipBig: this.textChipBig, textChipSmall: this.textChipSmall, seatMap: this.round.seatMap })
@@ -63,16 +64,16 @@ export default class GameView extends Laya.Scene {
     }
     // 重置
     reset() {
-        // 状态信息初始化
-        WebSocket.globalData.user.firstSent = false
+        // 状态信息初始
+        WebSocket.globalData.user.isFirstSent = false           // 记录是否是自己的首张牌，用于区分两张牌的X坐标
         // UI数据初始
         this.textPhasePoint.text = 0                            // 阶段分数
         this.textRoundPoint.text = '底池：0'                     // 底池分数
-        // 座位初始化
+        // 座位初始
         for (let i = 0; i < 9; i++) {
             this.round.seatMap[`seat${i}`].reset()
         }
-        // 发牌手重置
+        // 发牌手初始
         this.round.dealer.reset()
     }
     // 发手牌
@@ -85,7 +86,7 @@ export default class GameView extends Laya.Scene {
             // 发牌手增加牌
             this.round.dealer.addPoker(poker)
         }
-        // 初始化剩余牌组
+        // 初始化剩余牌组(排除手牌和公牌后的牌)
         for (let i = pokerArr.length + 5; i < 23; i++) {
             this.round.dealer.addRestPoker(new Poker({ imgPoker: this.getChildByName(`poker${i}`) }))
         }
@@ -109,7 +110,7 @@ export default class GameView extends Laya.Scene {
     // 鼠标点击响应
     onMouseDown(e) {
         // 关闭玩家列表
-        if(e.stageX > this.listUser.width){
+        if (e.stageX > this.listUser.width) {
             this.panelLeft.visible = false
         }
         // 关闭游戏记录列表

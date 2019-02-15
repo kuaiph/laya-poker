@@ -31,9 +31,9 @@ export default class Poker {
         this.isMe = this.seat.boxSeat.name == 'seat0' ? true : false
         let x = this.seat.boxSeat.x
         if (this.isMe) {
-            if (!this.user.firstSent) {
+            if (!this.user.isFirstSent) {
                 x += 100
-                this.user.firstSent = true
+                this.user.isFirstSent = true
             } else {
                 x += 200
             }
