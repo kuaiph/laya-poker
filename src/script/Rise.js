@@ -18,11 +18,11 @@ export default class Rise extends Laya.Script {
         let fixBetPoint1 = Math.floor(2 / 3 * roundPoint)
         let fixBetPoint2 = Math.floor(2 * roundPoint)
         if (this.owner.name == 'btnFixrise0') {
-            WebSocket.send({ method: 'BET', user: WebSocket.globalData.user, betPoint: fixBetPoint0 })
+            WebSocket.send({ method: 'BET', betPoint: fixBetPoint0 })
         } else if (this.owner.name == 'btnFixrise1') {
-            WebSocket.send({ method: 'BET', user: WebSocket.globalData.user, betPoint: fixBetPoint1 })
+            WebSocket.send({ method: 'BET', betPoint: fixBetPoint1 })
         } else {
-            WebSocket.send({ method: 'BET', user: WebSocket.globalData.user, betPoint: fixBetPoint2 })
+            WebSocket.send({ method: 'BET', betPoint: fixBetPoint2 })
         }
     }
 }

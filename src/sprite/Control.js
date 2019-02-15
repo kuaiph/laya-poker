@@ -121,7 +121,7 @@ export default class Control {
     onVsliderUp() {
         if (this.betPoint >= this.minBetPoint) {
             this.silent()   // 隐藏控制台
-            WebSocket.send({ method: 'BET', user: WebSocket.globalData.user, betPoint: this.betPoint })
+            WebSocket.send({ method: 'BET', betPoint: this.betPoint })
         }
     }
 }

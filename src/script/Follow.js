@@ -10,6 +10,6 @@ export default class Follow extends Laya.Script {
         // 隐藏控制台
         WebSocket.globalData.gameView.control.silent()
         // 跟注请求
-        WebSocket.send({ method: 'BET', user: WebSocket.globalData.user, betPoint: -1 })
+        WebSocket.send({ method: 'BET', betPoint: -1 })
     }
 }

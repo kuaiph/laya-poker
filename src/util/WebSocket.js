@@ -62,6 +62,7 @@ export default class WebSocket {
         })
         // 封装发送数据方法
         WebSocket.send = (req) => {
+            req.user = req.user || WebSocket.globalData.user
             WebSocket.socket.send(JSON.stringify(req))
         }
     }
