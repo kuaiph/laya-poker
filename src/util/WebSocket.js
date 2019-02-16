@@ -24,11 +24,7 @@ export default class WebSocket {
     // 玩家登录
     login() {
         WebSocket.send({
-            method: 'ROUND_IN', user: {
-                userId: util.getQueryParams().userId || 123456,
-                headurl: `person${Math.floor(Math.random() * 5)}.jpg`,
-                point: 200
-            }
+            method: 'ROUND_IN', user: { userId: util.getQueryParams().userId || 123456, headurl: `person${Math.floor(Math.random() * 5)}.jpg`, point: 200 }
         })
     }
     // 网络初始化

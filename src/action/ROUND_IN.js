@@ -17,17 +17,13 @@ export default function roundIn(globalData, res) {
     }
     // 被动更新界面
     else {
+        // 局信息中的座位图属性，需要把每个座位展开赋值
+        for (let seatId in res.round.seatMap) {
+            round.seatMap[seatId] = Object.assign(round.seatMap[seatId], res.round.seatMap[seatId])
+        }
+        // 其余同名属性，直接覆盖即可
         for (let key in res.round) {
-            // 局信息中的座位图属性，需要把每个座位展开赋值
-            if (key == 'seatMap') {
-                for (let seatId in res.round[key]) {
-                    for (let seatProp in res.round[key][seatId]) {
-                        round[key][seatId][seatProp] = res.round[key][seatId][seatProp]
-                    }
-                }
-            }
-            // 其余同名属性，直接覆盖即可
-            else {
+            if (key != 'seatMap') {
                 round[key] = res.round[key]
             }
         }

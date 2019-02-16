@@ -1,5 +1,5 @@
 /**
- * 玩家坐下响应
+ * 连接关闭
  * @param {*} globalData
  * @param {*} res 
  */
