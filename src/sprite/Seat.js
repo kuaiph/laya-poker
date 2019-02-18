@@ -35,7 +35,9 @@ export default class Seat extends Laya.Script {
             this.textSeatPoint = this.boxSeat.getChildByName('textSeatPoint')       // 座位点数
             this.imgTag = this.boxSeat.getChildByName('imgTag') || {}               // 状态标记
             this.imgHandPoker = this.boxSeat.getChildByName('imgHandPoker') || {}   // 座位手牌标记
+
             this.textPokerType = this.boxPokerType.getChildByName('textPokerType')  // 牌型文字
+            this.boxPoint = this.boxBet.getChildByName('boxPoint')                  // 投注点数
             // 动画元素
             this.aniFire = new Laya.Animation()                                     // ALLIN火焰
             this.aniFire.loadAnimation('Fire.ani')
@@ -134,7 +136,9 @@ export default class Seat extends Laya.Script {
         }
     }
 
-    // 投注动画
+    /**
+     * 投注动画
+     */
     bet() {
         if (this.textSeatPoint.text != this.seatPoint) {
             let x = this.boxBet.x
@@ -146,14 +150,14 @@ export default class Seat extends Laya.Script {
         }
     }
     // 投注完成
-    betComplete(args) {
+    betComplete() {
         // 移动筹码还原
         this.imgChip.visible = false
         this.imgChip.x = this.imgChipX
         this.imgChip.y = this.imgChipY
         // 座位点数更新，显示新投注点数
         this.textSeatPoint.text = this.seatPoint
-        this.boxBet.getChildByName('boxPoint').text = this.betPoint
+        this.boxPoint.text = this.betPoint
         this.boxBet.visible = true
     }
 
@@ -187,7 +191,9 @@ export default class Seat extends Laya.Script {
         this.imgChip.visible = false
     }
 
-    // 隐藏投注盒子
+    /**
+     * 隐藏投注盒子
+     */
     hideBet() {
         this.boxBet.visible = false
     }
