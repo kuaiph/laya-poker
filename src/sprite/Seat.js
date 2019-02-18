@@ -49,7 +49,7 @@ export default class Seat extends Laya.Script {
             this.headurl = inparam.headurl                                          // 座位图片名称
             this.seatPoint = inparam.seatPoint                                      // 座位带入点数
             this.betPoint = 0                                                       // 投注点数
-            this.betPointArr = []                                                   // 投注点数数组
+            // this.betPointArr = []                                                   // 投注点数数组
             this.speakCountDown = 0                                                 // 说话时间倒计时
             this.status = null                                                      // 座位状态
             // 坐标还原信息
@@ -144,20 +144,20 @@ export default class Seat extends Laya.Script {
             let x = this.boxBet.x
             let y = this.boxBet.y
             this.imgChip.visible = true
-            Laya.Tween.to(this.imgChip, { x, y }, 800, Laya.Ease.strongOut, Laya.Handler.create(this, this.betComplete))
+            Laya.Tween.to(this.imgChip, { x, y }, 800, Laya.Ease.strongOut, Laya.Handler.create(this, this.betComplete, [this.seatPoint, this.betPoint]))
         } else {
-            this.betComplete()
+            this.betComplete(this.seatPoint, this.betPoint)
         }
     }
     // 投注完成
-    betComplete() {
+    betComplete(seatPoint, betPoint) {
         // 移动筹码还原
         this.imgChip.visible = false
         this.imgChip.x = this.imgChipX
         this.imgChip.y = this.imgChipY
         // 座位点数更新，显示新投注点数
-        this.textSeatPoint.text = this.seatPoint
-        this.boxPoint.text = this.betPoint
+        this.textSeatPoint.text = seatPoint
+        this.boxPoint.text = betPoint
         this.boxBet.visible = true
     }
 
