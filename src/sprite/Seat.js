@@ -218,10 +218,10 @@ export default class Seat extends Laya.Script {
                 this.imgTag.skin = `ui/tag_${this.status}.png`
                 this.imgTag.visible = true
             } else if (!this.aniFire.visible) {
-                this.aniFire.visible = true
                 this.aniFire.x = this.boxSeat.x + this.imgHead.x
                 this.aniFire.y = this.boxSeat.y + this.imgHead.y + 5
-                this.aniFire.play()
+                this.aniFire.visible = true
+                this.aniFire.play(0, true, `fire${this.seatNo}`)
             }
         } else {
             this.imgTag.visible = false
