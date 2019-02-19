@@ -54,7 +54,7 @@ export default class WebSocket {
         // 数据响应自动映射ACTION
         WebSocket.socket.on(Laya.Event.MESSAGE, this, (res) => {
             res = JSON.parse(res)
-            // console.log(res)
+            // console.log(res.seatMap)
             this.actionMap[res.method](WebSocket.globalData, res)
         })
         // 封装发送数据方法
