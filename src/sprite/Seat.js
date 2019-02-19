@@ -89,7 +89,9 @@ export default class Seat extends Laya.Script {
         this.boxBet.y = this.boxBetY
     }
 
-    // 入座
+    /**
+     * 入座
+     */
     sitdown() {
         this.imgHead.skin = `ui/${this.headurl}`
         // this.imgSeat.skin = `ui/${this.headurl}`
@@ -106,7 +108,9 @@ export default class Seat extends Laya.Script {
         }
     }
 
-    // 倒计时20秒
+    /**
+     * 倒计时20秒
+     */
     countDown() {
         // this.maskSeat.alpha = 0.5
         this.speakCountDown = 0
@@ -124,7 +128,9 @@ export default class Seat extends Laya.Script {
         this.imgTag.visible = false
     }
 
-    // 关闭倒计时
+    /**
+     * 关闭倒计时
+     */
     closeCountDown() {
         if (this.intervalCountDown) {
             clearInterval(this.intervalCountDown)
@@ -137,7 +143,7 @@ export default class Seat extends Laya.Script {
     }
 
     /**
-     * 投注动画
+     * 投注动画（从初始位置移动至投注盒子）
      */
     bet() {
         if (this.textSeatPoint.text != this.seatPoint) {
@@ -161,7 +167,9 @@ export default class Seat extends Laya.Script {
         this.boxBet.visible = true
     }
 
-    // 阶段结束动画
+    /**
+     * 阶段结束动画
+     */
     phaseEnd() {
         if (this.boxBet.visible) {
             let x = this.textRoundPoint.x
@@ -175,7 +183,10 @@ export default class Seat extends Laya.Script {
         this.boxBet.x = this.boxBetX
         this.boxBet.y = this.boxBetY
     }
-    // 回收所有筹码动画
+
+    /**
+     * 回收所有筹码动画
+     */
     roundEnd() {
         if (this.status == 'win') {
             let x = this.imgChip.x
@@ -198,7 +209,9 @@ export default class Seat extends Laya.Script {
         this.boxBet.visible = false
     }
 
-    // 根据状态显示提示
+    /**
+     * 根据状态显示提示
+     */
     showTag() {
         if (this.status) {
             if (this.status != 'allin') {
@@ -215,7 +228,10 @@ export default class Seat extends Laya.Script {
         }
     }
 
-    // 更新牌型
+    /**
+     * 更新牌型
+     * @param {*} pokerType 
+     */
     updatePokerType(pokerType) {
         this.boxPokerType.visible = true
         this.textPokerType.text = pokerType
