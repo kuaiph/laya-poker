@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":201,
+    "selectedBox":476,
+    "selecteID":482,
     "searchKey":"View",
     "props":{"width":750,"sceneColor":"#000000","runtime":"view/GameView.js","height":1334},
     "nodeParent":-1,
@@ -2530,13 +2530,14 @@
             "props":{"zOrder":2,"width":540,"visible":false,"var":"panelLeft","height":1334},
             "nodeParent":1,
             "label":"panelLeft",
-            "isOpen":false,
+            "isOpen":true,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":474,
             "child":[
                 {
+                    "x":30,
                     "type":"List",
                     "searchKey":"List,listUser",
                     "props":{"y":150,"x":0,"width":540,"visible":true,"var":"listUser","height":800},
@@ -2603,18 +2604,20 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"List",
                     "searchKey":"List,listWatcher",
                     "props":{"y":950,"x":0,"width":540,"visible":true,"var":"listWatcher","height":384},
                     "nodeParent":474,
                     "label":"listWatcher",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":475,
                     "child":[
                         {
+                            "x":45,
                             "type":"Box",
                             "searchKey":"Box,render",
                             "props":{"y":0,"x":0,"name":"render"},
@@ -2627,6 +2630,7 @@
                             "compId":476,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "searchKey":"Label,m_label0",
                                     "props":{"y":0,"x":0,"width":180,"text":"帐号","name":"m_label0","height":100,"fontSize":30,"color":"#ffffff","bgColor":"#18122c","align":"center"},
@@ -2640,6 +2644,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "searchKey":"Label,m_label1",
                                     "props":{"y":0,"x":180,"width":180,"text":"帐号","name":"m_label1","height":100,"fontSize":30,"color":"#ffffff","bgColor":"#18122c","align":"center"},
@@ -2653,6 +2658,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "searchKey":"Label,m_label2",
                                     "props":{"y":0,"x":360,"width":180,"text":"帐号","name":"m_label2","height":100,"fontSize":30,"color":"#ffffff","bgColor":"#18122c","align":"center"},
@@ -2666,11 +2672,12 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
-                                    "searchKey":"Image",
-                                    "props":{"y":36,"x":40,"skin":"ui/person0.jpg"},
+                                    "searchKey":"Image,m_img0",
+                                    "props":{"y":36,"x":40,"skin":"ui/person0.jpg","name":"m_img0"},
                                     "nodeParent":476,
-                                    "label":"Image",
+                                    "label":"m_img0",
                                     "isDirectory":false,
                                     "isAniNode":false,
                                     "hasChild":false,
@@ -2679,11 +2686,12 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
-                                    "searchKey":"Image",
-                                    "props":{"y":36,"x":225,"skin":"ui/person0.jpg"},
+                                    "searchKey":"Image,m_img1",
+                                    "props":{"y":36,"x":225,"skin":"ui/person0.jpg","name":"m_img1"},
                                     "nodeParent":476,
-                                    "label":"Image",
+                                    "label":"m_img1",
                                     "isDirectory":false,
                                     "isAniNode":false,
                                     "hasChild":false,
@@ -2692,11 +2700,12 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
-                                    "searchKey":"Image",
-                                    "props":{"y":36,"x":405,"skin":"ui/person0.jpg"},
+                                    "searchKey":"Image,m_img2",
+                                    "props":{"y":36,"x":405,"skin":"ui/person0.jpg","name":"m_img2"},
                                     "nodeParent":476,
-                                    "label":"Image",
+                                    "label":"m_img2",
                                     "isDirectory":false,
                                     "isAniNode":false,
                                     "hasChild":false,
@@ -2708,11 +2717,12 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Rect",
-                    "searchKey":"Rect",
-                    "props":{"y":100,"x":0,"width":540,"lineWidth":0,"height":50,"fillColor":"#110d19"},
+                    "searchKey":"Rect,panelSubTitle",
+                    "props":{"y":100,"x":0,"width":540,"name":"panelSubTitle","lineWidth":0,"height":50,"fillColor":"#110d19"},
                     "nodeParent":474,
-                    "label":"Rect",
+                    "label":"panelSubTitle",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -2721,6 +2731,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Text",
                     "searchKey":"Text",
                     "props":{"y":100,"x":0,"width":180,"valign":"middle","text":"昵称","height":50,"fontSize":30,"color":"#ffffff","align":"center"},
@@ -2734,6 +2745,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Text",
                     "searchKey":"Text",
                     "props":{"y":100,"x":180,"width":180,"valign":"middle","text":"带入","height":50,"fontSize":30,"color":"#ffffff","align":"center"},
@@ -2747,6 +2759,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Text",
                     "searchKey":"Text",
                     "props":{"y":100,"x":360,"width":180,"valign":"middle","text":"积分","height":50,"fontSize":30,"color":"#ffffff","align":"center"},
@@ -2760,11 +2773,12 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Rect",
-                    "searchKey":"Rect",
-                    "props":{"y":0,"x":0,"width":540,"lineWidth":0,"height":100,"fillColor":"#18122c"},
+                    "searchKey":"Rect,panelTitle",
+                    "props":{"y":0,"x":0,"width":540,"name":"panelTitle","lineWidth":0,"height":100,"fillColor":"#18122c"},
                     "nodeParent":474,
-                    "label":"Rect",
+                    "label":"panelTitle",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,
@@ -2773,6 +2787,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Text",
                     "searchKey":"Text",
                     "props":{"y":0,"x":0,"width":180,"valign":"middle","text":"扑克俱乐部","height":50,"fontSize":30,"color":"#ffffff","align":"center"},
@@ -2786,6 +2801,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Text",
                     "searchKey":"Text",
                     "props":{"y":50,"x":0,"width":180,"valign":"middle","text":"#610000","height":50,"fontSize":30,"color":"#ffffff","align":"center"},
@@ -2799,6 +2815,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Text",
                     "searchKey":"Text",
                     "props":{"y":0,"x":360,"width":180,"valign":"middle","text":"02:00:00","height":100,"fontSize":30,"color":"#ffffff","align":"center"},

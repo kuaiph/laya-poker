@@ -3,6 +3,7 @@ import roundIn from '../action/ROUND_IN.js'
 import sitDown from '../action/SIT_DOWN.js'
 import nextSpeak from '../action/NEXT_SPEAK.js'
 import close from '../action/CLOSE.js'
+import leftPanel from '../action/LEFT_PANEL.js'
 /**
  * 网络长连接类
  * globalData:{startScene,gameView,user,round}
@@ -34,7 +35,8 @@ export default class WebSocket {
             'ROUND_IN': roundIn,
             'SIT_DOWN': sitDown,
             'NEXT_SPEAK': nextSpeak,
-            'CLOSE': close
+            'CLOSE': close,
+            'LEFT_PANEL': leftPanel
         }
         WebSocket.socket.on(Laya.Event.OPEN, this, (e) => {
             this.login()
