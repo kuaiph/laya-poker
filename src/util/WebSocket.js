@@ -10,10 +10,10 @@ import leftPanel from '../action/LEFT_PANEL.js'
  */
 export default class WebSocket {
     constructor(startScene) {
-        // WebSocket.instance = this                                       // 单例
-        WebSocket.socket = new Laya.Socket()                            // 实例Socket
-        WebSocket.socket.endian = Laya.Byte.LITTLE_ENDIAN               // 采用小端
-        WebSocket.globalData = { user: {}, round: {}, startScene }      // 全局数据对象
+        // WebSocket.instance = this                                              // 单例
+        WebSocket.socket = new Laya.Socket()                                      // 实例Socket
+        WebSocket.socket.endian = Laya.Byte.LITTLE_ENDIAN                         // 采用小端
+        WebSocket.globalData = { user: {}, room: {}, round: {}, startScene }      // 全局数据对象
     }
     // 与服务端建立长连接
     connect() {

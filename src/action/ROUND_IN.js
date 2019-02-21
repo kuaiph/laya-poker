@@ -8,11 +8,13 @@ export default function roundIn(globalData, res) {
     let startScene = globalData.startScene
     let user = globalData.user
     let round = globalData.round
+    let room = globalData.room
     let gameView = globalData.gameView
     // 首次打开界面
     if (!user.userId) {
         user = Object.assign(user, res.user)
         round = Object.assign(round, res.round)
+        room = Object.assign(room, res.room)
         Laya.Scene.open(startScene)
     }
     // 被动更新界面
