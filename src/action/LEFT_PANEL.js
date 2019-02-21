@@ -20,11 +20,15 @@ export default function leftPanel(globalData, res) {
         for (let userArr of res.listWatcher) {
             listWatcherArr.push({
                 m_label0: { text: userArr[0].userId },
-                m_label1: { text: userArr[1] && userArr[1].userId },
-                m_label2: { text: userArr[1] && userArr[2].userId }
+                m_label1: { text: userArr[1].userId },
+                m_label2: { text: userArr[2].userId },
+                m_img0: { skin: userArr[0].headurl },
+                m_img1: { skin: userArr[1].headurl },
+                m_img2: { skin: userArr[2].headurl },
             })
         }
         listUser.vScrollBarSkin = ""
+        listWatcher.vScrollBarSkin = ""
         listUser.array = listUserArr
         listWatcher.array = listWatcherArr
     }
