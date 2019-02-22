@@ -110,8 +110,8 @@ export default class GameView extends Laya.Scene {
             this.panelLeft.visible = false
         }
         // 关闭游戏记录列表
-        // if(e.stageX < this.listReocrd.width){
-        //     this.listReocrd.visible = false
-        // }
+        if (e.stageX < this.width - this.panelRight.width) {
+            this.panelRight.visible = false
+        }
     }
 }
