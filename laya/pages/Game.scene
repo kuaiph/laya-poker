@@ -6,7 +6,7 @@
     "searchKey":"View",
     "props":{"width":750,"sceneColor":"#000000","runtime":"view/GameView.js","height":1334},
     "nodeParent":-1,
-    "maxID":493,
+    "maxID":504,
     "label":"View",
     "isOpen":true,
     "isDirectory":true,
@@ -2431,7 +2431,8 @@
                     "compId":453,
                     "child":[
                         ]
-                }]
+                }],
+            "$HIDDEN":false
         },
         {
             "x":15,
@@ -2542,7 +2543,7 @@
                     "props":{"y":160,"x":0,"width":540,"visible":true,"var":"listUser","height":790},
                     "nodeParent":474,
                     "label":"listUser",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
@@ -2820,12 +2821,140 @@
             "props":{"zOrder":2,"y":0,"x":210,"width":540,"visible":false,"var":"panelRight","height":1334},
             "nodeParent":1,
             "label":"panelRight",
-            "isDirectory":false,
+            "isOpen":true,
+            "isDirectory":true,
             "isAniNode":true,
-            "hasChild":false,
+            "hasChild":true,
             "compId":492,
             "child":[
-                ]
+                {
+                    "x":30,
+                    "type":"Rect",
+                    "searchKey":"Rect",
+                    "props":{"y":100,"x":0,"width":540,"lineWidth":1,"height":60,"fillColor":"#110d19"},
+                    "nodeParent":492,
+                    "label":"Rect",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":493,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Rect",
+                    "searchKey":"Rect",
+                    "props":{"y":0,"x":0,"width":540,"lineWidth":1,"height":100,"fillColor":"#18122c"},
+                    "nodeParent":492,
+                    "label":"Rect",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":494,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"List",
+                    "searchKey":"List,listRecord",
+                    "props":{"y":160,"width":540,"var":"listRecord","height":1000},
+                    "nodeParent":492,
+                    "label":"listRecord",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":495,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"Box",
+                            "searchKey":"Box,render",
+                            "props":{"y":0,"x":0,"name":"render"},
+                            "nodeParent":495,
+                            "label":"render",
+                            "isOpen":true,
+                            "isDirectory":true,
+                            "isAniNode":false,
+                            "hasChild":true,
+                            "compId":502,
+                            "child":[
+                                {
+                                    "x":60,
+                                    "type":"Label",
+                                    "searchKey":"Label,m_label0",
+                                    "props":{"y":0,"x":0,"width":100,"valign":"middle","text":"昵称","name":"m_label0","height":50,"fontSize":30,"align":"center"},
+                                    "nodeParent":502,
+                                    "label":"m_label0",
+                                    "isDirectory":false,
+                                    "isAniNode":false,
+                                    "hasChild":false,
+                                    "compId":501,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Label",
+                                    "searchKey":"Label,m_label1",
+                                    "props":{"y":0,"x":440,"width":100,"valign":"middle","text":"-100","name":"m_label1","height":50,"fontSize":30,"align":"center"},
+                                    "nodeParent":502,
+                                    "label":"m_label1",
+                                    "isDirectory":false,
+                                    "isAniNode":false,
+                                    "hasChild":false,
+                                    "compId":503,
+                                    "child":[
+                                        ]
+                                }]
+                        }],
+                    "$HIDDEN":false
+                },
+                {
+                    "x":30,
+                    "type":"Text",
+                    "searchKey":"Text",
+                    "props":{"width":200,"valign":"middle","text":"0/1/2","height":60,"fontSize":30,"color":"#ffffff","align":"center"},
+                    "nodeParent":492,
+                    "label":"Text",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":496,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Text",
+                    "searchKey":"Text",
+                    "props":{"y":60,"x":0,"width":200,"valign":"middle","text":"#000000-1","height":40,"fontSize":30,"color":"#ffffff","align":"center"},
+                    "nodeParent":492,
+                    "label":"Text",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":497,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Text",
+                    "searchKey":"Text",
+                    "props":{"y":100,"x":0,"width":200,"valign":"middle","text":"牌谱","height":60,"fontSize":30,"color":"#ffffff","align":"center"},
+                    "nodeParent":492,
+                    "label":"Text",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":498,
+                    "child":[
+                        ]
+                }],
+            "$HIDDEN":false
         }],
     "animations":[
         {
