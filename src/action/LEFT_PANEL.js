@@ -4,10 +4,11 @@
  * @param {*} res
  */
 export default function leftPanel(globalData, res) {
-    let listUser = globalData.gameView.listUser                             // 历史入局玩家列表
-    let listWatcher = globalData.gameView.listWatcher                       // 历史观战玩家列表
-    let textRoomCountDown = globalData.gameView.textRoomCountDown           // 房间倒计时
-    intervalRoomCountDown(globalData.room, textRoomCountDown)               // 开启倒计时
+    let listUser = globalData.gameView.listUser                                   // 历史入局玩家列表
+    let listWatcher = globalData.gameView.listWatcher                             // 历史观战玩家列表
+    let textRoomId = globalData.gameView.textRoomId                               // 房间ID
+    let textRoomName = globalData.gameView.textRoomName                           // 房间名称
+    intervalRoomCountDown(globalData.room, globalData.gameView.textRoomCountDown) // 开启倒计时
 
     if (!res.err) {
         let listUserArr = []
@@ -29,6 +30,8 @@ export default function leftPanel(globalData, res) {
                 m_img2: { skin: userArr[2].headurl },
             })
         }
+        textRoomId.text = `#${globalData.room.roomId}`
+        textRoomName.text = globalData.room.roomName
         listUser.vScrollBarSkin = ""
         listWatcher.vScrollBarSkin = ""
         listUser.array = listUserArr
