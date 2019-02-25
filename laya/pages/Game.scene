@@ -1,12 +1,12 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":1,
-    "selecteID":492,
+    "selectedBox":502,
+    "selecteID":512,
     "searchKey":"View",
     "props":{"width":750,"sceneColor":"#000000","runtime":"view/GameView.js","height":1334},
     "nodeParent":-1,
-    "maxID":504,
+    "maxID":518,
     "label":"View",
     "isOpen":true,
     "isDirectory":true,
@@ -2609,7 +2609,7 @@
                     "props":{"y":950,"x":0,"width":540,"visible":true,"var":"listWatcher","repeatY":3},
                     "nodeParent":474,
                     "label":"listWatcher",
-                    "isOpen":false,
+                    "isOpen":true,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
@@ -2859,7 +2859,7 @@
                     "x":30,
                     "type":"List",
                     "searchKey":"List,listRecord",
-                    "props":{"y":160,"width":540,"var":"listRecord","height":1000},
+                    "props":{"y":160,"x":0,"width":540,"var":"listRecord","height":1050},
                     "nodeParent":492,
                     "label":"listRecord",
                     "isOpen":true,
@@ -2885,7 +2885,7 @@
                                     "x":60,
                                     "type":"Label",
                                     "searchKey":"Label,m_label0",
-                                    "props":{"y":0,"x":0,"width":100,"valign":"middle","text":"昵称","name":"m_label0","height":50,"fontSize":30,"align":"center"},
+                                    "props":{"y":100,"x":0,"width":100,"valign":"middle","text":"昵称","name":"m_label0","height":50,"fontSize":30,"color":"#ffffff","bgColor":"#18122c","align":"center"},
                                     "nodeParent":502,
                                     "label":"m_label0",
                                     "isDirectory":false,
@@ -2899,13 +2899,140 @@
                                     "x":60,
                                     "type":"Label",
                                     "searchKey":"Label,m_label1",
-                                    "props":{"y":0,"x":440,"width":100,"valign":"middle","text":"-100","name":"m_label1","height":50,"fontSize":30,"align":"center"},
+                                    "props":{"y":0,"x":450,"width":90,"valign":"middle","text":"-100","name":"m_label1","height":150,"fontSize":30,"color":"#ffffff","bgColor":"#18122c","align":"center"},
                                     "nodeParent":502,
                                     "label":"m_label1",
                                     "isDirectory":false,
                                     "isAniNode":false,
                                     "hasChild":false,
                                     "compId":503,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Label",
+                                    "searchKey":"Label,m_label2",
+                                    "props":{"y":100,"x":100,"width":350,"valign":"middle","text":"跟注","name":"m_label2","height":50,"fontSize":30,"color":"#ffffff","bgColor":"#18122c","align":"center"},
+                                    "nodeParent":502,
+                                    "label":"m_label2",
+                                    "isDirectory":false,
+                                    "isAniNode":false,
+                                    "hasChild":false,
+                                    "compId":512,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Image",
+                                    "searchKey":"Image,m_image0",
+                                    "props":{"y":0,"x":0,"skin":"comp/image.png","name":"m_image0"},
+                                    "nodeParent":502,
+                                    "label":"m_image0",
+                                    "isDirectory":false,
+                                    "isAniNode":false,
+                                    "hasChild":false,
+                                    "compId":504,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Image",
+                                    "searchKey":"Image,m_image1",
+                                    "props":{"y":0,"x":100,"width":50,"skin":"comp/image.png","name":"m_image1"},
+                                    "nodeParent":502,
+                                    "label":"m_image1",
+                                    "isDirectory":false,
+                                    "isAniNode":false,
+                                    "hasChild":false,
+                                    "compId":505,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Image",
+                                    "searchKey":"Image,m_image2",
+                                    "props":{"y":0,"x":150,"width":50,"skin":"comp/image.png","name":"m_image2"},
+                                    "nodeParent":502,
+                                    "label":"m_image2",
+                                    "isOpen":true,
+                                    "isDirectory":false,
+                                    "isAniNode":false,
+                                    "hasChild":false,
+                                    "compId":506,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Image",
+                                    "searchKey":"Image,m_image3",
+                                    "props":{"y":0,"x":200,"width":50,"skin":"comp/image.png","name":"m_image3"},
+                                    "nodeParent":502,
+                                    "label":"m_image3",
+                                    "isDirectory":false,
+                                    "isAniNode":false,
+                                    "hasChild":false,
+                                    "compId":507,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Image",
+                                    "searchKey":"Image,m_image4",
+                                    "props":{"y":0,"x":250,"width":50,"skin":"comp/image.png","name":"m_image4"},
+                                    "nodeParent":502,
+                                    "label":"m_image4",
+                                    "isDirectory":false,
+                                    "isAniNode":false,
+                                    "hasChild":false,
+                                    "compId":508,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Image",
+                                    "searchKey":"Image,m_image5",
+                                    "props":{"y":0,"x":300,"width":50,"skin":"comp/image.png","name":"m_image5"},
+                                    "nodeParent":502,
+                                    "label":"m_image5",
+                                    "isDirectory":false,
+                                    "isAniNode":false,
+                                    "hasChild":false,
+                                    "compId":509,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Image",
+                                    "searchKey":"Image,m_image6",
+                                    "props":{"y":0,"x":350,"width":50,"skin":"comp/image.png","name":"m_image6"},
+                                    "nodeParent":502,
+                                    "label":"m_image6",
+                                    "isDirectory":false,
+                                    "isAniNode":false,
+                                    "hasChild":false,
+                                    "compId":510,
+                                    "child":[
+                                        ]
+                                },
+                                {
+                                    "x":60,
+                                    "type":"Image",
+                                    "searchKey":"Image,m_image7",
+                                    "props":{"y":0,"x":400,"width":50,"skin":"comp/image.png","name":"m_image7"},
+                                    "nodeParent":502,
+                                    "label":"m_image7",
+                                    "isDirectory":false,
+                                    "isAniNode":false,
+                                    "hasChild":false,
+                                    "compId":511,
                                     "child":[
                                         ]
                                 }]
@@ -2953,6 +3080,34 @@
                     "compId":498,
                     "child":[
                         ]
+                },
+                {
+                    "x":30,
+                    "type":"View",
+                    "searchKey":"View",
+                    "props":{"y":1210,"x":0,"width":540,"height":124},
+                    "nodeParent":492,
+                    "label":"View",
+                    "isOpen":true,
+                    "isDirectory":true,
+                    "isAniNode":true,
+                    "hasChild":true,
+                    "compId":516,
+                    "child":[
+                        {
+                            "x":45,
+                            "type":"Rect",
+                            "searchKey":"Rect",
+                            "props":{"width":540,"lineWidth":1,"height":124,"fillColor":"#18122c"},
+                            "nodeParent":516,
+                            "label":"Rect",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":517,
+                            "child":[
+                                ]
+                        }]
                 }],
             "$HIDDEN":false
         }],
