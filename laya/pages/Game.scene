@@ -2,11 +2,11 @@
     "x":0,
     "type":"View",
     "selectedBox":492,
-    "selecteID":495,
+    "selecteID":520,
     "searchKey":"View",
     "props":{"width":750,"sceneColor":"#000000","runtime":"view/GameView.js","height":1334},
     "nodeParent":-1,
-    "maxID":518,
+    "maxID":521,
     "label":"View",
     "isOpen":true,
     "isDirectory":true,
@@ -2862,14 +2862,13 @@
                     "props":{"y":160,"x":0,"width":540,"var":"listRecord","height":1050},
                     "nodeParent":492,
                     "label":"listRecord",
-                    "isOpen":true,
+                    "isOpen":false,
                     "isDirectory":true,
                     "isAniNode":true,
                     "hasChild":true,
                     "compId":495,
                     "child":[
                         {
-                            "x":45,
                             "type":"Box",
                             "searchKey":"Box,render",
                             "props":{"y":0,"x":0,"name":"render"},
@@ -2882,7 +2881,6 @@
                             "compId":502,
                             "child":[
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "searchKey":"Label,m_label0",
                                     "props":{"y":82,"x":120,"width":200,"valign":"middle","text":"昵称","name":"m_label0","height":38,"fontSize":30,"color":"#ffffff","bgColor":"#18122c","align":"center"},
@@ -2896,7 +2894,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "searchKey":"Label,m_label1",
                                     "props":{"y":82,"x":320,"width":136,"valign":"middle","text":"跟注","name":"m_label1","height":38,"fontSize":30,"color":"#ffffff","bgColor":"#18122c","align":"center"},
@@ -2910,7 +2907,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Label",
                                     "searchKey":"Label,m_label2",
                                     "props":{"y":0,"x":456,"width":84,"valign":"middle","text":"-100","name":"m_label2","height":120,"fontSize":30,"color":"#ffffff","bgColor":"#18122c","align":"center"},
@@ -2924,10 +2920,9 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "searchKey":"Image,m_image0",
-                                    "props":{"y":0,"x":0,"width":120,"skin":"comp/image.png","name":"m_image0","height":120},
+                                    "props":{"y":0,"x":0,"width":120,"skin":"ui/person.jpg","name":"m_image0","height":120},
                                     "nodeParent":502,
                                     "label":"m_image0",
                                     "isDirectory":false,
@@ -2938,7 +2933,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "searchKey":"Image,m_image1",
                                     "props":{"y":0,"x":120,"width":48,"skin":"ui/review/blank.png","name":"m_image1","height":82},
@@ -2952,7 +2946,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "searchKey":"Image,m_image2",
                                     "props":{"y":0,"x":168,"width":48,"skin":"ui/review/blank.png","name":"m_image2","height":82},
@@ -2967,7 +2960,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "searchKey":"Image,m_image3",
                                     "props":{"y":0,"x":216,"width":48,"skin":"ui/review/blank.png","name":"m_image3","height":82},
@@ -2981,7 +2973,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "searchKey":"Image,m_image4",
                                     "props":{"y":0,"x":264,"width":48,"skin":"ui/review/blank.png","name":"m_image4","height":82},
@@ -2995,7 +2986,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "searchKey":"Image,m_image5",
                                     "props":{"y":0,"x":312,"width":48,"skin":"ui/review/blank.png","name":"m_image5","height":82},
@@ -3009,7 +2999,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "searchKey":"Image,m_image6",
                                     "props":{"y":0,"x":360,"width":48,"skin":"ui/review/blank.png","name":"m_image6","height":82},
@@ -3023,7 +3012,6 @@
                                         ]
                                 },
                                 {
-                                    "x":60,
                                     "type":"Image",
                                     "searchKey":"Image,m_image7",
                                     "props":{"y":0,"x":408,"width":48,"skin":"ui/review/blank.png","name":"m_image7","height":82},
@@ -3108,6 +3096,48 @@
                             "child":[
                                 ]
                         }]
+                },
+                {
+                    "x":30,
+                    "type":"Button",
+                    "searchKey":"Button,btnPrevious",
+                    "props":{"y":1225,"x":94,"width":92,"var":"btnPrevious","stateNum":"2","skin":"ui/review/btn_previous.png","height":92},
+                    "nodeParent":492,
+                    "label":"btnPrevious",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":518,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Button",
+                    "searchKey":"Button,btnNext",
+                    "props":{"y":1225,"x":364,"width":92,"var":"btnNext","stateNum":"2","skin":"ui/review/btn_next.png","height":92},
+                    "nodeParent":492,
+                    "label":"btnNext",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":519,
+                    "child":[
+                        ]
+                },
+                {
+                    "x":30,
+                    "type":"Text",
+                    "searchKey":"Text",
+                    "props":{"y":1249,"x":220,"width":100,"valign":"middle","text":"1/50","height":46,"fontSize":30,"color":"#a9c007","align":"center"},
+                    "nodeParent":492,
+                    "label":"Text",
+                    "isDirectory":false,
+                    "isAniNode":true,
+                    "hasChild":false,
+                    "compId":520,
+                    "child":[
+                        ]
                 }],
             "$HIDDEN":false
         }],
