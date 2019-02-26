@@ -4,6 +4,7 @@ import sitDown from '../action/SIT_DOWN.js'
 import nextSpeak from '../action/NEXT_SPEAK.js'
 import close from '../action/CLOSE.js'
 import leftPanel from '../action/LEFT_PANEL.js'
+import rightPanel from '../action/RIGHT_PANEL.js'
 /**
  * 网络长连接类
  * globalData:{startScene,gameView,user,round}
@@ -36,7 +37,8 @@ export default class WebSocket {
             'SIT_DOWN': sitDown,
             'NEXT_SPEAK': nextSpeak,
             'CLOSE': close,
-            'LEFT_PANEL': leftPanel
+            'LEFT_PANEL': leftPanel,
+            'RIGHT_PANEL': rightPanel
         }
         WebSocket.socket.on(Laya.Event.OPEN, this, (e) => {
             this.login()
