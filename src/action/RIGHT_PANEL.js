@@ -6,6 +6,7 @@
 export default function rightPanel(globalData, res) {
     let listRecord = globalData.gameView.listRecord     // 历史记录列表
     let listRecordArr = []
+    console.log(res)
     if (!res.err) {
         for (let step of res.listStep) {
             listRecordArr.push({
@@ -14,14 +15,14 @@ export default function rightPanel(globalData, res) {
                 m_label1: { text: step.action },
                 m_label2: { text: step.point },
 
-                // m_image1: { skin: step.handPokerArr[0] },
-                // m_image2: { skin: step.handPokerArr[1] },
+                m_image1: { skin: `ui/review/${step.handPokerArr[0].card}.png` },
+                m_image2: { skin: `ui/review/${step.handPokerArr[1].card}.png` },
 
-                // m_image3: { skin: step.publicPokerArr[0] },
-                // m_image4: { skin: step.publicPokerArr[1] },
-                // m_image5: { skin: step.publicPokerArr[2] },
-                // m_image6: { skin: step.publicPokerArr[3] },
-                // m_image7: { skin: step.publicPokerArr[4] }
+                m_image3: { skin: `ui/review/${step.publicPokerArr[0].card}.png` },
+                m_image4: { skin: `ui/review/${step.publicPokerArr[1].card}.png` },
+                m_image5: { skin: `ui/review/${step.publicPokerArr[2].card}.png` },
+                m_image6: { skin: `ui/review/${step.publicPokerArr[3].card}.png` },
+                m_image7: { skin: `ui/review/${step.publicPokerArr[4].card}.png` }
             })
         }
         listRecord.array = listRecordArr
