@@ -6,7 +6,6 @@
 export default function rightPanel(globalData, res) {
     let listRecord = globalData.gameView.listRecord     // 历史记录列表
     let listRecordArr = []
-    console.log(res)
     if (!res.err) {
         for (let step of res.listStep) {
             listRecordArr.push({
