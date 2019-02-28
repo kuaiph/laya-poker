@@ -10,7 +10,7 @@ export default function rightPanel(globalData, res) {
     if (!res.err) {
         for (let step of res.listStep) {
             listRecordArr.push({
-                m_image0: { skin: step.headurl },
+                m_image0: { skin: `ui/${step.headurl}` },
                 m_label0: { text: step.userId },
                 m_label1: { text: step.action },
                 m_label2: { text: step.point },
