@@ -6,7 +6,7 @@
     "searchKey":"View",
     "props":{"width":750,"sceneColor":"#000000","runtime":"view/GameView.js","height":1334},
     "nodeParent":-1,
-    "maxID":521,
+    "maxID":523,
     "label":"View",
     "isOpen":true,
     "isDirectory":true,
@@ -3104,12 +3104,28 @@
                     "props":{"y":1225,"x":94,"width":92,"var":"btnPrevious","stateNum":"2","skin":"ui/review/btn_previous.png","height":92},
                     "nodeParent":492,
                     "label":"btnPrevious",
-                    "isDirectory":false,
+                    "isOpen":null,
+                    "isDirectory":true,
                     "isAniNode":true,
-                    "hasChild":false,
+                    "hasChild":true,
                     "compId":518,
                     "child":[
-                        ]
+                        {
+                            "type":"Script",
+                            "switchAble":true,
+                            "source":"src/script/Previous.js",
+                            "searchKey":"Script,Previous",
+                            "removeAble":true,
+                            "props":{},
+                            "nodeParent":518,
+                            "label":"Previous",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":521,
+                            "child":[
+                                ]
+                        }]
                 },
                 {
                     "x":30,
@@ -3118,20 +3134,36 @@
                     "props":{"y":1225,"x":364,"width":92,"var":"btnNext","stateNum":"2","skin":"ui/review/btn_next.png","height":92},
                     "nodeParent":492,
                     "label":"btnNext",
-                    "isDirectory":false,
+                    "isOpen":null,
+                    "isDirectory":true,
                     "isAniNode":true,
-                    "hasChild":false,
+                    "hasChild":true,
                     "compId":519,
                     "child":[
-                        ]
+                        {
+                            "type":"Script",
+                            "switchAble":true,
+                            "source":"src/script/Next.js",
+                            "searchKey":"Script,Next",
+                            "removeAble":true,
+                            "props":{},
+                            "nodeParent":519,
+                            "label":"Next",
+                            "isDirectory":false,
+                            "isAniNode":true,
+                            "hasChild":false,
+                            "compId":522,
+                            "child":[
+                                ]
+                        }]
                 },
                 {
                     "x":30,
                     "type":"Text",
-                    "searchKey":"Text",
-                    "props":{"y":1249,"x":220,"width":100,"valign":"middle","text":"1/50","height":46,"fontSize":30,"color":"#a9c007","align":"center"},
+                    "searchKey":"Text,textPage",
+                    "props":{"y":1249,"x":220,"width":100,"var":"textPage","valign":"middle","text":"0/0","height":46,"fontSize":30,"color":"#a9c007","align":"center"},
                     "nodeParent":492,
-                    "label":"Text",
+                    "label":"textPage",
                     "isDirectory":false,
                     "isAniNode":true,
                     "hasChild":false,

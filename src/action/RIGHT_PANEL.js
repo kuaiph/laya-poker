@@ -5,6 +5,7 @@
  */
 export default function rightPanel(globalData, res) {
     let listRecord = globalData.gameView.listRecord     // 历史记录列表
+    let textPage = globalData.gameView.textPage         // 分页文字
     let listRecordArr = []
     if (!res.err) {
         for (let step of res.listStep) {
@@ -25,5 +26,7 @@ export default function rightPanel(globalData, res) {
             })
         }
         listRecord.array = listRecordArr
+        textPage.text = res.textPage
+        globalData.user.pageIndex = res.pageIndex
     }
 }

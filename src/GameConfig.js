@@ -8,6 +8,8 @@ import SitDialog from "./dialog/SitDialog"
 import Users from "./script/Users"
 import Settings from "./script/Settings"
 import Records from "./script/Records"
+import Previous from "./script/Previous"
+import Next from "./script/Next"
 import StartView from "./view/StartView"
 
 export default class GameConfig {
@@ -23,6 +25,8 @@ export default class GameConfig {
 		reg("script/Users.js",Users);
 		reg("script/Settings.js",Settings);
 		reg("script/Records.js",Records);
+		reg("script/Previous.js",Previous);
+		reg("script/Next.js",Next);
 		reg("view/StartView.js",StartView);
     }
 }
