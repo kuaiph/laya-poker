@@ -1,8 +1,8 @@
 {
     "x":0,
     "type":"View",
-    "selectedBox":492,
-    "selecteID":520,
+    "selectedBox":1,
+    "selecteID":474,
     "searchKey":"View",
     "props":{"width":750,"sceneColor":"#000000","runtime":"view/GameView.js","height":1334},
     "nodeParent":-1,
@@ -2812,7 +2812,7 @@
                     "child":[
                         ]
                 }],
-            "$HIDDEN":true
+            "$HIDDEN":false
         },
         {
             "x":15,
@@ -3171,7 +3171,7 @@
                     "child":[
                         ]
                 }],
-            "$HIDDEN":false
+            "$HIDDEN":true
         }],
     "animations":[
         {

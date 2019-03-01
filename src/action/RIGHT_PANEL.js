@@ -25,8 +25,9 @@ export default function rightPanel(globalData, res) {
                 m_image7: { skin: `ui/review/${step.publicPokerArr[4].card}.png` }
             })
         }
-        listRecord.array = listRecordArr
         textPage.text = res.textPage
         globalData.user.pageIndex = res.pageIndex
+        listRecord.array = listRecordArr
+        listRecord.vScrollBarSkin = ""
     }
 }
