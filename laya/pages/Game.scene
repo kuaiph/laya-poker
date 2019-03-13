@@ -2,7 +2,7 @@
     "x":0,
     "type":"View",
     "selectedBox":1,
-    "selecteID":474,
+    "selecteID":191,
     "searchKey":"View",
     "props":{"width":750,"sceneColor":"#000000","runtime":"view/GameView.js","height":1334},
     "nodeParent":-1,
@@ -2538,6 +2538,7 @@
             "compId":474,
             "child":[
                 {
+                    "x":30,
                     "type":"List",
                     "searchKey":"List,listUser",
                     "props":{"y":160,"x":0,"width":540,"visible":true,"var":"listUser","height":790},
@@ -2550,6 +2551,7 @@
                     "compId":460,
                     "child":[
                         {
+                            "x":45,
                             "type":"Box",
                             "searchKey":"Box,render",
                             "props":{"y":0,"x":0,"name":"render"},
@@ -2562,6 +2564,7 @@
                             "compId":459,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "searchKey":"Label,m_label0",
                                     "props":{"y":0,"x":0,"width":180,"valign":"middle","text":"帐号","name":"m_label0","height":50,"fontSize":30,"color":"#ffffff","bgColor":"#18122c","align":"center"},
@@ -2575,6 +2578,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "searchKey":"Label,m_label1",
                                     "props":{"y":0,"x":180,"width":180,"valign":"middle","text":"带入分","name":"m_label1","height":50,"fontSize":30,"color":"#ffffff","bgColor":"#18122c","align":"center"},
@@ -2588,6 +2592,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "searchKey":"Label,m_label2",
                                     "props":{"y":0,"x":360,"width":180,"valign":"middle","text":"座位分","name":"m_label2","height":50,"fontSize":30,"color":"#ffffff","bgColor":"#18122c","align":"center"},
@@ -2604,6 +2609,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"List",
                     "searchKey":"List,listWatcher",
                     "props":{"y":950,"x":0,"width":540,"visible":true,"var":"listWatcher","repeatY":3},
@@ -2616,6 +2622,7 @@
                     "compId":475,
                     "child":[
                         {
+                            "x":45,
                             "type":"Box",
                             "searchKey":"Box,render",
                             "props":{"y":0,"x":0,"name":"render"},
@@ -2628,6 +2635,7 @@
                             "compId":476,
                             "child":[
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "searchKey":"Label,m_label0",
                                     "props":{"y":0,"x":0,"width":180,"valign":"bottom","text":"帐号","name":"m_label0","height":130,"fontSize":30,"color":"#ffffff","bgColor":"#18122c","align":"center"},
@@ -2641,6 +2649,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "searchKey":"Label,m_label1",
                                     "props":{"y":0,"x":180,"width":180,"valign":"bottom","text":"帐号","name":"m_label1","height":130,"fontSize":30,"color":"#ffffff","bgColor":"#18122c","align":"center"},
@@ -2654,6 +2663,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Label",
                                     "searchKey":"Label,m_label2",
                                     "props":{"y":-1,"x":360,"width":180,"valign":"bottom","text":"帐号","name":"m_label2","height":130,"fontSize":30,"color":"#ffffff","bgColor":"#18122c","align":"center"},
@@ -2667,6 +2677,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "searchKey":"Image,m_img0",
                                     "props":{"y":0,"x":40,"name":"m_img0"},
@@ -2680,6 +2691,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "searchKey":"Image,m_img1",
                                     "props":{"y":0,"x":225,"name":"m_img1"},
@@ -2693,6 +2705,7 @@
                                         ]
                                 },
                                 {
+                                    "x":60,
                                     "type":"Image",
                                     "searchKey":"Image,m_img2",
                                     "props":{"y":0,"x":405,"name":"m_img2"},
@@ -2709,6 +2722,7 @@
                     "$HIDDEN":false
                 },
                 {
+                    "x":30,
                     "type":"Rect",
                     "searchKey":"Rect,panelSubTitle",
                     "props":{"y":100,"x":0,"width":540,"name":"panelSubTitle","lineWidth":0,"height":60,"fillColor":"#110d19"},
@@ -2722,6 +2736,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Text",
                     "searchKey":"Text",
                     "props":{"y":100,"x":0,"width":180,"valign":"middle","text":"昵称","height":60,"fontSize":30,"color":"#ffffff","align":"center"},
@@ -2735,6 +2750,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Text",
                     "searchKey":"Text",
                     "props":{"y":100,"x":180,"width":180,"valign":"middle","text":"带入","height":60,"fontSize":30,"color":"#ffffff","align":"center"},
@@ -2748,6 +2764,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Text",
                     "searchKey":"Text",
                     "props":{"y":100,"x":360,"width":180,"valign":"middle","text":"积分","height":60,"fontSize":30,"color":"#ffffff","align":"center"},
@@ -2761,6 +2778,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Rect",
                     "searchKey":"Rect,panelTitle",
                     "props":{"y":0,"x":0,"width":540,"name":"panelTitle","lineWidth":0,"height":100,"fillColor":"#18122c"},
@@ -2774,6 +2792,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Text",
                     "searchKey":"Text,textRoomName",
                     "props":{"y":0,"x":0,"width":180,"var":"textRoomName","valign":"middle","text":"扑克俱乐部","height":60,"fontSize":30,"color":"#ffffff","align":"center"},
@@ -2787,6 +2806,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Text",
                     "searchKey":"Text,textRoomId",
                     "props":{"y":60,"x":0,"width":180,"var":"textRoomId","valign":"middle","text":"#000000","height":40,"fontSize":30,"color":"#ffffff","align":"center"},
@@ -2800,6 +2820,7 @@
                         ]
                 },
                 {
+                    "x":30,
                     "type":"Text",
                     "searchKey":"Text,textRoomCountDown",
                     "props":{"y":0,"x":360,"width":180,"var":"textRoomCountDown","valign":"middle","text":"02:00:00","height":100,"fontSize":30,"color":"#ffffff","align":"center"},
@@ -2812,7 +2833,7 @@
                     "child":[
                         ]
                 }],
-            "$HIDDEN":false
+            "$HIDDEN":true
         },
         {
             "x":15,
@@ -2821,14 +2842,13 @@
             "props":{"zOrder":2,"y":0,"x":210,"width":540,"visible":false,"var":"panelRight","height":1334},
             "nodeParent":1,
             "label":"panelRight",
-            "isOpen":true,
+            "isOpen":false,
             "isDirectory":true,
             "isAniNode":true,
             "hasChild":true,
             "compId":492,
             "child":[
                 {
-                    "x":30,
                     "type":"Rect",
                     "searchKey":"Rect",
                     "props":{"y":100,"x":0,"width":540,"lineWidth":1,"height":60,"fillColor":"#110d19"},
@@ -2842,7 +2862,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Rect",
                     "searchKey":"Rect",
                     "props":{"y":0,"x":0,"width":540,"lineWidth":1,"height":100,"fillColor":"#18122c"},
@@ -2856,7 +2875,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"List",
                     "searchKey":"List,listRecord",
                     "props":{"y":160,"x":0,"width":540,"var":"listRecord","height":1050},
@@ -3028,7 +3046,6 @@
                     "$HIDDEN":false
                 },
                 {
-                    "x":30,
                     "type":"Text",
                     "searchKey":"Text",
                     "props":{"width":200,"valign":"middle","text":"0/1/2","height":60,"fontSize":30,"color":"#ffffff","align":"center"},
@@ -3042,7 +3059,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Text",
                     "searchKey":"Text",
                     "props":{"y":60,"x":0,"width":200,"valign":"middle","text":"#000000-1","height":40,"fontSize":30,"color":"#ffffff","align":"center"},
@@ -3056,7 +3072,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"Text",
                     "searchKey":"Text",
                     "props":{"y":100,"x":0,"width":200,"valign":"middle","text":"牌谱","height":60,"fontSize":30,"color":"#ffffff","align":"center"},
@@ -3070,7 +3085,6 @@
                         ]
                 },
                 {
-                    "x":30,
                     "type":"View",
                     "searchKey":"View",
                     "props":{"y":1210,"x":0,"width":540,"height":124},
@@ -3083,7 +3097,6 @@
                     "compId":516,
                     "child":[
                         {
-                            "x":45,
                             "type":"Rect",
                             "searchKey":"Rect",
                             "props":{"width":540,"lineWidth":1,"height":124,"fillColor":"#18122c"},
@@ -3098,7 +3111,6 @@
                         }]
                 },
                 {
-                    "x":30,
                     "type":"Button",
                     "searchKey":"Button,btnPrevious",
                     "props":{"y":1225,"x":94,"width":92,"var":"btnPrevious","stateNum":"2","skin":"ui/review/btn_previous.png","height":92},
@@ -3128,7 +3140,6 @@
                         }]
                 },
                 {
-                    "x":30,
                     "type":"Button",
                     "searchKey":"Button,btnNext",
                     "props":{"y":1225,"x":364,"width":92,"var":"btnNext","stateNum":"2","skin":"ui/review/btn_next.png","height":92},
@@ -3158,7 +3169,6 @@
                         }]
                 },
                 {
-                    "x":30,
                     "type":"Text",
                     "searchKey":"Text,textPage",
                     "props":{"y":1249,"x":220,"width":100,"var":"textPage","valign":"middle","text":"0/0","height":46,"fontSize":30,"color":"#a9c007","align":"center"},
