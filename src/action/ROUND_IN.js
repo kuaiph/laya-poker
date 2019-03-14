@@ -15,19 +15,15 @@ export default function roundIn(globalData, res) {
         user = Object.assign(user, res.user)
         round = Object.assign(round, res.round)
         room = Object.assign(room, res.room)
+        round.seatMap = res.seatMap
         Laya.Scene.open(startScene)
     }
     // 被动更新界面
     else {
+        Object.assign(round, res.round)
         // 局信息中的座位图属性，需要把每个座位展开赋值
-        for (let seatId in res.round.seatMap) {
-            round.seatMap[seatId] = Object.assign(round.seatMap[seatId], res.round.seatMap[seatId])
-        }
-        // 其余同名属性，直接覆盖即可
-        for (let key in res.round) {
-            if (key != 'seatMap') {
-                round[key] = res.round[key]
-            }
+        for (let seatId in res.seatMap) {
+            round.seatMap[seatId] = Object.assign(round.seatMap[seatId], res.seatMap[seatId])
         }
         // 界面重置
         gameView.reset()
