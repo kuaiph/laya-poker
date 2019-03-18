@@ -54,12 +54,16 @@ export default class GameView extends Laya.Scene {
             this.round.seatMap[boxSeat.name] = new Seat(Object.assign(this.round.seatMap[boxSeat.name], { boxSeat, maskSeat, boxBet, imgChip, textRoundPoint, boxPokerType }))
         }
         // 重置界面信息
-        this.reset()
+        if (!this.round.isBegin) {
+            this.reset()
+        } else {
+            this.refresh()
+        }
 
         // 注册点击事件
         Laya.stage.on(Laya.Event.MOUSE_DOWN, this, this.onMouseDown)
     }
-    // 重置
+    // 初始重置
     reset() {
         // 状态信息初始
         WebSocket.globalData.user.isFirstSent = false           // 记录是否是自己的首张牌，用于区分两张牌的X坐标
@@ -72,6 +76,16 @@ export default class GameView extends Laya.Scene {
         }
         // 发牌手初始
         this.round.dealer.reset()
+    }
+    // 刷新载入
+    refresh() {
+        // UI数据刷新
+        this.textPhasePoint.text = this.round.phasePointMap[this.round.phase]   // 阶段分数
+        this.textRoundPoint.text = `底池：${this.round.roundPoint}`              // 底池分数
+        // 座位刷新
+        for (let i = 0; i < 9; i++) {
+            this.round.seatMap[`seat${i}`].refresh()
+        }
     }
     // 发手牌
     sendPoker(pokerArr, seatCount) {

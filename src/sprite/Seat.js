@@ -89,6 +89,31 @@ export default class Seat extends Laya.Script {
         this.boxBet.y = this.boxBetY
     }
 
+    // 刷新
+    refresh() {
+        // 显示头像
+        this.imgHead.skin = `ui/${this.headurl}`
+        // 显示筹码和手牌标识
+        if (this.userId != 0) {
+            this.textSeatPoint.text = this.seatPoint
+            this.textSeatPoint.visible = true
+            this.imgHandPoker.visible = true
+        } else {
+            this.textSeatPoint.visible = false
+            this.imgHandPoker.visible = false
+        }
+        this.boxBet.visible = false
+        this.boxPokerType.visible = false
+        // 火焰动画停止
+        this.aniFire.stop()
+        this.aniFire.visible = false
+        // 还原动画元素
+        this.imgChip.x = this.imgChipX
+        this.imgChip.y = this.imgChipY
+        this.boxBet.x = this.boxBetX
+        this.boxBet.y = this.boxBetY
+    }
+
     /**
      * 入座
      */
