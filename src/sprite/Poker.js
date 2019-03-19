@@ -49,7 +49,7 @@ export default class Poker {
         this.seat.imgHandPoker.visible = true
     }
     // 发公共牌
-    sendPublic(publicIndex) {
+    sendPublic(publicIndex, isRefresh) {
         let x = this.imgPoker.x
         let y = this.imgPoker.y + 175
         switch (publicIndex) {
@@ -70,7 +70,12 @@ export default class Poker {
             default:
                 break;
         }
-        Laya.Tween.to(this.imgPoker, { x, y }, 500, Laya.Ease.strongOut, Laya.Handler.create(this, this.sendPublicComplete))
+        if (isRefresh) {
+            this.imgPoker.pos(x, y)
+            this.sendPublicComplete()
+        } else {
+            Laya.Tween.to(this.imgPoker, { x, y }, 500, Laya.Ease.strongOut, Laya.Handler.create(this, this.sendPublicComplete))
+        }
     }
     // 公牌发牌完成
     sendPublicComplete() {

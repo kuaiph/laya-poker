@@ -53,7 +53,7 @@ export default class GameView extends Laya.Scene {
             // 创建座位对象，最后全局状态持久化
             this.round.seatMap[boxSeat.name] = new Seat(Object.assign(this.round.seatMap[boxSeat.name], { boxSeat, maskSeat, boxBet, imgChip, textRoundPoint, boxPokerType }))
         }
-        // 重置界面信息
+        // 重置/刷新界面信息
         if (!this.round.isBegin) {
             this.reset()
         } else {
@@ -86,6 +86,8 @@ export default class GameView extends Laya.Scene {
         for (let i = 0; i < 9; i++) {
             this.round.seatMap[`seat${i}`].refresh()
         }
+        // 公牌刷新
+        this.sendPublicPoker(this.round.publicPokerArr, true)
     }
     // 发手牌
     sendPoker(pokerArr, seatCount) {
@@ -103,14 +105,14 @@ export default class GameView extends Laya.Scene {
         this.round.dealer.sendPoker()
     }
     // 发公共牌
-    sendPublicPoker(pokerArr) {
+    sendPublicPoker(pokerArr, isRefresh) {
         for (let pokerData of pokerArr) {
             const imgPoker = this.getChildByName(pokerData.pokerId)
             let poker = new Poker({ imgPoker, pokerData })
             // 发牌手增加牌
             this.round.dealer.addPoker(poker)
         }
-        this.round.dealer.showPublicPoker()
+        this.round.dealer.showPublicPoker(isRefresh)
     }
     // 更新阶段累计点数和底池累计点数
     updatePoint() {

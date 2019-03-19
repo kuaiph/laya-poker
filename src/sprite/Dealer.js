@@ -35,8 +35,12 @@ export default class Dealer {
         // Laya.timer.frameLoop(10, this, this.onLoop) // 每10帧循环一次
     }
     // 展开公牌
-    showPublicPoker() {
-        Laya.timer.loop(300, this, this.onShowPublicPoker)
+    showPublicPoker(isRefresh) {
+        if (isRefresh) {
+            Laya.timer.loop(1, this, this.onShowPublicPoker, [true])
+        } else {
+            Laya.timer.loop(300, this, this.onShowPublicPoker)
+        }
     }
 
     // 发手牌
@@ -57,12 +61,12 @@ export default class Dealer {
     }
 
     // 展开3/4/5公牌
-    onShowPublicPoker() {
+    onShowPublicPoker(isRefresh) {
         // 牌存在，则发牌
         if (this.pokers[this.pokerSentIndex]) {
-            this.pokers[this.pokerSentIndex].sendPublic(this.pokerPublicSentIndex)
+            this.pokers[this.pokerSentIndex].sendPublic(this.pokerPublicSentIndex, isRefresh)
             this.pokerSentIndex++
-            this.pokerPublicSentIndex++            
+            this.pokerPublicSentIndex++
         }
         // 公牌发牌结束
         else {
