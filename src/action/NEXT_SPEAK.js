@@ -42,7 +42,7 @@ export default function nextSpeak(globalData, res) {
     // 根据返回数据更新座位图，然后显示操作台
     for (let seatId in seatMap) {
         round.seatMap[seatId] = Object.assign(round.seatMap[seatId], seatMap[seatId])
-        // 提示更新
+        // 状态更新
         round.seatMap[seatId].showTag()
         // 自己位置更新牌型
         if (round.seatMap[seatId].userId == user.userId) {
