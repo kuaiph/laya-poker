@@ -51,7 +51,7 @@ export default class Seat extends Laya.Script {
             this.betPoint = 0                                                       // 投注点数
             // this.betPointArr = []                                                   // 投注点数数组
             this.speakCountDown = 0                                                 // 说话时间倒计时
-            this.status = null                                                      // 座位状态
+            this.status = inparam.status                                            // 座位状态
             // 坐标还原信息
             this.imgChipX = this.imgChip.x
             this.imgChipY = this.imgChip.y
@@ -93,11 +93,12 @@ export default class Seat extends Laya.Script {
     refresh() {
         // 显示头像
         this.imgHead.skin = `ui/${this.headurl}`
-        // 显示筹码和手牌标识
+        // 显示筹码,手牌标识,状态
         if (this.userId != 0) {
             this.textSeatPoint.text = this.seatPoint
             this.textSeatPoint.visible = true
             this.imgHandPoker.visible = true
+            this.showTag()
         } else {
             this.textSeatPoint.visible = false
             this.imgHandPoker.visible = false
