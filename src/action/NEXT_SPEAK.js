@@ -42,20 +42,8 @@ export default function nextSpeak(globalData, res) {
     // 根据返回数据更新座位图，然后显示操作台
     for (let seatId in seatMap) {
         round.seatMap[seatId] = Object.assign(round.seatMap[seatId], seatMap[seatId])
-        // 状态更新
-        round.seatMap[seatId].showTag()
-        // 自己位置更新牌型
-        if (round.seatMap[seatId].userId == user.userId) {
-            pokerType && round.seatMap[seatId].updatePokerType(pokerType)
-        }
-        // 投注更新
-        if (round.seatMap[seatId].betPoint) {
-            round.seatMap[seatId].bet()
-        } else {
-            round.seatMap[seatId].hideBet()
-        }
-        // 所有座位倒计时关闭
-        round.seatMap[seatId].closeCountDown()
+        // 座位更新
+        round.seatMap[seatId].update(user.userId, pokerType)
         // 非阶段结束，说话的座位显示倒计时
         if (!isPhaseEnd && round.seatMap[seatId].isSpeak) {
             round.seatMap[seatId].countDown()

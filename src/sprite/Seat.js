@@ -60,7 +60,9 @@ export default class Seat extends Laya.Script {
         }
     }
 
-    // 重置
+    /**
+     * 重置
+     */
     reset() {
         // 显示头像
         this.imgHead.skin = `ui/${this.headurl}`
@@ -89,23 +91,18 @@ export default class Seat extends Laya.Script {
         this.boxBet.y = this.boxBetY
     }
 
-    // 刷新
+    /**
+     * 刷新
+     */
     refresh() {
         // 显示头像
         this.imgHead.skin = `ui/${this.headurl}`
-        // 显示筹码,手牌标识,状态
+        // 显示筹码,手牌标识,座位更新
         if (this.userId != 0) {
             this.textSeatPoint.text = this.seatPoint
             this.textSeatPoint.visible = true
             this.imgHandPoker.visible = true
-            // 状态更新
-            this.showTag()
-            // 投注更新
-            if (this.betPoint) {
-                this.bet(true)
-            } else {
-                this.hideBet()
-            }
+            this.update(null, null, true)
         } else {
             this.textSeatPoint.visible = false
             this.imgHandPoker.visible = false
@@ -120,6 +117,29 @@ export default class Seat extends Laya.Script {
         this.imgChip.y = this.imgChipY
         this.boxBet.x = this.boxBetX
         this.boxBet.y = this.boxBetY
+    }
+
+    /**
+     * 根据数据更新座位界面
+     * @param userId 更新的用户ID
+     * @param pokerType 牌型
+     * @param isRefresh 是否刷新
+     */
+    update(userId, pokerType, isRefresh) {
+        // 状态更新
+        this.showTag()
+        // 自己位置更新牌型
+        if (this.userId == userId) {
+            pokerType && this.updatePokerType(pokerType)
+        }
+        // 投注更新
+        if (this.betPoint) {
+            this.bet(isRefresh)
+        } else {
+            this.hideBet()
+        }
+        // 所有座位倒计时关闭
+        this.closeCountDown()
     }
 
     /**
@@ -161,9 +181,7 @@ export default class Seat extends Laya.Script {
         this.imgTag.visible = false
     }
 
-    /**
-     * 关闭倒计时
-     */
+    // 关闭倒计时
     closeCountDown() {
         if (this.intervalCountDown) {
             clearInterval(this.intervalCountDown)
@@ -174,10 +192,7 @@ export default class Seat extends Laya.Script {
             // this.maskSeat.graphics.drawPie(this.maskSeat.width / 2, this.maskSeat.height / 2, this.maskSeat.width, 0, 360, "#ffffff");
         }
     }
-
-    /**
-     * 投注动画（从初始位置移动至投注盒子）
-     */
+    //投注动画（从初始位置移动至投注盒子）
     bet(isRefresh) {
         if (this.textSeatPoint.text != this.seatPoint || isRefresh) {
             let x = this.boxBet.x
@@ -234,17 +249,11 @@ export default class Seat extends Laya.Script {
     roundEndComplete() {
         this.imgChip.visible = false
     }
-
-    /**
-     * 隐藏投注盒子
-     */
+    // 隐藏投注盒子
     hideBet() {
         this.boxBet.visible = false
     }
-
-    /**
-     * 根据状态显示提示
-     */
+    // 根据状态显示提示
     showTag() {
         if (this.status) {
             if (this.status != 'allin') {
@@ -260,16 +269,12 @@ export default class Seat extends Laya.Script {
             this.imgTag.visible = false
         }
     }
-
-    /**
-     * 更新牌型
-     * @param {*} pokerType 
-     */
+    // 更新牌型
+    // @param {*} pokerType 
     updatePokerType(pokerType) {
         this.boxPokerType.visible = true
         this.textPokerType.text = pokerType
     }
-
     // 离座
     leave() {
 
