@@ -9,12 +9,8 @@ export default class Seat extends Laya.Script {
     }
     // 点击头像请求服务器坐下
     onClick() {
-        if (!WebSocket.globalData.round.isBegin) {
-            WebSocket.globalData.gameView.dialogSit.show()
-            WebSocket.send({ method: 'SIT_DOWN', seatId: this.seatId, seatPoint: 200 })
-        } else {
-            console.log('已开局，不能换座')
-        }
+        WebSocket.globalData.gameView.dialogSit.show()
+        WebSocket.send({ method: 'SIT_DOWN', seatId: this.seatId, seatPoint: 200 })
     }
 
     // 作为实例使用
